@@ -24,9 +24,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
     end
 
-
     config.vm.provider "virtualbox" do |vb|
-        vb.gui = false
+        vb.gui = true
+        vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
     end
 
     if File.exist? homesteadYamlPath then
