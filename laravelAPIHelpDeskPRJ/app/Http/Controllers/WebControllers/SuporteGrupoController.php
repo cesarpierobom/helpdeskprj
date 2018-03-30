@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\ChamadoCategoria;
+use App\Models\SuporteGrupo;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ChamadoCategoriaController extends Controller
+class SuporteGrupoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChamadoCategoriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ChamadoCategoria  $chamadoCategoria
+     * @param  \App\SuporteGrupo  $suporteGrupo
      * @return \Illuminate\Http\Response
      */
-    public function show(ChamadoCategoria $chamadoCategoria)
+    public function show(SuporteGrupo $suporteGrupo)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChamadoCategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ChamadoCategoria  $chamadoCategoria
+     * @param  \App\SuporteGrupo  $suporteGrupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChamadoCategoria $chamadoCategoria)
+    public function edit(SuporteGrupo $suporteGrupo)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChamadoCategoriaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoCategoria  $chamadoCategoria
+     * @param  \App\SuporteGrupo  $suporteGrupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoCategoria $chamadoCategoria)
+    public function update(Request $request, SuporteGrupo $suporteGrupo)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChamadoCategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ChamadoCategoria  $chamadoCategoria
+     * @param  \App\SuporteGrupo  $suporteGrupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChamadoCategoria $chamadoCategoria)
+    public function destroy(SuporteGrupo $suporteGrupo)
     {
         //
     }

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\ChamadoSLA;
+use App\Models\Servico;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ChamadoSLAController extends Controller
+class ServicoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChamadoSLAController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ChamadoSLA  $chamadoSLA
+     * @param  \App\Servico  $servico
      * @return \Illuminate\Http\Response
      */
-    public function show(ChamadoSLA $chamadoSLA)
+    public function show(Servico $servico)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChamadoSLAController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ChamadoSLA  $chamadoSLA
+     * @param  \App\Servico  $servico
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChamadoSLA $chamadoSLA)
+    public function edit(Servico $servico)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChamadoSLAController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoSLA  $chamadoSLA
+     * @param  \App\Servico  $servico
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoSLA $chamadoSLA)
+    public function update(Request $request, Servico $servico)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChamadoSLAController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ChamadoSLA  $chamadoSLA
+     * @param  \App\Servico  $servico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChamadoSLA $chamadoSLA)
+    public function destroy(Servico $servico)
     {
         //
     }

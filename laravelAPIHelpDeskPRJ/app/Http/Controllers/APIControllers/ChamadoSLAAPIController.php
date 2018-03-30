@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
-use App\ChamadoPrioridade;
+use App\Models\ChamadoSLA;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ChamadoPrioridadeController extends Controller
+class ChamadoSLAAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChamadoPrioridadeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
+     * @param  \App\ChamadoSLA  $chamadoSLA
      * @return \Illuminate\Http\Response
      */
-    public function show(ChamadoPrioridade $chamadoPrioridade)
+    public function show(ChamadoSLA $chamadoSLA)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChamadoPrioridadeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
+     * @param  \App\ChamadoSLA  $chamadoSLA
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChamadoPrioridade $chamadoPrioridade)
+    public function edit(ChamadoSLA $chamadoSLA)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChamadoPrioridadeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
+     * @param  \App\ChamadoSLA  $chamadoSLA
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoPrioridade $chamadoPrioridade)
+    public function update(Request $request, ChamadoSLA $chamadoSLA)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChamadoPrioridadeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
+     * @param  \App\ChamadoSLA  $chamadoSLA
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChamadoPrioridade $chamadoPrioridade)
+    public function destroy(ChamadoSLA $chamadoSLA)
     {
         //
     }

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
-use App\ChamadoSituacao;
+use App\Models\Chamado;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ChamadoSituacaoController extends Controller
+class ChamadoAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChamadoSituacaoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ChamadoSituacao  $chamadoSituacao
+     * @param  \App\Chamado  $chamado
      * @return \Illuminate\Http\Response
      */
-    public function show(ChamadoSituacao $chamadoSituacao)
+    public function show(Chamado $chamado)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChamadoSituacaoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ChamadoSituacao  $chamadoSituacao
+     * @param  \App\Chamado  $chamado
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChamadoSituacao $chamadoSituacao)
+    public function edit(Chamado $chamado)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChamadoSituacaoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoSituacao  $chamadoSituacao
+     * @param  \App\Chamado  $chamado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoSituacao $chamadoSituacao)
+    public function update(Request $request, Chamado $chamado)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChamadoSituacaoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ChamadoSituacao  $chamadoSituacao
+     * @param  \App\Chamado  $chamado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChamadoSituacao $chamadoSituacao)
+    public function destroy(Chamado $chamado)
     {
         //
     }

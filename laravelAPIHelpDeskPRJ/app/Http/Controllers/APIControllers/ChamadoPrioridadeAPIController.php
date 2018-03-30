@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
-use App\Chamado;
+use App\Models\ChamadoPrioridade;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ChamadoController extends Controller
+class ChamadoPrioridadeAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChamadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Chamado  $chamado
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function show(Chamado $chamado)
+    public function show(ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChamadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Chamado  $chamado
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chamado $chamado)
+    public function edit(ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChamadoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Chamado  $chamado
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chamado $chamado)
+    public function update(Request $request, ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChamadoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Chamado  $chamado
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chamado $chamado)
+    public function destroy(ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }

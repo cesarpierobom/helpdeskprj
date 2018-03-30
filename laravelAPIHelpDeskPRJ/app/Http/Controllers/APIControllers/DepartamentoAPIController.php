@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
-use App\Servico;
+use App\Models\Departamento;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ServicoController extends Controller
+class DepartamentoAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ServicoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Servico  $servico
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function show(Servico $servico)
+    public function show(Departamento $departamento)
     {
         //
     }
@@ -52,10 +53,10 @@ class ServicoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Servico  $servico
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Servico $servico)
+    public function edit(Departamento $departamento)
     {
         //
     }
@@ -64,10 +65,10 @@ class ServicoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Servico  $servico
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Servico $servico)
+    public function update(Request $request, Departamento $departamento)
     {
         //
     }
@@ -75,10 +76,10 @@ class ServicoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Servico  $servico
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Servico $servico)
+    public function destroy(Departamento $departamento)
     {
         //
     }

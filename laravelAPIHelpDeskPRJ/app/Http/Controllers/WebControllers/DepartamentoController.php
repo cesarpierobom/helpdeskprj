@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\SuporteGrupo;
+use App\Models\Departamento;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class SuporteGrupoController extends Controller
+class DepartamentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class SuporteGrupoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\SuporteGrupo  $suporteGrupo
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function show(SuporteGrupo $suporteGrupo)
+    public function show(Departamento $departamento)
     {
         //
     }
@@ -52,10 +53,10 @@ class SuporteGrupoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\SuporteGrupo  $suporteGrupo
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function edit(SuporteGrupo $suporteGrupo)
+    public function edit(Departamento $departamento)
     {
         //
     }
@@ -64,10 +65,10 @@ class SuporteGrupoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SuporteGrupo  $suporteGrupo
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SuporteGrupo $suporteGrupo)
+    public function update(Request $request, Departamento $departamento)
     {
         //
     }
@@ -75,10 +76,10 @@ class SuporteGrupoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\SuporteGrupo  $suporteGrupo
+     * @param  \App\Departamento  $departamento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SuporteGrupo $suporteGrupo)
+    public function destroy(Departamento $departamento)
     {
         //
     }

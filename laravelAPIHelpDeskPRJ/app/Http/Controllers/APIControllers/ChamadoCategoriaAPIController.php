@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\APIControllers;
 
-use App\UsuarioGrupo;
+use App\Models\ChamadoCategoria;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class UsuarioGrupoController extends Controller
+class ChamadoCategoriaAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class UsuarioGrupoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UsuarioGrupo  $usuarioGrupo
+     * @param  \App\ChamadoCategoria  $chamadoCategoria
      * @return \Illuminate\Http\Response
      */
-    public function show(UsuarioGrupo $usuarioGrupo)
+    public function show(ChamadoCategoria $chamadoCategoria)
     {
         //
     }
@@ -52,10 +53,10 @@ class UsuarioGrupoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UsuarioGrupo  $usuarioGrupo
+     * @param  \App\ChamadoCategoria  $chamadoCategoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(UsuarioGrupo $usuarioGrupo)
+    public function edit(ChamadoCategoria $chamadoCategoria)
     {
         //
     }
@@ -64,10 +65,10 @@ class UsuarioGrupoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UsuarioGrupo  $usuarioGrupo
+     * @param  \App\ChamadoCategoria  $chamadoCategoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UsuarioGrupo $usuarioGrupo)
+    public function update(Request $request, ChamadoCategoria $chamadoCategoria)
     {
         //
     }
@@ -75,10 +76,10 @@ class UsuarioGrupoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UsuarioGrupo  $usuarioGrupo
+     * @param  \App\ChamadoCategoria  $chamadoCategoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UsuarioGrupo $usuarioGrupo)
+    public function destroy(ChamadoCategoria $chamadoCategoria)
     {
         //
     }

@@ -19,6 +19,34 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::resource('categorias_chamados', 'ChamadoCategoriaController');
+Route::resource('chamados', 'ChamadoController');
+Route::resource('departamentos', 'DepartamentoController');
+Route::resource('feedback_chamados', 'ChamadoFeedbackController');
+Route::resource('grupos_suporte', 'SuporteGrupoController');
+Route::resource('grupos_usuarios', 'UsuarioGrupoController');
+Route::resource('interacoes', 'InteracaoController');
+Route::resource('organizacoes', 'OrganizacaoController');
+Route::resource('prioridades_chamados', 'ChamadoPrioridadeController');
+Route::resource('servicos', 'ServicoController');
+Route::resource('situacoes_chamados', 'ChamadoSituacaoController');
+Route::resource('sla_chamados', 'ChamadoSLAController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

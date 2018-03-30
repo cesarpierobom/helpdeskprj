@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\Interacao;
+use App\Models\ChamadoPrioridade;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class InteracaoController extends Controller
+class ChamadoPrioridadeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class InteracaoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Interacao  $interacao
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function show(Interacao $interacao)
+    public function show(ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }
@@ -52,10 +53,10 @@ class InteracaoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Interacao  $interacao
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function edit(Interacao $interacao)
+    public function edit(ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }
@@ -64,10 +65,10 @@ class InteracaoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Interacao  $interacao
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Interacao $interacao)
+    public function update(Request $request, ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }
@@ -75,10 +76,10 @@ class InteracaoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Interacao  $interacao
+     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Interacao $interacao)
+    public function destroy(ChamadoPrioridade $chamadoPrioridade)
     {
         //
     }

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\WebControllers;
 
-use App\ChamadoFeedback;
+use App\Models\UsuarioGrupo;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 
-class ChamadoFeedbackController extends Controller
+class UsuarioGrupoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChamadoFeedbackController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ChamadoFeedback  $chamadoFeedback
+     * @param  \App\UsuarioGrupo  $usuarioGrupo
      * @return \Illuminate\Http\Response
      */
-    public function show(ChamadoFeedback $chamadoFeedback)
+    public function show(UsuarioGrupo $usuarioGrupo)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChamadoFeedbackController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ChamadoFeedback  $chamadoFeedback
+     * @param  \App\UsuarioGrupo  $usuarioGrupo
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChamadoFeedback $chamadoFeedback)
+    public function edit(UsuarioGrupo $usuarioGrupo)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChamadoFeedbackController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoFeedback  $chamadoFeedback
+     * @param  \App\UsuarioGrupo  $usuarioGrupo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoFeedback $chamadoFeedback)
+    public function update(Request $request, UsuarioGrupo $usuarioGrupo)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChamadoFeedbackController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ChamadoFeedback  $chamadoFeedback
+     * @param  \App\UsuarioGrupo  $usuarioGrupo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChamadoFeedback $chamadoFeedback)
+    public function destroy(UsuarioGrupo $usuarioGrupo)
     {
         //
     }
