@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuarioGruposTable extends Migration
+class CreateDepartamentoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUsuarioGruposTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_grupos', function (Blueprint $table) {
+        Schema::create('departamento', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateUsuarioGruposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario_grupos');
+        Schema::dropIfExists('departamento');
     }
 }

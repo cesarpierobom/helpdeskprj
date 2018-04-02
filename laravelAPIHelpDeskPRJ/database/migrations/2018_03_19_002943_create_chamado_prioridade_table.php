@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChamadosTable extends Migration
+class CreateChamadoPrioridadeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChamadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('chamados', function (Blueprint $table) {
+        Schema::create('chamado_prioridade', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateChamadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chamados');
+        Schema::dropIfExists('chamado_prioridade');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChamadoSLAsTable extends Migration
+class CreateUsuarioGrupoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChamadoSLAsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chamado_s_l_as', function (Blueprint $table) {
+        Schema::create('usuario_grupo', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateChamadoSLAsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chamado_s_l_as');
+        Schema::dropIfExists('usuario_grupo');
     }
 }

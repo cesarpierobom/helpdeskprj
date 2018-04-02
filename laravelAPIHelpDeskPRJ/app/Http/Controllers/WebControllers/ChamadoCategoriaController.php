@@ -15,7 +15,7 @@ class ChamadoCategoriaController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado_categoria.index");
     }
 
     /**
@@ -25,18 +25,7 @@ class ChamadoCategoriaController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view("chamado_categoria.create");
     }
 
     /**
@@ -47,7 +36,7 @@ class ChamadoCategoriaController extends Controller
      */
     public function show(ChamadoCategoria $chamadoCategoria)
     {
-        //
+        return view("chamado_categoria.show",['categoria'=>$chamadoCategoria]);
     }
 
     /**
@@ -58,29 +47,6 @@ class ChamadoCategoriaController extends Controller
      */
     public function edit(ChamadoCategoria $chamadoCategoria)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoCategoria  $chamadoCategoria
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ChamadoCategoria $chamadoCategoria)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ChamadoCategoria  $chamadoCategoria
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ChamadoCategoria $chamadoCategoria)
-    {
-        //
+        return view("chamado_categoria.edit",['categoria'=>$chamadoCategoria]);
     }
 }

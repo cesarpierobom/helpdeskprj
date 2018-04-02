@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChamadoCategoriasTable extends Migration
+class CreateChamadoSituacaoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateChamadoCategoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('chamado_categorias', function (Blueprint $table) {
+        Schema::create('chamado_situacao', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateChamadoCategoriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chamado_categorias');
+        Schema::dropIfExists('chamado_situacao');
     }
 }

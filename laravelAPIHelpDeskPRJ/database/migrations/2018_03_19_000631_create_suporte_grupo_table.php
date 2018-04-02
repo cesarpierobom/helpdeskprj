@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServicosTable extends Migration
+class CreateSuporteGrupoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateServicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('servicos', function (Blueprint $table) {
+        Schema::create('suporte_grupo', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateServicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servicos');
+        Schema::dropIfExists('suporte_grupo');
     }
 }

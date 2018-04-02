@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChamadoPrioridadesTable extends Migration
+class CreateChamadoCategoriaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateChamadoPrioridadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('chamado_prioridades', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('chamado_categoria', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('codigo',50);
+            $table->unsignedTinyInteger('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +30,6 @@ class CreateChamadoPrioridadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chamado_prioridades');
+        Schema::dropIfExists('chamado_categoria');
     }
 }

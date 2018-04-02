@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChamadoFeedbacksTable extends Migration
+class CreateChamadoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateChamadoFeedbacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('chamado_feedbacks', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('chamado', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateChamadoFeedbacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chamado_feedbacks');
+        Schema::dropIfExists('chamado');
     }
 }

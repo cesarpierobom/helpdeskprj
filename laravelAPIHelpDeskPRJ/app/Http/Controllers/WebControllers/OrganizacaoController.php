@@ -15,7 +15,7 @@ class OrganizacaoController extends Controller
      */
     public function index()
     {
-        //
+        return view("organizacao.index");
     }
 
     /**
@@ -25,18 +25,7 @@ class OrganizacaoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view("organizacao.create");
     }
 
     /**
@@ -47,7 +36,7 @@ class OrganizacaoController extends Controller
      */
     public function show(Organizacao $organizacao)
     {
-        //
+        return view("organizacao.show",['organizacao'=>$organizacao]);
     }
 
     /**
@@ -58,29 +47,6 @@ class OrganizacaoController extends Controller
      */
     public function edit(Organizacao $organizacao)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Organizacao  $organizacao
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Organizacao $organizacao)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Organizacao  $organizacao
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Organizacao $organizacao)
-    {
-        //
+        return view("organizacao.edit",['organizacao'=>$organizacao]);
     }
 }

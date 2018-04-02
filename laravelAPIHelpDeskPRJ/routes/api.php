@@ -17,15 +17,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('categorias_chamados', 'ChamadoCategoriaAPIController');
-Route::resource('chamados', 'ChamadoAPIController');
-Route::resource('departamentos', 'DepartamentoAPIController');
-Route::resource('feedback_chamados', 'ChamadoFeedbackAPIController');
-Route::resource('grupos_suporte', 'SuporteGrupoAPIController');
-Route::resource('grupos_usuarios', 'UsuarioGrupoAPIController');
-Route::resource('interacoes', 'InteracaoAPIController');
-Route::resource('organizacoes', 'OrganizacaoAPIController');
-Route::resource('prioridades_chamados', 'ChamadoPrioridadeAPIController');
-Route::resource('servicos', 'ServicoAPIController');
-Route::resource('situacoes_chamados', 'ChamadoSituacaoAPIController');
-Route::resource('sla_chamados', 'ChamadoSLAAPIController');
+Route::apiResource('chamado_categoria','APIControllers\ChamadoCategoriaAPIController',
+	['names' => ['index' => 'chamado_categoria.index_api', 'show'=>'chamado_categoria.show_api']]
+)->parameters(['chamado_categoria' => 'chamadoCategoria']);
+
+Route::apiResource('chamado', 'APIControllers\ChamadoAPIController');
+Route::apiResource('departamento', 'APIControllers\DepartamentoAPIController');
+Route::apiResource('chamado_feedback', 'APIControllers\ChamadoFeedbackAPIController');
+Route::apiResource('suporte_grupo', 'APIControllers\SuporteGrupoAPIController');
+Route::apiResource('usuario_grupo', 'APIControllers\UsuarioGrupoAPIController');
+Route::apiResource('interacao', 'APIControllers\InteracaoAPIController');
+Route::apiResource('organizacao', 'APIControllers\OrganizacaoAPIController');
+Route::apiResource('chamado_prioridade', 'APIControllers\ChamadoPrioridadeAPIController');
+Route::apiResource('servico', 'APIControllers\ServicoAPIController');
+Route::apiResource('chamado_situacao', 'APIControllers\ChamadoSituacaoAPIController');
+Route::apiResource('chamado_sla', 'APIControllers\ChamadoSLAAPIController');

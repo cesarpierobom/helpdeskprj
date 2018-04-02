@@ -19,21 +19,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('categorias_chamados', 'ChamadoCategoriaController');
-Route::resource('chamados', 'ChamadoController');
-Route::resource('departamentos', 'DepartamentoController');
-Route::resource('feedback_chamados', 'ChamadoFeedbackController');
-Route::resource('grupos_suporte', 'SuporteGrupoController');
-Route::resource('grupos_usuarios', 'UsuarioGrupoController');
-Route::resource('interacoes', 'InteracaoController');
-Route::resource('organizacoes', 'OrganizacaoController');
-Route::resource('prioridades_chamados', 'ChamadoPrioridadeController');
-Route::resource('servicos', 'ServicoController');
-Route::resource('situacoes_chamados', 'ChamadoSituacaoController');
-Route::resource('sla_chamados', 'ChamadoSLAController');
 
 
 
+
+Route::resource('chamado_categoria','WebControllers\ChamadoCategoriaController')->parameters(['chamado_categoria' => 'chamadoCategoria']);
+
+Route::resource('chamado', 'WebControllers\ChamadoController');
+Route::resource('departamento', 'WebControllers\DepartamentoController');
+Route::resource('chamado_feedback', 'WebControllers\ChamadoFeedbackController');
+Route::resource('suporte_grupo', 'WebControllers\SuporteGrupoController');
+Route::resource('usuario_grupo', 'WebControllers\UsuarioGrupoController');
+Route::resource('interacao', 'WebControllers\InteracaoController');
+Route::resource('organizacao', 'WebControllers\OrganizacaoController');
+Route::resource('chamado_prioridade', 'WebControllers\ChamadoPrioridadeController');
+Route::resource('servico', 'WebControllers\ServicoController');
+Route::resource('chamado_situacao', 'WebControllers\ChamadoSituacaoController');
+Route::resource('chamado_sla', 'WebControllers\ChamadoSLAController');
 
 
 

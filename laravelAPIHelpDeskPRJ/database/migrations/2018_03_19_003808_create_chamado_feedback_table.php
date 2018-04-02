@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInteracaosTable extends Migration
+class CreateChamadoFeedbackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInteracaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('interacaos', function (Blueprint $table) {
+        Schema::create('chamado_feedback', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateInteracaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('interacaos');
+        Schema::dropIfExists('chamado_feedback');
     }
 }

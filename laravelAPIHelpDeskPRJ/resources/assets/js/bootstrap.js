@@ -1,3 +1,4 @@
+// import 'datatables.net-dt/css/jquery.datatables.css';
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
@@ -10,8 +11,12 @@ window.Popper = require('popper.js').default;
 
 try {
     window.$ = window.jQuery = require('jquery');
-
+    window.dt = window.datatable = require('datatables.net');
+    require('datatables.net-dt/css/jquery.datatables.css');
     require('bootstrap');
+    require('select2');
+    require('select2/dist/css/select2.css');
+
 } catch (e) {}
 
 /**

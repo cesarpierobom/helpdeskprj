@@ -13,3 +13,29 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.scripts([
+    'resources/assets/js/chamado_categoria/create.js'
+], 'public/js/chamado_categoria/create.js');
+
+mix.scripts([
+    'resources/assets/js/chamado_categoria/index.js'
+], 'public/js/chamado_categoria/index.js');
+
+mix.scripts([
+    'resources/assets/js/organizacao/create.js'
+], 'public/js/organizacao/create.js');
+
+mix.scripts([
+    'resources/assets/js/organizacao/index.js'
+], 'public/js/organizacao/index.js');
+
+
+// mix.styles([
+//     'public/css/vendor/normalize.css',
+//     'public/css/vendor/videojs.css'
+// ], 'public/css/all.css');
+
+
+
+mix.browserSync();
