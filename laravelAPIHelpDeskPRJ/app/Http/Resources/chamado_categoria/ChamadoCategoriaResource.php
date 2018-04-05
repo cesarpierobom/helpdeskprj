@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\chamado_categoria;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class OrganizacaoResource extends JsonResource
+class ChamadoCategoriaResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

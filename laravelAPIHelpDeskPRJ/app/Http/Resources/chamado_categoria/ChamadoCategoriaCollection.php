@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\chamado_categoria;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\ChamadoCategoria;
