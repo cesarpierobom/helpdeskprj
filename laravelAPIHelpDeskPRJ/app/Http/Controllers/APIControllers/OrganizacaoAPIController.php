@@ -5,6 +5,8 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Organizacao;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\OrganizacaoCollection;
+use App\Http\Resources\OrganizacaoResource;
 
 class OrganizacaoAPIController extends Controller
 {
@@ -13,7 +15,7 @@ class OrganizacaoAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $query = (new Organizacao)->newQuery();
 
@@ -62,7 +64,7 @@ class OrganizacaoAPIController extends Controller
         $organizacao->nome;
         $organizacao->codigo;
         $organizacao->status;
-        $resultado = $organizacao->save()
+        $resultado = $organizacao->save();
 
         if($resultado){
             return response()->json(null, 204);
@@ -79,7 +81,7 @@ class OrganizacaoAPIController extends Controller
      */
     public function show(Organizacao $organizacao)
     {
-        return $organizacao;
+        return new OrganizacaoResource($organizacao);
     }
 
     /**
@@ -94,7 +96,7 @@ class OrganizacaoAPIController extends Controller
         $organizacao->nome;
         $organizacao->codigo;
         $organizacao->status;
-        $resultado = $organizacao->save()
+        $resultado = $organizacao->save();
 
         if($resultado){
             return response()->json(null, 204);

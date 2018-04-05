@@ -2,5 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/chamado_categoria/create.js": "/js/chamado_categoria/create.js",
-    "/js/chamado_categoria/index.js": "/js/chamado_categoria/index.js"
+    "/js/chamado_categoria/index.js": "/js/chamado_categoria/index.js",
+    "/js/organizacao/create.js": "/js/organizacao/create.js",
+    "/js/organizacao/index.js": "/js/organizacao/index.js",
+    "/css/all.css": "/css/all.css"
 }

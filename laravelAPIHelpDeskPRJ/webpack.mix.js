@@ -31,10 +31,9 @@ mix.scripts([
 ], 'public/js/organizacao/index.js');
 
 
-// mix.styles([
-//     'public/css/vendor/normalize.css',
-//     'public/css/vendor/videojs.css'
-// ], 'public/css/all.css');
+mix.styles([
+    'resources/assets/css/style.css',
+], 'public/css/all.css');
 
 
 

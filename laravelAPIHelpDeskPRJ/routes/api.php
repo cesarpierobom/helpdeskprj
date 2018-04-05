@@ -27,7 +27,8 @@ Route::apiResource('chamado_feedback', 'APIControllers\ChamadoFeedbackAPIControl
 Route::apiResource('suporte_grupo', 'APIControllers\SuporteGrupoAPIController');
 Route::apiResource('usuario_grupo', 'APIControllers\UsuarioGrupoAPIController');
 Route::apiResource('interacao', 'APIControllers\InteracaoAPIController');
-Route::apiResource('organizacao', 'APIControllers\OrganizacaoAPIController');
+Route::apiResource('organizacao', 'APIControllers\OrganizacaoAPIController',
+	['names' => ['index' => 'organizacao.index_api', 'show'=>'organizacao.show_api']]);
 Route::apiResource('chamado_prioridade', 'APIControllers\ChamadoPrioridadeAPIController');
 Route::apiResource('servico', 'APIControllers\ServicoAPIController');
 Route::apiResource('chamado_situacao', 'APIControllers\ChamadoSituacaoAPIController');

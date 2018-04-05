@@ -6,6 +6,8 @@ use App\Models\ChamadoCategoria;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\ChamadoCategoriaCollection;
+use App\Http\Resources\ChamadoCategoriaResource;
+
 
 class ChamadoCategoriaAPIController extends Controller
 {
@@ -68,7 +70,7 @@ class ChamadoCategoriaAPIController extends Controller
         $chamadoCategoria->nome;
         $chamadoCategoria->codigo;
         $chamadoCategoria->status;
-        $resultado = $chamadoCategoria->save()
+        $resultado = $chamadoCategoria->save();
 
         if($resultado){
             return response()->json(null, 204);
@@ -85,7 +87,7 @@ class ChamadoCategoriaAPIController extends Controller
      */
     public function show(ChamadoCategoria $chamadoCategoria)
     {
-        return $chamadoCategoria;
+        return new ChamadoCategoriaResource($chamadoCategoria);
     }
 
     /**
@@ -100,7 +102,7 @@ class ChamadoCategoriaAPIController extends Controller
         $chamadoCategoria->nome;
         $chamadoCategoria->codigo;
         $chamadoCategoria->status;
-        $resultado = $chamadoCategoria->save()
+        $resultado = $chamadoCategoria->save();
 
         if($resultado){
             return response()->json(null, 204);
