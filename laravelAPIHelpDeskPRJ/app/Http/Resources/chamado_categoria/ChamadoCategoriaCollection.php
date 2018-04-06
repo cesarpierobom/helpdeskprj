@@ -11,7 +11,7 @@ class ChamadoCategoriaCollection extends ResourceCollection
     /**
      * Transform the resource collection into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
@@ -32,7 +32,9 @@ class ChamadoCategoriaCollection extends ResourceCollection
         ];
     }
 
-    public function with($request){
+
+    public function with($request)
+    {
         return [
             "recordsTotal" => ChamadoCategoria::count(),
             "recordsFiltered" => $this->count(),

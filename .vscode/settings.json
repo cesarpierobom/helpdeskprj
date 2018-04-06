@@ -1,0 +1,4 @@
+{
+    "phpcs.enable":true,
+    "phpcs.executablePath":"laravelAPIHelpDeskPRJ/vendor/bin/phpcs"
+}
