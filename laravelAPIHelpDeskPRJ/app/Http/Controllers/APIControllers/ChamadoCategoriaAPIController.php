@@ -5,8 +5,8 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\ChamadoCategoria;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\ChamadoCategoriaCollection;
-use App\Http\Resources\ChamadoCategoriaResource;
+use App\Http\Resources\chamado_categoria\ChamadoCategoriaCollection;
+use App\Http\Resources\chamado_categoria\ChamadoCategoriaResource;
 
 
 class ChamadoCategoriaAPIController extends Controller

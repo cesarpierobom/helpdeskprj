@@ -20,7 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
+Route::apiResource(
+    'user', 'WebControllers\UserController'
+)->parameters(['user' => 'user']);
 
 
 Route::resource('chamado_categoria','WebControllers\ChamadoCategoriaController')->parameters(['chamado_categoria' => 'chamadoCategoria']);

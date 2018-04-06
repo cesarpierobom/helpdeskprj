@@ -17,19 +17,154 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('chamado_categoria','APIControllers\ChamadoCategoriaAPIController',
-	['names' => ['index' => 'chamado_categoria.index_api', 'show'=>'chamado_categoria.show_api']]
+Route::apiResource(
+    'user', 'APIControllers\UserAPIController',
+    [
+        'names' => [
+            'index' => 'user.index_api', 'show'=>'user.show_api'
+        ]
+    ]
+)->parameters(['user' => 'user']);
+
+
+Route::apiResource(
+    'chamado_categoria', 'APIControllers\ChamadoCategoriaAPIController',
+    [
+        'names' => [
+            'index' => 'chamado_categoria.index_api', 'show'=>'chamado_categoria.show_api'
+        ]
+    ]
 )->parameters(['chamado_categoria' => 'chamadoCategoria']);
 
-Route::apiResource('chamado', 'APIControllers\ChamadoAPIController');
-Route::apiResource('departamento', 'APIControllers\DepartamentoAPIController');
-Route::apiResource('chamado_feedback', 'APIControllers\ChamadoFeedbackAPIController');
-Route::apiResource('suporte_grupo', 'APIControllers\SuporteGrupoAPIController');
-Route::apiResource('usuario_grupo', 'APIControllers\UsuarioGrupoAPIController');
-Route::apiResource('interacao', 'APIControllers\InteracaoAPIController');
-Route::apiResource('organizacao', 'APIControllers\OrganizacaoAPIController',
-	['names' => ['index' => 'organizacao.index_api', 'show'=>'organizacao.show_api']]);
-Route::apiResource('chamado_prioridade', 'APIControllers\ChamadoPrioridadeAPIController');
-Route::apiResource('servico', 'APIControllers\ServicoAPIController');
-Route::apiResource('chamado_situacao', 'APIControllers\ChamadoSituacaoAPIController');
-Route::apiResource('chamado_sla', 'APIControllers\ChamadoSLAAPIController');
+Route::apiResource(
+    'chamado', 'APIControllers\ChamadoAPIController',
+    [
+        'names' => [
+            'index' => 'chamado.index_api', 'show'=>'chamado.show_api'
+        ]
+    ]
+)->parameters(['chamado' => 'chamado']);
+
+
+
+Route::apiResource(
+    'departamento', 'APIControllers\DepartamentoAPIController',
+    [
+        'names' => [
+            'index' => 'departamento.index_api', 'show'=>'departamento.show_api'
+        ]
+    ]
+)->parameters(['departamento' => 'departamento']);
+
+
+
+Route::apiResource(
+    'chamado_feedback', 'APIControllers\ChamadoFeedbackAPIController',
+    [
+        'names' => [
+            'index' => 'departamento.index_api', 'show'=>'departamento.show_api'
+        ]
+    ]
+)->parameters(['chamadoFeedback' => 'chamadoFeedback']);
+
+
+
+
+Route::apiResource(
+    'suporte_grupo', 'APIControllers\SuporteGrupoAPIController',
+    [
+        'names' => [
+            'index' => 'suporte_grupo.index_api', 'show'=>'suporte_grupo.show_api'
+        ]
+    ]
+)->parameters(['suporteGrupo' => 'suporteGrupo']);
+
+
+
+Route::apiResource(
+    'usuario_grupo', 'APIControllers\UsuarioGrupoAPIController',
+    [
+        'names' => [
+            'index' => 'usuario_grupo.index_api', 'show'=>'usuario_grupo.show_api'
+        ]
+    ]
+)->parameters(['usuarioGrupo' => 'usuarioGrupo']);
+
+
+Route::apiResource(
+    'usuario_grupo', 'APIControllers\UsuarioGrupoAPIController',
+    [
+        'names' => [
+            'index' => 'usuario_grupo.index_api', 'show'=>'usuario_grupo.show_api'
+        ]
+    ]
+)->parameters(['usuarioGrupo' => 'usuarioGrupo']);
+
+
+
+
+Route::apiResource(
+    'interacao', 'APIControllers\InteracaoAPIController',
+    [
+        'names' => [
+            'index' => 'interacao.index_api', 'show'=>'interacao.show_api'
+        ]
+    ]
+)->parameters(['interacao' => 'interacao']);
+
+
+
+Route::apiResource(
+    'organizacao', 'APIControllers\OrganizacaoAPIController',
+    [
+        'names' => [
+            'index' => 'organizacao.index_api', 'show'=>'organizacao.show_api'
+        ]
+    ]
+)->parameters(['organizacao' => 'organizacao']);
+
+
+
+Route::apiResource(
+    'chamado_prioridade', 'APIControllers\ChamadoPrioridadeAPIController',
+    [
+        'names' => [
+            'index' => 'chamado_prioridade.index_api', 'show'=>'chamado_prioridade.show_api'
+        ]
+    ]
+)->parameters(['chamadoPrioridade' => 'chamadoPrioridade']);
+
+
+
+Route::apiResource(
+    'servico', 'APIControllers\ServicoAPIController',
+    [
+        'names' => [
+            'index' => 'servico.index_api', 'show'=>'servico.show_api'
+        ]
+    ]
+)->parameters(['servico' => 'servico']);
+
+
+
+
+Route::apiResource(
+    'chamado_situacao', 'APIControllers\ChamadoSituacaoAPIController',
+    [
+        'names' => [
+            'index' => 'chamado_situacao.index_api', 'show'=>'chamado_situacao.show_api'
+        ]
+    ]
+)->parameters(['suporteGrupo' => 'suporteGrupo']);
+
+
+
+
+Route::apiResource(
+    'chamado_sla', 'APIControllers\ChamadoSLAAPIController',
+    [
+        'names' => [
+            'index' => 'chamado_sla.index_api', 'show'=>'chamado_sla.show_api'
+        ]
+    ]
+)->parameters(['chamadoSLA' => 'chamadoSLA']);
