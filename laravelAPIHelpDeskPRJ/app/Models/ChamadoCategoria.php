@@ -7,33 +7,34 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ChamadoCategoria extends Model
 {
-	use SoftDeletes;
+    use SoftDeletes;
 
-	protected $table = 'chamado_categoria';
+    protected $table = 'chamado_categoria';
 
-	protected $primaryKey = "id";
+    protected $primaryKey = "id";
 
-	protected $keyType = 'int';
+    protected $keyType = 'int';
 
-	protected $guarded = [];
+    protected $guarded = [];
 
-	protected $fillable = [];
+    protected $fillable = [];
 
-	protected $dates = ['created_at','updated_at','deleted_at'];
+    protected $dates = ['created_at','updated_at','deleted_at'];
 
-	protected $dispatchesEvents = [];
+    protected $dispatchesEvents = [];
 
-	public $incrementing = true;
+    public $incrementing = true;
 
-	public $timestamps = true;
+    public $timestamps = true;
 
 
-    public function chamado(){
-    	return $this->belongsTo('App\Models\Chamado');
+    public function chamado()
+    {
+        return $this->belongsTo('App\Models\Chamado');
     }
 
-    public function organizacao(){
-    	return $this->belongsTo('App\Models\Organizacao');
+    public function organizacao()
+    {
+        return $this->belongsTo('App\Models\Organizacao');
     }
-
 }

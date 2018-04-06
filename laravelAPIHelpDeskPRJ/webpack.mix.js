@@ -19,6 +19,10 @@ mix.scripts([
 ], 'public/js/chamado_categoria/create.js');
 
 mix.scripts([
+    'resources/assets/js/chamado_categoria/edit.js'
+], 'public/js/chamado_categoria/edit.js');
+
+mix.scripts([
     'resources/assets/js/chamado_categoria/index.js'
 ], 'public/js/chamado_categoria/index.js');
 
@@ -29,6 +33,10 @@ mix.scripts([
 mix.scripts([
     'resources/assets/js/organizacao/index.js'
 ], 'public/js/organizacao/index.js');
+
+mix.scripts([
+    'resources/assets/js/organizacao/edit.js'
+], 'public/js/organizacao/edit.js');
 
 
 mix.styles([

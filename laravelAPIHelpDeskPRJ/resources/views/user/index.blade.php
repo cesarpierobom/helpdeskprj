@@ -5,11 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-10 ">
             <div class="card card-default">
-                <div class="card-header">Usuarios</div>
+                <div class="card-header text-center">
+                    Usuarios
+                    <a class="btn btn-sm btn-success float-right" href="{{route('user.create')}}">Cadastrar</a>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form id="formBuscarCategoriasChamados" accept-charset="utf-8">
+                            <form id="formBuscarUsuarios" accept-charset="utf-8">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="organizacao_id">Organizações</label>
@@ -56,7 +59,7 @@
 
                     <div class="row" style="margin-top: 5%">
                         <div class="col-md-12">
-                            <table id="resultado_categorias_chamados" class="table table-responsive-sm table-responsive-md table-responsive-lg">
+                            <table id="resultado_usuario" class="table table-responsive-sm table-responsive-md table-responsive-lg">
                             </table>
                         </div>
                     </div>
@@ -69,5 +72,5 @@
 
 
 @section('more_scripts')
-<script src="{{ URL::asset('js/chamado_categoria/index.js') }}" defer></script>
+<script src="{{ URL::asset('js/user/index.js') }}" defer></script>
 @endsection

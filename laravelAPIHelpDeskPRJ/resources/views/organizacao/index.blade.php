@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-10 ">
             <div class="card card-default">
-                <div class="card-header">Organizações</div>
+                <div class="card-header text-center">
+                    Organizações
+                    <a class="btn btn-sm btn-success float-right" href="{{route('organizacao.create')}}">Cadastrar</a>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">

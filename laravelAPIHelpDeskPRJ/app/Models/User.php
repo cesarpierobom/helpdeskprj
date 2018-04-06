@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -27,4 +28,30 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $table = 'user';
+
+    protected $primaryKey = "id";
+
+    protected $keyType = 'int';
+
+    protected $guarded = [];
+
+    protected $dates = ['created_at','updated_at','deleted_at'];
+
+    protected $dispatchesEvents = [];
+
+    public $incrementing = true;
+
+    public $timestamps = true;
+
+    public function chamado()
+    {
+        return $this->hasMany('App\Models\Chamado');
+    }
+
+    public function organizacao()
+    {
+        return $this->belongsTo('App\Models\Organizacao');
+    }
 }

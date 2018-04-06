@@ -4,6 +4,7 @@ namespace App\Http\Controllers\APIControllers;
 
 use App\Models\ChamadoUrgencia;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ChamadoUrgenciaAPIController extends Controller
 {

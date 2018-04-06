@@ -5,8 +5,8 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Organizacao;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\OrganizacaoCollection;
-use App\Http\Resources\OrganizacaoResource;
+use App\Http\Resources\organizacao\OrganizacaoCollection;
+use App\Http\Resources\organizacao\OrganizacaoResource;
 
 class OrganizacaoAPIController extends Controller
 {
@@ -61,14 +61,15 @@ class OrganizacaoAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $organizacao->nome;
-        $organizacao->codigo;
-        $organizacao->status;
+        $organizacao = new Organizacao();
+        $organizacao->nome = $request->nome;
+        $organizacao->codigo = $request->codigo;
+        $organizacao->status = $request->status;
         $resultado = $organizacao->save();
 
-        if($resultado){
+        if ($resultado) {
             return response()->json(null, 204);
-        }else{
+        } else {
             return response()->json(["msg"=>"Houve um erro desconhecido no cadastro do registro."], 400);
         }
     }
@@ -93,14 +94,14 @@ class OrganizacaoAPIController extends Controller
      */
     public function update(Request $request, Organizacao $organizacao)
     {
-        $organizacao->nome;
-        $organizacao->codigo;
-        $organizacao->status;
+        $organizacao->nome = $request->nome;
+        $organizacao->codigo = $request->codigo;
+        $organizacao->status = $request->status;
         $resultado = $organizacao->save();
 
-        if($resultado){
+        if ($resultado) {
             return response()->json(null, 204);
-        }else{
+        } else {
             return response()->json(["msg"=>"Houve um erro desconhecido na atualização do registro."], 400);
         }
     }

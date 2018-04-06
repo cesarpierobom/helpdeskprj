@@ -5,11 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-10 ">
             <div class="card card-default">
-                <div class="card-header">Categorias de Chamados</div>
+                <div class="card-header text-center">
+                    Prioridades de Chamados
+                    <a class="btn btn-sm btn-success float-right" href="{{route('chamado_prioridade.create')}}">Cadastrar</a>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form id="formBuscarCategoriasChamados" accept-charset="utf-8">
+                            <form id="formBuscarChamadoPrioridade" accept-charset="utf-8">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="organizacao_id">Organizações</label>
@@ -20,6 +23,12 @@
                                     <div class="form-group col-md-6">
                                         <label for="nome">Nome</label>
                                         <input type="text" name="nome" id="nome" value="" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="codigo">Codigo</label>
+                                        <input type="text" name="codigo" id="codigo" value="" class="form-control" placeholder="">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -38,7 +47,7 @@
 
                     <div class="row" style="margin-top: 5%">
                         <div class="col-md-12">
-                            <table id="resultado_categorias_chamados" class="table table-responsive-sm table-responsive-md table-responsive-lg">
+                            <table id="resultado_chamado_prioridade" class="table table-responsive-sm table-responsive-md table-responsive-lg">
                             </table>
                         </div>
                     </div>
@@ -51,5 +60,5 @@
 
 
 @section('more_scripts')
-<script src="{{ URL::asset('js/chamado_categoria/index.js') }}" defer></script>
+<script src="{{ URL::asset('js/chamado_prioridade/index.js') }}" defer></script>
 @endsection

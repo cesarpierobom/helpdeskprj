@@ -38,7 +38,7 @@ function deletar(id){
 }
 
 function gridCategorias(){
-	gridCategoriasChamados = $("#resultado_categorias_chamados").DataTable({
+	gridCategoriasChamados = $("#resultado_chamado_categoria").DataTable({
         "processing": true,
         "serverSide": true,
 		"ajax": {
