@@ -1,11 +1,26 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/all.css": "/css/all.css",
     "/js/chamado_categoria/create.js": "/js/chamado_categoria/create.js",
     "/js/chamado_categoria/edit.js": "/js/chamado_categoria/edit.js",
     "/js/chamado_categoria/index.js": "/js/chamado_categoria/index.js",
     "/js/organizacao/create.js": "/js/organizacao/create.js",
     "/js/organizacao/index.js": "/js/organizacao/index.js",
     "/js/organizacao/edit.js": "/js/organizacao/edit.js",
-    "/css/all.css": "/css/all.css"
+    "/js/chamado_feedback/create.js": "/js/chamado_feedback/create.js",
+    "/js/chamado_feedback/index.js": "/js/chamado_feedback/index.js",
+    "/js/chamado_feedback/edit.js": "/js/chamado_feedback/edit.js",
+    "/js/chamado_prioridade/create.js": "/js/chamado_prioridade/create.js",
+    "/js/chamado_prioridade/index.js": "/js/chamado_prioridade/index.js",
+    "/js/chamado_prioridade/edit.js": "/js/chamado_prioridade/edit.js",
+    "/js/chamado_situacao/create.js": "/js/chamado_situacao/create.js",
+    "/js/chamado_situacao/index.js": "/js/chamado_situacao/index.js",
+    "/js/chamado_situacao/edit.js": "/js/chamado_situacao/edit.js",
+    "/js/chamado/create.js": "/js/chamado/create.js",
+    "/js/chamado/index.js": "/js/chamado/index.js",
+    "/js/chamado/edit.js": "/js/chamado/edit.js",
+    "/js/chamado_sla/create.js": "/js/chamado_sla/create.js",
+    "/js/chamado_sla/index.js": "/js/chamado_sla/index.js",
+    "/js/chamado_sla/edit.js": "/js/chamado_sla/edit.js"
 }

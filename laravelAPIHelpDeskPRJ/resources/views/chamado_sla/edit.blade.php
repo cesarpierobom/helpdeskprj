@@ -11,7 +11,7 @@
                         <input type="hidden" name="id" id="id" value="" placeholder="">
                         @include('chamado_sla/form')
                         <div class="form-row">
-                            <button type="submit" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>
+                            <button type="button" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>
                             <button type="reset" id="btnResetarCadastro" class="btn btn-danger col-md-4 offset-md-4">Limpar</button>
                         </div>
                     </form>

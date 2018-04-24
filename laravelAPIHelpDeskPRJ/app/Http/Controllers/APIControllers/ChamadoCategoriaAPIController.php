@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\APIControllers;
 
 use App\Models\ChamadoCategoria;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado_categoria\ChamadoCategoriaCollection;
 use App\Http\Resources\chamado_categoria\ChamadoCategoriaResource;
-
 
 class ChamadoCategoriaAPIController extends Controller
 {
@@ -20,37 +19,37 @@ class ChamadoCategoriaAPIController extends Controller
     {
         $query = (new ChamadoCategoria)->newQuery();
 
-        if( $request->filled("nome") ){
+        if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }
 
-        if( $request->filled("codigo") ){
+        if ($request->filled("codigo")) {
             $query->where("codigo", "like", "%" . $request->input("codigo") . "%");
         }
 
-        if( $request->filled("search.value") ){
+        if ($request->filled("search.value")) {
             $query->where("nome", "like", "%" . $request->input("search.value") . "%");
             $query->orWhere("codigo", "like", "%" . $request->input("search.value") . "%");
         }
 
-        if( $request->filled("status") ){
+        if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
         }
 
-        if( $request->filled("organizacao_id") ){
+        if ($request->filled("organizacao_id")) {
             $query->whereIn("organizacao_id", $request->input("organizacao_id"));
         }
 
-        if( $request->filled("order.0.column") && $request->filled("order.0.dir") ){
+        if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
 
             $columns = $request->input('columns');
 
             foreach ($request->order as $order) {
-                $query->orderBy($columns[$order['column']]['data'],$order['dir']);
+                $query->orderBy($columns[$order['column']]['data'], $order['dir']);
             }
         }
 
-        if( $request->filled("length") && $request->filled("start") ){
+        if ($request->filled("length") && $request->filled("start")) {
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
@@ -67,14 +66,15 @@ class ChamadoCategoriaAPIController extends Controller
     public function store(Request $request)
     {
         $chamadoCategoria = new ChamadoCategoria();
-        $chamadoCategoria->nome;
-        $chamadoCategoria->codigo;
-        $chamadoCategoria->status;
+        $chamadoCategoria->nome = $request->nome;
+        $chamadoCategoria->codigo = $request->codigo;
+        $chamadoCategoria->status = $request->status;
+        $chamadoCategoria->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoCategoria->save();
 
-        if($resultado){
+        if ($resultado) {
             return response()->json(null, 204);
-        }else{
+        } else {
             return response()->json(["msg"=>"Houve um erro desconhecido no cadastro do registro."], 400);
         }
     }
@@ -99,14 +99,16 @@ class ChamadoCategoriaAPIController extends Controller
      */
     public function update(Request $request, ChamadoCategoria $chamadoCategoria)
     {
-        $chamadoCategoria->nome;
-        $chamadoCategoria->codigo;
-        $chamadoCategoria->status;
+        $chamadoCategoria->nome = $request->nome;
+        $chamadoCategoria->codigo = $request->codigo;
+        $chamadoCategoria->status = $request->status;
+        $chamadoCategoria->organizacao_id = $request->organizacao_id;
+        
         $resultado = $chamadoCategoria->save();
 
-        if($resultado){
+        if ($resultado) {
             return response()->json(null, 204);
-        }else{
+        } else {
             return response()->json(["msg"=>"Houve um erro desconhecido na atualização do registro."], 400);
         }
     }

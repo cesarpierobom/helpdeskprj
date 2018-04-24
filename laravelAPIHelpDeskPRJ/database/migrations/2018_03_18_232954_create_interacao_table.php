@@ -14,8 +14,14 @@ class CreateInteracaoTable extends Migration
     public function up()
     {
         Schema::create('interacao', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id')->unsigned();
+            $table->longText("descricao");
+            $table->bigInteger('chamado_id')->unsigned();
+            $table->foreign('chamado_id')->references('id')->on('chamado');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

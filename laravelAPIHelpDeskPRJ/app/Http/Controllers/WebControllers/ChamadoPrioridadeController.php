@@ -15,7 +15,7 @@ class ChamadoPrioridadeController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado_prioridade.index");
     }
 
     /**
@@ -25,19 +25,10 @@ class ChamadoPrioridadeController extends Controller
      */
     public function create()
     {
-        //
+        $chamadoPrioridade = new ChamadoPrioridade();
+        return view("chamado_prioridade.create",['chamadoPrioridade'=>$chamadoPrioridade]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -47,7 +38,7 @@ class ChamadoPrioridadeController extends Controller
      */
     public function show(ChamadoPrioridade $chamadoPrioridade)
     {
-        //
+        return view("chamado_prioridade.show", ['chamadoPrioridade'=>$chamadoPrioridade]);
     }
 
     /**
@@ -58,29 +49,6 @@ class ChamadoPrioridadeController extends Controller
      */
     public function edit(ChamadoPrioridade $chamadoPrioridade)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ChamadoPrioridade $chamadoPrioridade)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ChamadoPrioridade $chamadoPrioridade)
-    {
-        //
+        return view("chamado_prioridade.edit", ['chamadoPrioridade'=>$chamadoPrioridade]);
     }
 }

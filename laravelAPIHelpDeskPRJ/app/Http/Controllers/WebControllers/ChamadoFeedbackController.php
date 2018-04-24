@@ -15,7 +15,7 @@ class ChamadoFeedbackController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado_feedback.index");
     }
 
     /**
@@ -25,19 +25,11 @@ class ChamadoFeedbackController extends Controller
      */
     public function create()
     {
-        //
+        $chamadoFeedback = new ChamadoFeedback();
+        return view("chamado_feedback.create",['chamadoFeedback'=>$chamadoFeedback]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
@@ -47,7 +39,7 @@ class ChamadoFeedbackController extends Controller
      */
     public function show(ChamadoFeedback $chamadoFeedback)
     {
-        //
+        return view("chamado_feedback.show", ['chamadoFeedback'=>$chamadoFeedback]);
     }
 
     /**
@@ -58,29 +50,6 @@ class ChamadoFeedbackController extends Controller
      */
     public function edit(ChamadoFeedback $chamadoFeedback)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoFeedback  $chamadoFeedback
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ChamadoFeedback $chamadoFeedback)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ChamadoFeedback  $chamadoFeedback
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ChamadoFeedback $chamadoFeedback)
-    {
-        //
+        return view("chamado_feedback.edit", ['chamadoFeedback'=>$chamadoFeedback]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChamadoUrgenciasTable extends Migration
+class AddToSuporteGrupoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateChamadoUrgenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('chamado_urgencias', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('suporte_grupo', function (Blueprint $table) {
+            //
         });
     }
 
@@ -26,6 +25,8 @@ class CreateChamadoUrgenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chamado_urgencias');
+        Schema::table('suporte_grupo', function (Blueprint $table) {
+            //
+        });
     }
 }

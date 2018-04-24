@@ -14,10 +14,12 @@ class CreateOrganizacaoTable extends Migration
     public function up()
     {
         Schema::create('organizacao', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('nome');
-            $table->string('codigo',50);
-            $table->unsignedTinyInteger('status');
+            $table->string('razao_social')->nullable();
+            $table->string('documento')->nullable();
+            $table->string('codigo', 50)->nullable();
+            $table->unsignedTinyInteger('status')->default("1");
             $table->timestamps();
             $table->softDeletes();
         });

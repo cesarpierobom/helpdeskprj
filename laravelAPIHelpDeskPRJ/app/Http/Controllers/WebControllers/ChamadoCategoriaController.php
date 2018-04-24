@@ -25,7 +25,8 @@ class ChamadoCategoriaController extends Controller
      */
     public function create()
     {
-        return view("chamado_categoria.create");
+        $chamadoCategoria = new ChamadoCategoria();
+        return view("chamado_categoria.create", ['chamadoCategoria'=>$chamadoCategoria]);
     }
 
     /**
@@ -36,7 +37,7 @@ class ChamadoCategoriaController extends Controller
      */
     public function show(ChamadoCategoria $chamadoCategoria)
     {
-        return view("chamado_categoria.show",['categoria'=>$chamadoCategoria]);
+        return view("chamado_categoria.show", ['categoria'=>$chamadoCategoria]);
     }
 
     /**
@@ -47,6 +48,6 @@ class ChamadoCategoriaController extends Controller
      */
     public function edit(ChamadoCategoria $chamadoCategoria)
     {
-        return view("chamado_categoria.edit",['categoria'=>$chamadoCategoria]);
+        return view("chamado_categoria.edit", ['chamadoCategoria'=>$chamadoCategoria]);
     }
 }

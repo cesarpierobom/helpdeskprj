@@ -18,8 +18,6 @@
                                         <label for="nome">Nome</label>
                                         <input type="text" name="nome" id="nome" value="" class="form-control" placeholder="">
                                     </div>
-                                </div>
-                                <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="codigo">Codigo</label>
                                         <input type="text" name="codigo" id="codigo" value="" class="form-control" placeholder="">

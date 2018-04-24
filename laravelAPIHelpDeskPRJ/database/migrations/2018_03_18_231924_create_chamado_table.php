@@ -14,7 +14,12 @@ class CreateChamadoTable extends Migration
     public function up()
     {
         Schema::create('chamado', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
+            $table->string("titulo");
+            $table->longText("descricao");
+            $table->unsignedTinyInteger('status')->default("1");
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });

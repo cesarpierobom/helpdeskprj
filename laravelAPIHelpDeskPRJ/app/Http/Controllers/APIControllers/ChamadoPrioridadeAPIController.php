@@ -5,6 +5,8 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\ChamadoPrioridade;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\chamado_prioridade\ChamadoPrioridadeResourceCollection;
+use App\Http\Resources\chamado_prioridade\ChamadoPrioridadeResource;
 
 class ChamadoPrioridadeAPIController extends Controller
 {
@@ -13,20 +15,45 @@ class ChamadoPrioridadeAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+         $query = (new ChamadoPrioridade)->newQuery();
+
+        if( $request->filled("nome") ){
+            $query->where("nome", "like", "%" . $request->input("nome") . "%");
+        }
+
+        if( $request->filled("codigo") ){
+            $query->where("codigo", "like", "%" . $request->input("codigo") . "%");
+        }
+
+        if( $request->filled("search.value") ){
+            $query->where("nome", "like", "%" . $request->input("search.value") . "%");
+            $query->orWhere("codigo", "like", "%" . $request->input("search.value") . "%");
+        }
+
+        if( $request->filled("status") ){
+            $query->whereIn("status", $request->input("status"));
+        }
+
+        if( $request->filled("order.0.column") && $request->filled("order.0.dir") ){
+
+            $columns = $request->input('columns');
+
+            foreach ($request->order as $order) {
+                $query->orderBy($columns[$order['column']]['data'],$order['dir']);
+            }
+        }
+
+        if( $request->filled("length") && $request->filled("start") ){
+            $query->take($request->input("length"));
+            $query->skip($request->input("start"));
+        }
+
+        return new ChamadoPrioridadeResourceCollection($query->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +63,17 @@ class ChamadoPrioridadeAPIController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $chamadoPrioridade = new ChamadoPrioridade();
+        $chamadoPrioridade->nome = $request->nome;
+        $chamadoPrioridade->codigo = $request->codigo;
+        $chamadoPrioridade->status = $request->status;
+        $resultado = $chamadoPrioridade->save();
+
+        if ($resultado) {
+            return response()->json(null, 204);
+        } else {
+            return response()->json(["msg"=>"Houve um erro desconhecido no cadastro do registro."], 400);
+        }
     }
 
     /**
@@ -47,19 +84,9 @@ class ChamadoPrioridadeAPIController extends Controller
      */
     public function show(ChamadoPrioridade $chamadoPrioridade)
     {
-        //
+        return new ChamadoPrioridadeResource($chamadoPrioridade);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ChamadoPrioridade  $chamadoPrioridade
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ChamadoPrioridade $chamadoPrioridade)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +97,16 @@ class ChamadoPrioridadeAPIController extends Controller
      */
     public function update(Request $request, ChamadoPrioridade $chamadoPrioridade)
     {
-        //
+        $chamadoPrioridade->nome = $request->nome;
+        $chamadoPrioridade->codigo = $request->codigo;
+        $chamadoPrioridade->status = $request->status;
+        $resultado = $chamadoPrioridade->save();
+
+        if ($resultado) {
+            return response()->json(null, 204);
+        } else {
+            return response()->json(["msg"=>"Houve um erro desconhecido na atualização do registro."], 400);
+        }
     }
 
     /**
@@ -81,6 +117,7 @@ class ChamadoPrioridadeAPIController extends Controller
      */
     public function destroy(ChamadoPrioridade $chamadoPrioridade)
     {
-        //
+        $chamadoPrioridade->delete();
+        return response()->json(null, 204);
     }
 }

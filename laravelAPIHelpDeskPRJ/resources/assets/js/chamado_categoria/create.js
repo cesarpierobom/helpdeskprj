@@ -1,6 +1,13 @@
 $(document).ready(chamadoCategoriaCreateDocumentReady =  function () {
+
 	$("#organizacao_id").select2();
 	$("#status").select2();
+
+	buscarOrganizacoes();
+	
+	$("#btnSalvar").on("click", function () {
+		salvar();
+	});
 });
 
 function buscarOrganizacoes(){
@@ -25,9 +32,32 @@ function buscarOrganizacoes(){
 		$.each(json.data,function(index, el) {
 			$("#organizacao_id").append("<option value='"+el.id+"'>"+el.nome+"</option>");
 		});
+		
 	})
 	.fail(function (data) {
 		alert("ERRO: " + data);
-	})
+	});
 }
 
+function salvar() {
+	$.ajax({
+		url: "/api/chamado_categoria/",
+		method: "POST",
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		},
+		data: {
+			nome: $("#nome").val(),
+			codigo: $("#codigo").val(),
+			status: $("#status").val(),
+			organizacao_id: $("#organizacao_id").val()
+		}
+	})
+	.done(function (data) {
+		alert("Sucesso!");
+		window.location.href = "/chamado_categoria";
+	})
+	.fail(function (data) {
+		alert(data);
+	});
+}
