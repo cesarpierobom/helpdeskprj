@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado_categoria\ChamadoCategoriaCollection;
 use App\Http\Resources\chamado_categoria\ChamadoCategoriaResource;
+use App\Http\Requests\chamado_categoria\StoreChamadoCategoriaRequest;
 
 class ChamadoCategoriaAPIController extends Controller
 {
@@ -41,7 +42,6 @@ class ChamadoCategoriaAPIController extends Controller
         }
 
         if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
-
             $columns = $request->input('columns');
 
             foreach ($request->order as $order) {
@@ -63,7 +63,7 @@ class ChamadoCategoriaAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreChamadoCategoriaRequest $request)
     {
         $chamadoCategoria = new ChamadoCategoria();
         $chamadoCategoria->nome = $request->nome;
