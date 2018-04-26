@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_feedback;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListChamadoFeedbackRequest extends FormRequest
 {
@@ -24,7 +25,11 @@ class ListChamadoFeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "status" => "nullable",
+            "organizacao_id" => "nullable|exists:organizacao,id",
+            "nome" => "nullable|max:255",
+            "codigo" => "nullable|max:50",
+            "search.value" => "nullable|max:255"
         ];
     }
 }

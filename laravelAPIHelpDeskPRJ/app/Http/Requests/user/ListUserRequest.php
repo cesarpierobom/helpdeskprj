@@ -3,6 +3,7 @@
 namespace App\Http\Requests\usuario;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListUserRequest extends FormRequest
 {
@@ -24,8 +25,8 @@ class ListUserRequest extends FormRequest
     public function rules()
     {
         return [
-            "status[]" => "nullable",
-            "organizacao_id[]" => "nullable|exists:organizacao,id",
+            "status" => "nullable",
+            "organizacao_id" => "nullable|exists:organizacao,id",
             "name" => "nullable|max:255",
             "last_name" => "nullable|max:255",
             "email" => "nullable|max:255",

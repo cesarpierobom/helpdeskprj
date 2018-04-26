@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\APIControllers;
 
 use App\Models\Chamado;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChamadoAPIController extends Controller

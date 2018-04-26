@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\APIControllers;
 
 use App\Models\ChamadoFeedback;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado_feedback\ChamadoFeedbackResourceCollection;
 use App\Http\Resources\chamado_feedback\ChamadoFeedbackResource;

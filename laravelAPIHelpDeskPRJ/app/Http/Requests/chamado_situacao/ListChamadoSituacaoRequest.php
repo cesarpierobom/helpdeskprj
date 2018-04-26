@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_situacao;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListChamadoSituacaoRequest extends FormRequest
 {
@@ -24,8 +25,8 @@ class ListChamadoSituacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            "status[]" => "nullable",
-            "organizacao_id[]" => "nullable|exists:organizacao,id",
+            "status" => "nullable",
+            "organizacao_id" => "nullable|exists:organizacao,id",
             "nome" => "nullable|max:255",
             "codigo" => "nullable|max:50",
             "search.value" => "nullable|max:255"

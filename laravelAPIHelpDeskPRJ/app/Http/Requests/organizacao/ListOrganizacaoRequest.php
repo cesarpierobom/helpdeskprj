@@ -25,7 +25,7 @@ class ListOrganizacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            "status[]" => ["nullable", Rule::in(['1', '0'])],
+            "status" => "nullable",
             "nome" => "nullable|max:255",
             "codigo" => "nullable|max:50",
             "search.value" => "nullable|max:255"

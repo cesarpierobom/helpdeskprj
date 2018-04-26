@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_sla;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListChamadoSLARequest extends FormRequest
 {
@@ -24,9 +25,9 @@ class ListChamadoSLARequest extends FormRequest
     public function rules()
     {
         return [
-            "status[]" => "nullable",
-            "organizacao_id[]" => "nullable|exists:organizacao,id",
-            "chamado_prioridade_id[]" => "nullable|exists:chamado_prioridade,id",
+            "status" => "nullable",
+            "organizacao_id" => "nullable|exists:organizacao,id",
+            "chamado_prioridade_id" => "nullable|exists:chamado_prioridade,id",
             "nome" => "nullable|max:255",
             "codigo" => "nullable|max:50",
             "search.value" => "nullable|max:255"
