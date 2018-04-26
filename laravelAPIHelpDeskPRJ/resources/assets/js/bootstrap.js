@@ -12,7 +12,7 @@ window.Popper = require('popper.js').default;
 try {
     window.$ = window.jQuery = require('jquery');
     window.dt = window.datatable = require('datatables.net');
-    require('datatables.net-dt/css/jquery.datatables.css');
+    require('datatables.net-dt/css/jquery.dataTables.css');
     require('bootstrap');
     require('select2');
     require('select2/dist/css/select2.css');

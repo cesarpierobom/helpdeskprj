@@ -3,6 +3,7 @@
 namespace App\Http\Requests\organizacao;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListOrganizacaoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class ListOrganizacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,10 @@ class ListOrganizacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "status[]" => ["nullable", Rule::in(['1', '0'])],
+            "nome" => "nullable|max:255",
+            "codigo" => "nullable|max:50",
+            "search.value" => "nullable|max:255"
         ];
     }
 }

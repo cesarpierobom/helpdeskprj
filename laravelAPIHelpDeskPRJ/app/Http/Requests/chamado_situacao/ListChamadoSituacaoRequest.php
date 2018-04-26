@@ -13,7 +13,7 @@ class ListChamadoSituacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class ListChamadoSituacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "status[]" => "nullable",
+            "organizacao_id[]" => "nullable|exists:organizacao,id",
+            "nome" => "nullable|max:255",
+            "codigo" => "nullable|max:50",
+            "search.value" => "nullable|max:255"
         ];
     }
 }

@@ -25,7 +25,7 @@ class ListChamadoCategoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            "status[]" => ["nullable", Rule::in(['1', '0'])],
+            "status[]" => "nullable",
             "organizacao_id[]" => "nullable|exists:organizacao,id",
             "nome" => "nullable|max:255",
             "codigo" => "nullable|max:50",

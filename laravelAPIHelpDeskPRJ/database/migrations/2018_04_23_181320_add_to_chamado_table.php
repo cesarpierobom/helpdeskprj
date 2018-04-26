@@ -45,7 +45,14 @@ class AddToChamadoTable extends Migration
     public function down()
     {
         Schema::table('chamado', function (Blueprint $table) {
-            //
+            $table->dropForeign("chamado_chamado_urgencia_foreign");
+            $table->dropForeign("chamado_chamado_feedback_foreign");
+            $table->dropForeign("chamado_chamado_prioridade_foreign");
+            $table->dropForeign("chamado_chamado_situacao_id_foreign");
+            $table->dropForeign("chamado_chamado_categoria_id_foreign");
+            $table->dropForeign("chamado_servico_id_foreign");
+            $table->dropForeign("chamado_departamento_id_foreign");
+            $table->dropColumn(['departamento_id', 'servico_id', 'chamado_categoria_id','chamado_situacao_id','chamado_prioridade','chamado_feedback','chamado_urgencia']);
         });
     }
 }

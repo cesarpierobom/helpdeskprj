@@ -14,8 +14,6 @@ class AddToUsuarioGrupoTable extends Migration
     public function up()
     {
         Schema::table('usuario_grupo', function (Blueprint $table) {
-            $table->bigInteger('organizacao_id')->unsigned();
-            $table->foreign('organizacao_id')->references('id')->on('organizacao');
         });
     }
 

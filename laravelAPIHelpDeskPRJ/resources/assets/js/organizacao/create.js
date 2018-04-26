@@ -14,6 +14,8 @@ function salvar() {
         data: {
             nome: $("#nome").val(),
             codigo: $("#codigo").val(),
+            documento: $("#documento").val(),
+            razao_social: $("#razao_social").val(),
             status: $("#status").val()
         }
     })

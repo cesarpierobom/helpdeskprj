@@ -13,7 +13,7 @@ class ListUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class ListUserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "status[]" => "nullable",
+            "organizacao_id[]" => "nullable|exists:organizacao,id",
+            "name" => "nullable|max:255",
+            "last_name" => "nullable|max:255",
+            "email" => "nullable|max:255",
+            "login" => "nullable|max:255",
+            "search.value" => "nullable|max:255"
         ];
     }
 }

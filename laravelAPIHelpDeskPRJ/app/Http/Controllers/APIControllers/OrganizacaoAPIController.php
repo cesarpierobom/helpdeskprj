@@ -66,7 +66,10 @@ class OrganizacaoAPIController extends Controller
         $organizacao = new Organizacao();
         $organizacao->nome = $request->nome;
         $organizacao->codigo = $request->codigo;
+        $organizacao->documento = $request->documento;
+        $organizacao->razao_social = $request->razao_social;
         $organizacao->status = $request->status;
+        
         $resultado = $organizacao->save();
 
         if ($resultado) {
@@ -98,6 +101,8 @@ class OrganizacaoAPIController extends Controller
     {
         $organizacao->nome = $request->nome;
         $organizacao->codigo = $request->codigo;
+        $organizacao->documento = $request->documento;
+        $organizacao->razao_social = $request->razao_social;
         $organizacao->status = $request->status;
         $resultado = $organizacao->save();
 

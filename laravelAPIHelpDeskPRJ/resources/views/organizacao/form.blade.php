@@ -3,13 +3,13 @@
 <input type="text" class="form-control" maxlength="200" name="nome" id="nome" value="{{$organizacao->nome}}" placeholder="">
 </div>
 <div class="form-group">
-    <label for="nome">Razão Social</label>
-    <input type="text" class="form-control" maxlength="200" name="nome" id="nome" value="" placeholder="">
+    <label for="razao_social">Razão Social</label>
+    <input type="text" class="form-control" maxlength="200" name="razao_social" id="razao_social" value="{{$organizacao->razao_social}}" placeholder="">
 </div>
 <div class="form-row">
 	<div class="form-group col-md-6">
-	    <label for="nome">CNPJ</label>
-	    <input type="text" class="form-control" maxlength="50" name="nome" id="nome" value="" placeholder="">
+	    <label for="documento">CNPJ</label>
+	    <input type="text" class="form-control" maxlength="50" name="documento" id="documento" value="{{$organizacao->documento}}" placeholder="">
 	</div>
 	<div class="form-group col-md-6">
 	    <label for="codigo">Código</label>

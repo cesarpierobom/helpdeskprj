@@ -3,6 +3,7 @@
 namespace App\Http\Requests\organizacao;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateOrganizacaoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateOrganizacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,15 @@ class UpdateOrganizacaoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "nome" => "required|max:255",
+            "razao_social" => "nullable|max:255",
+            "documento" => ["nullable", "max:255", Rule::unique('organizacao', "documento")->where(function ($query) {
+                return $query->where('id', "<>", $this->id);
+            })],
+            "codigo" => ["nullable", "max:50", Rule::unique('organizacao', "codigo")->where(function ($query) {
+                return $query->where('id', "<>", $this->id);
+            })],
+            "status" => ["nullable", Rule::in(['1', '0'])]
         ];
     }
 }
