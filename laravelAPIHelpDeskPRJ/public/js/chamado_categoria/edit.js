@@ -63,7 +63,8 @@ function salvar() {
             id: $("#id").val(),
             nome: $("#nome").val(),
             codigo: $("#codigo").val(),
-            status: $("#status").val()
+            status: $("#status").val(),
+            organizacao_id: $("#organizacao_id").val()
         }
     })
     .done(function (data) {

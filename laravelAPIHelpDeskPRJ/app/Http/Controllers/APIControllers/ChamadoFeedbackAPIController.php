@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado_feedback\ChamadoFeedbackResourceCollection;
 use App\Http\Resources\chamado_feedback\ChamadoFeedbackResource;
+use App\Http\Requests\chamado_feedback\ListChamadoFeedbackRequest;
+use App\Http\Requests\chamado_feedback\StoreChamadoFeedbackRequest;
+use App\Http\Requests\chamado_feedback\UpdateChamadoFeedbackRequest;
 
 class ChamadoFeedbackAPIController extends Controller
 {
@@ -15,37 +18,37 @@ class ChamadoFeedbackAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(ListChamadoFeedbackRequest $request)
     {
-         $query = (new ChamadoFeedback)->newQuery();
+        $query = (new ChamadoFeedback)->newQuery();
 
-        if( $request->filled("nome") ){
+        if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }
 
-        if( $request->filled("codigo") ){
+        if ($request->filled("codigo")) {
             $query->where("codigo", "like", "%" . $request->input("codigo") . "%");
         }
 
-        if( $request->filled("search.value") ){
+        if ($request->filled("search.value")) {
             $query->where("nome", "like", "%" . $request->input("search.value") . "%");
             $query->orWhere("codigo", "like", "%" . $request->input("search.value") . "%");
         }
 
-        if( $request->filled("status") ){
+        if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
         }
 
-        if( $request->filled("order.0.column") && $request->filled("order.0.dir") ){
+        if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
 
             $columns = $request->input('columns');
 
             foreach ($request->order as $order) {
-                $query->orderBy($columns[$order['column']]['data'],$order['dir']);
+                $query->orderBy($columns[$order['column']]['data'], $order['dir']);
             }
         }
 
-        if( $request->filled("length") && $request->filled("start") ){
+        if ($request->filled("length") && $request->filled("start")) {
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
@@ -59,12 +62,14 @@ class ChamadoFeedbackAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreChamadoFeedbackRequest $request)
     {
         $chamadoFeedback = new ChamadoFeedback();
         $chamadoFeedback->nome = $request->nome;
         $chamadoFeedback->codigo = $request->codigo;
         $chamadoFeedback->status = $request->status;
+        $chamadoFeedback->organizacao_id = $request->organizacao_id;
+        
         $resultado = $chamadoFeedback->save();
 
         if ($resultado) {
@@ -92,11 +97,12 @@ class ChamadoFeedbackAPIController extends Controller
      * @param  \App\ChamadoFeedback  $chamadoFeedback
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoFeedback $chamadoFeedback)
+    public function update(UpdateChamadoFeedbackRequest $request, ChamadoFeedback $chamadoFeedback)
     {
         $chamadoFeedback->nome = $request->nome;
         $chamadoFeedback->codigo = $request->codigo;
         $chamadoFeedback->status = $request->status;
+        $chamadoFeedback->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoFeedback->save();
 
         if ($resultado) {

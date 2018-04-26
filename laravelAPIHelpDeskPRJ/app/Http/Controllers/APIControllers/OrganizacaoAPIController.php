@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\organizacao\OrganizacaoCollection;
 use App\Http\Resources\organizacao\OrganizacaoResource;
+use App\Http\Requests\organizacao\StoreOrganizacaoRequest;
+use App\Http\Requests\organizacao\ListOrganizacaoRequest;
+use App\Http\Requests\organizacao\UpdateOrganizacaoRequest;
 
 class OrganizacaoAPIController extends Controller
 {
@@ -15,37 +18,36 @@ class OrganizacaoAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(ListOrganizacaoRequest $request)
     {
         $query = (new Organizacao)->newQuery();
 
-        if( $request->filled("nome") ){
+        if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }
 
-        if( $request->filled("codigo") ){
+        if ($request->filled("codigo")) {
             $query->where("codigo", "like", "%" . $request->input("codigo") . "%");
         }
 
-        if( $request->filled("search.value") ){
+        if ($request->filled("search.value")) {
             $query->where("nome", "like", "%" . $request->input("search.value") . "%");
             $query->orWhere("codigo", "like", "%" . $request->input("search.value") . "%");
         }
 
-        if( $request->filled("status") ){
+        if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
         }
 
-        if( $request->filled("order.0.column") && $request->filled("order.0.dir") ){
-
+        if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
             $columns = $request->input('columns');
 
             foreach ($request->order as $order) {
-                $query->orderBy($columns[$order['column']]['data'],$order['dir']);
+                $query->orderBy($columns[$order['column']]['data'], $order['dir']);
             }
         }
 
-        if( $request->filled("length") && $request->filled("start") ){
+        if ($request->filled("length") && $request->filled("start")) {
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
@@ -59,7 +61,7 @@ class OrganizacaoAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreOrganizacaoRequest $request)
     {
         $organizacao = new Organizacao();
         $organizacao->nome = $request->nome;
@@ -92,7 +94,7 @@ class OrganizacaoAPIController extends Controller
      * @param  \App\Organizacao  $organizacao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organizacao $organizacao)
+    public function update(UpdateOrganizacaoRequest $request, Organizacao $organizacao)
     {
         $organizacao->nome = $request->nome;
         $organizacao->codigo = $request->codigo;

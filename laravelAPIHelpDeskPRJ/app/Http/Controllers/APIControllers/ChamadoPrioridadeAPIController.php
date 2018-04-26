@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado_prioridade\ChamadoPrioridadeResourceCollection;
 use App\Http\Resources\chamado_prioridade\ChamadoPrioridadeResource;
+use App\Http\Requests\chamado_prioridade\ListChamadoCategoriaRequest;
+use App\Http\Requests\chamado_prioridade\StoreChamadoCategoriaRequest;
+use App\Http\Requests\chamado_prioridade\UpdateChamadoCategoriaRequest;
 
 class ChamadoPrioridadeAPIController extends Controller
 {
@@ -15,37 +18,36 @@ class ChamadoPrioridadeAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(ListChamadoCategoriaRequest $request)
     {
          $query = (new ChamadoPrioridade)->newQuery();
 
-        if( $request->filled("nome") ){
+        if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }
 
-        if( $request->filled("codigo") ){
+        if ($request->filled("codigo")) {
             $query->where("codigo", "like", "%" . $request->input("codigo") . "%");
         }
 
-        if( $request->filled("search.value") ){
+        if ($request->filled("search.value")) {
             $query->where("nome", "like", "%" . $request->input("search.value") . "%");
             $query->orWhere("codigo", "like", "%" . $request->input("search.value") . "%");
         }
 
-        if( $request->filled("status") ){
+        if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
         }
 
-        if( $request->filled("order.0.column") && $request->filled("order.0.dir") ){
-
+        if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
             $columns = $request->input('columns');
 
             foreach ($request->order as $order) {
-                $query->orderBy($columns[$order['column']]['data'],$order['dir']);
+                $query->orderBy($columns[$order['column']]['data'], $order['dir']);
             }
         }
 
-        if( $request->filled("length") && $request->filled("start") ){
+        if ($request->filled("length") && $request->filled("start")) {
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
@@ -61,12 +63,13 @@ class ChamadoPrioridadeAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreChamadoCategoriaRequest $request)
     {
         $chamadoPrioridade = new ChamadoPrioridade();
         $chamadoPrioridade->nome = $request->nome;
         $chamadoPrioridade->codigo = $request->codigo;
         $chamadoPrioridade->status = $request->status;
+        $chamadoPrioridade->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoPrioridade->save();
 
         if ($resultado) {
@@ -95,11 +98,12 @@ class ChamadoPrioridadeAPIController extends Controller
      * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoPrioridade $chamadoPrioridade)
+    public function update(UpdateChamadoCategoriaRequest $request, ChamadoPrioridade $chamadoPrioridade)
     {
         $chamadoPrioridade->nome = $request->nome;
         $chamadoPrioridade->codigo = $request->codigo;
         $chamadoPrioridade->status = $request->status;
+        $chamadoPrioridade->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoPrioridade->save();
 
         if ($resultado) {

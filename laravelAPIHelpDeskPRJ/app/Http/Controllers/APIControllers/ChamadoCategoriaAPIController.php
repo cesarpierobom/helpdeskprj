@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Resources\chamado_categoria\ChamadoCategoriaCollection;
 use App\Http\Resources\chamado_categoria\ChamadoCategoriaResource;
 use App\Http\Requests\chamado_categoria\StoreChamadoCategoriaRequest;
+use App\Http\Requests\chamado_categoria\ListChamadoCategoriaRequest;
+use App\Http\Requests\chamado_categoria\UpdateChamadoCategoriaRequest;
 
 class ChamadoCategoriaAPIController extends Controller
 {
@@ -16,7 +18,7 @@ class ChamadoCategoriaAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(ListChamadoCategoriaRequest $request)
     {
         $query = (new ChamadoCategoria)->newQuery();
 
@@ -97,7 +99,7 @@ class ChamadoCategoriaAPIController extends Controller
      * @param  \App\ChamadoCategoria  $chamadoCategoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChamadoCategoria $chamadoCategoria)
+    public function update(UpdateChamadoCategoriaRequest $request, ChamadoCategoria $chamadoCategoria)
     {
         $chamadoCategoria->nome = $request->nome;
         $chamadoCategoria->codigo = $request->codigo;

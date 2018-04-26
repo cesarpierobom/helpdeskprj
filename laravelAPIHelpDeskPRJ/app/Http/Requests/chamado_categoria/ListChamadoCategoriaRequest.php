@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_categoria;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListChamadoCategoriaRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class ListChamadoCategoriaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,11 @@ class ListChamadoCategoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "status[]" => ["nullable", Rule::in(['1', '0'])],
+            "organizacao_id[]" => "nullable|exists:organizacao,id",
+            "nome" => "nullable|max:255",
+            "codigo" => "nullable|max:50",
+            "search.value" => "nullable|max:255"
         ];
     }
 }
