@@ -8,7 +8,7 @@
                 <div class="card-header text-center">Editar SLA de Chamados</div>
                 <div class="card-body">
                     <form id="formEditarChamadoSLA" accept-charset="utf-8">
-                        <input type="hidden" name="id" id="id" value="" placeholder="">
+                        <input type="hidden" name="id" id="id" value="{{$chamadoSLA->id}}" placeholder="">
                         @include('chamado_sla/form')
                         <div class="form-row">
                             <button type="button" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>

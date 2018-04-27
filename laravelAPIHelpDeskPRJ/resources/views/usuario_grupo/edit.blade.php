@@ -8,7 +8,7 @@
                 <div class="card-header text-center">Editar Grupo de Usuario</div>
                 <div class="card-body">
                     <form id="formEditarUsuarioGrupo" accept-charset="utf-8">
-                        <input type="hidden" name="id" id="id" value="" placeholder="">
+                        <input type="hidden" name="id" id="id" value="{{$usuarioGrupo->id}}" placeholder="">
                         @include('usuario_grupo/form')
                         <div class="form-row">
                             <button type="button" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>

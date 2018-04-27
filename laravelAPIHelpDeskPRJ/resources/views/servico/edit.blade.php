@@ -8,7 +8,7 @@
                 <div class="card-header text-center">Editar Servico</div>
                 <div class="card-body">
                     <form id="formEditarServico" accept-charset="utf-8">
-                        <input type="hidden" name="id" id="id" value="" placeholder="">
+                        <input type="hidden" name="id" id="id" value="{{$servico->id}}" placeholder="">
                         @include('servico/form')
                         <div class="form-row">
                             <button type="button" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>

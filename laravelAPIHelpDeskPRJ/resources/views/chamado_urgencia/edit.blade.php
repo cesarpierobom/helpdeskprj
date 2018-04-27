@@ -8,7 +8,7 @@
                 <div class="card-header text-center">Editar Urgência de Chamados</div>
                 <div class="card-body">
                     <form id="formEditarChamadoUrgencia" accept-charset="utf-8">
-                        <input type="hidden" name="id" id="id" value="" placeholder="">
+                        <input type="hidden" name="id" id="id" value="{{$chamadoUrgencia->id}}" placeholder="">
                         @include('chamado_urgencia/form')
                         <div class="form-row">
                             <button type="button" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>
