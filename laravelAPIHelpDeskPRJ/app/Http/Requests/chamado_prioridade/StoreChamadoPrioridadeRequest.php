@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_prioridade;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreChamadoPrioridadeRequest extends FormRequest
 {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Departamento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\departamento\DepartamentoCollection;
+use App\Http\Resources\departamento\DepartamentoResourceCollection;
 use App\Http\Resources\departamento\DepartamentoResource;
 use App\Http\Requests\departamento\StoreDepartamentoRequest;
 use App\Http\Requests\departamento\ListDepartamentoRequest;
@@ -56,7 +56,7 @@ class DepartamentoAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new DepartamentoCollection($query->get());
+        return new DepartamentoResourceCollection($query->get());
     }
 
     /**

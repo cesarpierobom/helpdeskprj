@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_sla;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreChamadoSLARequest extends FormRequest
 {

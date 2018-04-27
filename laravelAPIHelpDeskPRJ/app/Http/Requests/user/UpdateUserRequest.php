@@ -30,8 +30,8 @@ class UpdateUserRequest extends FormRequest
             "password_confirmation" => "nullable",
             "name" => "required|max:255",
             "last_name" => "required|max:255",
-            "email" => "required|max:255|email",
-            "login" => "required|max:255",
+            "email" => "required|max:255|email|unique:user,email",
+            "login" => "required|max:255|unique:user,login",
         ];
     }
 }

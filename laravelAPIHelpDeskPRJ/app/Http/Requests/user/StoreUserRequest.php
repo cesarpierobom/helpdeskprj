@@ -30,7 +30,7 @@ class StoreUserRequest extends FormRequest
             "password_confirmation" => "",
             "name" => "required|max:255",
             "last_name" => "required|max:255",
-            "email" => "required|max:255|email",
+            "email" => "required|max:255|email|unique:user,email",
             "login" => "required|max:255",
         ];
     }

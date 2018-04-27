@@ -3,6 +3,7 @@
 namespace App\Http\Requests\interacao;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ListInteracaoRequest extends FormRequest
 {

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_feedback;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreChamadoFeedbackRequest extends FormRequest
 {

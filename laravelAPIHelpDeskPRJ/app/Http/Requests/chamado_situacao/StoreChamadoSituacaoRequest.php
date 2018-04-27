@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_situacao;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreChamadoSituacaoRequest extends FormRequest
 {
