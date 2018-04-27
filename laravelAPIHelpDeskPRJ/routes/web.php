@@ -11,92 +11,90 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', "HomeController@index");
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::apiResource(
+Route::resource(
     'user',
     'WebControllers\UserController'
-)->parameters(['user' => 'user']);
+)->parameters(['user' => 'user'])->middleware("auth");
 
 
 Route::resource(
     'chamado_categoria',
     'WebControllers\ChamadoCategoriaController'
-)->parameters(['chamado_categoria' => 'chamadoCategoria']);
+)->parameters(['chamado_categoria' => 'chamadoCategoria'])->middleware("auth");
 
 Route::resource(
     'chamado',
     'WebControllers\ChamadoController'
-)->parameters(['chamado' => 'chamado']);
+)->parameters(['chamado' => 'chamado'])->middleware("auth");
 
 
 Route::resource(
     'departamento',
     'WebControllers\DepartamentoController'
-)->parameters(['departamento' => 'departamento']);
+)->parameters(['departamento' => 'departamento'])->middleware("auth");
 
 
 Route::resource(
     'chamado_feedback',
     'WebControllers\ChamadoFeedbackController'
-)->parameters(['chamado_feedback' => 'chamadoFeedback']);
+)->parameters(['chamado_feedback' => 'chamadoFeedback'])->middleware("auth");
 
 
 Route::resource(
     'suporte_grupo',
     'WebControllers\SuporteGrupoController'
-)->parameters(['suporte_grupo' => 'suporteGrupo']);
+)->parameters(['suporte_grupo' => 'suporteGrupo'])->middleware("auth");
 
 
 Route::resource(
     'usuario_grupo',
     'WebControllers\UsuarioGrupoController'
-)->parameters(['usuario_grupo' => 'usuarioGrupo']);
+)->parameters(['usuario_grupo' => 'usuarioGrupo'])->middleware("auth");
 
 
 Route::resource(
     'interacao',
     'WebControllers\InteracaoController'
-)->parameters(['interacao' => 'interacao']);
+)->parameters(['interacao' => 'interacao'])->middleware("auth");
 
 
 Route::resource(
     'organizacao',
     'WebControllers\OrganizacaoController'
-)->parameters(['organizacao' => 'organizacao']);
+)->parameters(['organizacao' => 'organizacao'])->middleware("auth");
 
 
 Route::resource(
     'chamado_prioridade',
     'WebControllers\ChamadoPrioridadeController'
-)->parameters(['chamado_prioridade' => 'chamadoPrioridade']);
+)->parameters(['chamado_prioridade' => 'chamadoPrioridade'])->middleware("auth");
 
 
 Route::resource(
     'servico',
     'WebControllers\ServicoController'
-)->parameters(['servico' => 'servico']);
+)->parameters(['servico' => 'servico'])->middleware("auth");
 
 
 Route::resource(
     'chamado_situacao',
     'WebControllers\ChamadoSituacaoController'
-)->parameters(['chamado_situacao' => 'chamadoSituacao']);
+)->parameters(['chamado_situacao' => 'chamadoSituacao'])->middleware("auth");
 
 
 Route::resource(
     'chamado_sla',
     'WebControllers\ChamadoSLAController'
-)->parameters(['chamado_sla' => 'chamadoSLA']);
+)->parameters(['chamado_sla' => 'chamadoSLA'])->middleware("auth");
 
 Route::resource(
     'chamado_urgencia',
     'WebControllers\ChamadoUrgenciaController'
-)->parameters(['chamado_urgencia' => 'chamadoUrgencia']);
+)->parameters(['chamado_urgencia' => 'chamadoUrgencia'])->middleware("auth");

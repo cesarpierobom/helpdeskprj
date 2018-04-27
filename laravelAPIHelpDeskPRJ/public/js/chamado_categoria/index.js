@@ -19,7 +19,8 @@ function deletar(id){
         url:"/api/chamado_categoria/"+id,
         method:"DELETE",
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         }
     })
     .done(function(data){
@@ -39,7 +40,8 @@ function buscarOrganizacoes() {
         method: "GET",
         dataType: "json",
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         },
         data: {
             status: [1]
@@ -67,6 +69,10 @@ function gridCategorias(){
         "serverSide": true,
 		"ajax": {
             "url":'/api/chamado_categoria/',
+            "headers": {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
+            },
             "data": function(d){
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();

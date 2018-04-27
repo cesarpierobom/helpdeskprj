@@ -18,9 +18,10 @@ function deletar(id) {
     $.ajax({
         url: "/api/chamado_situacao/" + id,
         method: "DELETE",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+        "headers": {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
+        },
     })
         .done(function (data) {
             alert("Sucesso!");
@@ -38,8 +39,9 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        "headers": {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         },
         data: {
             status: [1]
@@ -73,6 +75,10 @@ function gridSituacao() {
                 d.codigo = $("#codigo").val();
                 d.status = $("#status").val();
                 d.organizacao_id = $("#organizacao_id").val();
+            },
+            "headers": {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
             },
             "dataSrc": function (json) {
 

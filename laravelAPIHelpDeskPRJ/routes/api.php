@@ -25,7 +25,7 @@ Route::apiResource(
             'index' => 'user.index_api', 'show'=>'user.show_api'
         ]
     ]
-)->parameters(['user' => 'user']);
+)->parameters(['user' => 'user'])->middleware("auth:api");
 
 
 Route::apiResource(
@@ -36,7 +36,7 @@ Route::apiResource(
             'index' => 'chamado_categoria.index_api', 'show'=>'chamado_categoria.show_api'
         ]
     ]
-)->parameters(['chamado_categoria' => 'chamadoCategoria']);
+)->parameters(['chamado_categoria' => 'chamadoCategoria'])->middleware("auth:api");
 
 Route::apiResource(
     'chamado',
@@ -46,7 +46,7 @@ Route::apiResource(
             'index' => 'chamado.index_api', 'show'=>'chamado.show_api'
         ]
     ]
-)->parameters(['chamado' => 'chamado']);
+)->parameters(['chamado' => 'chamado'])->middleware("auth:api");
 
 
 
@@ -58,7 +58,7 @@ Route::apiResource(
             'index' => 'departamento.index_api', 'show'=>'departamento.show_api'
         ]
     ]
-)->parameters(['departamento' => 'departamento']);
+)->parameters(['departamento' => 'departamento'])->middleware("auth:api");
 
 
 
@@ -70,7 +70,7 @@ Route::apiResource(
             'index' => 'chamado_feedback.index_api', 'show'=>'chamado_feedback.show_api'
         ]
     ]
-)->parameters(['chamado_feedback' => 'chamadoFeedback']);
+)->parameters(['chamado_feedback' => 'chamadoFeedback'])->middleware("auth:api");
 
 
 
@@ -83,7 +83,7 @@ Route::apiResource(
             'index' => 'suporte_grupo.index_api', 'show'=>'suporte_grupo.show_api'
         ]
     ]
-)->parameters(['suporte_grupo' => 'suporteGrupo']);
+)->parameters(['suporte_grupo' => 'suporteGrupo'])->middleware("auth:api");
 
 
 
@@ -95,7 +95,7 @@ Route::apiResource(
             'index' => 'usuario_grupo.index_api', 'show'=>'usuario_grupo.show_api'
         ]
     ]
-)->parameters(['usuario_grupo' => 'usuarioGrupo']);
+)->parameters(['usuario_grupo' => 'usuarioGrupo'])->middleware("auth:api");
 
 
 Route::apiResource(
@@ -106,7 +106,7 @@ Route::apiResource(
             'index' => 'interacao.index_api', 'show'=>'interacao.show_api'
         ]
     ]
-)->parameters(['interacao' => 'interacao']);
+)->parameters(['interacao' => 'interacao'])->middleware("auth:api");
 
 
 
@@ -118,7 +118,7 @@ Route::apiResource(
             'index' => 'organizacao.index_api', 'show'=>'organizacao.show_api'
         ]
     ]
-)->parameters(['organizacao' => 'organizacao']);
+)->parameters(['organizacao' => 'organizacao'])->middleware("auth:api");
 
 
 
@@ -130,7 +130,7 @@ Route::apiResource(
             'index' => 'chamado_prioridade.index_api', 'show'=>'chamado_prioridade.show_api'
         ]
     ]
-)->parameters(['chamado_prioridade' => 'chamadoPrioridade']);
+)->parameters(['chamado_prioridade' => 'chamadoPrioridade'])->middleware("auth:api");
 
 
 
@@ -142,7 +142,7 @@ Route::apiResource(
             'index' => 'servico.index_api', 'show'=>'servico.show_api'
         ]
     ]
-)->parameters(['servico' => 'servico']);
+)->parameters(['servico' => 'servico'])->middleware("auth:api");
 
 
 
@@ -155,7 +155,7 @@ Route::apiResource(
             'index' => 'chamado_situacao.index_api', 'show'=>'chamado_situacao.show_api'
         ]
     ]
-)->parameters(['chamado_situacao' => 'chamadoSituacao']);
+)->parameters(['chamado_situacao' => 'chamadoSituacao'])->middleware("auth:api");
 
 
 
@@ -168,7 +168,7 @@ Route::apiResource(
             'index' => 'chamado_sla.index_api', 'show'=>'chamado_sla.show_api'
         ]
     ]
-)->parameters(['chamado_sla' => 'chamadoSLA']);
+)->parameters(['chamado_sla' => 'chamadoSLA'])->middleware("auth:api");
 
 
 
@@ -180,4 +180,4 @@ Route::apiResource(
             'index' => 'chamado_urgencia.index_api', 'show'=>'chamado_urgencia.show_api'
         ]
     ]
-)->parameters(['chamado_urgencia' => 'chamadoUrgencia']);
+)->parameters(['chamado_urgencia' => 'chamadoUrgencia'])->middleware("auth:api");

@@ -8,6 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <meta name="api_token" content="{{ Auth::user() != null ? Auth::user()->api_token : "" }}">
+    
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -37,6 +40,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    @guest
+                    
+                    @else
                         <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
@@ -72,6 +78,7 @@
                             <div class="dropdown-menu">
                             </div>
                         </li>
+                    @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->

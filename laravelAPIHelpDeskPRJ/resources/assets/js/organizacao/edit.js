@@ -26,7 +26,8 @@ function salvar() {
         method: "PUT",
         dataType: "json",
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         },
         data: {
             nome: $("#nome").val(),

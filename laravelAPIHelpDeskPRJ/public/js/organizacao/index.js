@@ -18,7 +18,8 @@ function deletar(id) {
         url: "/api/organizacao/" + id,
         method: "DELETE",
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
         }
     })
         .done(function (data) {
@@ -38,6 +39,9 @@ function gridOrganizacao() {
         "serverSide": true,
         "ajax": {
             "url": '/api/organizacao/',
+            "headers":{
+                'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
+            },
             "data": function (d) {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();
