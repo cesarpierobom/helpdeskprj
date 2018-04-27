@@ -60,7 +60,6 @@ function salvar() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         data: {
-            id: $("#id").val(),
             nome: $("#nome").val(),
             codigo: $("#codigo").val(),
             status: $("#status").val(),
@@ -108,4 +107,3 @@ function salvar() {
         }
     });
 }
-

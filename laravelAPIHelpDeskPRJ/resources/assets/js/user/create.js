@@ -1,7 +1,10 @@
 $(document).ready(userCreateDocumentReady = function () {
 
-    $("#organizacao_id").select2();
+    $("#organizacao_origem").select2();
+    $("#organizacao_visivel").select2();
     $("#status").select2();
+    $("#perfil").select2();
+    
 
     buscarOrganizacoes();
 

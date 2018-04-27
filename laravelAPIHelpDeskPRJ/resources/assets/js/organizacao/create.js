@@ -29,8 +29,8 @@ function salvar() {
         },
         data: {
             nome: $("#nome").val(),
-            nome: $("#razao_social").val(),
-            nome: $("#documento").val(),
+            razao_social: $("#razao_social").val(),
+            documento: $("#documento").val(),
             codigo: $("#codigo").val(),
             status: $("#status").val()
         }
