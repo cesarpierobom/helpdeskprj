@@ -5,6 +5,11 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Interacao;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\interacao\InteracaoCollection;
+use App\Http\Resources\interacao\InteracaoResource;
+use App\Http\Requests\interacao\StoreInteracaoRequest;
+use App\Http\Requests\interacao\ListInteracaoRequest;
+use App\Http\Requests\interacao\UpdateInteracaoRequest;
 
 class InteracaoAPIController extends Controller
 {
@@ -13,19 +18,32 @@ class InteracaoAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ListInteracaoRequest $request)
     {
-        //
-    }
+        $query = (new Interacao)->newQuery();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        if ($request->filled("chamado_id")) {
+            $query->whereIn("chamado_id", $request->input("chamado_id"));
+        }
+
+        if ($request->filled("user_id")) {
+            $query->whereIn("user_id", $request->input("user_id"));
+        }
+
+        if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
+            $columns = $request->input('columns');
+
+            foreach ($request->order as $order) {
+                $query->orderBy($columns[$order['column']]['data'], $order['dir']);
+            }
+        }
+
+        if ($request->filled("length") && $request->filled("start")) {
+            $query->take($request->input("length"));
+            $query->skip($request->input("start"));
+        }
+
+        return new InteracaoCollection($query->get());
     }
 
     /**
@@ -34,9 +52,20 @@ class InteracaoAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInteracaoRequest $request)
     {
-        //
+        $interacao = new Interacao();
+        $interacao->descricao = $request->descricao;
+        $interacao->chamado_id = $request->chamado_id;
+        $interacao->user_id = $request->user_id;
+        $resultado = $interacao->save();
+
+        if ($resultado) {
+            return response()->json(null, 204);
+        } else {
+            return response()->json(["msg"=>"Houve um erro desconhecido no cadastro do registro."], 400);
+        }
+
     }
 
     /**
@@ -47,18 +76,7 @@ class InteracaoAPIController extends Controller
      */
     public function show(Interacao $interacao)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Interacao  $interacao
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Interacao $interacao)
-    {
-        //
+        return new InteracaoResource($interacao);
     }
 
     /**
@@ -68,9 +86,18 @@ class InteracaoAPIController extends Controller
      * @param  \App\Interacao  $interacao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Interacao $interacao)
+    public function update(UpdateInteracaoRequest $request, Interacao $interacao)
     {
-        //
+        $interacao->descricao = $request->descricao;
+        $interacao->chamado_id = $request->chamado_id;
+        $interacao->user_id = $request->user_id;
+        $resultado = $interacao->save();
+
+        if ($resultado) {
+            return response()->json(null, 204);
+        } else {
+            return response()->json(["msg"=>"Houve um erro desconhecido na atualização do registro."], 400);
+        }
     }
 
     /**
@@ -81,6 +108,7 @@ class InteracaoAPIController extends Controller
      */
     public function destroy(Interacao $interacao)
     {
-        //
+        $interacao->delete();
+        return response()->json(null, 204);
     }
 }

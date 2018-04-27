@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\Servico;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ServicoController extends Controller
@@ -15,7 +15,7 @@ class ServicoController extends Controller
      */
     public function index()
     {
-        //
+        return view("servico.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class ServicoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $servico = new Servico();
+        return view("servico.create", ['servico'=>$servico]);
     }
 
     /**
@@ -47,7 +37,7 @@ class ServicoController extends Controller
      */
     public function show(Servico $servico)
     {
-        //
+        return view("servico.show", ['servico'=>$servico]);
     }
 
     /**
@@ -58,29 +48,6 @@ class ServicoController extends Controller
      */
     public function edit(Servico $servico)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Servico  $servico
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Servico $servico)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Servico  $servico
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Servico $servico)
-    {
-        //
+        return view("servico.edit", ['servico'=>$servico]);
     }
 }

@@ -26,14 +26,14 @@ class AddToChamadoTable extends Migration
             $table->bigInteger('chamado_situacao_id')->unsigned();
             $table->foreign('chamado_situacao_id')->references('id')->on('chamado_situacao');
 
-            $table->bigInteger('chamado_prioridade')->unsigned();
-            $table->foreign('chamado_prioridade')->references('id')->on('chamado_prioridade');
+            $table->bigInteger('chamado_prioridade_id')->unsigned();
+            $table->foreign('chamado_prioridade_id')->references('id')->on('chamado_prioridade');
 
-            $table->bigInteger('chamado_feedback')->unsigned()->nullable();
-            $table->foreign('chamado_feedback')->references('id')->on('chamado_feedback');
+            $table->bigInteger('chamado_feedback_id')->unsigned()->nullable();
+            $table->foreign('chamado_feedback_id')->references('id')->on('chamado_feedback');
 
-            $table->bigInteger('chamado_urgencia')->unsigned();
-            $table->foreign('chamado_urgencia')->references('id')->on('chamado_urgencia');
+            $table->bigInteger('chamado_urgencia_id')->unsigned();
+            $table->foreign('chamado_urgencia_id')->references('id')->on('chamado_urgencia');
         });
     }
 
@@ -45,14 +45,14 @@ class AddToChamadoTable extends Migration
     public function down()
     {
         Schema::table('chamado', function (Blueprint $table) {
-            $table->dropForeign("chamado_chamado_urgencia_foreign");
-            $table->dropForeign("chamado_chamado_feedback_foreign");
-            $table->dropForeign("chamado_chamado_prioridade_foreign");
+            $table->dropForeign("chamado_chamado_urgencia_id_foreign");
+            $table->dropForeign("chamado_chamado_feedback_id_foreign");
+            $table->dropForeign("chamado_chamado_prioridade_id_foreign");
             $table->dropForeign("chamado_chamado_situacao_id_foreign");
             $table->dropForeign("chamado_chamado_categoria_id_foreign");
             $table->dropForeign("chamado_servico_id_foreign");
             $table->dropForeign("chamado_departamento_id_foreign");
-            $table->dropColumn(['departamento_id', 'servico_id', 'chamado_categoria_id','chamado_situacao_id','chamado_prioridade','chamado_feedback','chamado_urgencia']);
+            $table->dropColumn(['departamento_id', 'servico_id', 'chamado_categoria_id','chamado_situacao_id','chamado_prioridade_id','chamado_feedback_id','chamado_urgencia_id']);
         });
     }
 }

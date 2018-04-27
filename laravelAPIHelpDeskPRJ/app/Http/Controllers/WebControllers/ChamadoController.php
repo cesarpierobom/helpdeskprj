@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\Chamado;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChamadoController extends Controller
@@ -15,7 +15,7 @@ class ChamadoController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class ChamadoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $chamado = new Chamado();
+        return view("chamado.create", ['chamado'=>$chamado]);
     }
 
     /**
@@ -47,7 +37,7 @@ class ChamadoController extends Controller
      */
     public function show(Chamado $chamado)
     {
-        //
+        return view("chamado.show", ['chamado'=>$chamado]);
     }
 
     /**
@@ -58,29 +48,7 @@ class ChamadoController extends Controller
      */
     public function edit(Chamado $chamado)
     {
-        //
+        return view("chamado.edit", ['chamado'=>$chamado]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Chamado  $chamado
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Chamado $chamado)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Chamado  $chamado
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Chamado $chamado)
-    {
-        //
-    }
 }

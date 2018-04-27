@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\Departamento;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller
@@ -15,7 +15,7 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        //
+        return view("departamento.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class DepartamentoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $departamento = new Departamento();
+        return view("departamento.create", ['departamento'=>$departamento]);
     }
 
     /**
@@ -47,7 +37,7 @@ class DepartamentoController extends Controller
      */
     public function show(Departamento $departamento)
     {
-        //
+        return view("departamento.show", ['departamento'=>$departamento]);
     }
 
     /**
@@ -58,29 +48,6 @@ class DepartamentoController extends Controller
      */
     public function edit(Departamento $departamento)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Departamento  $departamento
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Departamento $departamento)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Departamento  $departamento
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Departamento $departamento)
-    {
-        //
+        return view("departamento.edit", ['departamento'=>$departamento]);
     }
 }

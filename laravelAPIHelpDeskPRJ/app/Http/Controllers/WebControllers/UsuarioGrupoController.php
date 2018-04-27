@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\UsuarioGrupo;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class UsuarioGrupoController extends Controller
@@ -15,7 +15,7 @@ class UsuarioGrupoController extends Controller
      */
     public function index()
     {
-        //
+        return view("usuario_grupo.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class UsuarioGrupoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $usuarioGrupo = new UsuarioGrupo();
+        return view("usuario_grupo.create", ['usuario$usuarioGrupo'=>$usuarioGrupo]);
     }
 
     /**
@@ -47,7 +37,7 @@ class UsuarioGrupoController extends Controller
      */
     public function show(UsuarioGrupo $usuarioGrupo)
     {
-        //
+        return view("usuario_grupo.show", ['usuario$usuarioGrupo'=>$usuarioGrupo]);
     }
 
     /**
@@ -58,29 +48,6 @@ class UsuarioGrupoController extends Controller
      */
     public function edit(UsuarioGrupo $usuarioGrupo)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UsuarioGrupo  $usuarioGrupo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, UsuarioGrupo $usuarioGrupo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\UsuarioGrupo  $usuarioGrupo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(UsuarioGrupo $usuarioGrupo)
-    {
-        //
+        return view("usuario_grupo.edit", ['usuario$usuarioGrupo'=>$usuarioGrupo]);
     }
 }

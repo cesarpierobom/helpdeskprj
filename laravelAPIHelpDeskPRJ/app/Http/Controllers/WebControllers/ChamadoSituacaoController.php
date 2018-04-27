@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\ChamadoSituacao;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChamadoSituacaoController extends Controller
@@ -15,7 +15,7 @@ class ChamadoSituacaoController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado_situacao.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class ChamadoSituacaoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $chamadoSituacao = new ChamadoSituacao();
+        return view("chamado_situacao.create", ['chamadoSituacao'=>$chamadoSituacao]);
     }
 
     /**
@@ -47,7 +37,7 @@ class ChamadoSituacaoController extends Controller
      */
     public function show(ChamadoSituacao $chamadoSituacao)
     {
-        //
+        return view("chamado_situacao.show", ['chamadoSituacao'=>$chamadoSituacao]);
     }
 
     /**
@@ -58,29 +48,6 @@ class ChamadoSituacaoController extends Controller
      */
     public function edit(ChamadoSituacao $chamadoSituacao)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoSituacao  $chamadoSituacao
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ChamadoSituacao $chamadoSituacao)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ChamadoSituacao  $chamadoSituacao
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ChamadoSituacao $chamadoSituacao)
-    {
-        //
+        return view("chamado_situacao.edit", ['chamadoSituacao'=>$chamadoSituacao]);
     }
 }

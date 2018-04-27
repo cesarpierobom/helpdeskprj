@@ -15,7 +15,7 @@ class ChamadoUrgenciaController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado_urgencia.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class ChamadoUrgenciaController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $chamadoUrgencia = new ChamadoUrgencia();
+        return view("chamado_urgencia.create", ['chamadoUrgencia'=>$chamadoUrgencia]);
     }
 
     /**
@@ -47,7 +37,7 @@ class ChamadoUrgenciaController extends Controller
      */
     public function show(ChamadoUrgencia $chamadoUrgencia)
     {
-        //
+        return view("chamado_urgencia.show", ['chamadoUrgencia'=>$chamadoUrgencia]);
     }
 
     /**
@@ -58,29 +48,6 @@ class ChamadoUrgenciaController extends Controller
      */
     public function edit(ChamadoUrgencia $chamadoUrgencia)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoUrgencia  $chamadoUrgencia
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ChamadoUrgencia $chamadoUrgencia)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ChamadoUrgencia  $chamadoUrgencia
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ChamadoUrgencia $chamadoUrgencia)
-    {
-        //
+        return view("chamado_urgencia.edit", ['chamadoUrgencia'=>$chamadoUrgencia]);
     }
 }

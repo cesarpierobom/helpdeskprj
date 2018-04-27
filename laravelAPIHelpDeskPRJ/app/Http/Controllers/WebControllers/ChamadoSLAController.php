@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\ChamadoSLA;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChamadoSLAController extends Controller
@@ -15,7 +15,7 @@ class ChamadoSLAController extends Controller
      */
     public function index()
     {
-        //
+        return view("chamado_sla.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class ChamadoSLAController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $chamadoSLA = new ChamadoSLA();
+        return view("chamado_sla.create", ['chamado_sla'=>$chamadoSLA]);
     }
 
     /**
@@ -47,7 +37,7 @@ class ChamadoSLAController extends Controller
      */
     public function show(ChamadoSLA $chamadoSLA)
     {
-        //
+        return view("chamado_sla.show", ['chamado_sla'=>$chamadoSLA]);
     }
 
     /**
@@ -58,29 +48,6 @@ class ChamadoSLAController extends Controller
      */
     public function edit(ChamadoSLA $chamadoSLA)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ChamadoSLA  $chamadoSLA
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ChamadoSLA $chamadoSLA)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ChamadoSLA  $chamadoSLA
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ChamadoSLA $chamadoSLA)
-    {
-        //
+        return view("chamado_sla.edit", ['chamado_sla'=>$chamadoSLA]);
     }
 }

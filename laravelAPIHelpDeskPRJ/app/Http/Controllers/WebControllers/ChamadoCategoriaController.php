@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\ChamadoCategoria;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ChamadoCategoriaController extends Controller
@@ -37,7 +37,7 @@ class ChamadoCategoriaController extends Controller
      */
     public function show(ChamadoCategoria $chamadoCategoria)
     {
-        return view("chamado_categoria.show", ['categoria'=>$chamadoCategoria]);
+        return view("chamado_categoria.show", ['chamadoCategoria'=>$chamadoCategoria]);
     }
 
     /**

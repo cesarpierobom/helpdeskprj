@@ -25,7 +25,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view("user.create");
+        $user = new User();
+        return view("user.create", ['user'=>$user]);
     }
 
     /**

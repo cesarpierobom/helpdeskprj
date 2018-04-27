@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\WebControllers;
 
 use App\Models\SuporteGrupo;
-use App\Http\Controllers\Controller as Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class SuporteGrupoController extends Controller
@@ -15,7 +15,7 @@ class SuporteGrupoController extends Controller
      */
     public function index()
     {
-        //
+        return view("suporte_grupo.index");
     }
 
     /**
@@ -25,18 +25,8 @@ class SuporteGrupoController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $suporteGrupo = new SuporteGrupo();
+        return view("suporte_grupo.create", ['suporteGrupo'=>$suporteGrupo]);
     }
 
     /**
@@ -47,7 +37,7 @@ class SuporteGrupoController extends Controller
      */
     public function show(SuporteGrupo $suporteGrupo)
     {
-        //
+        return view("suporte_grupo.show", ['suporteGrupo'=>$suporteGrupo]);
     }
 
     /**
@@ -58,29 +48,6 @@ class SuporteGrupoController extends Controller
      */
     public function edit(SuporteGrupo $suporteGrupo)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\SuporteGrupo  $suporteGrupo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SuporteGrupo $suporteGrupo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\SuporteGrupo  $suporteGrupo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SuporteGrupo $suporteGrupo)
-    {
-        //
+        return view("suporte_grupo.edit", ['suporteGrupo'=>$suporteGrupo]);
     }
 }
