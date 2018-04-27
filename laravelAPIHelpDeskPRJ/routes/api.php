@@ -67,7 +67,7 @@ Route::apiResource(
     'APIControllers\ChamadoFeedbackAPIController',
     [
         'names' => [
-            'index' => 'departamento.index_api', 'show'=>'departamento.show_api'
+            'index' => 'chamado_feedback.index_api', 'show'=>'chamado_feedback.show_api'
         ]
     ]
 )->parameters(['chamado_feedback' => 'chamadoFeedback']);
