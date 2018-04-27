@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Interacao;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\interacao\InteracaoCollection;
+use App\Http\Resources\interacao\InteracaoResourceCollection;
 use App\Http\Resources\interacao\InteracaoResource;
 use App\Http\Requests\interacao\StoreInteracaoRequest;
 use App\Http\Requests\interacao\ListInteracaoRequest;
@@ -43,7 +43,7 @@ class InteracaoAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new InteracaoCollection($query->get());
+        return new InteracaoResourceCollection($query->get());
     }
 
     /**

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Servico;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\servico\ServicoCollection;
+use App\Http\Resources\servico\ServicoResourceCollection;
 use App\Http\Resources\servico\ServicoResource;
 use App\Http\Requests\servico\StoreServicoRequest;
 use App\Http\Requests\servico\ListServicoRequest;
@@ -56,7 +56,7 @@ class ServicoAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new ServicoCollection($query->get());
+        return new ServicoResourceCollection($query->get());
     }
 
     /**

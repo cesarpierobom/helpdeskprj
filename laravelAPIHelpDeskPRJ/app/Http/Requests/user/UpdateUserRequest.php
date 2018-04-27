@@ -26,8 +26,8 @@ class UpdateUserRequest extends FormRequest
         return [
             "status" => "required|in:1,0",
             "organizacao_id" => "required|exists:organizacao,id",
-            "password" => "nullable|min:8|confirmed",
-            "password_confirmation" => "nullable",
+            "password" => "min:8|confirmed",
+            "password_confirmation" => "",
             "name" => "required|max:255",
             "last_name" => "required|max:255",
             "email" => "required|max:255|email|unique:user,email",

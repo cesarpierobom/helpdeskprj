@@ -28,7 +28,7 @@ class UpdateChamadoFeedbackRequest extends FormRequest
             "nome" => "required|max:255",
             "codigo" => ["nullable", "max:50", Rule::unique('chamado_feedback')->where(function ($query) {
                 $query->where('organizacao_id', $this->organizacao_id);
-                return $query->where('id', "<>", $this->id);
+                return $query->where('id', "<>", $this->route('chamado_feedback')->id);
             })],
             "status" => ["required", Rule::in(['1', '0'])],
             "organizacao_id" => "required|exists:organizacao,id"

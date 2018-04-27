@@ -4,12 +4,11 @@ $(document).ready(organizacaoIndexReady = function () {
     $("#organizacao_id").select2();
     $("#status").select2();
 
-    buscarOrganizacoes();
     gridOrganizacao();
 
 
     $("#btnBuscar").on("click", function () {
-        gridOrganizacaoChamados.draw();
+        gridOrganizacao.draw();
     });
 
 });
@@ -25,7 +24,7 @@ function deletar(id) {
         .done(function (data) {
             alert("Sucesso!");
 
-            gridOrganizacaoChamados.draw();
+            gridOrganizacao.draw();
         })
         .fail(function (data) {
             alert("Falha!");
@@ -34,11 +33,11 @@ function deletar(id) {
 }
 
 function gridOrganizacao() {
-    gridOrganizacaoChamados = $("#resultado_organizacao").DataTable({
+    gridOrganizacao = $("#resultado_organizacao").DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": '/api/chamado_organizacao/',
+            "url": '/api/organizacao/',
             "data": function (d) {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();

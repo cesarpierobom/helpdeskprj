@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\User;
 
 
-class UserCollection extends ResourceCollection
+class UserResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

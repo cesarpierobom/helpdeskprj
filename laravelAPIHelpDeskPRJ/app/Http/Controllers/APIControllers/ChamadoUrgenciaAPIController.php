@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\ChamadoUrgencia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\chamado_urgencia\ChamadoUrgenciaCollection;
+use App\Http\Resources\chamado_urgencia\ChamadoUrgenciaResourceCollection;
 use App\Http\Resources\chamado_urgencia\ChamadoUrgenciaResource;
 use App\Http\Requests\chamado_urgencia\StoreChamadoUrgenciaRequest;
 use App\Http\Requests\chamado_urgencia\ListChamadoUrgenciaRequest;
@@ -56,7 +56,7 @@ class ChamadoUrgenciaAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new ChamadoUrgenciaCollection($query->get());
+        return new ChamadoUrgenciaResourceCollection($query->get());
     }
 
     /**

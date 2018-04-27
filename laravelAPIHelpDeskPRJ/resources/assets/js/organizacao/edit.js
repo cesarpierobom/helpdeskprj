@@ -9,7 +9,7 @@ $(document).ready(organizacaoCreateDocumentReady = function () {
 
 
 function salvar() {
-    id: $("#id").val(),
+    var id = $("#id").val();
     $("#alert").remove();
     var dismiss = $("<button type='button' data-dismiss='alert' class='close'>×</button>");
     var msg = $("<div class='msg'></div>");

@@ -28,10 +28,10 @@ class UpdateOrganizacaoRequest extends FormRequest
             "nome" => "required|max:255",
             "razao_social" => "nullable|max:255",
             "documento" => ["nullable", "max:255", Rule::unique('organizacao', "documento")->where(function ($query) {
-                return $query->where('id', "<>", $this->id);
+                return $query->where('id', "<>", $this->route('organizacao')->id);
             })],
             "codigo" => ["nullable", "max:50", Rule::unique('organizacao', "codigo")->where(function ($query) {
-                return $query->where('id', "<>", $this->id);
+                return $query->where('id', "<>", $this->route('organizacao')->id);
             })],
             "status" => ["nullable", Rule::in(['1', '0'])]
         ];

@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Resources\user\UserCollection;
+use App\Http\Resources\user\UserResourceCollection;
 use App\Http\Resources\user\UserResource;
 use App\Http\Requests\user\StoreUserRequest;
 use App\Http\Requests\user\ListUserRequest;
@@ -71,7 +71,7 @@ class UserAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new UserCollection($query->get());
+        return new UserResourceCollection($query->get());
     }
 
     /**

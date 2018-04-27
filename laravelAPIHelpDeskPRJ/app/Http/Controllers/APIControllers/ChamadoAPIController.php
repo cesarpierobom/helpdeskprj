@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\Chamado;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\chamado\ChamadoCollection;
+use App\Http\Resources\chamado\ChamadoResourceCollection;
 use App\Http\Resources\chamado\ChamadoResource;
 use App\Http\Requests\chamado\StoreChamadoRequest;
 use App\Http\Requests\chamado\ListChamadoRequest;
@@ -84,7 +84,7 @@ class ChamadoAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new ChamadoCollection($query->get());
+        return new ChamadoResourceCollection($query->get());
     }
 
     /**

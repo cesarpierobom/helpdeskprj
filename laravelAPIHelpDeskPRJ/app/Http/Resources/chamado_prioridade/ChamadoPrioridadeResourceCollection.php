@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\ChamadoPrioridade;
 
 
-class ChamadoPrioridadeCollection extends ResourceCollection
+class ChamadoPrioridadeResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

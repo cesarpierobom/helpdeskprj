@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\ChamadoSituacao;
 
 
-class ChamadoSituacaoCollection extends ResourceCollection
+class ChamadoSituacaoResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

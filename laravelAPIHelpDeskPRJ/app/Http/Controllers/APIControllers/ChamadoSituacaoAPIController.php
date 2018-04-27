@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use App\Models\ChamadoSituacao;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\chamado_situacao\ChamadoSituacaoCollection;
+use App\Http\Resources\chamado_situacao\ChamadoSituacaoResourceCollection;
 use App\Http\Resources\chamado_situacao\ChamadoSituacaoResource;
 use App\Http\Requests\chamado_situacao\StoreChamadoSituacaoRequest;
 use App\Http\Requests\chamado_situacao\ListChamadoSituacaoRequest;
@@ -56,7 +56,7 @@ class ChamadoSituacaoAPIController extends Controller
             $query->skip($request->input("start"));
         }
 
-        return new ChamadoSituacaoCollection($query->get());
+        return new ChamadoSituacaoResourceCollection($query->get());
     }
 
 

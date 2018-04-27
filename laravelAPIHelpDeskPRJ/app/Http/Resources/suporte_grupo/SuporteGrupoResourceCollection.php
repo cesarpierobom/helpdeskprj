@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\SuporteGrupo;
 
 
-class SuporteGrupoCollection extends ResourceCollection
+class SuporteGrupoResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

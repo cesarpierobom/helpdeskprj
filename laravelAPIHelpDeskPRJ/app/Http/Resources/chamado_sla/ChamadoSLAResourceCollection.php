@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\ChamadoSLA;
 
 
-class ChamadoSLACollection extends ResourceCollection
+class ChamadoSLAResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

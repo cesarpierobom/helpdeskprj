@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\Servico;
 
 
-class ServicoCollection extends ResourceCollection
+class ServicoResourceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
