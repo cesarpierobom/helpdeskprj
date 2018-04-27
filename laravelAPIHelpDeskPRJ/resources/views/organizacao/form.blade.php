@@ -1,18 +1,30 @@
 <div class="form-row">
     <div class="form-group col-md-10 offset-md-1">
-        <label for="organizacao_id">Organização</label>
-        <select name="organizacao_id" style="width: 100%" class="form-control" attr_selected="{{$organizacao->organizacao_id}}" id="organizacao_id"></select>
-        <div id="organizacao_id_feedback" class="invalid-feedback"></div>
-    </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-10 offset-md-1">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" maxlength="200" name="nome" id="nome" value="{{$organizacao->nome}}" placeholder="">
         <div id="nome_feedback" class="invalid-feedback"></div>
         
     </div>
 </div>
+
+<div class="form-row">
+    <div class="form-group col-md-10 offset-md-1">
+        <label for="razao_social">Razão Social</label>
+        <input type="text" class="form-control" maxlength="200" name="razao_social" id="razao_social" value="{{$organizacao->razao_social}}" placeholder="">
+        <div id="razao_social_feedback" class="invalid-feedback"></div>
+        
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-10 offset-md-1">
+        <label for="documento">Documento/CNPJ</label>
+        <input type="text" class="form-control" maxlength="200" name="documento" id="documento" value="{{$organizacao->documento}}" placeholder="">
+        <div id="documento_feedback" class="invalid-feedback"></div>
+        
+    </div>
+</div>
+
 <div class="form-row">
     <div class="form-group col-md-10 offset-md-1">
         <label for="codigo">Código</label>

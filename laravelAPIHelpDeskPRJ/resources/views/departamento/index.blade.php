@@ -6,8 +6,8 @@
         <div class="col-md-10 ">
             <div class="card card-default">
                 <div class="card-header text-center">
-                    Departamentos
-                    <a class="btn btn-sm btn-success float-right" href="{{route('departamentos.create')}}">Cadastrar</a>
+                    Departamento
+                    <a class="btn btn-sm btn-success float-right" href="{{route('departamento.create')}}">Cadastrar</a>
                 </div>
                 <div class="card-body">
                     <div class="row">

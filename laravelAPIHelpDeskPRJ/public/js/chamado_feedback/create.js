@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(chamadoFeedbackCreateDocumentReady = function () {
 
     $("#organizacao_id").select2();
     $("#status").select2();
@@ -9,7 +9,6 @@ $(document).ready(function () {
         salvar();
     });
 });
-
 
 function buscarOrganizacoes() {
     $.ajax({
@@ -33,6 +32,7 @@ function buscarOrganizacoes() {
             $.each(json.data, function (index, el) {
                 $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
             });
+
         })
         .fail(function (data) {
             alert("ERRO: " + data);
@@ -40,9 +40,21 @@ function buscarOrganizacoes() {
 }
 
 function salvar() {
+    $("#alert").remove();
+    var dismiss = $("<button type='button' data-dismiss='alert' class='close'>×</button>");
+    var msg = $("<div class='msg'></div>");
+    var dialog = $("<div class='alert fade in d-none' id='alert'></div>");
+
+    $(dialog).append(dismiss);
+    $(dialog).append(msg);
+    $("#formCadastrarFeedbackChamado").prepend(dialog);
+
+    $(".is-invalid").removeClass(".is-invalid");
+    $(".invalid-feedback").html("");
     $.ajax({
         url: "/api/chamado_feedback/",
         method: "POST",
+        dataType: "json",
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -54,10 +66,41 @@ function salvar() {
         }
     })
         .done(function (data) {
-            alert("Sucesso!");
+            console.log(data);
+
+            $(msg).html("Sucesso!");
+            $(dialog).alert();
+            $(dialog).addClass("alert-success");
+            $(dialog).removeClass("d-none");
+            setTimeout(function () {
+                $(dialog).addClass("show");
+            }, 200);
             window.location.href = "/chamado_feedback";
         })
         .fail(function (data) {
-            alert("Falha!");
+            console.log(data);
+            if (data.status == 422) {
+                $.each(data.responseJSON.errors, function (key, value) {
+                    $("#" + key).addClass("is-invalid");
+                    $("#" + key + "_feedback").html(value);
+                });
+                $(msg).html(data.responseJSON.message);
+                $(dialog).alert();
+                $(dialog).addClass("alert-danger");
+                $(dialog).removeClass("d-none");
+
+                setTimeout(function () {
+                    $(dialog).addClass("show");
+                }, 200);
+            } else {
+                $(msg).html(data.responseJSON.message);
+                $(dialog).alert();
+                $(dialog).addClass("alert-danger");
+                $(dialog).removeClass("d-none");
+
+                setTimeout(function () {
+                    $(dialog).addClass("show");
+                }, 200);
+            }
         });
 }
