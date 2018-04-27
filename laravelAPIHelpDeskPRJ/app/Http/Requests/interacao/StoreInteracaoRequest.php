@@ -13,7 +13,7 @@ class StoreInteracaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreInteracaoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "chamado_id" => "required|exists:chamado,id",
+            "user_id" => "required|exists:user,id",
+            "descricao" => "required"
         ];
     }
 }

@@ -26,6 +26,8 @@ class StoreUserRequest extends FormRequest
         return [
             "status" => "required|in:1,0",
             "organizacao_id" => "required|exists:organizacao,id",
+            "password" => "min:8|confirmed",
+            "password_confirmation" => "",
             "name" => "required|max:255",
             "last_name" => "required|max:255",
             "email" => "required|max:255|email",

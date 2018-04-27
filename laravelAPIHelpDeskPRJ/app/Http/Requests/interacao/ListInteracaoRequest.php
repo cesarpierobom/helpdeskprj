@@ -13,7 +13,7 @@ class ListInteracaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class ListInteracaoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "chamado_id" => "nullable|exists:chamado,id",
+            "user_id" => "nullable|exists:user,id"
         ];
     }
 }

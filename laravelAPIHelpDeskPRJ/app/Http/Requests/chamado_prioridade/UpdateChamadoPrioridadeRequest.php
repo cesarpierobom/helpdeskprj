@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_prioridade;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateChamadoPrioridadeRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateChamadoPrioridadeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,12 @@ class UpdateChamadoPrioridadeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "nome" => "required|max:255",
+            "codigo" => ["nullable", "max:50", Rule::unique('chamado_prioridade')->where(function ($query) {
+                return $query->where('organizacao_id', $this->organizacao_id);
+            })],
+            "status" => ["required", Rule::in(['1', '0'])],
+            "organizacao_id" => "required|exists:organizacao,id"
         ];
     }
 }
