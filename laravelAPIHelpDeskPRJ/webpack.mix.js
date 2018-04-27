@@ -128,16 +128,16 @@ mix.scripts([
  * CHAMADO SLA
  */
 mix.scripts([
-    'resources/assets/js/chamado_sla/create.js'
-], 'public/js/chamado_sla/create.js');
+    'resources/assets/js/user/create.js'
+], 'public/js/user/create.js');
 
 mix.scripts([
-    'resources/assets/js/chamado_sla/index.js'
-], 'public/js/chamado_sla/index.js');
+    'resources/assets/js/user/index.js'
+], 'public/js/user/index.js');
 
 mix.scripts([
-    'resources/assets/js/chamado_sla/edit.js'
-], 'public/js/chamado_sla/edit.js');
+    'resources/assets/js/user/edit.js'
+], 'public/js/user/edit.js');
 
 
 
@@ -147,7 +147,17 @@ mix.scripts([
  * 
  * CHAMADO URGENCIA
  */
+mix.scripts([
+    'resources/assets/js/chamado_urgencia/create.js'
+], 'public/js/chamado_urgencia/create.js');
 
+mix.scripts([
+    'resources/assets/js/chamado_urgencia/index.js'
+], 'public/js/chamado_urgencia/index.js');
+
+mix.scripts([
+    'resources/assets/js/chamado_urgencia/edit.js'
+], 'public/js/chamado_urgencia/edit.js');
 
 
 
@@ -155,7 +165,17 @@ mix.scripts([
  * 
  * DEPARTAMENTO
  */
+mix.scripts([
+    'resources/assets/js/departamento/create.js'
+], 'public/js/departamento/create.js');
 
+mix.scripts([
+    'resources/assets/js/departamento/index.js'
+], 'public/js/departamento/index.js');
+
+mix.scripts([
+    'resources/assets/js/departamento/edit.js'
+], 'public/js/departamento/edit.js');
 
 
 
@@ -173,7 +193,17 @@ mix.scripts([
  * 
  * SERVICO
  */
+mix.scripts([
+    'resources/assets/js/servico/create.js'
+], 'public/js/servico/create.js');
 
+mix.scripts([
+    'resources/assets/js/servico/index.js'
+], 'public/js/servico/index.js');
+
+mix.scripts([
+    'resources/assets/js/servico/edit.js'
+], 'public/js/servico/edit.js');
 
 
 
@@ -181,7 +211,17 @@ mix.scripts([
  * 
  * SUPORTE GRUPO
  */
+mix.scripts([
+    'resources/assets/js/suporte_grupo/create.js'
+], 'public/js/suporte_grupo/create.js');
 
+mix.scripts([
+    'resources/assets/js/suporte_grupo/index.js'
+], 'public/js/suporte_grupo/index.js');
+
+mix.scripts([
+    'resources/assets/js/suporte_grupo/edit.js'
+], 'public/js/suporte_grupo/edit.js');
 
 
 
@@ -189,7 +229,17 @@ mix.scripts([
  * 
  * USUARIO GRUPO
  */
+mix.scripts([
+    'resources/assets/js/usuario_grupo/create.js'
+], 'public/js/usuario_grupo/create.js');
 
+mix.scripts([
+    'resources/assets/js/usuario_grupo/index.js'
+], 'public/js/usuario_grupo/index.js');
+
+mix.scripts([
+    'resources/assets/js/usuario_grupo/edit.js'
+], 'public/js/usuario_grupo/edit.js');
 
 
 
@@ -198,7 +248,17 @@ mix.scripts([
  * 
  * USUARIO
  */
+mix.scripts([
+    'resources/assets/js/user/create.js'
+], 'public/js/user/create.js');
 
+mix.scripts([
+    'resources/assets/js/user/index.js'
+], 'public/js/user/index.js');
+
+mix.scripts([
+    'resources/assets/js/user/edit.js'
+], 'public/js/user/edit.js');
 
 
 

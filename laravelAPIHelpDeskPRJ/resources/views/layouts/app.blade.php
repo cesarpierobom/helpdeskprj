@@ -37,7 +37,41 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
+                                Chamados
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('chamado.index') }}">Pesquisar</a>
+                                <a class="dropdown-item" href="{{ route('chamado.create') }}">Novo Chamado</a>
+                                <a class="dropdown-item" href="{{ route('chamado.index') }}">Watching</a>
+                                <a class="dropdown-item" href="{{ route('chamado.index') }}">Pool</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
+                                Administração
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('organizacao.index') }}">Organizações</a>
+                                <a class="dropdown-item" href="{{ route('departamento.index') }}">Departamentos</a>
+                                <a class="dropdown-item" href="{{ route('chamado_categoria.index') }}">Categorias</a>
+                                <a class="dropdown-item" href="{{ route('chamado_feedback.index') }}">Feedback</a>
+                                <a class="dropdown-item" href="{{ route('chamado_prioridade.index') }}">Prioridades</a>
+                                <a class="dropdown-item" href="{{ route('chamado_urgencia.index') }}">Urgências</a>
+                                <a class="dropdown-item" href="{{ route('chamado_situacao.index') }}">Situações</a>
+                                <a class="dropdown-item" href="{{ route('chamado_sla.index') }}">SLA</a>
+                                <a class="dropdown-item" href="{{ route('servico.index') }}">Serviços</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
+                                Relatorios
+                            </a>
+                            <div class="dropdown-menu">
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

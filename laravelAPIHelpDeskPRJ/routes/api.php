@@ -174,7 +174,7 @@ Route::apiResource(
 
 Route::apiResource(
     'chamado_urgencia',
-    'APIControllers\chamadoUrgenciaAPIController',
+    'APIControllers\ChamadoUrgenciaAPIController',
     [
         'names' => [
             'index' => 'chamado_urgencia.index_api', 'show'=>'chamado_urgencia.show_api'
