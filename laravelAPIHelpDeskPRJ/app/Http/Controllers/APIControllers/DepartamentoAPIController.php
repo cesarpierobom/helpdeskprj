@@ -22,6 +22,8 @@ class DepartamentoAPIController extends Controller
     {
         $query = (new Departamento)->newQuery();
 
+        $query->with("organizacao");
+
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }
@@ -55,7 +57,6 @@ class DepartamentoAPIController extends Controller
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
-
         return new DepartamentoResourceCollection($query->get());
     }
 

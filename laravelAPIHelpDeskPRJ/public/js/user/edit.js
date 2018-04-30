@@ -17,9 +17,7 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             status: [1]
         },
@@ -58,9 +56,7 @@ function salvar() {
         url: "/api/user/"+id,
         method: "PUT",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             name: $("#name").val(),
             last_name: $("#last_name").val(),

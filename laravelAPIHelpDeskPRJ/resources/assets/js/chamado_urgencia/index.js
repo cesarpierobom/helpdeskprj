@@ -18,9 +18,7 @@ function deletar(id) {
     $.ajax({
         url: "/api/chamado_urgencia/" + id,
         method: "DELETE",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+        headers: window.axios.defaults.headers.common,
     })
         .done(function (data) {
             alert("Sucesso!");
@@ -38,9 +36,7 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             status: [1]
         },

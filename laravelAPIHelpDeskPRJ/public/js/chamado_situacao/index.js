@@ -18,10 +18,7 @@ function deletar(id) {
     $.ajax({
         url: "/api/chamado_situacao/" + id,
         method: "DELETE",
-        "headers": {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-        },
+        headers: window.axios.defaults.headers.common,
     })
         .done(function (data) {
             alert("Sucesso!");
@@ -39,15 +36,11 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        "headers": {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             status: [1]
         },
         beforeSend: function () {
-            ategorias
             $("#organizacao_id").after("<div class='load_org spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },
         complete: function () {
@@ -76,10 +69,7 @@ function gridSituacao() {
                 d.status = $("#status").val();
                 d.organizacao_id = $("#organizacao_id").val();
             },
-            "headers": {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-            },
+            headers: window.axios.defaults.headers.common,
             "dataSrc": function (json) {
 
                 var return_data = [];

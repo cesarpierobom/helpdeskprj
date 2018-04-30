@@ -18,9 +18,7 @@ function deletar(id) {
     $.ajax({
         url: "/api/usuario_grupo/" + id,
         method: "DELETE",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+        headers: window.axios.defaults.headers.common,
     })
         .done(function (data) {
             alert("Sucesso!");
@@ -38,9 +36,7 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             status: [1]
         },
@@ -67,6 +63,7 @@ function gridUsuarioGrupo() {
         "serverSide": true,
         "ajax": {
             "url": '/api/usuario_grupo/',
+            headers: window.axios.defaults.headers.common,
             "data": function (d) {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();

@@ -25,10 +25,7 @@ function salvar() {
         url: "/api/organizacao/"+id,
         method: "PUT",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             nome: $("#nome").val(),
             razao_social: $("#razao_social").val(),

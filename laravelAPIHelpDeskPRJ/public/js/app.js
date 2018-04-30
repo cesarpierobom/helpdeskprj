@@ -14342,8 +14342,6 @@ var app = new Vue({
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// import 'datatables.net-dt/css/jquery.datatables.css';
-
 window._ = __webpack_require__(16);
 window.Popper = __webpack_require__(4).default;
 
@@ -14354,12 +14352,12 @@ window.Popper = __webpack_require__(4).default;
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(2);
-  window.dt = window.datatable = __webpack_require__(18);
-  __webpack_require__(19);
-  __webpack_require__(28);
-  __webpack_require__(29);
-  __webpack_require__(30);
+    window.$ = window.jQuery = __webpack_require__(2);
+    window.dt = window.datatable = __webpack_require__(18);
+    __webpack_require__(19);
+    __webpack_require__(28);
+    __webpack_require__(29);
+    __webpack_require__(30);
 } catch (e) {}
 
 /**
@@ -14380,10 +14378,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
+var api_token = document.head.querySelector('meta[name="api_token"]');
+
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+
+if (api_token) {
+    window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token.content;
+} else {
+    console.error('api token not found.');
 }
 
 /**
@@ -68961,7 +68967,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
+Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -68970,9 +68976,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
+    hotAPI.createRecord("data-v-0ca92eac", Component.options)
   } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
+    hotAPI.reload("data-v-0ca92eac", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -69159,7 +69165,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
   }
 }
 

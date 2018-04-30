@@ -262,4 +262,4 @@ mix.scripts([
 
 
 
-mix.browserSync();
+mix.browserSync("homestead.localdev");

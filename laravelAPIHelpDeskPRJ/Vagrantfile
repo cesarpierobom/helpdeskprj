@@ -27,7 +27,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provider "virtualbox" do |vb|
         vb.gui = true
         vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
+        
     end
+
+    config.vm.boot_timeout = 600
 
     if File.exist? homesteadYamlPath then
         settings = YAML::load(File.read(homesteadYamlPath))

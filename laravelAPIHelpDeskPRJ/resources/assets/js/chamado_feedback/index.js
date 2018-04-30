@@ -18,10 +18,7 @@ function deletar(id) {
     $.ajax({
         url: "/api/chamado_feedback/" + id,
         method: "DELETE",
-        "headers": {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-        },
+        headers: window.axios.defaults.headers.common,
     })
         .done(function (data) {
             alert("Sucesso!");
@@ -39,10 +36,7 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        "headers": {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-            'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             status: [1]
         },
@@ -69,10 +63,7 @@ function gridFeedback() {
         "serverSide": true,
         "ajax": {
             "url": '/api/chamado_feedback/',
-            "headers": {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                'Authorization': 'Bearer ' + $('meta[name="api_token"]').attr('content'),
-            },
+            headers: window.axios.defaults.headers.common,
             "data": function (d) {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();

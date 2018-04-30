@@ -18,9 +18,7 @@ function deletar(id) {
     $.ajax({
         url: "/api/departamento/" + id,
         method: "DELETE",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+        headers: window.axios.defaults.headers.common,
     })
         .done(function (data) {
             alert("Sucesso!");
@@ -38,9 +36,7 @@ function buscarOrganizacoes() {
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+        headers: window.axios.defaults.headers.common,
         data: {
             status: [1]
         },
@@ -67,6 +63,7 @@ function gridDepartamento() {
         "serverSide": true,
         "ajax": {
             "url": '/api/departamento/',
+            headers: window.axios.defaults.headers.common,
             "data": function (d) {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();
@@ -90,6 +87,7 @@ function gridDepartamento() {
                         'id': json.data[i].id,
                         'nome': json.data[i].nome,
                         'codigo': json.data[i].codigo,
+                        'organizacao': json.data[i].organizacao.nome,
                         'status': status,
                         'opcoes': buttonEdit + buttonDelete,
                     });
@@ -99,6 +97,7 @@ function gridDepartamento() {
         },
         "columns": [
             { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
+            { "title": "ORGANIZACAO", "className": "dt-center", "name": "organizacao", "data": "organizacao" },
             { "title": "NOME", "className": "dt-center", "name": "nome", "data": "nome" },
             { "title": "CODIGO", "className": "dt-center", "name": "codigo", "data": "codigo" },
             { "title": "ATIVO", "className": "dt-center", "name": "status", "data": "status" },
