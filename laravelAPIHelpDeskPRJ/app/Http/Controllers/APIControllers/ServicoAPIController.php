@@ -21,6 +21,7 @@ class ServicoAPIController extends Controller
     public function index(ListServicoRequest $request)
     {
         $query = (new Servico)->newQuery();
+        $query->with("organizacao");
 
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");

@@ -15,7 +15,7 @@
 </div>
 
 <div class="form-row">
-    <div class="form-group col-md-5 ">
+    <div class="form-group col-md-5 offset-md-1">
         <label for="name">Nome</label>
         <input type="text" class="form-control" maxlength="200" name="name" id="name" value="{{$user->name}}" placeholder="">
         <div id="name_feedback" class="invalid-feedback"></div>
@@ -28,7 +28,7 @@
 </div>
 
 <div class="form-row">
-    <div class="form-group col-md-5 ">
+    <div class="form-group col-md-5 offset-md-1">
         <label for="sexo">Sexo Biológico</label>
         <input type="radio" @if($user->sexo == '1') checked='checked' @endif name="sexo" id="m"> Masculino
         <input type="radio" @if($user->sexo == '2') checked='checked' @endif name="sexo" id="f"> Feminino
@@ -45,7 +45,7 @@
 </div>
 
 <div class="form-row">
-    <div class="form-group col-md-5 ">
+    <div class="form-group col-md-5 offset-md-1">
         <label for="login">Login</label>
         <input type="text" class="form-control" maxlength="200" name="login" id="login" value="{{$user->login}}" placeholder="">
         <div id="login_feedback" class="invalid-feedback"></div>
@@ -59,7 +59,7 @@
 </div>
 
 <div class="form-row">
-    <div class="form-group col-md-5 ">
+    <div class="form-group col-md-5 offset-md-1">
         <label for="password">Senha</label>
         <input type="password" class="form-control" maxlength="50" name="password" id="password" value="" placeholder="">
         <div id="password_feedback" class="invalid-feedback"></div>

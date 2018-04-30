@@ -21,7 +21,8 @@ class ChamadoFeedbackAPIController extends Controller
     public function index(ListChamadoFeedbackRequest $request)
     {
         $query = (new ChamadoFeedback)->newQuery();
-
+        $query->with("organizacao");
+        
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }

@@ -98,7 +98,7 @@ function gridDepartamento() {
         "columns": [
             { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
             { "title": "ORGANIZACAO", "className": "dt-center", "name": "organizacao", "data": "organizacao" },
-            { "title": "NOME", "className": "dt-center", "name": "nome", "data": "nome" },
+            { "title": "DEPARTAMENTO", "className": "dt-center", "name": "nome", "data": "nome" },
             { "title": "CODIGO", "className": "dt-center", "name": "codigo", "data": "codigo" },
             { "title": "ATIVO", "className": "dt-center", "name": "status", "data": "status" },
             { "title": "OPÇÕES", "className": "dt-center", "name": "opcoes", "data": "opcoes", "sortable": false },

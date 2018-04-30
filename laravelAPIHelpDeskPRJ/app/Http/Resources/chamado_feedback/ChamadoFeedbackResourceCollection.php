@@ -3,6 +3,7 @@
 namespace App\Http\Resources\chamado_feedback;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\organizacao\OrganizacaoResource;
 use App\Models\ChamadoFeedback;
 
 
@@ -23,6 +24,7 @@ class ChamadoFeedbackResourceCollection extends ResourceCollection
                     "nome" => $feedback->nome,
                     "codigo" => $feedback->codigo,
                     "status" => $feedback->status,
+                    "organizacao" => new OrganizacaoResource($feedback->whenLoaded('organizacao')),
                     "links"   => [
                         "self"  =>  route("chamado_feedback.show_api", $feedback->id),
                         "self-form" =>  route("chamado_feedback.edit", $feedback->id),

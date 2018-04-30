@@ -3,6 +3,7 @@
 namespace App\Http\Resources\chamado_situacao;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\organizacao\OrganizacaoResource;
 use App\Models\ChamadoSituacao;
 
 
@@ -23,6 +24,7 @@ class ChamadoSituacaoResourceCollection extends ResourceCollection
                     "nome" => $situacao->nome,
                     "codigo" => $situacao->codigo,
                     "status" => $situacao->status,
+                    "organizacao" => new OrganizacaoResource($situacao->whenLoaded('organizacao')),
                     "links"   => [
                         "self"  =>  route("chamado_situacao.show_api", $situacao->id),
                         "self-form" =>  route("chamado_situacao.edit", $situacao->id),

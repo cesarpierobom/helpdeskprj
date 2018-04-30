@@ -49,8 +49,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Chamado');
     }
 
-    public function organizacao()
+    public function organizacao_origem()
     {
         return $this->belongsTo('App\Models\Organizacao');
+    }
+
+    public function organizacao_visivel()
+    {
+        return $this->belongsToMany('App\Models\Organizacao','organizacao_usuario','user_id','organizacao_id');
     }
 }

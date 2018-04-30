@@ -21,6 +21,7 @@ class ChamadoSituacaoAPIController extends Controller
     public function index(ListChamadoSituacaoRequest $request)
     {
         $query = (new ChamadoSituacao)->newQuery();
+        $query->with("organizacao");
 
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");

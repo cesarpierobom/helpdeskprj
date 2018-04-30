@@ -4,7 +4,7 @@ namespace App\Http\Resources\organizacao;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use App\Models\Organizacao;
-
+use App\Http\Resources\organizacao\OrganizacaoResource;
 
 class OrganizacaoCollection extends ResourceCollection
 {
@@ -16,19 +16,8 @@ class OrganizacaoCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return [
-            "data" => $this->collection->transform( function($organizacao) {
-                return [
-                    "id" => $organizacao->id,
-                    "nome" => $organizacao->nome,
-                    "codigo" => $organizacao->codigo,
-                    "status" => $organizacao->status,
-                    "links"   => [
-                        "self"  =>  route("organizacao.show_api", $organizacao->id),
-                        "self-form" =>  route("organizacao.edit", $organizacao->id),
-                    ],
-                ];
-            }),
+        return[
+            "data" => OrganizacaoResource::collection($this)
         ];
     }
 

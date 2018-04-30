@@ -8,7 +8,7 @@
                 <div class="card-header text-center">Cadastrar Usuario</div>
                 <div class="card-body">
                     <form id="formCadastrarUsuario" accept-charset="utf-8">
-                        @include('usuario/form')
+                        @include('user/form')
 
                         <div class="form-row">
                             <button type="button" id="btnSalvar" class="btn btn-success col-md-4">Salvar</button>

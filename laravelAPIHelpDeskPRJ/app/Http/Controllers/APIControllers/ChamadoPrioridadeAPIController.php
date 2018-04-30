@@ -20,8 +20,9 @@ class ChamadoPrioridadeAPIController extends Controller
      */
     public function index(ListChamadoCategoriaRequest $request)
     {
-         $query = (new ChamadoPrioridade)->newQuery();
-
+        $query = (new ChamadoPrioridade)->newQuery();
+        $query->with("organizacao");
+        
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }

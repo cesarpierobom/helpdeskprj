@@ -3,6 +3,8 @@
 namespace App\Http\Resources\servico;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\organizacao\OrganizacaoResource;
+use App\Http\Resources\servico\ServicoResource;
 use App\Models\Servico;
 
 
@@ -17,18 +19,7 @@ class ServicoResourceCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            "data" => $this->collection->transform( function($servico) {
-                return [
-                    "id" => $servico->id,
-                    "nome" => $servico->nome,
-                    "codigo" => $servico->codigo,
-                    "status" => $servico->status,
-                    "links"   => [
-                        "self"  =>  route("servico.show_api", $servico->id),
-                        "self-form" =>  route("servico.edit", $servico->id),
-                    ],
-                ];
-            }),
+            "data" => ServicoResource::collection($this)
         ];
     }
 

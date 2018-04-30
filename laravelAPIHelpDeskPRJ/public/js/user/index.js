@@ -1,30 +1,28 @@
-var gridUsers;
+var gridUser;
 
-$(document).ready(usersIndexReady = function () {
-    $("#organizacao_visivel").select2();
-    $("#organizacao_origem").select2();
+$(document).ready(userIndexReady = function () {
+    $("#organizacao_id").select2();
     $("#status").select2();
-    $("#perfil").select2();
-    
+
     buscarOrganizacoes();
-    gridUsers();
+    gridUser();
 
     $("#btnBuscar").on("click", function () {
-        gridUsers.draw();
+        gridUser.draw();
     });
 
 });
 
 function deletar(id) {
     $.ajax({
-        url: "/api/users/" + id,
+        url: "/api/user/" + id,
         method: "DELETE",
         headers: window.axios.defaults.headers.common,
     })
         .done(function (data) {
             alert("Sucesso!");
 
-            gridUsers.draw();
+            gridUser.draw();
         })
         .fail(function (data) {
             alert("Falha!");
@@ -58,16 +56,17 @@ function buscarOrganizacoes() {
         });
 }
 
-function gridUsers() {
-    gridUsers = $("#resultado_users").DataTable({
+function gridUser() {
+    gridUser = $("#resultado_usuario").DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": '/api/users/',
+            "url": '/api/user/',
             headers: window.axios.defaults.headers.common,
             "data": function (d) {
                 d.nome = $("#nome").val();
-                d.codigo = $("#codigo").val();
+                d.login = $("#login").val();
+                d.email = $("#email").val();
                 d.status = $("#status").val();
                 d.organizacao_id = $("#organizacao_id").val();
             },
@@ -86,21 +85,43 @@ function gridUsers() {
 
                     return_data.push({
                         'id': json.data[i].id,
-                        'nome': json.data[i].nome,
-                        'codigo': json.data[i].codigo,
+                        'name': json.data[i].name,
+                        'last_name': json.data[i].last_name,
+                        'email': json.data[i].email,
+                        'login': json.data[i].login,
                         'status': status,
                         'opcoes': buttonEdit + buttonDelete,
                     });
+
+                    
+                    if (json.data[i].organizacao_origem != null && json.data[i].organizacao_origem.hasOwnProperty('nome')) {
+                        return_data[i]['organizacao_origem'] = json.data[i].organizacao_origem.nome;
+                    }else{
+                        return_data[i]['organizacao_origem'] = "";
+                    }
+                    
+                    return_data[i]['organizacao_visivel'] = "";
+
+                    if (json.data[i].organizacao_visivel != null && json.data[i].organizacao_visivel[0].hasOwnProperty('nome')) {
+                        json.data[i].organizacao_visivel.forEach(element => {
+                            return_data[i]['organizacao_visivel'] += " "+element.nome;
+                        });
+                    }
+
                 }
                 return return_data;
             },
         },
         "columns": [
             { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
-            { "title": "NOME", "className": "dt-center", "name": "nome", "data": "nome" },
-            { "title": "CODIGO", "className": "dt-center", "name": "codigo", "data": "codigo" },
-            { "title": "ATIVO", "className": "dt-center", "name": "status", "data": "status" },
             { "title": "OPÇÕES", "className": "dt-center", "name": "opcoes", "data": "opcoes", "sortable": false },
+            { "title": "NOME", "className": "dt-center", "name": "name", "data": "name" },
+            { "title": "SOBRENOME", "className": "dt-center", "name": "last_name", "data": "last_name" },
+            { "title": "LOGIN", "className": "dt-center", "name": "login", "data": "login" },
+            { "title": "EMAIL", "className": "dt-center", "name": "email", "data": "email" },
+            { "title": "ORGANIZACAO DE ORIGEM", "className": "dt-center", "name": "organizacao_origem", "data": "organizacao_origem" },
+            { "title": "ORGANIZACOES VISIVEIS", "className": "dt-center", "name": "organizacao_visivel", "data": "organizacao_visivel" },
+            { "title": "ATIVO", "className": "dt-center", "name": "status", "data": "status" },
         ],
     });
 }

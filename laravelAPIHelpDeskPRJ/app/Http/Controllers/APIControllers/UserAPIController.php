@@ -22,7 +22,8 @@ class UserAPIController extends Controller
     public function index(ListUserRequest $request)
     {
         $query = (new User)->newQuery();
-
+        $query->with(["organizacao_origem","organizacao_visivel"]);
+        
         if ($request->filled("name")) {
             $query->where("name", "like", "%" . $request->input("name") . "%");
         }
@@ -70,7 +71,6 @@ class UserAPIController extends Controller
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
-
         return new UserResourceCollection($query->get());
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\chamado_prioridade;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\organizacao\OrganizacaoResource;
 use App\Models\ChamadoPrioridade;
 
 
@@ -23,6 +24,7 @@ class ChamadoPrioridadeResourceCollection extends ResourceCollection
                     "nome" => $prioridade->nome,
                     "codigo" => $prioridade->codigo,
                     "status" => $prioridade->status,
+                    "organizacao" => new OrganizacaoResource($prioridade->whenLoaded('organizacao')),
                     "links"   => [
                         "self"  =>  route("chamado_prioridade.show_api", $prioridade->id),
                         "self-form" =>  route("chamado_prioridade.edit", $prioridade->id),

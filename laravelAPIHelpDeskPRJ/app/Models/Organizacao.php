@@ -72,8 +72,13 @@ class Organizacao extends Model
         return $this->hasMany('App\Models\SuporteGrupo');
     }
     
-    public function usuarios()
+    public function users()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->hasMany('App\User');
+    }
+
+    public function usuario_visivel()
+    {
+        return $this->belongsToMany('App\User','organizacao_usuario','organizacao_id','user_id');
     }
 }

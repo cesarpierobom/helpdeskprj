@@ -21,7 +21,8 @@ class ChamadoUrgenciaAPIController extends Controller
     public function index(ListChamadoUrgenciaRequest $request)
     {
         $query = (new ChamadoUrgencia)->newQuery();
-
+        $query->with("organizacao");
+        
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
         }
