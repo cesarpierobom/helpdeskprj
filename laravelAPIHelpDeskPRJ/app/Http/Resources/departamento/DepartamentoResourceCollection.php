@@ -23,7 +23,6 @@ class DepartamentoResourceCollection extends ResourceCollection
                     "nome" => $departamento->nome,
                     "codigo" => $departamento->codigo,
                     "status" => $departamento->status,
-                    dd($departamento->whenLoaded('organizacao')),
                     "organizacao" => new OrganizacaoResource($departamento->whenLoaded('organizacao')),
                     "links"   => [
                         "self"  =>  route("departamento.show_api", $departamento->id),

@@ -47,8 +47,11 @@
 
                     <div class="row" style="margin-top: 5%">
                         <div class="col-md-12">
-                            <table id="resultado_usuario_grupo" class="table table-responsive-sm table-responsive-md table-responsive-lg">
-                            </table>
+                            <div class="table-responsive">
+                                <table id="resultado_usuario_grupo" class="table">
+                                
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
