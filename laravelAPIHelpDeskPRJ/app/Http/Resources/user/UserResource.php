@@ -4,6 +4,7 @@ namespace App\Http\Resources\user;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\organizacao\OrganizacaoResource;
+use App\Http\Resources\user\UserResource;
 
 class UserResource extends JsonResource
 {
@@ -25,14 +26,18 @@ class UserResource extends JsonResource
             "data_nascimento" => $this->data_nascimento,
             "sexo" => $this->sexo,
             "status" => $this->status,
-            "remember_token" => $this->remember_token,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
             "deleted_at" => $this->deleted_at,
-            "api_token" => $this->api_token,
+            "create_user_id" => $this->create_user,
+            "update_user_id" => $this->update_user,
+            "delete_user_id" => $this->delete_user,
             "organizacao_id" => $this->organizacao_id,
             "organizacao_origem" => new OrganizacaoResource($this->whenLoaded('organizacao_origem')),
             "organizacao_visivel" => OrganizacaoResource::collection($this->whenLoaded('organizacao_visivel')),
+            "create_user" => new UserResource($this->whenLoaded("usuario_criacao")),
+            "update_user" => new UserResource($this->whenLoaded("usuario_update")),
+            "delete_user" => new UserResource($this->whenLoaded("usuario_delete")),
             "links" => $this->when($this->id != null, function () {
                 return [
                     "self"  =>  route("user.show_api", $this->id),

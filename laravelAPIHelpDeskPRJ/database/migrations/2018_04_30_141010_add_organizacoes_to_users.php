@@ -28,6 +28,7 @@ class AddOrganizacoesToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign("users_organizacao_id_foreign");
+            $table->dropColumn('organizacao_id');
         });
     }
 }

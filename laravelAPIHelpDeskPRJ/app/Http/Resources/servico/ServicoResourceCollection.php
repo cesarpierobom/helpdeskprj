@@ -3,7 +3,6 @@
 namespace App\Http\Resources\servico;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Http\Resources\organizacao\OrganizacaoResource;
 use App\Http\Resources\servico\ServicoResource;
 use App\Models\Servico;
 

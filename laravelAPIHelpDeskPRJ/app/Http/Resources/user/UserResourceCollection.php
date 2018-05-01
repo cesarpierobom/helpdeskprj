@@ -22,8 +22,6 @@ class UserResourceCollection extends ResourceCollection
             "data" => UserResource::collection($this)
         ];
     }
-   
-
 
     public function with($request)
     {

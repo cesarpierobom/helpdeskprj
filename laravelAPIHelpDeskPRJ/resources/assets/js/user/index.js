@@ -94,7 +94,7 @@ function gridUser() {
                     });
 
                     
-                    if (json.data[i].organizacao_origem != null && json.data[i].organizacao_origem.hasOwnProperty('nome')) {
+                    if (!$.isEmptyObject(json.data[i].organizacao_origem) && json.data[i].organizacao_origem.hasOwnProperty('nome')) {
                         return_data[i]['organizacao_origem'] = json.data[i].organizacao_origem.nome;
                     }else{
                         return_data[i]['organizacao_origem'] = "";
@@ -102,7 +102,7 @@ function gridUser() {
                     
                     return_data[i]['organizacao_visivel'] = "";
 
-                    if (json.data[i].organizacao_visivel != null && json.data[i].organizacao_visivel[0].hasOwnProperty('nome')) {
+                    if (Array.isArray(json.data[i].organizacao_visivel) && json.data[i].organizacao_visivel.length > 0 && json.data[i].organizacao_visivel[0].hasOwnProperty('nome')) {
                         json.data[i].organizacao_visivel.forEach(element => {
                             return_data[i]['organizacao_visivel'] += " "+element.nome;
                         });

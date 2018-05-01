@@ -14,6 +14,10 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
+mix.scripts([
+    'resources/assets/js/utilities/scripts.js'
+], 'public/js/utilities/scripts.js');
+
 mix.styles([
     'resources/assets/css/style.css',
 ], 'public/css/all.css');

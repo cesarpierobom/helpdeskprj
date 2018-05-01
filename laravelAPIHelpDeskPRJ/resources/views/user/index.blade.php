@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPrincipal">
+  Launch demo modal
+</button>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 ">

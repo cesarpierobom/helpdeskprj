@@ -3,8 +3,8 @@
 namespace App\Http\Resources\suporte_grupo;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\suporte_grupo\SuporteGrupoResource;
 use App\Models\SuporteGrupo;
-
 
 class SuporteGrupoResourceCollection extends ResourceCollection
 {
@@ -17,18 +17,7 @@ class SuporteGrupoResourceCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            "data" => $this->collection->transform( function($grupo) {
-                return [
-                    "id" => $grupo->id,
-                    "nome" => $grupo->nome,
-                    "codigo" => $grupo->codigo,
-                    "status" => $grupo->status,
-                    "links"   => [
-                        "self"  =>  route("suporte_grupo.show_api", $grupo->id),
-                        "self-form" =>  route("suporte_grupo.edit", $grupo->id),
-                    ],
-                ];
-            }),
+            "data" => SuporteGrupoResource::collection($this),
         ];
     }
 

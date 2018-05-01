@@ -52,7 +52,14 @@ class AddToChamadoTable extends Migration
             $table->dropForeign("chamado_chamado_categoria_id_foreign");
             $table->dropForeign("chamado_servico_id_foreign");
             $table->dropForeign("chamado_departamento_id_foreign");
-            $table->dropColumn(['departamento_id', 'servico_id', 'chamado_categoria_id','chamado_situacao_id','chamado_prioridade_id','chamado_feedback_id','chamado_urgencia_id']);
+            $table->dropColumn('departamento_id');
+            $table->dropColumn('servico_id');
+            $table->dropColumn('chamado_categoria_id');
+            $table->dropColumn('chamado_situacao_id');
+            $table->dropColumn('chamado_prioridade_id');
+            $table->dropColumn('chamado_feedback_id');
+            $table->dropColumn('chamado_urgencia_id');
+
         });
     }
 }
