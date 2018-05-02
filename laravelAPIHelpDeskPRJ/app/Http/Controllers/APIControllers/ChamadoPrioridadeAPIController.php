@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado_prioridade\ChamadoPrioridadeResourceCollection;
 use App\Http\Resources\chamado_prioridade\ChamadoPrioridadeResource;
-use App\Http\Requests\chamado_prioridade\ListChamadoCategoriaRequest;
-use App\Http\Requests\chamado_prioridade\StoreChamadoCategoriaRequest;
-use App\Http\Requests\chamado_prioridade\UpdateChamadoCategoriaRequest;
+use App\Http\Requests\chamado_prioridade\ListChamadoPrioridadeRequest;
+use App\Http\Requests\chamado_prioridade\StoreChamadoPrioridadeRequest;
+use App\Http\Requests\chamado_prioridade\UpdateChamadoPrioridadeRequest;
 
 class ChamadoPrioridadeAPIController extends Controller
 {
@@ -18,7 +18,7 @@ class ChamadoPrioridadeAPIController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ListChamadoCategoriaRequest $request)
+    public function index(ListChamadoPrioridadeRequest $request)
     {
         $query = (new ChamadoPrioridade)->newQuery();
         $query->with("organizacao");
@@ -64,7 +64,7 @@ class ChamadoPrioridadeAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreChamadoCategoriaRequest $request)
+    public function store(StoreChamadoPrioridadeRequest $request)
     {
         $chamadoPrioridade = new ChamadoPrioridade();
         $chamadoPrioridade->nome = $request->nome;
@@ -99,7 +99,7 @@ class ChamadoPrioridadeAPIController extends Controller
      * @param  \App\ChamadoPrioridade  $chamadoPrioridade
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChamadoCategoriaRequest $request, ChamadoPrioridade $chamadoPrioridade)
+    public function update(UpdateChamadoPrioridadeRequest $request, ChamadoPrioridade $chamadoPrioridade)
     {
         $chamadoPrioridade->nome = $request->nome;
         $chamadoPrioridade->codigo = $request->codigo;

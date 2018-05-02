@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests\chamado_sla;
+namespace App\Http\Requests\chamado_urgencia;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateChamadoSLARequest extends FormRequest
+class ListChamadoUrgenciaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class UpdateChamadoSLARequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +24,11 @@ class UpdateChamadoSLARequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "status" => "nullable",
+            "organizacao_id" => "nullable|exists:organizacao,id",
+            "nome" => "nullable|max:255",
+            "codigo" => "nullable|max:50",
+            "search.value" => "nullable|max:255"
         ];
     }
 }

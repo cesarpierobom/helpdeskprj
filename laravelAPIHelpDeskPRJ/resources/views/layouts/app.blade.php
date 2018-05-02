@@ -90,7 +90,6 @@
                                 <a class="dropdown-item" href="{{ route('chamado_prioridade.index') }}">Prioridades</a>
                                 <a class="dropdown-item" href="{{ route('chamado_urgencia.index') }}">Urgências</a>
                                 <a class="dropdown-item" href="{{ route('chamado_situacao.index') }}">Situações</a>
-                                <a class="dropdown-item" href="{{ route('chamado_sla.index') }}">SLA</a>
                                 <a class="dropdown-item" href="{{ route('servico.index') }}">Serviços</a>
                             </div>
                         </li>

@@ -63,6 +63,7 @@ function gridUrgencia() {
         "serverSide": true,
         "ajax": {
             "url": '/api/chamado_urgencia/',
+            headers: window.axios.defaults.headers.common,
             "data": function (d) {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();
