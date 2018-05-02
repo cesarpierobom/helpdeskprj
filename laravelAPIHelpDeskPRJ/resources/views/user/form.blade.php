@@ -1,16 +1,9 @@
 <div class="form-row">
-    <div class="form-group col-md-10 offset-md-1">
-        <label for="organizacao_origem">Organização de Origem</label>
-        <select name="organizacao_origem" style="width: 100%" class="form-control" id="organizacao_origem" ></select>
-        <div id="organizacao_origem_feedback" class="invalid-feedback"></div>
-    </div>
-</div>
-
-<div class="form-row">
-    <div class="form-group col-md-10 offset-md-1">
-        <label for="organizacao_visivel">Organizações Visiveis</label>
-        <select name="organizacao_visivel" style="width: 100%" class="form-control" id="organizacao_visivel" multiple></select>
-        <div id="organizacao_visivel_feedback" class="invalid-feedback"></div>
+    <div class="form-group col-md-5 offset-md-1">
+        <label for="sexo">Sexo</label>
+        <input type="radio" @if($user->sexo == '1') checked='checked' @endif name="sexo" id="m"> Masculino
+        <input type="radio" @if($user->sexo == '2') checked='checked' @endif name="sexo" id="f"> Feminino
+        <div id="sexo_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 
@@ -24,15 +17,6 @@
         <label for="last_name">Sobrenome</label>
         <input type="text" class="form-control" maxlength="200" name="last_name" id="last_name" value="{{$user->last_name}}" placeholder="">
         <div id="last_name_feedback" class="invalid-feedback"></div>
-    </div>
-</div>
-
-<div class="form-row">
-    <div class="form-group col-md-5 offset-md-1">
-        <label for="sexo">Sexo Biológico</label>
-        <input type="radio" @if($user->sexo == '1') checked='checked' @endif name="sexo" id="m"> Masculino
-        <input type="radio" @if($user->sexo == '2') checked='checked' @endif name="sexo" id="f"> Feminino
-        <div id="sexo_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 
@@ -76,6 +60,22 @@
         <label for="perfil">Perfil</label>
         <select name="perfil" style="width: 100%" class="form-control" id="perfil" ></select>
         <div id="perfil_feedback" class="invalid-feedback"></div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-10 offset-md-1">
+        <label for="organizacao_origem">Organização de Origem</label>
+        <select name="organizacao_origem" style="width: 100%" class="form-control" id="organizacao_origem" ></select>
+        <div id="organizacao_origem_feedback" class="invalid-feedback"></div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-10 offset-md-1">
+        <label for="organizacao_visivel">Organizações Visiveis</label>
+        <select name="organizacao_visivel" style="width: 100%" class="form-control" id="organizacao_visivel" multiple></select>
+        <div id="organizacao_visivel_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 

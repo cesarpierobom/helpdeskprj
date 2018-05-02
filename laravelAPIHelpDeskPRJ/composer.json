@@ -11,6 +11,7 @@
         "laravel/framework": "5.6.*",
         "laravel/passport": "^5.0",
         "laravel/tinker": "^1.0",
+        "spatie/laravel-permission": "^2.12",
         "squizlabs/php_codesniffer": "^3.2"
     },
     "require-dev": {

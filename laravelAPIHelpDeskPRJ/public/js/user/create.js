@@ -4,7 +4,6 @@ $(document).ready(userCreateDocumentReady = function () {
     $("#organizacao_visivel").select2();
     $("#status").select2();
     $("#perfil").select2();
-    
 
     buscarOrganizacoes();
 
@@ -23,21 +22,21 @@ function buscarOrganizacoes() {
             status: [1]
         },
         beforeSend: function () {
-            $("#organizacao_id").after("<div class='load_org spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+            $("#organizacao_visivel,#organizacao_origem").after("<div class='load_org spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },
         complete: function () {
             $(".load_org").remove();
         }
     })
-        .done(function (json) {
-            $.each(json.data, function (index, el) {
-                $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
-            });
-
-        })
-        .fail(function (data) {
-            alert("ERRO: " + data);
+    .done(function (json) {
+        $.each(json.data, function (index, el) {
+            $("#organizacao_visivel,#organizacao_origem").append("<option value='" + el.id + "'>" + el.nome + "</option>");
         });
+
+    })
+    .fail(function (data) {
+        alert("ERRO: " + data);
+    });
 }
 
 function salvar() {
@@ -75,42 +74,42 @@ function salvar() {
             perfil: $("#perfil").val()
         }
     })
-        .done(function (data) {
-            console.log(data);
+    .done(function (data) {
+        console.log(data);
 
-            $(msg).html("Sucesso!");
+        $(msg).html("Sucesso!");
+        $(dialog).alert();
+        $(dialog).addClass("alert-success");
+        $(dialog).removeClass("d-none");
+        setTimeout(function () {
+            $(dialog).addClass("show");
+        }, 200);
+        window.location.href = "/user";
+    })
+    .fail(function (data) {
+        console.log(data);
+        if (data.status == 422) {
+            $.each(data.responseJSON.errors, function (key, value) {
+                $("#" + key).addClass("is-invalid");
+                $("#" + key + "_feedback").html(value);
+            });
+            $(msg).html(data.responseJSON.message);
             $(dialog).alert();
-            $(dialog).addClass("alert-success");
+            $(dialog).addClass("alert-danger");
             $(dialog).removeClass("d-none");
+
             setTimeout(function () {
                 $(dialog).addClass("show");
             }, 200);
-            window.location.href = "/user";
-        })
-        .fail(function (data) {
-            console.log(data);
-            if (data.status == 422) {
-                $.each(data.responseJSON.errors, function (key, value) {
-                    $("#" + key).addClass("is-invalid");
-                    $("#" + key + "_feedback").html(value);
-                });
-                $(msg).html(data.responseJSON.message);
-                $(dialog).alert();
-                $(dialog).addClass("alert-danger");
-                $(dialog).removeClass("d-none");
+        } else {
+            $(msg).html(data.responseJSON.message);
+            $(dialog).alert();
+            $(dialog).addClass("alert-danger");
+            $(dialog).removeClass("d-none");
 
-                setTimeout(function () {
-                    $(dialog).addClass("show");
-                }, 200);
-            } else {
-                $(msg).html(data.responseJSON.message);
-                $(dialog).alert();
-                $(dialog).addClass("alert-danger");
-                $(dialog).removeClass("d-none");
-
-                setTimeout(function () {
-                    $(dialog).addClass("show");
-                }, 200);
-            }
-        });
+            setTimeout(function () {
+                $(dialog).addClass("show");
+            }, 200);
+        }
+    });
 }

@@ -17,20 +17,19 @@
 </div>
 
 <div class="form-row">
-    <div class="form-group col-md-10 offset-md-1">
+    <div class="form-group col-md-5 offset-md-1">
         <label for="documento">Documento/CNPJ</label>
-        <input type="text" class="form-control" maxlength="200" name="documento" id="documento" value="{{$organizacao->documento}}" placeholder="">
+        <input type="text" class="form-control" maxlength="20" name="documento" id="documento" value="{{$organizacao->documento}}" placeholder="">
         <div id="documento_feedback" class="invalid-feedback"></div>
-        
     </div>
-</div>
-
-<div class="form-row">
-    <div class="form-group col-md-10 offset-md-1">
+    <div class="form-group col-md-5 ">
         <label for="codigo">Código</label>
         <input type="text" name="codigo" class="form-control" id="codigo" value="{{$organizacao->codigo}}" maxlength="50" placeholder="">
         <div id="codigo_feedback" class="invalid-feedback"></div>
     </div>
+</div>
+
+<div class="form-row">
 </div>
 <div class="form-row">
     <div class="form-group col-md-10 offset-md-1">
