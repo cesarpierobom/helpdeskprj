@@ -90,13 +90,20 @@ function gridCategorias(){
                         'status': status,
                         'opcoes': buttonEdit + buttonDelete,
                     });
+
+                    if (!$.isEmptyObject(json.data[i].organizacao) && json.data[i].organizacao.hasOwnProperty('nome')) {
+                        return_data[i]['organizacao'] = json.data[i].organizacao.nome;
+                    } else {
+                        return_data[i]['organizacao'] = "";
+                    }
                 }
                 return return_data;
             },
         },
         "columns":[
-        	{"title":"ID", "className":"dt-center", "name":"id", "data":"id"},
-        	{"title":"NOME", "className":"dt-center", "name":"nome", "data":"nome"},
+            {"title":"ID", "className":"dt-center", "name":"id", "data":"id"},
+            {"title":"ORGANIZAÇÃO", "className":"dt-center", "name":"organizacao", "data":"organizacao"},
+        	{"title":"CATEGORIA", "className":"dt-center", "name":"nome", "data":"nome"},
         	{"title":"CODIGO", "className":"dt-center", "name":"codigo", "data":"codigo"},
         	{"title":"ATIVO", "className":"dt-center", "name":"status", "data":"status"},
             {"title":"OPÇÕES", "className":"dt-center", "name":"opcoes", "data":"opcoes", "sortable":false},

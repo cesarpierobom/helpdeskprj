@@ -3,8 +3,8 @@
 namespace App\Http\Resources\interacao;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use App\Http\Resources\interacao\InteracaoResource;
 use App\Models\Interacao;
-
 
 class InteracaoResourceCollection extends ResourceCollection
 {
@@ -17,20 +17,7 @@ class InteracaoResourceCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            "data" => $this->collection->transform( function($interacao) {
-                return [
-                    "id" => $interacao->id,
-                    "descricao" => $interacao->descricao,
-                    "chamado_id" => $interacao->chamado_id,
-                    "user_id" => $interacao->user_id,
-                    "created_at" => $interacao->created_at,
-                    "updated_at" => $interacao->updated_at,
-                    "links"   => [
-                        "self"  =>  route("interacao.show_api", $interacao->id),
-                        "self-form" =>  route("interacao.edit", $interacao->id),
-                    ],
-                ];
-            }),
+            "data" => InteracaoResource::collection($this)
         ];
     }
 

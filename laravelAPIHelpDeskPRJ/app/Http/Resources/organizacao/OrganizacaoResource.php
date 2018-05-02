@@ -3,6 +3,7 @@
 namespace App\Http\Resources\organizacao;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\user\UserResource;
 
 class OrganizacaoResource extends JsonResource
 {
@@ -24,6 +25,12 @@ class OrganizacaoResource extends JsonResource
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
             "deleted_at" => $this->deleted_at,
+            "create_user_id" => $this->create_user_id,
+            "update_user_id" => $this->update_user_id,
+            "delete_user_id" => $this->delete_user_id,
+            "create_user" => new UserResource($this->whenLoaded("usuario_criacao")),
+            "update_user" => new UserResource($this->whenLoaded("usuario_update")),
+            "delete_user" => new UserResource($this->whenLoaded("usuario_delete")),
             "links"   => [
                 "self"  =>  route("organizacao.show_api", $this->id),
                 "self-form" =>  route("organizacao.edit", $this->id),

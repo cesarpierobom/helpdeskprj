@@ -103,11 +103,10 @@ function gridUser() {
                     return_data[i]['organizacao_visivel'] = "";
 
                     if (Array.isArray(json.data[i].organizacao_visivel) && json.data[i].organizacao_visivel.length > 0 && json.data[i].organizacao_visivel[0].hasOwnProperty('nome')) {
-                        json.data[i].organizacao_visivel.forEach(element => {
-                            return_data[i]['organizacao_visivel'] += " "+element.nome;
+                        json.data[i].organizacao_visivel.forEach(function (element, index, array) {
+                            return_data[i]['organizacao_visivel'] += element.nome + ", ";
                         });
                     }
-
                 }
                 return return_data;
             },

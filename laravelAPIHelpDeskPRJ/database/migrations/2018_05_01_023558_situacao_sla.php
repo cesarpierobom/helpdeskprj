@@ -23,12 +23,12 @@ class SituacaoSla extends Migration
             $table->foreign('chamado_situacao_id')->references('id')->on('chamado_situacao');
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('create_user')->unsigned()->nullable();
-            $table->foreign('create_user')->references('id')->on('users');
-            $table->bigInteger('update_user')->unsigned()->nullable();
-            $table->foreign('update_user')->references('id')->on('users');
-            $table->bigInteger('delete_user')->unsigned()->nullable();
-            $table->foreign('delete_user')->references('id')->on('users');
+            $table->bigInteger('create_user_id')->unsigned()->nullable();
+            $table->foreign('create_user_id')->references('id')->on('users');
+            $table->bigInteger('update_user_id')->unsigned()->nullable();
+            $table->foreign('update_user_id')->references('id')->on('users');
+            $table->bigInteger('delete_user_id')->unsigned()->nullable();
+            $table->foreign('delete_user_id')->references('id')->on('users');
         });
     }
 

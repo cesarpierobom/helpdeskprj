@@ -14,12 +14,12 @@ class AddUserAuditToChamadoPrioridade extends Migration
     public function up()
     {
         Schema::table('chamado_prioridade', function (Blueprint $table) {
-            $table->bigInteger('create_user')->unsigned()->nullable();
-            $table->foreign('create_user')->references('id')->on('users');
-            $table->bigInteger('update_user')->unsigned()->nullable();
-            $table->foreign('update_user')->references('id')->on('users');
-            $table->bigInteger('delete_user')->unsigned()->nullable();
-            $table->foreign('delete_user')->references('id')->on('users');
+            $table->bigInteger('create_user_id')->unsigned()->nullable();
+            $table->foreign('create_user_id')->references('id')->on('users');
+            $table->bigInteger('update_user_id')->unsigned()->nullable();
+            $table->foreign('update_user_id')->references('id')->on('users');
+            $table->bigInteger('delete_user_id')->unsigned()->nullable();
+            $table->foreign('delete_user_id')->references('id')->on('users');
         });
     }
 
@@ -31,12 +31,12 @@ class AddUserAuditToChamadoPrioridade extends Migration
     public function down()
     {
         Schema::table('chamado_prioridade', function (Blueprint $table) {
-            $table->dropForeign("chamado_prioridade_create_user_foreign");
-            $table->dropColumn('create_user');
-            $table->dropForeign("chamado_prioridade_update_user_foreign");
-            $table->dropColumn('update_user');
-            $table->dropForeign("chamado_prioridade_delete_user_foreign");
-            $table->dropColumn('delete_user');
+            $table->dropForeign("chamado_prioridade_create_user_id_foreign");
+            $table->dropColumn('create_user_id');
+            $table->dropForeign("chamado_prioridade_update_user_id_foreign");
+            $table->dropColumn('update_user_id');
+            $table->dropForeign("chamado_prioridade_delete_user_id_foreign");
+            $table->dropColumn('delete_user_id');
         });
     }
 }

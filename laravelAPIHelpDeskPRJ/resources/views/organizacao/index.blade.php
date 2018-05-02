@@ -40,7 +40,9 @@
                     <div class="row" style="margin-top: 5%">
                         <div class="col-md-12">
                             <div class="table-responsive">
-                                <table id="resultado_organizacao" class="table"></table>
+                                <table id="resultado_organizacao" class="table table-striped table-hover">
+                                    <thead class="thead-dark"></thead>
+                                </table>
                             </div>
                         </div>
                     </div>

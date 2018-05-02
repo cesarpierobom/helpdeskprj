@@ -87,10 +87,15 @@ function gridDepartamento() {
                         'id': json.data[i].id,
                         'nome': json.data[i].nome,
                         'codigo': json.data[i].codigo,
-                        'organizacao': json.data[i].organizacao.nome,
                         'status': status,
                         'opcoes': buttonEdit + buttonDelete,
                     });
+                    
+                    if (!$.isEmptyObject(json.data[i].organizacao) && json.data[i].organizacao.hasOwnProperty('nome')) {
+                        return_data[i]['organizacao'] = json.data[i].organizacao.nome;
+                    } else {
+                        return_data[i]['organizacao'] = "";
+                    }
                 }
                 return return_data;
             },

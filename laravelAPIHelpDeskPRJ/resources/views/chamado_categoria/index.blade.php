@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10 ">
             <div class="card card-default">
@@ -41,7 +41,9 @@
 
                     <div class="row" style="margin-top: 5%">
                         <div class="col-md-12">
-                            <table id="resultado_chamado_categoria" class="table table-responsive-sm table-responsive-md table-responsive-lg">
+                            <div class="table-responsive"></div>
+                            <table id="resultado_chamado_categoria" class="table table-striped table-hover">
+                                <thead class="thead-dark"></thead>
                             </table>
                         </div>
                     </div>

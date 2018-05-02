@@ -3,7 +3,7 @@
 namespace App\Http\Resources\departamento;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Http\Resources\organizacao\OrganizacaoResource;
+use App\Http\Resources\departamento\DepartamentoResource;
 use App\Models\Departamento;
 
 class DepartamentoResourceCollection extends ResourceCollection
@@ -17,19 +17,7 @@ class DepartamentoResourceCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            "data" => $this->collection->transform(function ($departamento) {
-                return [
-                    "id" => $departamento->id,
-                    "nome" => $departamento->nome,
-                    "codigo" => $departamento->codigo,
-                    "status" => $departamento->status,
-                    "organizacao" => new OrganizacaoResource($departamento->whenLoaded('organizacao')),
-                    "links"   => [
-                        "self"  =>  route("departamento.show_api", $departamento->id),
-                        "self-form" =>  route("departamento.edit", $departamento->id),
-                    ],
-                ];
-            }),
+            "data" => DepartamentoResource::collection($this)
         ];
     }
 

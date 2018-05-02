@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPrincipal">
-  Launch demo modal
-</button>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10 ">
             <div class="card card-default">
@@ -63,7 +60,9 @@
                     <div class="row" style="margin-top: 5%">
                         <div class="col-md-12">
                             <div class="table-responsive">
-                                <table id="resultado_usuario" class="table"></table>
+                                <table id="resultado_usuario" class="table table-striped table-hover">
+                                    <thead class="thead-dark"></thead>
+                                </table>
                             </div>
                         </div>
                     </div>

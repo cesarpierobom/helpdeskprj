@@ -49,8 +49,7 @@
                         <div class="col-md-12">
                             <div class="table-responsive">
                                 <table id="resultado_servico" class="table table-striped table-hover">
-                                <thead class="thead-dark"></thead>
-                                <tbody></tbody>
+                                    <thead class="thead-dark"></thead>
                                 </table>
                             </div>
                         </div>

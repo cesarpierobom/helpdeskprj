@@ -3,9 +3,8 @@
 namespace App\Http\Resources\chamado_categoria;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Http\Resources\organizacao\OrganizacaoResource;
+use App\Http\Resources\chamado_categoria\ChamadoCategoriaResource;
 use App\Models\ChamadoCategoria;
-
 
 class ChamadoCategoriaCollection extends ResourceCollection
 {
@@ -18,19 +17,7 @@ class ChamadoCategoriaCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            "data" => $this->collection->transform( function($categoria) {
-                return [
-                    "id" => $categoria->id,
-                    "nome" => $categoria->nome,
-                    "codigo" => $categoria->codigo,
-                    "status" => $categoria->status,
-                    "organizacao" => new OrganizacaoResource($categoria->whenLoaded('organizacao')),
-                    "links"   => [
-                        "self"  =>  route("chamado_categoria.show_api", $categoria->id),
-                        "self-form" =>  route("chamado_categoria.edit", $categoria->id),
-                    ],
-                ];
-            }),
+            "data" => ChamadoCategoriaResource::collection($this)
         ];
     }
 
