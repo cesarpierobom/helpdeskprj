@@ -23,7 +23,9 @@
                                         <select name="departamento_id" id="departamento_id"  style="width: 100%" class="form-control" multiple></select>
                                     </div>
                                 </div>
-                                <div class="form-row"></div>
+                                <div class="form-row">
+                                    
+                                </div>
                             </form>
                         </div>
                     </div>
