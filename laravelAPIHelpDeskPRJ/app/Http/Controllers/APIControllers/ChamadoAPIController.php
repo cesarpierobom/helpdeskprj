@@ -20,6 +20,9 @@ class ChamadoAPIController extends Controller
      */
     public function index(ListChamadoRequest $request)
     {
+        // php artisan db:seed --class=PermissoesSeeder
+        // php artisan db:seed --class=CadastrosIniciaisSeeder
+
         $query = (new Chamado)->newQuery();
         $query->with("autor");
         $query->with("organizacao");
