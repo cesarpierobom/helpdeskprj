@@ -31,7 +31,15 @@ class UpdateChamadoPrioridadeRequest extends FormRequest
                 return $query->where('id', "<>", $this->route('chamadoPrioridade')->id);
             })],
             "status" => ["required", Rule::in(['1', '0'])],
-            "organizacao_id" => "required|exists:organizacao,id"
+            "organizacao_id" => "required|exists:organizacao,id",
+            "padrao" => function($attribute, $value, $fail) {
+                if ($value == 1) {
+                    $count = ChamadoPrioridade::where("padrao","=","1")->where("organizacao_id","=",$this->organizacao_id)->where("id","<>",$this->id)->count();
+                    if ($count > 0) {
+                        return $fail($attribute.': Para cada Organização só deve haver um registro marcado como padrão');
+                    }
+                }
+            }
         ];
     }
 }

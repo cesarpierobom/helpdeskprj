@@ -25,7 +25,8 @@ class ListChamadoRequest extends FormRequest
     {
         return [
             "id" => "nullable",
-            "status" => "nullable|in:1,0",
+            "status" => "nullable",
+            "encerrado" => "nullable",
             "titulo" => "nullable|max:255",
             "user_id" => "nullable|exists:users,id",
             "servico_id" => "nullable|exists:servico,id",

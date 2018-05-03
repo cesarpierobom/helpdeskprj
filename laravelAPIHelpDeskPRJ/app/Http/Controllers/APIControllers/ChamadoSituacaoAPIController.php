@@ -75,6 +75,10 @@ class ChamadoSituacaoAPIController extends Controller
         $chamadoSituacao->codigo = $request->codigo;
         $chamadoSituacao->status = $request->status;
         $chamadoSituacao->organizacao_id = $request->organizacao_id;
+        if ($request->padrao == null) {
+            $request->padrao = 0;
+        }
+        $chamadoSituacao->padrao = $request->padrao;
         $resultado = $chamadoSituacao->save();
 
         if ($resultado) {
@@ -109,6 +113,10 @@ class ChamadoSituacaoAPIController extends Controller
         $chamadoSituacao->codigo = $request->codigo;
         $chamadoSituacao->status = $request->status;
         $chamadoSituacao->organizacao_id = $request->organizacao_id;
+        if ($request->padrao == null) {
+            $request->padrao = 0;
+        }
+        $chamadoSituacao->padrao = $request->padrao;
         $resultado = $chamadoSituacao->save();
 
         if ($resultado) {

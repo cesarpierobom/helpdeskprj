@@ -59,7 +59,8 @@ function salvar() {
             nome: $("#nome").val(),
             codigo: $("#codigo").val(),
             status: $("#status").val(),
-            organizacao_id: $("#organizacao_id").val()
+            organizacao_id: $("#organizacao_id").val(),
+            padrao: $("#padrao:checked").val()
         }
     })
         .done(function (data) {

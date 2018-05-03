@@ -15,122 +15,124 @@ class PermissoesSeeder extends Seeder
      */
     public function run()
     {
-        Role::findOrCreate(['name' => 'admin']);
+        $admin = Role::findOrCreate('admin');
 
-        Permission::findOrCreate(['name' => 'tela criar organizacao']);   //create
-        Permission::findOrCreate(['name' => 'tela editar organizacao']);  //edit
-        Permission::findOrCreate(['name' => 'salvar nova organizacao']);  //store
-        Permission::findOrCreate(['name' => 'atualizar organizacao']);    //update
-        Permission::findOrCreate(['name' => 'listar organizacao']);       //index
-        Permission::findOrCreate(['name' => 'visualizar organizacao']);   //show
-        Permission::findOrCreate(['name' => 'deletar organizacao']);      //destroy
+        $permissao = array();
 
-        Permission::findOrCreate(['name' => 'tela criar usuario']);   //create
-        Permission::findOrCreate(['name' => 'tela editar usuario']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo usuario']);  //store
-        Permission::findOrCreate(['name' => 'atualizar usuario']);    //update
-        Permission::findOrCreate(['name' => 'listar usuario']);       //index
-        Permission::findOrCreate(['name' => 'visualizar usuario']);   //show
-        Permission::findOrCreate(['name' => 'deletar usuario']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar organizacao');   //create
+        $permissao[] = Permission::findOrCreate('tela editar organizacao');  //edit
+        $permissao[] = Permission::findOrCreate('salvar nova organizacao');  //store
+        $permissao[] = Permission::findOrCreate('atualizar organizacao');    //update
+        $permissao[] = Permission::findOrCreate('listar organizacao');       //index
+        $permissao[] = Permission::findOrCreate('visualizar organizacao');   //show
+        $permissao[] = Permission::findOrCreate('deletar organizacao');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar chamado']);   //create
-        Permission::findOrCreate(['name' => 'tela editar chamado']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo chamado']);  //store
-        Permission::findOrCreate(['name' => 'atualizar chamado']);    //update
-        Permission::findOrCreate(['name' => 'listar chamado']);       //index
-        Permission::findOrCreate(['name' => 'visualizar chamado']);   //show
-        Permission::findOrCreate(['name' => 'deletar chamado']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar usuario');   //create
+        $permissao[] = Permission::findOrCreate('tela editar usuario');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo usuario');  //store
+        $permissao[] = Permission::findOrCreate('atualizar usuario');    //update
+        $permissao[] = Permission::findOrCreate('listar usuario');       //index
+        $permissao[] = Permission::findOrCreate('visualizar usuario');   //show
+        $permissao[] = Permission::findOrCreate('deletar usuario');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar categoria']);   //create
-        Permission::findOrCreate(['name' => 'tela editar categoria']);  //edit
-        Permission::findOrCreate(['name' => 'salvar nova categoria']);  //store
-        Permission::findOrCreate(['name' => 'atualizar categoria']);    //update
-        Permission::findOrCreate(['name' => 'listar categoria']);       //index
-        Permission::findOrCreate(['name' => 'visualizar categoria']);   //show
-        Permission::findOrCreate(['name' => 'deletar categoria']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar chamado');   //create
+        $permissao[] = Permission::findOrCreate('tela editar chamado');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo chamado');  //store
+        $permissao[] = Permission::findOrCreate('atualizar chamado');    //update
+        $permissao[] = Permission::findOrCreate('listar chamado');       //index
+        $permissao[] = Permission::findOrCreate('visualizar chamado');   //show
+        $permissao[] = Permission::findOrCreate('deletar chamado');      //destroy
+
+        $permissao[] = Permission::findOrCreate('tela criar categoria');   //create
+        $permissao[] = Permission::findOrCreate('tela editar categoria');  //edit
+        $permissao[] = Permission::findOrCreate('salvar nova categoria');  //store
+        $permissao[] = Permission::findOrCreate('atualizar categoria');    //update
+        $permissao[] = Permission::findOrCreate('listar categoria');       //index
+        $permissao[] = Permission::findOrCreate('visualizar categoria');   //show
+        $permissao[] = Permission::findOrCreate('deletar categoria');      //destroy
         
-        Permission::findOrCreate(['name' => 'tela criar feedback']);   //create
-        Permission::findOrCreate(['name' => 'tela editar feedback']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo feedback']);  //store
-        Permission::findOrCreate(['name' => 'atualizar feedback']);    //update
-        Permission::findOrCreate(['name' => 'listar feedback']);       //index
-        Permission::findOrCreate(['name' => 'visualizar feedback']);   //show
-        Permission::findOrCreate(['name' => 'deletar feedback']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar feedback');   //create
+        $permissao[] = Permission::findOrCreate('tela editar feedback');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo feedback');  //store
+        $permissao[] = Permission::findOrCreate('atualizar feedback');    //update
+        $permissao[] = Permission::findOrCreate('listar feedback');       //index
+        $permissao[] = Permission::findOrCreate('visualizar feedback');   //show
+        $permissao[] = Permission::findOrCreate('deletar feedback');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar prioridade']);   //create
-        Permission::findOrCreate(['name' => 'tela editar prioridade']);  //edit
-        Permission::findOrCreate(['name' => 'salvar nova prioridade']);  //store
-        Permission::findOrCreate(['name' => 'atualizar prioridade']);    //update
-        Permission::findOrCreate(['name' => 'listar prioridade']);       //index
-        Permission::findOrCreate(['name' => 'visualizar prioridade']);   //show
-        Permission::findOrCreate(['name' => 'deletar prioridade']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar prioridade');   //create
+        $permissao[] = Permission::findOrCreate('tela editar prioridade');  //edit
+        $permissao[] = Permission::findOrCreate('salvar nova prioridade');  //store
+        $permissao[] = Permission::findOrCreate('atualizar prioridade');    //update
+        $permissao[] = Permission::findOrCreate('listar prioridade');       //index
+        $permissao[] = Permission::findOrCreate('visualizar prioridade');   //show
+        $permissao[] = Permission::findOrCreate('deletar prioridade');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar situacao']);   //create
-        Permission::findOrCreate(['name' => 'tela editar situacao']);  //edit
-        Permission::findOrCreate(['name' => 'salvar nova situacao']);  //store
-        Permission::findOrCreate(['name' => 'atualizar situacao']);    //update
-        Permission::findOrCreate(['name' => 'listar situacao']);       //index
-        Permission::findOrCreate(['name' => 'visualizar situacao']);   //show
-        Permission::findOrCreate(['name' => 'deletar situacao']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar situacao');   //create
+        $permissao[] = Permission::findOrCreate('tela editar situacao');  //edit
+        $permissao[] = Permission::findOrCreate('salvar nova situacao');  //store
+        $permissao[] = Permission::findOrCreate('atualizar situacao');    //update
+        $permissao[] = Permission::findOrCreate('listar situacao');       //index
+        $permissao[] = Permission::findOrCreate('visualizar situacao');   //show
+        $permissao[] = Permission::findOrCreate('deletar situacao');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar urgencia']);   //create
-        Permission::findOrCreate(['name' => 'tela editar urgencia']);  //edit
-        Permission::findOrCreate(['name' => 'salvar nova urgencia']);  //store
-        Permission::findOrCreate(['name' => 'atualizar urgencia']);    //update
-        Permission::findOrCreate(['name' => 'listar urgencia']);       //index
-        Permission::findOrCreate(['name' => 'visualizar urgencia']);   //show
-        Permission::findOrCreate(['name' => 'deletar urgencia']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar urgencia');   //create
+        $permissao[] = Permission::findOrCreate('tela editar urgencia');  //edit
+        $permissao[] = Permission::findOrCreate('salvar nova urgencia');  //store
+        $permissao[] = Permission::findOrCreate('atualizar urgencia');    //update
+        $permissao[] = Permission::findOrCreate('listar urgencia');       //index
+        $permissao[] = Permission::findOrCreate('visualizar urgencia');   //show
+        $permissao[] = Permission::findOrCreate('deletar urgencia');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar departamento']);   //create
-        Permission::findOrCreate(['name' => 'tela editar departamento']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo departamento']);  //store
-        Permission::findOrCreate(['name' => 'atualizar departamento']);    //update
-        Permission::findOrCreate(['name' => 'listar departamento']);       //index
-        Permission::findOrCreate(['name' => 'visualizar departamento']);   //show
-        Permission::findOrCreate(['name' => 'deletar departamento']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar departamento');   //create
+        $permissao[] = Permission::findOrCreate('tela editar departamento');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo departamento');  //store
+        $permissao[] = Permission::findOrCreate('atualizar departamento');    //update
+        $permissao[] = Permission::findOrCreate('listar departamento');       //index
+        $permissao[] = Permission::findOrCreate('visualizar departamento');   //show
+        $permissao[] = Permission::findOrCreate('deletar departamento');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar interacao']);   //create
-        Permission::findOrCreate(['name' => 'tela editar interacao']);  //edit
-        Permission::findOrCreate(['name' => 'salvar nova interacao']);  //store
-        Permission::findOrCreate(['name' => 'atualizar interacao']);    //update
-        Permission::findOrCreate(['name' => 'listar interacao']);       //index
-        Permission::findOrCreate(['name' => 'visualizar interacao']);   //show
-        Permission::findOrCreate(['name' => 'deletar interacao']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar interacao');   //create
+        $permissao[] = Permission::findOrCreate('tela editar interacao');  //edit
+        $permissao[] = Permission::findOrCreate('salvar nova interacao');  //store
+        $permissao[] = Permission::findOrCreate('atualizar interacao');    //update
+        $permissao[] = Permission::findOrCreate('listar interacao');       //index
+        $permissao[] = Permission::findOrCreate('visualizar interacao');   //show
+        $permissao[] = Permission::findOrCreate('deletar interacao');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar servico']);   //create
-        Permission::findOrCreate(['name' => 'tela editar servico']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo servico']);  //store
-        Permission::findOrCreate(['name' => 'atualizar servico']);    //update
-        Permission::findOrCreate(['name' => 'listar servico']);       //index
-        Permission::findOrCreate(['name' => 'visualizar servico']);   //show
-        Permission::findOrCreate(['name' => 'deletar servico']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar servico');   //create
+        $permissao[] = Permission::findOrCreate('tela editar servico');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo servico');  //store
+        $permissao[] = Permission::findOrCreate('atualizar servico');    //update
+        $permissao[] = Permission::findOrCreate('listar servico');       //index
+        $permissao[] = Permission::findOrCreate('visualizar servico');   //show
+        $permissao[] = Permission::findOrCreate('deletar servico');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar sla']);   //create
-        Permission::findOrCreate(['name' => 'tela editar sla']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo sla']);  //store
-        Permission::findOrCreate(['name' => 'atualizar sla']);    //update
-        Permission::findOrCreate(['name' => 'listar sla']);       //index
-        Permission::findOrCreate(['name' => 'visualizar sla']);   //show
-        Permission::findOrCreate(['name' => 'deletar sla']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar sla');   //create
+        $permissao[] = Permission::findOrCreate('tela editar sla');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo sla');  //store
+        $permissao[] = Permission::findOrCreate('atualizar sla');    //update
+        $permissao[] = Permission::findOrCreate('listar sla');       //index
+        $permissao[] = Permission::findOrCreate('visualizar sla');   //show
+        $permissao[] = Permission::findOrCreate('deletar sla');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar grupo de suporte']);   //create
-        Permission::findOrCreate(['name' => 'tela editar grupo de suporte']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo grupo de suporte']);  //store
-        Permission::findOrCreate(['name' => 'atualizar grupo de suporte']);    //update
-        Permission::findOrCreate(['name' => 'listar grupo de suporte']);       //index
-        Permission::findOrCreate(['name' => 'visualizar grupo de suporte']);   //show
-        Permission::findOrCreate(['name' => 'deletar grupo de suporte']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar grupo de suporte');   //create
+        $permissao[] = Permission::findOrCreate('tela editar grupo de suporte');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo grupo de suporte');  //store
+        $permissao[] = Permission::findOrCreate('atualizar grupo de suporte');    //update
+        $permissao[] = Permission::findOrCreate('listar grupo de suporte');       //index
+        $permissao[] = Permission::findOrCreate('visualizar grupo de suporte');   //show
+        $permissao[] = Permission::findOrCreate('deletar grupo de suporte');      //destroy
 
-        Permission::findOrCreate(['name' => 'tela criar grupo de usuario']);   //create
-        Permission::findOrCreate(['name' => 'tela editar grupo de usuario']);  //edit
-        Permission::findOrCreate(['name' => 'salvar novo grupo de usuario']);  //store
-        Permission::findOrCreate(['name' => 'atualizar grupo de usuario']);    //update
-        Permission::findOrCreate(['name' => 'listar grupo de usuario']);       //index
-        Permission::findOrCreate(['name' => 'visualizar grupo de usuario']);   //show
-        Permission::findOrCreate(['name' => 'deletar grupo de usuario']);      //destroy
+        $permissao[] = Permission::findOrCreate('tela criar grupo de usuario');   //create
+        $permissao[] = Permission::findOrCreate('tela editar grupo de usuario');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo grupo de usuario');  //store
+        $permissao[] = Permission::findOrCreate('atualizar grupo de usuario');    //update
+        $permissao[] = Permission::findOrCreate('listar grupo de usuario');       //index
+        $permissao[] = Permission::findOrCreate('visualizar grupo de usuario');   //show
+        $permissao[] = Permission::findOrCreate('deletar grupo de usuario');      //destroy
 
+        $admin->givePermissionTo($permissao);
         // organizacao_usuario          
-
         
     }
 }

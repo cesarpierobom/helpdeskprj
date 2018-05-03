@@ -32,10 +32,10 @@ class AddToChamadoTable extends Migration
             $table->bigInteger('chamado_categoria_id')->unsigned();
             $table->foreign('chamado_categoria_id')->references('id')->on('chamado_categoria');
 
-            $table->bigInteger('chamado_situacao_id')->unsigned();
+            $table->bigInteger('chamado_situacao_id')->unsigned()->nullable();
             $table->foreign('chamado_situacao_id')->references('id')->on('chamado_situacao');
 
-            $table->bigInteger('chamado_prioridade_id')->unsigned();
+            $table->bigInteger('chamado_prioridade_id')->unsigned()->nullable();
             $table->foreign('chamado_prioridade_id')->references('id')->on('chamado_prioridade');
 
             $table->bigInteger('chamado_feedback_id')->unsigned()->nullable();

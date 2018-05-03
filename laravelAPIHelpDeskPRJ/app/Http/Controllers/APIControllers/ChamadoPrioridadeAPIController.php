@@ -71,6 +71,10 @@ class ChamadoPrioridadeAPIController extends Controller
         $chamadoPrioridade->codigo = $request->codigo;
         $chamadoPrioridade->status = $request->status;
         $chamadoPrioridade->organizacao_id = $request->organizacao_id;
+        if ($request->padrao == null) {
+            $request->padrao = 0;
+        }
+        $chamadoPrioridade->padrao = $request->padrao;
         $resultado = $chamadoPrioridade->save();
 
         if ($resultado) {
@@ -105,6 +109,10 @@ class ChamadoPrioridadeAPIController extends Controller
         $chamadoPrioridade->codigo = $request->codigo;
         $chamadoPrioridade->status = $request->status;
         $chamadoPrioridade->organizacao_id = $request->organizacao_id;
+        if ($request->padrao == null) {
+            $request->padrao = 0;
+        }
+        $chamadoPrioridade->padrao = $request->padrao;
         $resultado = $chamadoPrioridade->save();
 
         if ($resultado) {

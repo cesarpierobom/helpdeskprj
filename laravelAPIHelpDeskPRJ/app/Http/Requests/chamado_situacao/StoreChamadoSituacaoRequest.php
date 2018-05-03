@@ -4,6 +4,7 @@ namespace App\Http\Requests\chamado_situacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\ChamadoSituacao;
 
 class StoreChamadoSituacaoRequest extends FormRequest
 {
@@ -30,7 +31,15 @@ class StoreChamadoSituacaoRequest extends FormRequest
                 return $query->where('organizacao_id', $this->organizacao_id);
             })],
             "status" => ["required", Rule::in(['1', '0'])],
-            "organizacao_id" => "required|exists:organizacao,id"
+            "organizacao_id" => "required|exists:organizacao,id",
+            "padrao" => function($attribute, $value, $fail) {
+                if ($value == 1) {
+                    $count = ChamadoSituacao::where("padrao","=","1")->where("organizacao_id","=",$this->organizacao_id)->count();
+                    if ($count > 0) {
+                        return $fail($attribute.': Para cada Organização só deve haver um registro marcado como padrão');
+                    }
+                }
+            }
         ];
     }
 }

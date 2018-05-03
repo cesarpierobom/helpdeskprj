@@ -18,6 +18,7 @@ class CreateChamadoTable extends Migration
             $table->string("titulo");
             $table->longText("descricao");
             $table->unsignedTinyInteger('status')->default("1");
+            $table->unsignedTinyInteger('encerrado')->default("0");
             $table->bigInteger('autor_id')->unsigned()->nullable();
             $table->foreign('autor_id')->references('id')->on('users');
             $table->timestamps();

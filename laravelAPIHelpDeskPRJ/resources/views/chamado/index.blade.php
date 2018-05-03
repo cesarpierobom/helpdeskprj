@@ -24,12 +24,119 @@
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="servico_id">Serviços</label>
+                                        <select name="servico_id" id="servico_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="chamado_categoria_id">Categorias</label>
+                                        <select name="chamado_categoria_id" id="chamado_categoria_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
                                 </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="chamado_urgencia_id">Urgências</label>
+                                        <select name="chamado_urgencia_id" id="chamado_urgencia_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="chamado_prioridade_id">Prioridades</label>
+                                        <select name="chamado_prioridade_id" id="chamado_prioridade_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="chamado_situacao_id">Situações</label>
+                                        <select name="chamado_situacao_id" id="chamado_situacao_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="chamado_feedback_id">Feedbacks</label>
+                                        <select name="chamado_feedback_id" id="chamado_feedback_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="analista_id">Analistas</label>
+                                        <select name="analista_id" id="analista_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="responsavel_id">Responsáveis</label>
+                                        <select name="responsavel_id" id="responsavel_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="autor_id">Autores</label>
+                                        <select name="autor_id" id="autor_id"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="id">ID/Número</label>
+                                        <input type="text" name="id" id="id" class="form-control">
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="titulo">Titulo</label>
+                                        <input type="text" name="titulo" id="titulo" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-2">
+                                        <label for="status">Status</label>
+                                        <select name="status" id="status"  style="width: 100%" class="form-control" multiple>
+                                            <option value="1">Ativos</option>
+                                            <option value="0">Inativos</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="encerrado">Finalização</label>
+                                        <select name="encerrado" id="encerrado"  style="width: 100%" class="form-control" multiple>
+                                            <option value="1">Abertos</option>
+                                            <option value="0">Encerrados</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="length">Quantidade por página</label>
+                                        <select name="length" id="length"  style="width: 100%" class="form-control">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    
+                                    <div class="form-group col-md-6">
+                                        <!-- <label for="titulo">Titulo</label> -->
+                                        <!-- <input type="text" name="titulo" id="titulo" class="form-control"> -->
+                                    </div>
+                                </div>
+
+                                <input type="button" id="btnBuscar" value="Buscar" class="btn btn-sm btn-primary">
                             </form>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- <div id="meta_response" class="mt-5">
+                <div class="card card-default">
+                    <div class="card-header text-center">Info</div>
+                    <div class="card-body"></div>
+                </div>
+            </div> -->
+
+            <div id="resultado_chamado" class="mt-5">
+            
             </div>
         </div>
     </div>

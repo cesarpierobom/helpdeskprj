@@ -26,49 +26,66 @@ class Chamado extends Model
     public $incrementing = true;
 
     public $timestamps = true;
-    
-    public function interacoes()
-    {
+
+    public function interacoes(){
         return $this->hasMany('App\Models\Interacao');
     }
 
-    public function categoria()
-    {
-        return $this->hasOne('App\Models\ChamadoCategoria');
+    public function autor(){
+        return $this->belongsTo('App\User');
     }
 
-    public function feedback()
-    {
-        return $this->hasOne('App\Models\ChamadoFeedback');
+    public function organizacao(){
+        return $this->belongsTo('App\Models\Organizacao');
     }
 
-    public function prioridade()
-    {
-        return $this->hasOne('App\Models\ChamadoPrioridade');
+    public function analista(){
+        return $this->belongsTo('App\User');
     }
 
-    public function situacao()
-    {
-        return $this->hasOne('App\Models\ChamadoSituacao');
+    public function responsavel(){
+        return $this->belongsTo('App\User');
     }
 
-    public function sla()
-    {
-        return $this->hasOne('App\Models\ChamadoSLA');
+    public function departamento(){
+        return $this->belongsTo('App\Models\Departamento');
     }
 
-    public function urgencia()
-    {
-        return $this->hasOne('App\Models\ChamadoUrgencia');
+    public function servico(){
+        return $this->belongsTo('App\Models\Servico');
     }
 
-    public function departamento()
-    {
-        return $this->hasOne('App\Models\Departamento');
+    public function categoria(){
+        return $this->belongsTo('App\Models\ChamadoCategoria');
     }
 
-    public function servico()
-    {
-        return $this->hasOne('App\Models\Servico');
+    public function situacao(){
+        return $this->belongsTo('App\Models\ChamadoSituacao');
     }
+
+    public function prioridade(){
+        return $this->belongsTo('App\Models\ChamadoPrioridade');
+    }
+
+    public function feedback(){
+        return $this->belongsTo('App\Models\ChamadoFeedback');
+    }
+
+    public function urgencia(){
+        return $this->belongsTo('App\Models\ChamadoUrgencia');
+    }
+
+    public function usuario_criacao(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function usuario_update(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function usuario_delete(){
+        return $this->belongsTo('App\User');
+    }
+    
+
 }

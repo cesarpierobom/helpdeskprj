@@ -30,3 +30,14 @@
         <div id="status_feedback" class="invalid-feedback"></div>
     </div>
 </div>
+
+
+<div class="form-row">
+    <div class="form-group col-md-5 offset-md-1">
+        <div class="form-check form-check-inline">
+            <label for="padrao" class="form-check-label">Padrão para novos chamados</label>
+            <input type="checkbox" name="padrao" id="padrao" @if($chamadoPrioridade->padrao == '1') selected='selected' @endif  value="1" class="form-check-input">
+            <div id="padrao_feedback" class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>

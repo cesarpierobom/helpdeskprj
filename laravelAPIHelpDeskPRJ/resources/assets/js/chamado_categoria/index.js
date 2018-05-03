@@ -47,14 +47,14 @@ function buscarOrganizacoes() {
             $(".load_org").remove();
         }
     })
-        .done(function (json) {
-            $.each(json.data, function (index, el) {
-                $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
-            });
-        })
-        .fail(function (data) {
-            alert("ERRO: " + data);
+    .done(function (json) {
+        $.each(json.data, function (index, el) {
+            $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
         });
+    })
+    .fail(function (data) {
+        alert("ERRO: " + data);
+    });
 }
 
 function gridCategorias(){
