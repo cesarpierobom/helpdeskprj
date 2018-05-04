@@ -1,3 +1,4 @@
+var grid_chamados;
 $(document).ready(chamadoIndexReady = function () {
     $("#organizacao_id").select2();
     $("#departamento_id").select2();
@@ -11,6 +12,9 @@ $(document).ready(chamadoIndexReady = function () {
     $("#analista_id").select2();
     $("#autor_id").select2();
     $("#responsavel_id").select2();
+
+    $("#watcher").select2();
+    
 
     $("#status").select2();
     $("#encerrado").select2();
@@ -29,7 +33,7 @@ $(document).ready(chamadoIndexReady = function () {
     });
 
     $("#btnBuscar").on("click", function () {
-        buscarChamados();
+        gridChamados();
     });
 
 });
@@ -173,7 +177,7 @@ function buscarCategorias(){
 }
 
 function buscarUsuarios(){
-    $("#autor_id,#responsavel_id,#analista_id").empty();
+    $("#autor_id,#responsavel_id,#analista_id,#watcher").empty();
 
     $.ajax({
         url: "/api/user/",
@@ -184,7 +188,7 @@ function buscarUsuarios(){
             status: [1],
         },
         beforeSend: function () {
-            $("#autor_id,#responsavel_id,#analista_id").after("<div class='load_users spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+            $("#autor_id,#responsavel_id,#analista_id,#watcher").after("<div class='load_users spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },
         complete: function () {
             $(".load_users").remove();
@@ -192,7 +196,7 @@ function buscarUsuarios(){
     })
     .done(function (json) {
         $.each(json.data, function (index, el) {
-            $("#autor_id,#responsavel_id,#analista_id").append("<option value='" + el.id + "'>" + el.name + "</option>");
+            $("#autor_id,#responsavel_id,#analista_id,#watcher").append("<option value='" + el.id + "'>" + el.name + "</option>");
         });
     })
     .fail(function (data) {
@@ -351,135 +355,109 @@ function buscarUrgencia(){
 }
 
 
+function gridChamados() {
 
-function buscarChamados () {
+    grid_chamados = $("#resultado_chamados").DataTable({
+        "processing": true,
+        "serverSide": true,
+        "destroy":true,
+        "order":[['1','asc']],
+        "ajax": {
+            "url": '/api/chamado/',
+            headers: window.axios.defaults.headers.common,
+            "data": function (d) {
+                d.organizacao_id = $("#organizacao_id").val();
+                d.departamento_id = $("#departamento_id").val();
+                d.servico_id = $("#servico_id").val();
+                d.chamado_categoria_id = $("#chamado_categoria_id").val();
+                d.chamado_urgencia_id = $("#chamado_urgencia_id").val();
+                d.chamado_prioridade_id = $("#chamado_prioridade_id").val();
+                d.chamado_situacao_id = $("#chamado_situacao_id").val();
+                d.chamado_feedback_id = $("#chamado_feedback_id").val();
+                d.analista_id = $("#analista_id").val();
+                d.responsavel_id = $("#responsavel_id").val();
+                d.autor_id = $("#autor_id").val();
+                d.id = $("#id").val();
+                d.titulo = $("#titulo").val();
+                d.status = $("#status").val();
+                d.encerrado = $("#encerrado").val();
+            },
+            // "beforeSend": function () {
+            //     $("#resultado_chamados").before("<div class='load_tick spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+            // },
+            // complete: function () {
+            //     $(".load_tick").remove();
+            // },
+            "dataSrc": function (json) {
 
-    var org_id = [];
-    var dep_id = [];
-    var svc_id = [];
-    var cat_id = [];
-    var urg_id = [];
-    var pri_id = [];
-    var sit_id = [];
-    var fee_id = [];
-    var analistas = [];
-    var responsaveis = [];
-    var autores = [];
-    
-    $.each($("#organizacao_id").val(), function () {
-        org_id.push(this);
-    });
+                var return_data = [];
 
-    $.each($("#departamento_id").val(), function () {
-        dep_id.push(this);
-    });
+                for (var i = 0; i < json.data.length; i++) {
+                    // var buttonEdit = "<a class='btn btn-sm btn-primary' href='" + json.data[i].links['self-form'] + "'>Editar</a>";
+                    // var buttonDelete = ""; //"<button type='button' class='btn btn-sm btn-danger'  href='#' onclick='deletar(" + json.data[i].id + ")'>Deletar</button>";
+                    var buttonVisualizar = "<a class='btn btn-sm btn-primary' href='" + json.data[i].links['self'] + "'>Visualizar</a>";
+                    var buttonWatch = "<a class='btn btn-sm btn-success' onclick=''>Acompanhar</a>";
+                    var status = "<i title='INATIVO' class='material-icons'>remove_circle</i>";
 
-    $.each($("#organizacao_id").val(), function () {
-        svc_id.push(this);
-    });
+                    if (json.data[i].status == "1") {
+                        status = "<i title='ATIVO' class='material-icons'>check_circle</i>";
+                    }
 
-    $.each($("#organizacao_id").val(), function () {
-        cat_id.push(this);
-    });
+                    return_data.push({
+                        'id': json.data[i].id,
+                        'titulo': json.data[i].titulo,
+                        'opcoes': buttonVisualizar + buttonWatch,
+                    });
 
-    $.each($("#organizacao_id").val(), function () {
-        urg_id.push(this);
-    });
+                    if (!$.isEmptyObject(json.data[i].organizacao) && json.data[i].organizacao.hasOwnProperty('nome')) {
+                        return_data[i]['organizacao'] = json.data[i].organizacao.nome;
+                    } else {
+                        return_data[i]['organizacao'] = "";
+                    }
 
-    $.each($("#organizacao_id").val(), function () {
-        pri_id.push(this);
-    });
+                    if (!$.isEmptyObject(json.data[i].chamado_situacao) && json.data[i].chamado_situacao.hasOwnProperty('nome')) {
+                        return_data[i]['situacao'] = json.data[i].chamado_situacao.nome;
+                    } else {
+                        return_data[i]['situacao'] = "";
+                    }
 
-    $.each($("#organizacao_id").val(), function () {
-        sit_id.push(this);
-    });
+                    if (!$.isEmptyObject(json.data[i].chamado_categoria) && json.data[i].chamado_categoria.hasOwnProperty('nome')) {
+                        return_data[i]['categoria'] = json.data[i].chamado_categoria.nome;
+                    } else {
+                        return_data[i]['categoria'] = "";
+                    }
 
-    $.each($("#organizacao_id").val(), function () {
-        fee_id.push(this);
-    });
+                    if (!$.isEmptyObject(json.data[i].autor) && json.data[i].autor.hasOwnProperty('login')) {
+                        return_data[i]['autor'] = json.data[i].autor.login;
+                    } else {
+                        return_data[i]['autor'] = "";
+                    }
 
-    $.each($("#organizacao_id").val(), function () {
-        analistas.push(this);
-    });
+                    if (!$.isEmptyObject(json.data[i].analista) && json.data[i].analista.hasOwnProperty('login')) {
+                        return_data[i]['analista'] = json.data[i].analista.login;
+                    } else {
+                        return_data[i]['analista'] = "";
+                    }
 
-    $.each($("#organizacao_id").val(), function () {
-        responsaveis.push(this);
-    });
-
-    $.each($("#organizacao_id").val(), function () {
-        autores.push(this);
-    });
-
-    $.ajax({
-        url: "/api/chamado/",
-        method: "GET",
-        dataType: "json",
-        headers: window.axios.defaults.headers.common,
-        data: {
-            status: [1],
-            organizacao_id: org_id,
-            departamento_id: dep_id,
-            servico_id: svc_id,
-            chamado_categoria_id: cat_id,
-            chamado_urgencia_id: urg_id,
-            chamado_prioridade_id: pri_id,
-            chamado_situacao_id: sit_id,
-            chamado_feedback_id: fee_id,
-            analista_id: analistas,
-            responsavel_id: responsaveis,
-            autor_id: autores,
-            id: $("#id").val(),
-            titulo: $("#titulo").val(),
-            length: $("#length").val(),
-
+                    if (!$.isEmptyObject(json.data[i].responsavel) && json.data[i].responsavel.hasOwnProperty('login')) {
+                        return_data[i]['responsavel'] = json.data[i].responsavel.login;
+                    } else {
+                        return_data[i]['responsavel'] = "";
+                    }
+                }
+                return return_data;
+            },
         },
-        beforeSend: function () {
-            $("#resultado_chamado").before("<div class='load_tick spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
-        },
-        complete: function () {
-            $(".load_tick").remove();
-        }
-    })
-    .done(function (json) {
-        $("#resultado_chamado").empty();
-        criarCardsChamadosBusca(json);
-        console.log(json);
-    })
-    .fail(function (data) {
-        console.log('erro chamado');
-        console.log(data);
+        "columns": [
+            { "title": "OPÇÕES", "className": "dt-center", "name": "opcoes", "data": "opcoes", "sortable": false },
+            { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
+            { "title": "TITULO", "className": "dt-center", "name": "titulo", "data": "titulo" },
+            { "title": "CATEGORIA", "className": "dt-center", "name": "categoria", "data": "categoria" },
+            { "title": "SITUAÇÃO", "className": "dt-center", "name": "situacao", "data": "situacao" },
+            { "title": "ORGANIZAÇÃO", "className": "dt-center", "name": "organizacao", "data": "organizacao" },
+            { "title": "AUTOR", "className": "dt-center", "name": "autor", "data": "autor" },
+            { "title": "ANALISTA", "className": "dt-center", "name": "analista", "data": "analista" },
+            { "title": "RESPONSAVEL", "className": "dt-center", "name": "responsavel", "data": "responsavel" },
+        ],
     });
-}
-
-function criarCardsChamadosBusca(json){
-    json.data.forEach(function (element, index, array) {
-
-        var card = $("<div class='card card-default mt-5' chamado_id=''></div>");
-        var titulo = $("<div class='card-header text-center'></div>");
-        var body = $("<div class='card-body'></div>");
-
-        $(card).attr("chamado_id",element.id);
-        $(titulo).html(element.titulo);
-        $(body).html(element.descricao);
-        
-        $(card).append(titulo);
-        $(card).append(body);
-
-        $("#resultado_chamado").append(card);
-        
-    });
-}
-
-
-function testeBusca(){
-
-
-    var card = $("<div class='card card-default'></div>");
-    var header = $("<div class='card-header text-center'>Teste</div>");
-    var body = $("<div class='card-body'>Teste</div>");
-    
-    $(card).append(header);
-    $(card).append(body);
-    
-    $("#resultado_chamado").append(card);
 }

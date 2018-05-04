@@ -30,7 +30,7 @@ class ChamadoCategoria extends Model
 
     public function chamado()
     {
-        return $this->belongsTo('App\Models\Chamado');
+        return $this->hasMany('App\Models\Chamado');
     }
 
     public function organizacao()

@@ -27,7 +27,7 @@ class Servico extends Model
 
     public $timestamps = true;
 
-    public function chamados()
+    public function chamado()
     {
         return $this->hasMany('App\Models\Chamado');
     }

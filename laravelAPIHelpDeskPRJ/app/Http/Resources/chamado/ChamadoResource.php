@@ -61,7 +61,8 @@ class ChamadoResource extends JsonResource
             "delete_user" => new UserResource($this->whenLoaded("usuario_delete")),
             "links" => $this->when($this->id != null, function () {
                 return [
-                    "self"  =>  route("chamado.show_api", $this->id),
+                    "self"  =>  route("chamado.show", $this->id),
+                    "self-api"  =>  route("chamado.show_api", $this->id),
                     "self-form" =>  route("chamado.edit", $this->id),
                 ];
             })

@@ -76,7 +76,7 @@ function salvar () {
         setTimeout(function () {
             $(dialog).addClass("show");
         }, 200);
-        window.location.href = "/chamado_categoria";
+        window.location.href = "/chamado";
     })
     .fail(function (data) {
         console.log(data);
@@ -136,9 +136,6 @@ function buscarOrganizacoes() {
         console.log(data);
     });
 }
-
-
-
 
 
 function buscarDepartamentos() {
@@ -241,36 +238,6 @@ function buscarCategorias() {
                 console.log(data);
             });
     }
-}
-
-function buscarUsuarios() {
-    $("#autor_id,#responsavel_id,#analista_id").empty();
-
-    $.ajax({
-        url: "/api/user/",
-        method: "GET",
-        dataType: "json",
-        headers: window.axios.defaults.headers.common,
-        data: {
-            status: [1],
-        },
-        beforeSend: function () {
-            $("#autor_id,#responsavel_id,#analista_id").after("<div class='load_users spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
-        },
-        complete: function () {
-            $(".load_users").remove();
-        }
-    })
-        .done(function (json) {
-            $.each(json.data, function (index, el) {
-                $("#autor_id,#responsavel_id,#analista_id").append("<option value='" + el.id + "'>" + el.name + "</option>");
-            });
-        })
-        .fail(function (data) {
-            console.log('erro users');
-            console.log(data);
-        });
-
 }
 
 function buscarSituacao() {
@@ -407,4 +374,35 @@ function buscarUrgencia() {
                 console.log(data);
             });
     }
+}
+
+
+function buscarUsuarios() {
+    $("#autor_id,#responsavel_id,#analista_id").empty();
+
+    $.ajax({
+        url: "/api/user/",
+        method: "GET",
+        dataType: "json",
+        headers: window.axios.defaults.headers.common,
+        data: {
+            status: [1],
+        },
+        beforeSend: function () {
+            $("#autor_id,#responsavel_id,#analista_id").after("<div class='load_users spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+        },
+        complete: function () {
+            $(".load_users").remove();
+        }
+    })
+        .done(function (json) {
+            $.each(json.data, function (index, el) {
+                $("#autor_id,#responsavel_id,#analista_id").append("<option value='" + el.id + "'>" + el.name + "</option>");
+            });
+        })
+        .fail(function (data) {
+            console.log('erro users');
+            console.log(data);
+        });
+
 }

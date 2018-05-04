@@ -26,7 +26,7 @@ class StoreInteracaoRequest extends FormRequest
     {
         return [
             "chamado_id" => "required|exists:chamado,id",
-            "user_id" => "required|exists:user,id",
+            "user_id" => "nullable",
             "descricao" => "required"
         ];
     }

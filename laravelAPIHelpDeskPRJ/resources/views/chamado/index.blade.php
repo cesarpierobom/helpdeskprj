@@ -72,6 +72,11 @@
                                         <label for="autor_id">Autores</label>
                                         <select name="autor_id" id="autor_id"  style="width: 100%" class="form-control" multiple></select>
                                     </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="watcher">Watchers</label>
+                                        <select name="watcher" id="watcher"  style="width: 100%" class="form-control" multiple></select>
+                                    </div>
                                 </div>
 
                                 <div class="form-row">
@@ -102,22 +107,11 @@
                                             <option value="0">Encerrados</option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="length">Quantidade por página</label>
-                                        <select name="length" id="length"  style="width: 100%" class="form-control">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    
-                                    <div class="form-group col-md-6">
-                                        <!-- <label for="titulo">Titulo</label> -->
-                                        <!-- <input type="text" name="titulo" id="titulo" class="form-control"> -->
+                                    <div class="form-group col-md-2 ">
+                                        <div class="">
+                                            <label for="pool" class="">Pool (Não Atribuidos)</label>
+                                            <input type="checkbox" name="pool" id="pool"   value="1" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
 
@@ -127,16 +121,10 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div id="meta_response" class="mt-5">
-                <div class="card card-default">
-                    <div class="card-header text-center">Info</div>
-                    <div class="card-body"></div>
-                </div>
-            </div> -->
-
-            <div id="resultado_chamado" class="mt-5">
-            
+            <div class="table-responsive mt-5">
+                <table id="resultado_chamados" class="table table-striped table-hover">
+                    <thead class="thead-dark"></thead>
+                </table>
             </div>
         </div>
     </div>

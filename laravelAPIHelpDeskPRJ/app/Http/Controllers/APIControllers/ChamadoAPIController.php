@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\APIControllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Chamado;
+use App\Models\ChamadoSituacao;
+use App\Models\ChamadoPrioridade;
+use App\Models\ChamadoFeedback;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\chamado\ChamadoResourceCollection;
@@ -120,24 +124,55 @@ class ChamadoAPIController extends Controller
      */
     public function store(StoreChamadoRequest $request)
     {
-        $chamado = new Chamado();
-        $chamado->titulo = $request->titulo;
-        $chamado->descricao = $request->descricao;
+        if (!$request->filled("chamado_situacao_id")) {
+
+            $situacao = ChamadoSituacao::firstOrCreate(
+                ['nome'=>'NOVO','organizacao_id'=>$request->organizacao_id],
+                ['organizacao_id'=>$request->organizacao_id]
+            );
+            $request->merge(["chamado_situacao_id" => $situacao->id]);
+        }
+        
+        if (!$request->filled("chamado_prioridade_id")) {
+            
+            $prioridade = ChamadoPrioridade::firstOrCreate(
+                ['nome'=>'NORMAL','organizacao_id'=>$request->organizacao_id],
+                ['organizacao_id'=>$request->organizacao_id]
+            );
+            
+            $request->merge(["chamado_prioridade_id" => $prioridade->id]);
+        }
+        
+        if (!$request->filled("chamado_feedback_id")) {
+
+            $feedback = ChamadoFeedback::firstOrCreate(
+                ['nome'=>'NÃO ATRIBUIDO','organizacao_id'=>$request->organizacao_id],
+                ['organizacao_id'=>$request->organizacao_id]
+            );
+
+            $request->merge(["chamado_feedback_id" => $feedback->id]);
+        }
+        
         if (!$request->filled("status")) {
             $request->status = 1;
         }
-        $chamado->status = $request->status;
+
+        $chamado = new Chamado();
+        $chamado->titulo = $request->titulo;
+        $chamado->descricao = $request->descricao;
         $chamado->analista_id = $request->analista_id;
-        $chamado->autor_id = $request->autor_id;
         $chamado->responsavel_id = $request->responsavel_id;
         $chamado->organizacao_id = $request->organizacao_id;
         $chamado->departamento_id = $request->departamento_id;
         $chamado->servico_id = $request->servico_id;
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
-        $chamado->chamado_feedback_id = $request->chamado_feedback_id;
         $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;
+        $chamado->status = $request->status;
         $chamado->chamado_situacao_id = $request->chamado_situacao_id;
         $chamado->chamado_prioridade_id = $request->chamado_prioridade_id;
+        $chamado->chamado_feedback_id = $request->chamado_feedback_id;
+        $chamado->create_user_id = Auth::user()->id;
+        $chamado->autor_id = Auth::user()->id;
 
         $resultado = $chamado->save();
 
@@ -168,17 +203,39 @@ class ChamadoAPIController extends Controller
      */
     public function update(UpdateChamadoRequest $request, Chamado $chamado)
     {
+        if (!$request->filled("chamado_situacao_id")) {
+
+            $request->merge(["chamado_situacao_id" => $chamado->chamado_situacao_id]);
+        }
+        
+        if (!$request->filled("chamado_prioridade_id")) {
+            
+            $request->merge(["chamado_prioridade_id" => $chamado->chamado_prioridade_id]);
+        }
+        
+        if (!$request->filled("chamado_feedback_id")) {
+
+            $request->merge(["chamado_feedback_id" => $chamado->chamado_feedback_id]);
+        }
+        
+        if (!$request->filled("status")) {
+            $request->merge(["status" => $chamado->status]);
+        }
+
         $chamado->titulo = $request->titulo;
         $chamado->descricao = $request->descricao;
-        $chamado->status = $request->status;
-        $chamado->user_id = $request->user_id;
+        $chamado->analista_id = $request->analista_id;
+        $chamado->responsavel_id = $request->responsavel_id;
+        $chamado->organizacao_id = $request->organizacao_id;
         $chamado->departamento_id = $request->departamento_id;
         $chamado->servico_id = $request->servico_id;
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
+        $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;
+        $chamado->status = $request->status;
         $chamado->chamado_situacao_id = $request->chamado_situacao_id;
         $chamado->chamado_prioridade_id = $request->chamado_prioridade_id;
         $chamado->chamado_feedback_id = $request->chamado_feedback_id;
-        $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;
+
         $resultado = $chamado->save();
 
         if ($resultado) {

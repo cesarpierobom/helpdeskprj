@@ -45,7 +45,17 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
-    public function chamado()
+    public function autor_chamado()
+    {
+        return $this->hasMany('App\Models\Chamado');
+    }
+
+    public function analista_chamado()
+    {
+        return $this->hasMany('App\Models\Chamado');
+    }
+
+    public function responsavel_chamado()
     {
         return $this->hasMany('App\Models\Chamado');
     }

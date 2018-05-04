@@ -1,0 +1,1 @@
+@include('chamado/edit')

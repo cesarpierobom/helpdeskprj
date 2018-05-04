@@ -29,6 +29,11 @@ class Interacao extends Model
 
     public function chamado()
     {
-    	return $this->belongsTo('App\Models\Chamado');
+    	return $this->belongsTo('App\Models\Chamado',"chamado_id","id");
+	}
+	
+	public function usuario()
+    {
+    	return $this->belongsTo('App\User',"user_id","id");
     }
 }

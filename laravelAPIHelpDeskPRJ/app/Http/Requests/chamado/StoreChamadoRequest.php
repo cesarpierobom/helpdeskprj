@@ -39,7 +39,6 @@ class StoreChamadoRequest extends FormRequest
             "autor_id" => "nullable",
             "analista_id" => "nullable",
             "responsavel_id" => "nullable",
-
         ];
     }
 }

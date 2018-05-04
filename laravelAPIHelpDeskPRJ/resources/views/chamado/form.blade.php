@@ -45,6 +45,7 @@
     <div class="form-group col-md-10 offset-md-1">
         <label for="descricao">Descrição</label>
         <textarea name="descricao" id="descricao" class="form-control">{{$chamado->descricao}}</textarea>
+        <div id="descricao_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 

@@ -48,7 +48,7 @@ Route::apiResource(
     ]
 )->parameters(['chamado' => 'chamado'])->middleware("auth:api");
 
-
+Route::get('chamado/{chamado}/interacoes','APIControllers\InteracaoAPIController@listByChamado')->middleware("auth:api");
 
 Route::apiResource(
     'departamento',

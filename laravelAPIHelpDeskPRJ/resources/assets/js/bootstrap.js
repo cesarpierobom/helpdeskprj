@@ -10,10 +10,29 @@ window.Popper = require('popper.js').default;
 try {
     window.$ = window.jQuery = require('jquery');
     window.dt = window.datatable = require('datatables.net');
+    window.buttons               = require( 'datatables.net-buttons' );
+    require('select2');
     require('datatables.net-dt/css/jquery.dataTables.css');
     require('bootstrap');
-    require('select2');
     require('select2/dist/css/select2.css');
+
+    require('jszip');
+    // require('pdfmake');
+    require('datatables.net-autofill');
+    require('datatables.net-buttons');
+    require('datatables.net-buttons/js/buttons.colVis.js');
+    require('datatables.net-buttons/js/buttons.flash.js');
+    require('datatables.net-buttons/js/buttons.html5.js');
+    require('datatables.net-buttons/js/buttons.print.js');
+    require('datatables.net-colreorder');
+    require('datatables.net-fixedcolumns');
+    require('datatables.net-fixedheader');
+    require('datatables.net-keytable');
+    require('datatables.net-responsive');
+    require('datatables.net-rowgroup');
+    // require('datatables.net-rowreorder');
+    require('datatables.net-scroller');
+    require('datatables.net-select');
 
 } catch (e) {}
 

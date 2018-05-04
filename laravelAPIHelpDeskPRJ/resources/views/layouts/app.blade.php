@@ -17,6 +17,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/utilities/scripts.js') }}" defer></script>
     
+
     @yield('more_scripts')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -74,8 +75,6 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('chamado.index') }}">Pesquisar</a>
                                 <a class="dropdown-item" href="{{ route('chamado.create') }}">Novo Chamado</a>
-                                <a class="dropdown-item" href="{{ route('chamado.index') }}">Watching</a>
-                                <a class="dropdown-item" href="{{ route('chamado.index') }}">Pool</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

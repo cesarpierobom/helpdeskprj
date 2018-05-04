@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\APIControllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Interacao;
+use App\Models\Chamado;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\interacao\InteracaoResourceCollection;
@@ -46,6 +48,10 @@ class InteracaoAPIController extends Controller
         return new InteracaoResourceCollection($query->get());
     }
 
+    public function listByChamado(Chamado $chamado){
+        return new InteracaoResourceCollection($chamado->interacoes()->with("usuario")->get());
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -57,6 +63,10 @@ class InteracaoAPIController extends Controller
         $interacao = new Interacao();
         $interacao->descricao = $request->descricao;
         $interacao->chamado_id = $request->chamado_id;
+
+        if(!$request->filled("user_id")){
+            $request->merge(['user_id'=> Auth::user()->id]);
+        }
         $interacao->user_id = $request->user_id;
         $resultado = $interacao->save();
 
