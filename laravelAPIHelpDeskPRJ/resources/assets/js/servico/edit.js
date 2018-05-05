@@ -45,13 +45,13 @@ function salvar() {
 
     $(dialog).append(dismiss);
     $(dialog).append(msg);
-    $("#formEditarDepartamento").prepend(dialog);
+    $("#formEditarServico").prepend(dialog);
 
     $(".is-invalid").removeClass(".is-invalid");
     $(".invalid-feedback").html("");
     var id = $("#id").val();
     $.ajax({
-        url: "/api/departamento/" + id,
+        url: "/api/servico/" + id,
         method: "PUT",
         dataType: "json",
         headers: window.axios.defaults.headers.common,
@@ -72,7 +72,7 @@ function salvar() {
             setTimeout(function () {
                 $(dialog).addClass("show");
             }, 200);
-            window.location.href = "/departamento";
+            window.location.href = "/servico";
         })
         .fail(function (data) {
             console.log(data);
