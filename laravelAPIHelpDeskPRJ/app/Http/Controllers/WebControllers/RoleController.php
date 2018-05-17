@@ -4,6 +4,7 @@ namespace App\Http\Controllers\WebControllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return view("role.index");
     }
 
     /**
@@ -24,28 +25,31 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $app = app();
+        $role = $app->make('stdClass');
+        $role->name = "";
+        return view("role.create", ['role'=>$role]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        return view("role.show", ['role'=>$role]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        return view("role.edit", ['role'=>$role]);
     }
 }

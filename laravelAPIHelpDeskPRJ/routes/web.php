@@ -28,6 +28,12 @@ Route::resource(
 
 
 Route::resource(
+    'role',
+    'WebControllers\RoleController'
+)->parameters(['role' => 'role'])->middleware("auth");
+
+
+Route::resource(
     'chamado_categoria',
     'WebControllers\ChamadoCategoriaController'
 )->parameters(['chamado_categoria' => 'chamadoCategoria'])->middleware("auth");

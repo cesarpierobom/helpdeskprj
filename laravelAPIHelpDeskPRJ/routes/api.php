@@ -27,6 +27,27 @@ Route::apiResource(
     ]
 )->parameters(['user' => 'user'])->middleware("auth:api");
 
+Route::apiResource(
+    'role',
+    'APIControllers\RoleAPIController',
+    [
+        'names' => [
+            'index' => 'role.index_api', 'show'=>'role.show_api'
+        ]
+    ]
+)->parameters(['role' => 'role']);
+
+Route::apiResource(
+    'permission',
+    'APIControllers\PermissionAPIController',
+    [
+        'names' => [
+            'index' => 'permission.index_api', 'show'=>'permission.show_api'
+        ]
+    ]
+)->parameters(['permission' => 'permission']);
+
+
 
 Route::apiResource(
     'chamado_categoria',
