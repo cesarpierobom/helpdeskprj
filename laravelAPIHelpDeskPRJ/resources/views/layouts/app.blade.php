@@ -98,8 +98,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('user.index') }}">Usuario</a>
-                                <a class="dropdown-item" href="{{ route('user.index') }}">Perfis</a>
-                                <a class="dropdown-item" href="{{ route('user.index') }}">Permissoes</a>
+                                <a class="dropdown-item" href="{{ route('user.index') }}">Perfis e Permissoes</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
