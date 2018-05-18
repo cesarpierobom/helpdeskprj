@@ -1,10 +1,17 @@
 <div class="form-row">
     <div class="form-group col-md-5 offset-md-1">
-        <label for="sexo">Sexo</label>
-        <input type="radio" @if($user->sexo == '1') checked='checked' @endif name="sexo" id="m"> Masculino
-        <input type="radio" @if($user->sexo == '2') checked='checked' @endif name="sexo" id="f"> Feminino
+        <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="radio" value="1" @if($user->sexo == '1') checked='checked' @endif name="sexo" id="sexom">
+            <label class="custom-control-label" for="sexom">Masculino</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+            <input class="custom-control-input" type="radio" value="2" @if($user->sexo == '2') checked='checked' @endif name="sexo" id="sexof">
+            <label class="custom-control-label" for="sexof">Feminino</label>
+        </div>        
         <div id="sexo_feedback" class="invalid-feedback"></div>
     </div>
+    
 </div>
 
 <div class="form-row">
@@ -50,16 +57,16 @@
     </div>
     <div class="form-group col-md-5 ">
         <label for="password_confirmation">Confirmação da Senha</label>
-        <input type="password_confirmation" class="form-control" maxlength="50" name="password_confirmation" id="password_confirmation" value="" placeholder="">
+        <input type="password" class="form-control" maxlength="50" name="password_confirmation" id="password_confirmation" value="" placeholder="">
         <div id="password_confirmation_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 
 <div class="form-row">
     <div class="form-group col-md-10 offset-md-1">
-        <label for="perfil">Perfil</label>
-        <select name="perfil" style="width: 100%" class="form-control" id="perfil" ></select>
-        <div id="perfil_feedback" class="invalid-feedback"></div>
+        <label for="role">Perfil</label>
+        <select name="role" style="width: 100%" class="form-control" id="role" ></select>
+        <div id="role_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 

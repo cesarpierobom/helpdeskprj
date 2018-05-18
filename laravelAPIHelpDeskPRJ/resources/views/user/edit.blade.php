@@ -24,6 +24,6 @@
 
 
 @section('more_scripts')
-<script src="{{ URL::asset('js/usuario/edit.js') }}" defer></script>
+<script src="{{ URL::asset('js/user/edit.js') }}" defer></script>
 @endsection
 

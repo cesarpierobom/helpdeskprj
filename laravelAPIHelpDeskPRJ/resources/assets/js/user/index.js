@@ -3,8 +3,11 @@ var gridUser;
 $(document).ready(userIndexReady = function () {
     $("#organizacao_id").select2();
     $("#status").select2();
-
+    $("#role").select2();
+    
     buscarOrganizacoes();
+    buscarPerfis();
+    
     gridUser();
 
     $("#btnBuscar").on("click", function () {
@@ -12,6 +15,32 @@ $(document).ready(userIndexReady = function () {
     });
 
 });
+
+function buscarPerfis() {
+    var request = $.ajax({
+        url: "/api/role/",
+        method: "GET",
+        dataType: "json",
+        headers: window.axios.defaults.headers.common,
+        beforeSend: function () {
+            $("#roles").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+        },
+        complete: function () {
+            $(".load_perm").remove();
+        }
+    })
+        .done(function (json) {
+            $("#role").empty();
+            $.each(json.data, function (index, el) {
+                $("#role").append("<option value='" + el.id + "'>" + el.name + "</option>");
+            });
+        })
+        .fail(function (data) {
+            alert("ERRO");
+            console.log(data);
+        });
+    return request;
+}
 
 function deletar(id) {
     $.ajax({

@@ -22,7 +22,8 @@ class UserAPIController extends Controller
     public function index(ListUserRequest $request)
     {
         $query = (new User)->newQuery();
-        $query->with(["organizacao_origem","organizacao_visivel"]);
+        $query->with("organizacao_origem");
+        $query->with("organizacao_visivel");
         
         if ($request->filled("name")) {
             $query->where("name", "like", "%" . $request->input("name") . "%");
@@ -71,6 +72,7 @@ class UserAPIController extends Controller
             $query->take($request->input("length"));
             $query->skip($request->input("start"));
         }
+
         return new UserResourceCollection($query->get());
     }
 
@@ -81,19 +83,24 @@ class UserAPIController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
-    {
+    {   
         $user = new User();
         $user->name = $request->name;
         $user->last_name = $request->last_name;
+        $user->organizacao_id = $request->organizacao_origem;
         $user->email = $request->email;
         $user->login = $request->login;
         $user->documento = $request->documento;
-        $user->sexo = $request->sexo;
         $user->status = $request->status;
         $user->data_nascimento = $request->data_nascimento;
+        $user->sexo = $request->sexo;
         $user->password = Hash::make($request->password);
+        $user->api_token = str_random(100);
         $resultado = $user->save();
 
+        $user->organizacao_visivel()->sync($request->organizacao_visivel);
+        $user->syncRoles($request->role);
+        
         if ($resultado) {
             return response()->json(null, 204);
         } else {
@@ -109,6 +116,9 @@ class UserAPIController extends Controller
      */
     public function show(User $user)
     {
+        $user->load('organizacao_visivel');
+        $user->load('roles');
+        
         return new UserResource($user);
     }
 
@@ -123,15 +133,17 @@ class UserAPIController extends Controller
     {
         $user->name = $request->name;
         $user->last_name = $request->last_name;
+        $user->organizacao_id = $request->organizacao_origem;
         $user->email = $request->email;
         $user->login = $request->login;
         $user->documento = $request->documento;
-        $user->sexo = $request->sexo;
         $user->status = $request->status;
         $user->data_nascimento = $request->data_nascimento;
+        $user->sexo = $request->sexo;
         $user->password = Hash::make($request->password);
         $resultado = $user->save();
-
+        $user->organizacao_visivel()->sync($request->organizacao_visivel);
+        $user->syncRoles($request->role);
         if ($resultado) {
             return response()->json(null, 204);
         } else {

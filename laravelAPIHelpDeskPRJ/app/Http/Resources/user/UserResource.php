@@ -5,6 +5,7 @@ namespace App\Http\Resources\user;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\organizacao\OrganizacaoResource;
 use App\Http\Resources\user\UserResource;
+use App\Http\Resources\role\RoleResourceCollection;
 
 class UserResource extends JsonResource
 {
@@ -33,6 +34,7 @@ class UserResource extends JsonResource
             "update_user_id" => $this->update_user_id,
             "delete_user_id" => $this->delete_user_id,
             "organizacao_id" => $this->organizacao_id,
+            "roles" => new RoleResourceCollection($this->whenLoaded('roles')),
             "organizacao_origem" => new OrganizacaoResource($this->whenLoaded('organizacao_origem')),
             "organizacao_visivel" => OrganizacaoResource::collection($this->whenLoaded('organizacao_visivel')),
             "create_user" => new UserResource($this->whenLoaded("usuario_criacao")),

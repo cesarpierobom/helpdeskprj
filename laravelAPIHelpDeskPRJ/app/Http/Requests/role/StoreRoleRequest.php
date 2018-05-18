@@ -3,6 +3,7 @@
 namespace App\Http\Requests\role;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreRoleRequest extends FormRequest
 {
@@ -24,8 +25,8 @@ class StoreRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"  =>  "required|max:255|unique:roles,name",
-            "permissions"    =>  "nullable|exists:permissions,name",
+            "name"  =>  ["required", "max:255", Rule::unique('roles','name')],
+            "permissions"    =>  "nullable|exists:permissions,id",
         ];
     }
 }

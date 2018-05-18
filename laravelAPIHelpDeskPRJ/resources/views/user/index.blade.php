@@ -33,8 +33,8 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="perfil">Perfil</label>
-                                        <select name="perfil_id" id="perfil_id"  style="width: 100%" class="form-control" multiple></select>                                        
+                                        <label for="role">Perfis</label>
+                                        <select name="role" id="role"  style="width: 100%" class="form-control" multiple></select>                                        
                                     </div>
                                 </div>
                                 <div class="form-row">

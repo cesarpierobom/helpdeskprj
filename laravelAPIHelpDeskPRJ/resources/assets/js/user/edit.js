@@ -2,10 +2,17 @@ $(document).ready(userEditDocumentReady = function () {
 
     $("#organizacao_origem").select2();
     $("#organizacao_visivel").select2();
-    $("#status").select2();
-    $("#perfil").select2();
 
-    buscarOrganizacoes();
+    $("#status").select2();
+    $("#role").select2();
+
+    var request = buscarOrganizacoes();
+
+    request.done(function () {
+        buscarDadosUsario();
+    });
+
+    buscarPerfis();
 
     $("#btnSalvar").on("click", function () {
         salvar();
@@ -13,7 +20,7 @@ $(document).ready(userEditDocumentReady = function () {
 });
 
 function buscarOrganizacoes() {
-    $.ajax({
+    var request = $.ajax({
         url: "/api/organizacao/",
         method: "GET",
         dataType: "json",
@@ -30,12 +37,77 @@ function buscarOrganizacoes() {
     })
         .done(function (json) {
             $.each(json.data, function (index, el) {
-                $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
+                $("#organizacao_origem, #organizacao_visivel").append("<option value='" + el.id + "'>" + el.nome + "</option>");
             });
 
         })
         .fail(function (data) {
             alert("ERRO: " + data);
+        });
+
+    return request;
+}
+
+function buscarPerfis() {
+    var request = $.ajax({
+        url: "/api/role/",
+        method: "GET",
+        dataType: "json",
+        headers: window.axios.defaults.headers.common,
+        beforeSend: function () {
+            $("#role").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+        },
+        complete: function () {
+            $(".load_perm").remove();
+        }
+    })
+        .done(function (json) {
+            $("#role").empty();
+            $.each(json.data, function (index, el) {
+                $("#role").append("<option value='" + el.id + "'>" + el.name + "</option>");
+            });
+        })
+        .fail(function (data) {
+            alert("ERRO");
+            console.log(data);
+        });
+    return request;
+}
+
+
+function buscarDadosUsario(){
+    var id = $("#id").val();
+
+    $.ajax({
+        url: "/api/user/" + id,
+        method: "GET",
+        dataType: "json",
+        headers: window.axios.defaults.headers.common,
+    })
+        .done(function (json) {
+            console.log(json);
+            ids_org_visivel = [];
+            if (json.data.organizacao_visivel != null) {
+                $.each(json.data.organizacao_visivel, function (index, el) {
+                    ids_org_visivel.push(el.id);
+                });
+
+                if (ids_org_visivel[0] != null) {
+                    $("#organizacao_visivel").val(ids_org_visivel).trigger("change");
+                }
+            }
+
+            if (json.data.roles != null && json.data.roles.data[0] != null) {
+                console.log('roles');
+                console.log(json.data.roles);
+                
+                $("#role").val(json.data.roles.data[0].id).trigger("change");
+            }else{
+                console.log('roles vazios');
+            }
+        })
+        .fail(function (data) {
+            console.log(data);
         });
 }
 
@@ -48,7 +120,7 @@ function salvar() {
 
     $(dialog).append(dismiss);
     $(dialog).append(msg);
-    $("#formCadastrarUser").prepend(dialog);
+    $("#formEditarUsuario").prepend(dialog);
 
     $(".is-invalid").removeClass(".is-invalid");
     $(".invalid-feedback").html("");
@@ -66,13 +138,11 @@ function salvar() {
             password: $("#password").val(),
             password_confirmation: $("#password_confirmation").val(),
             data_nascimento: $("#data_nascimento").val(),
-            sexo: $("#sexo:checked").val(),
+            sexo: $("input[name='sexo']:checked").val(),
             status: $("#status").val(),
             organizacao_origem: $("#organizacao_origem").val(),
             organizacao_visivel: $("#organizacao_visivel").val(),
-            login: $("#login").val(),
-            email: $("#email").val(),
-            perfil: $("#perfil").val()
+            role: $("#role").val()
         }
     })
         .done(function (data) {

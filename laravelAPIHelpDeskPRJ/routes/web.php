@@ -107,3 +107,6 @@ Route::resource(
     'chamado_urgencia',
     'WebControllers\ChamadoUrgenciaController'
 )->parameters(['chamado_urgencia' => 'chamadoUrgencia'])->middleware("auth");
+
+
+Route::view("/reports/geral", 'reports.geral')->name("report_geral")->middleware("auth");

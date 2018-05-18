@@ -25,13 +25,15 @@ class StoreUserRequest extends FormRequest
     {
         return [
             "status" => "required|in:1,0",
-            "organizacao_id" => "required|exists:organizacao,id",
-            "password" => "min:8|confirmed",
+            "organizacao_origem" => "required|exists:organizacao,id",
+            "organizacao_visivel" => "required|exists:organizacao,id",
+            "password" => "required|min:6|confirmed",
             "password_confirmation" => "",
             "name" => "required|max:255",
             "last_name" => "required|max:255",
-            "email" => "required|max:255|email|unique:user,email",
-            "login" => "required|max:255|unique:user,login",
+            "email" => "required|max:255|email|unique:users,email",
+            "login" => "required|max:255|unique:users,login",
+            "role" => "required"
         ];
     }
 }

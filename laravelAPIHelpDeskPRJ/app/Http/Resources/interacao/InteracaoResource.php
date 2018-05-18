@@ -20,7 +20,7 @@ class InteracaoResource extends JsonResource
             "descricao" => $this->descricao,
             "chamado_id" => $this->chamado_id,
             "user_id" => $this->user_id,
-            "created_at" => $this->created_at,
+            "created_at" => $this->created_at->format("d/m/Y H:i:s"),
             "updated_at" => $this->updated_at,
             "deleted_at" => $this->deleted_at,
             "create_user_id" => $this->create_user_id,

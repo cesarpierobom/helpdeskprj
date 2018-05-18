@@ -3,14 +3,42 @@ $(document).ready(userCreateDocumentReady = function () {
     $("#organizacao_origem").select2();
     $("#organizacao_visivel").select2();
     $("#status").select2();
-    $("#perfil").select2();
+    $("#role").select2();
 
     buscarOrganizacoes();
+    buscarPerfis();
 
     $("#btnSalvar").on("click", function () {
         salvar();
     });
 });
+
+function buscarPerfis() {
+    var request = $.ajax({
+        url: "/api/role/",
+        method: "GET",
+        dataType: "json",
+        headers: window.axios.defaults.headers.common,
+        beforeSend: function () {
+            $("#role").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+        },
+        complete: function () {
+            $(".load_perm").remove();
+        }
+    })
+        .done(function (json) {
+            $("#role").empty();
+            $.each(json.data, function (index, el) {
+                $("#role").append("<option value='" + el.id + "'>" + el.name + "</option>");
+            });
+        })
+        .fail(function (data) {
+            alert("ERRO");
+            console.log(data);
+        });
+    return request;
+}
+
 
 function buscarOrganizacoes() {
     $.ajax({
@@ -65,13 +93,12 @@ function salvar() {
             password: $("#password").val(),
             password_confirmation: $("#password_confirmation").val(),
             data_nascimento: $("#data_nascimento").val(),
-            sexo: $("#sexo:checked").val(),
+            sexo: $("input[name='sexo']:checked").val(),
             status: $("#status").val(),
             organizacao_origem: $("#organizacao_origem").val(),
             organizacao_visivel: $("#organizacao_visivel").val(),
-            login: $("#login").val(),
-            email: $("#email").val(),
-            perfil: $("#perfil").val()
+            role: $("#role").val()
+
         }
     })
     .done(function (data) {

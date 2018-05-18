@@ -284,4 +284,8 @@ mix.scripts([
 
 
 
+mix.scripts([
+    'resources/assets/js/reports/geral.js'
+], 'public/js/reports/geral.js');
+
 mix.browserSync("homestead.localdev");

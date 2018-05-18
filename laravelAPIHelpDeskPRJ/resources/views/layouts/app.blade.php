@@ -78,18 +78,53 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
-                                Administração
-                            </a>
+
+                            @if(auth()->user()->can('listar organizacao') 
+                                || auth()->user()->can('listar departamento') 
+                                || auth()->user()->can('listar categoria') 
+                                || auth()->user()->can('listar feedback') 
+                                || auth()->user()->can('listar prioridade') 
+                                || auth()->user()->can('listar urgencia') 
+                                || auth()->user()->can('listar situacao') 
+                                || auth()->user()->can('listar servico') )
+
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
+                                    Administração
+                                </a>
+                            @endif
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('organizacao.index') }}">Organizações</a>
-                                <a class="dropdown-item" href="{{ route('departamento.index') }}">Departamentos</a>
-                                <a class="dropdown-item" href="{{ route('chamado_categoria.index') }}">Categorias</a>
-                                <a class="dropdown-item" href="{{ route('chamado_feedback.index') }}">Feedback</a>
-                                <a class="dropdown-item" href="{{ route('chamado_prioridade.index') }}">Prioridades</a>
-                                <a class="dropdown-item" href="{{ route('chamado_urgencia.index') }}">Urgências</a>
-                                <a class="dropdown-item" href="{{ route('chamado_situacao.index') }}">Situações</a>
-                                <a class="dropdown-item" href="{{ route('servico.index') }}">Serviços</a>
+
+                                @can('listar organizacao')
+                                    <a class="dropdown-item" href="{{ route('organizacao.index') }}">Organizações</a>
+                                @endcan
+
+                                @can('listar departamento')
+                                    <a class="dropdown-item" href="{{ route('departamento.index') }}">Departamentos</a>
+                                @endcan
+
+                                @can('listar categoria')
+                                    <a class="dropdown-item" href="{{ route('chamado_categoria.index') }}">Categorias</a>
+                                @endcan
+
+                                @can('listar feedback')
+                                    <a class="dropdown-item" href="{{ route('chamado_feedback.index') }}">Feedback</a>
+                                @endcan
+
+                                @can('listar prioridade')
+                                    <a class="dropdown-item" href="{{ route('chamado_prioridade.index') }}">Prioridades</a>
+                                @endcan
+
+                                @can('listar urgencia')
+                                    <a class="dropdown-item" href="{{ route('chamado_urgencia.index') }}">Urgências</a>
+                                @endcan
+
+                                @can('listar situacao')
+                                    <a class="dropdown-item" href="{{ route('chamado_situacao.index') }}">Situações</a>
+                                @endcan
+
+                                @can('listar servico')
+                                    <a class="dropdown-item" href="{{ route('servico.index') }}">Serviços</a>
+                                @endcan
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -106,6 +141,12 @@
                                 Relatorios
                             </a>
                             <div class="dropdown-menu">
+
+                                <a class="dropdown-item" href="{{ route('report_geral') }}">Geral</a>
+                                <a class="dropdown-item" href="{{ route('report_geral') }}">Situacoes</a>
+                                <a class="dropdown-item" href="{{ route('report_geral') }}">Categorias</a>
+                                <a class="dropdown-item" href="{{ route('report_geral') }}">Usuarios</a>                                
+                                
                             </div>
                         </li>
                     @endguest

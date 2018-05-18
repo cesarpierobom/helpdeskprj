@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public function organizacao_origem()
     {
-        return $this->belongsTo('App\Models\Organizacao');
+        return $this->belongsTo('App\Models\Organizacao', "organizacao_id", "id");
     }
 
     public function organizacao_visivel()

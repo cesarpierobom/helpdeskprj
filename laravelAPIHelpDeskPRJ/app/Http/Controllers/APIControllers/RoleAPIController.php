@@ -8,6 +8,9 @@ use Spatie\Permission\Models\Role;
 use App\Http\Resources\role\RoleResourceCollection;
 use App\Http\Resources\role\RoleResource;
 use App\Http\Requests\role\ListRoleRequest;
+use App\Http\Requests\role\StoreRoleRequest;
+use App\Http\Requests\role\UpdateRoleRequest;
+
 class RoleAPIController extends Controller
 {
     /**
@@ -49,11 +52,11 @@ class RoleAPIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRoleRequest $request)
     {
         $newRole = Role::create(['name' => $request->name]);
 
-        foreach ($request->permission_on as $permission) {
+        foreach ($request->permissions as $permission) {
             $newRole->givePermissionTo($permission);
         }
 
@@ -82,12 +85,18 @@ class RoleAPIController extends Controller
      * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(UpdateRoleRequest $request, Role $role)
     {
         $role->name = $request->name;
         $resultado = $role->save();
 
-        $role->syncPermissions($request->permission_on);
+        if ($request->has("permissions")) {
+            $role->syncPermissions($request->permissions);
+        }else{
+            $role->syncPermissions();
+        }
+
+
 
         if ($resultado) {
             return response()->json(null, 204);

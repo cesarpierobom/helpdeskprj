@@ -45,9 +45,25 @@ Route::apiResource(
             'index' => 'permission.index_api', 'show'=>'permission.show_api'
         ]
     ]
-)->parameters(['permission' => 'permission']);
+)->parameters(['permission' => 'permission'])->middleware("auth:api");
 
 
+
+Route::get('relatorio/geral', function (Request $request) {
+
+    // SELECT * FROM (
+    //     (SELECT count(*) FROM chamado WHERE encerrado = 0) AS abertos, 
+    //     (SELECT count(*) FROM chamado WHERE encerrado = 1) AS encerrados, 
+    //     (SELECT count(*) FROM chamado WHERE encerrado = 0 AND created_at BETWEEN $request->periodode AND $request->periodoate ) AS abertos_periodo, 
+    //     (SELECT count(*) FROM chamado WHERE encerrado = 1 AND created_at BETWEEN $request->periodode AND $request->periodoate ) AS encerrados_periodo)
+    // GROUP BY  organizacao_id;
+
+
+    // $res = DB::select( DB::raw("") );
+
+    // return $res;
+
+})->name("report_geral_api");
 
 Route::apiResource(
     'chamado_categoria',

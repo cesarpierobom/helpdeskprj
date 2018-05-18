@@ -476,7 +476,7 @@ function buscarInteracoes() {
                     return_data.push({
                         'id': json.data[i].id,
                         'user_id': json.data[i].usuario.name,
-                        'created_at': json.data[i].created_at.date,
+                        'created_at': json.data[i].created_at,
                         'descricao': json.data[i].descricao
                     });
                 }
