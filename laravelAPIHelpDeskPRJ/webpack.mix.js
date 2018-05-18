@@ -266,4 +266,22 @@ mix.scripts([
 
 
 
+ /**
+ * 
+ * PERFIL
+ */
+mix.scripts([
+    'resources/assets/js/role/create.js'
+], 'public/js/role/create.js');
+
+mix.scripts([
+    'resources/assets/js/role/index.js'
+], 'public/js/role/index.js');
+
+mix.scripts([
+    'resources/assets/js/role/edit.js'
+], 'public/js/role/edit.js');
+
+
+
 mix.browserSync("homestead.localdev");
