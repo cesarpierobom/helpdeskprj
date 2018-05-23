@@ -1,0 +1,36 @@
+{
+	"authHost": "http://homestead.localdev",
+	"authEndpoint": "/broadcasting/auth",
+	"clients": [
+		{
+			"appId": "c58b6563dac4c4b8",
+			"key": "ac7ad32b3463f739b3078a7492309afd"
+		},
+		{
+			"appId": "efae91d2eb99c57c",
+			"key": "09dc4279642234e07dd4cc6e3cc8f179"
+		}
+	],
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		}
+	},
+	"devMode": true,
+	"host": null,
+	"port": "6001",
+	"protocol": "http",
+	"socketio": {},
+	"sslCertPath": "",
+	"sslKeyPath": "",
+	"sslCertChainPath": "",
+	"sslPassphrase": "",
+	"apiOriginAllow": {
+		"allowCors": true,
+		"allowOrigin": "http://127.0.0.1",
+		"allowMethods": "GET, POST, PUT, DELETE, PATCH",
+		"allowHeaders": "Origin, Content-Type, X-Auth-Token, X-Requested-With, Accept, Authorization, X-CSRF-TOKEN, X-Socket-Id"
+	}
+}
