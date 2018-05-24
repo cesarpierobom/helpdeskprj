@@ -146,7 +146,6 @@
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Situacoes</a>
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Categorias</a>
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Usuarios</a>                                
-                                
                             </div>
                         </li>
                     @endguest
@@ -159,6 +158,12 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNotificacoes" data-toggle="dropdown" >
+                                    <i class="material-icons">notifications_active</i>
+                                </a>
+                                <div class="dropdown-menu"></div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

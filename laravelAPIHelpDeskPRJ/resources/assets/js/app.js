@@ -20,3 +20,25 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+Echo.private(`App.User.1`)
+    .notification((notification) => {
+        console.log(notification.type);
+    });
+
+
+
+Echo.private('chat')
+    .whisper('typing', {
+        // name: this.user.name
+    });
+
+Echo.private('chat')
+    .listenForWhisper('typing', (e) => {
+        console.log(e.name);
+    });
+
+Echo.channel('global')
+    .listen('Test', (e) => {
+        console.log(e);
+    });

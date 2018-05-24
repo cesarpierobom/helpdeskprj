@@ -289,9 +289,4 @@ mix.scripts([
 ], 'public/js/reports/geral.js');
 
 
-mix.browserSync({
-    host: '192.168.10.10',
-    port: 3000,
-    proxy: 'homestead.localdev',
-    open: false,
-});
+mix.browserSync('homestead.localdev');
