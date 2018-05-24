@@ -26,8 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -128,12 +127,21 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
-                                Configuracoes
-                            </a>
+
+                            @if(auth()->user()->can('listar usuario') 
+                                || auth()->user()->can('listar perfil'))
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
+                                    Configuracoes
+                                </a>
+                            @endif
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('user.index') }}">Usuario</a>
-                                <a class="dropdown-item" href="{{ route('role.index') }}">Perfis e Permissoes</a>
+                                @can('listar usuario')
+                                    <a class="dropdown-item" href="{{ route('user.index') }}">Usuario</a>
+                                @endcan
+
+                                @can('listar perfil')
+                                    <a class="dropdown-item" href="{{ route('role.index') }}">Perfis e Permissoes</a>
+                                @endcan
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -141,7 +149,6 @@
                                 Relatorios
                             </a>
                             <div class="dropdown-menu">
-
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Geral</a>
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Situacoes</a>
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Categorias</a>

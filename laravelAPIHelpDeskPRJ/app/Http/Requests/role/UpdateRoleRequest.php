@@ -4,6 +4,7 @@ namespace App\Http\Requests\role;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateRoleRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class UpdateRoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("atualizar perfil");
     }
 
     /**

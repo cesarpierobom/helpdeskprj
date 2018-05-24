@@ -4,6 +4,7 @@ namespace App\Http\Requests\chamado_categoria;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class StoreChamadoCategoriaRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class StoreChamadoCategoriaRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("salvar nova categoria");
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Requests\chamado_prioridade;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateChamadoPrioridadeRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class UpdateChamadoPrioridadeRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("atualizar prioridade");
     }
 
     /**

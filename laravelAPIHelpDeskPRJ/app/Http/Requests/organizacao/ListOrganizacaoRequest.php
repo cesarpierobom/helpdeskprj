@@ -4,6 +4,7 @@ namespace App\Http\Requests\organizacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ListOrganizacaoRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class ListOrganizacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar organizacao");
     }
 
     /**

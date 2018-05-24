@@ -3,6 +3,7 @@
 namespace App\Http\Requests\usuario_grupo;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateUsuarioGrupoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateUsuarioGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::user()->can("atualizar grupo de usuario");
     }
 
     /**

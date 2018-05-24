@@ -3,6 +3,7 @@
 namespace App\Http\Requests\permission;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ListPermissionRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class ListPermissionRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar permissao");
     }
 
     /**

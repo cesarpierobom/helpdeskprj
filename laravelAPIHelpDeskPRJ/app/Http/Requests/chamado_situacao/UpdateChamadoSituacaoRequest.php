@@ -5,6 +5,7 @@ namespace App\Http\Requests\chamado_situacao;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\ChamadoSituacao;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateChamadoSituacaoRequest extends FormRequest
 {
@@ -15,7 +16,7 @@ class UpdateChamadoSituacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::user()->can("atualizar situacao");
     }
 
     /**

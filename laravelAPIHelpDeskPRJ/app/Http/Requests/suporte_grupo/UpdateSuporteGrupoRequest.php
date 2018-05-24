@@ -3,6 +3,7 @@
 namespace App\Http\Requests\suporte_grupo;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateSuporteGrupoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateSuporteGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::user()->can("atualizar grupo de suporte");
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado_urgencia;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateChamadoUrgenciaRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateChamadoUrgenciaRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("atualizar urgencia");
     }
 
     /**

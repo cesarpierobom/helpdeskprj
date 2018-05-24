@@ -5,6 +5,7 @@ namespace App\Http\Requests\chamado_situacao;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\ChamadoSituacao;
+use Illuminate\Support\Facades\Auth;
 
 class StoreChamadoSituacaoRequest extends FormRequest
 {
@@ -15,7 +16,7 @@ class StoreChamadoSituacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("salvar nova situacao");
     }
 
     /**

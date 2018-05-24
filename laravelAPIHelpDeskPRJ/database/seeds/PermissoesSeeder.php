@@ -131,7 +131,26 @@ class PermissoesSeeder extends Seeder
         $permissao[] = Permission::findOrCreate('visualizar grupo de usuario');   //show
         $permissao[] = Permission::findOrCreate('deletar grupo de usuario');      //destroy
 
-        $admin->givePermissionTo($permissao);
+        
+        $permissao[] = Permission::findOrCreate('tela criar perfil');   //create
+        $permissao[] = Permission::findOrCreate('tela editar perfil');  //edit
+        $permissao[] = Permission::findOrCreate('salvar novo perfil');  //store
+        $permissao[] = Permission::findOrCreate('atualizar perfil');    //update
+        $permissao[] = Permission::findOrCreate('listar perfil');       //index
+        $permissao[] = Permission::findOrCreate('visualizar perfil');   //show
+        $permissao[] = Permission::findOrCreate('deletar perfil');      //destroy
+
+
+        // $permissao[] = Permission::findOrCreate('tela criar sla');   //create
+        // $permissao[] = Permission::findOrCreate('tela editar sla');  //edit
+        // $permissao[] = Permission::findOrCreate('salvar novo sla');  //store
+        // $permissao[] = Permission::findOrCreate('atualizar sla');    //update
+        $permissao[] = Permission::findOrCreate('listar permissao');       //index
+        $permissao[] = Permission::findOrCreate('visualizar permissao');   //show
+        // $permissao[] = Permission::findOrCreate('deletar sla');      //destroy
+
+
+        $admin->syncPermissions($permissao);
         // organizacao_usuario          
         
     }

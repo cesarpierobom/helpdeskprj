@@ -4,6 +4,7 @@ namespace App\Http\Requests\servico;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ListServicoRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class ListServicoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar servico");
     }
 
     /**

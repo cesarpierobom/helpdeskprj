@@ -5,6 +5,7 @@ namespace App\Http\Requests\chamado_prioridade;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use App\Models\ChamadoPrioridade;
+use Illuminate\Support\Facades\Auth;
 
 class StoreChamadoPrioridadeRequest extends FormRequest
 {
@@ -15,7 +16,7 @@ class StoreChamadoPrioridadeRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("salvar nova prioridade");
     }
 
     /**

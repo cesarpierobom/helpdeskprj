@@ -3,6 +3,7 @@
 namespace App\Http\Requests\role;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ListRoleRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class ListRoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar perfil");
     }
 
     /**

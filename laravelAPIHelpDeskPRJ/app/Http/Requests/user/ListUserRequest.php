@@ -4,6 +4,7 @@ namespace App\Http\Requests\user;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ListUserRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class ListUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar usuario");
     }
 
     /**

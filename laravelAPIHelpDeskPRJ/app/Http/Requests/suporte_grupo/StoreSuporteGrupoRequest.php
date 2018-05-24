@@ -3,6 +3,7 @@
 namespace App\Http\Requests\suporte_grupo;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreSuporteGrupoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreSuporteGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::user()->can("salvar novo grupo de suporte");
     }
 
     /**

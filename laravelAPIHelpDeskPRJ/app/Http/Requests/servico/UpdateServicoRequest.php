@@ -4,6 +4,7 @@ namespace App\Http\Requests\servico;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateServicoRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class UpdateServicoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::user()->can("atualizar servico");
     }
 
     /**

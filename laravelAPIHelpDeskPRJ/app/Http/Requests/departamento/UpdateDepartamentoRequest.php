@@ -4,6 +4,7 @@ namespace App\Http\Requests\departamento;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateDepartamentoRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class UpdateDepartamentoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("atualizar departamento");
     }
 
     /**

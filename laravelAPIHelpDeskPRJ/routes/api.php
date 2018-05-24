@@ -35,7 +35,7 @@ Route::apiResource(
             'index' => 'role.index_api', 'show'=>'role.show_api'
         ]
     ]
-)->parameters(['role' => 'role']);
+)->parameters(['role' => 'role'])->middleware("auth:api");;
 
 Route::apiResource(
     'permission',
@@ -50,18 +50,39 @@ Route::apiResource(
 
 
 Route::get('relatorio/geral', function (Request $request) {
+    
+    $organizacoes = App\Models\Organizacao::whereIn("id", $request->organizacao)->get();
 
-    // SELECT * FROM (
-    //     (SELECT count(*) FROM chamado WHERE encerrado = 0) AS abertos, 
-    //     (SELECT count(*) FROM chamado WHERE encerrado = 1) AS encerrados, 
-    //     (SELECT count(*) FROM chamado WHERE encerrado = 0 AND created_at BETWEEN $request->periodode AND $request->periodoate ) AS abertos_periodo, 
-    //     (SELECT count(*) FROM chamado WHERE encerrado = 1 AND created_at BETWEEN $request->periodode AND $request->periodoate ) AS encerrados_periodo)
-    // GROUP BY  organizacao_id;
+    $final = array();
+    $i = 0;
 
+    foreach ($organizacoes as $key => $value) {
 
-    // $res = DB::select( DB::raw("") );
+        $queryTotal = App\Models\Chamado::where("organizacao_id",$value->id);
+        $queryAbertos = App\Models\Chamado::where("encerrado", "=", "0")->where("organizacao_id",$value->id);
+        $queryEncerrados = App\Models\Chamado::where("encerrado", "=", "1")->where("organizacao_id",$value->id);
+        // $queryTempo = App\Models\Chamado::where("organizacao_id",$value->id);
 
-    // return $res;
+        if ($request->filled("periodode") && $request->filled("periodoate")) {
+            $queryTotal->whereBetween("created_at",[$request->filled("periodode"),$request->filled("periodoate")]);
+            $queryAbertos->whereBetween("created_at",[$request->filled("periodode"),$request->filled("periodoate")]);
+            $queryEncerrados->whereBetween("created_at",[$request->filled("periodode"),$request->filled("periodoate")]);
+            // $queryTempo->whereBetween("created_at",[$request->filled("periodode"),$request->filled("periodoate")]);
+        }
+        $final[$i]["nome"] = $value->nome;
+        $final[$i]["total"] = $queryTotal->count();
+        $final[$i]["abertos"] = $queryAbertos->count();
+        $final[$i]["encerrados"] = $queryEncerrados->count();
+        $final[$i]["tempo"] = "";
+        
+        // $final[$i]["total_periodo"] = App\Models\Chamado::where("encerrado", "=", "1")->where("organizacao_id",$value->id)->count();
+        // $final[$i]["abertos_periodo"] = App\Models\Chamado::where("encerrado", "=", "1")->where("organizacao_id",$value->id)->count();
+        // $final[$i]["encerrados_periodo"] = App\Models\Chamado::where("encerrado", "=", "0")->where("organizacao_id",$value->id)->count();
+        // $final[$i]["tempo_periodo"] = App\Models\Chamado::where("encerrado", "=", "0")->where("organizacao_id",$value->id)->count();
+        $i++;
+    }
+    
+    dd($final);
 
 })->name("report_geral_api");
 

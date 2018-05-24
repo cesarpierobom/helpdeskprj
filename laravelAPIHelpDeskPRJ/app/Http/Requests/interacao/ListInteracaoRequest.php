@@ -4,6 +4,7 @@ namespace App\Http\Requests\interacao;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ListInteracaoRequest extends FormRequest
 {
@@ -14,7 +15,7 @@ class ListInteracaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar interacao");
     }
 
     /**

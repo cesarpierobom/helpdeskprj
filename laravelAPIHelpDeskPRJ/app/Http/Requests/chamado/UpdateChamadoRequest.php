@@ -3,6 +3,7 @@
 namespace App\Http\Requests\chamado;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateChamadoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateChamadoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("atualizar chamado");
     }
 
     /**

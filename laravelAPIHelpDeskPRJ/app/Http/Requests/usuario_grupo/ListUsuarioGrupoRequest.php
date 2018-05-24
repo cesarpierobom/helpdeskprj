@@ -3,6 +3,7 @@
 namespace App\Http\Requests\usuario_grupo;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ListUsuarioGrupoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class ListUsuarioGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::user()->can("listar grupo de usuario");
     }
 
     /**
