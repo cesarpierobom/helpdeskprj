@@ -16,7 +16,12 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/utilities/scripts.js') }}" defer></script>
-    
+
+    @if(Auth::check())
+        <script>
+            var userID = "{{ Auth::user()->id }}";
+        </script>
+    @endif
 
     @yield('more_scripts')
     <!-- Fonts -->

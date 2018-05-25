@@ -62,7 +62,7 @@ function salvar () {
             chamado_urgencia_id: $("#chamado_urgencia_id").val(),
             titulo: $("#titulo").val(),
             descricao: $("#descricao").val(),
-            encerrado: $("#encerrado").val(),
+            encerrado: $("#encerrado").is(":checked")?"1":"0",
             chamado_feedback_id: $("#chamado_feedback_id:visible").val(),
         }
     })

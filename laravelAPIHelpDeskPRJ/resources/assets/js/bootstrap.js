@@ -33,6 +33,8 @@ try {
     // require('datatables.net-rowreorder');
     require('datatables.net-scroller');
     require('datatables.net-select');
+    window.moment = require('moment');
+    
 
 } catch (e) {}
 

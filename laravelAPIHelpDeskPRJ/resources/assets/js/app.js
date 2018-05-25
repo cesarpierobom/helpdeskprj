@@ -21,22 +21,13 @@ const app = new Vue({
     el: '#app'
 });
 
-Echo.private(`App.User.1`)
-    .notification((notification) => {
-        console.log(notification.type);
-    });
+if (userID != null) {
+    Echo.private('App.User.' + userID)
+        .notification((notification) => {
+            console.log(notification);
+        });
+}
 
-
-
-Echo.private('chat')
-    .whisper('typing', {
-        // name: this.user.name
-    });
-
-Echo.private('chat')
-    .listenForWhisper('typing', (e) => {
-        console.log(e.name);
-    });
 
 Echo.channel('global')
     .listen('Test', (e) => {

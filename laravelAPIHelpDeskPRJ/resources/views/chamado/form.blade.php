@@ -52,7 +52,7 @@
 <div class="form-row">
     <div class="form-group col-md-1 offset-md-1">
         <label for="encerrado">Encerrado</label>
-        <input type="checkbox" name="encerrado" id="encerrado" @if($chamado->encerrado == '1') selected='selected' @endif  value="1" class="form-control">
+        <input type="checkbox" name="encerrado" id="encerrado" @if($chamado->encerrado == '1') checked='checked' @endif  value="1" class="form-control">
     </div>
 </div>
 

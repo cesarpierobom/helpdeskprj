@@ -52,6 +52,12 @@ function gerarRelatorio(){
             "url": '/api/relatorio/geral/',
             "headers": window.axios.defaults.headers.common,
             "data": function (d) {
+                if ($("#periodode").val() != null && $("#periodode").val() != "") {
+                    d.periodode = moment($("#periodode").val()).format("YYYY-MM-DD");
+                }
+                if ($("#periodoate").val() != null && $("#periodoate").val() != "") {
+                    d.periodoate = moment($("#periodoate").val()).format("YYYY-MM-DD");
+                }
                 d.organizacao = arrorganizacao;
             },
             "dataSrc": function (json) {
@@ -59,31 +65,28 @@ function gerarRelatorio(){
                 var return_data = [];
 
                 for (var i = 0; i < json.data.length; i++) {
-                    var buttonEdit = "<a class='btn btn-sm btn-primary' href='" + json.data[i].links['self-form'] + "'>Editar</a>";
-                    var buttonDelete = "<button type='button' class='btn btn-sm btn-danger'  href='#' onclick='deletar(" + json.data[i].id + ")'>Deletar</button>";
-                    var status = "<i title='INATIVO' class='material-icons'>remove_circle</i>";
-
-                    if (json.data[i].status == "1") {
-                        status = "<i title='ATIVO' class='material-icons'>check_circle</i>";
-                    }
 
                     return_data.push({
-                        'id': json.data[i].id,
                         'nome': json.data[i].nome,
-                        'codigo': json.data[i].codigo,
-                        'status': status,
-                        'opcoes': buttonEdit + buttonDelete,
+                        'total': json.data[i].total,
+                        'abertos': json.data[i].abertos,
+                        'abertos_porcentagem': json.data[i].abertos_porcentagem,
+                        'encerrados': json.data[i].encerrados,
+                        'encerrados_porcentagem': json.data[i].encerrados_porcentagem,
+                        'tempo': json.data[i].tempo,
                     });
                 }
                 return return_data;
             },
         },
         "columns": [
-            { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
             { "title": "NOME", "className": "dt-center", "name": "nome", "data": "nome" },
-            { "title": "CODIGO", "className": "dt-center", "name": "codigo", "data": "codigo" },
-            { "title": "ATIVO", "className": "dt-center", "name": "status", "data": "status" },
-            { "title": "OPÇÕES", "className": "dt-center", "name": "opcoes", "data": "opcoes", "sortable": false },
+            { "title": "TOTAL", "className": "dt-center", "name": "total", "data": "total" },
+            { "title": "ABERTOS", "className": "dt-center", "name": "abertos", "data": "abertos" },
+            { "title": "ABERTOS PORCENTAGEM", "className": "dt-center", "name": "abertos_porcentagem", "data": "abertos_porcentagem" },
+            { "title": "ENCERRADOS", "className": "dt-center", "name": "encerrados", "data": "encerrados" },
+            { "title": "ENCERRADOS PORCENTAGEM", "className": "dt-center", "name": "encerrados_porcentagem", "data": "encerrados_porcentagem" },
+            { "title": "TEMPO", "className": "dt-center", "name": "tempo", "data": "tempo" },
         ],
     });
 }

@@ -75,17 +75,24 @@ class ChamadoAPIController extends Controller
             $query->whereIn("chamado_situacao_id", $request->input("chamado_situacao_id"));
         }
 
-        if ($request->filled("analista_id")) {
-            $query->whereIn("analista_id", $request->input("analista_id"));
+        if ($request->filled("pool") && $request->pool == "1") {
+            $query->whereNull("analista_id");
+        }else{
+
+            if ($request->filled("analista_id")) {
+                $query->whereIn("analista_id", $request->input("analista_id"));
+            }
+    
+            if ($request->filled("responsavel_id")) {
+                $query->whereIn("responsavel_id", $request->input("responsavel_id"));
+            }
+    
+            if ($request->filled("autor_id")) {
+                $query->whereIn("autor_id", $request->input("autor_id"));
+            }
         }
 
-        if ($request->filled("responsavel_id")) {
-            $query->whereIn("responsavel_id", $request->input("responsavel_id"));
-        }
 
-        if ($request->filled("autor_id")) {
-            $query->whereIn("autor_id", $request->input("autor_id"));
-        }
 
         if ($request->filled("chamado_prioridade_id")) {
             $query->whereIn("chamado_prioridade_id", $request->input("chamado_prioridade_id"));
@@ -168,6 +175,7 @@ class ChamadoAPIController extends Controller
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
         $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;
         $chamado->status = $request->status;
+        $chamado->encerrado = $request->encerrado;
         $chamado->chamado_situacao_id = $request->chamado_situacao_id;
         $chamado->chamado_prioridade_id = $request->chamado_prioridade_id;
         $chamado->chamado_feedback_id = $request->chamado_feedback_id;
@@ -232,6 +240,7 @@ class ChamadoAPIController extends Controller
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
         $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;
         $chamado->status = $request->status;
+        $chamado->encerrado = $request->encerrado;
         $chamado->chamado_situacao_id = $request->chamado_situacao_id;
         $chamado->chamado_prioridade_id = $request->chamado_prioridade_id;
         $chamado->chamado_feedback_id = $request->chamado_feedback_id;
