@@ -10,8 +10,8 @@ $factory->define(App\Departamento::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\ChamadoSituacao::class, $data, function (Faker $faker) use ($factory) {
-    $final = $factory->raw(App\ChamadoSituacao::class);
+$factory->define(App\Departamento::class, $data, function (Faker $faker) use ($factory) {
+    $final = $factory->raw(App\Departamento::class);
 
     if (!empty($data["organizacao"])) {
         $final = array_merge($final, array("organizacao_id"=>$data["organizacao"]));

@@ -10,4 +10,12 @@ $factory->define(App\SuporteGrupo::class, function (Faker $faker) {
     ];
 });
 
-        
+$factory->define(App\SuporteGrupo::class, $data, function (Faker $faker) use ($factory) {
+    $final = $factory->raw(App\SuporteGrupo::class);
+
+    if (!empty($data["organizacao"])) {
+        $final = array_merge($final, array("organizacao_id"=>$data["organizacao"]));
+    }
+
+    return $final;
+});
