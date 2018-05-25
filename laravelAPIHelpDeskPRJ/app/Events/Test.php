@@ -33,6 +33,6 @@ class Test implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['global'];
+        return new Channel("global");
     }
 }
