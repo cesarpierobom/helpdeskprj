@@ -15,7 +15,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-10 offset-md-1">
                                         <label for="organizacao">Organização</label>
-                                        <select name="organizacao" style="width: 100%" class="form-control" id="organizacao"></select>
+                                        <select name="organizacao" style="width: 100%" class="form-control" id="organizacao" multiple></select>
                                         <div id="organizacao_feedback" class="invalid-feedback"></div>
                                     </div>
                                 </div>

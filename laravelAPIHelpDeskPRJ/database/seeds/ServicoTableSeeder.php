@@ -13,9 +13,10 @@ class ServicoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Servico::class, 100)->create()->each(function($s) {
-            $organizacao = Organizacao::orderByRaw('RAND()')->first();
-            $s->organizacao()->save($organizacao);
+        factory(Servico::class, 100)->make()->each(function($servico) {
+            $organizacao = Organizacao::inRandomOrder()->first();
+            $servico->organizacao_id = $organizacao->id;
+            $servico->save();
         });
     }
 }

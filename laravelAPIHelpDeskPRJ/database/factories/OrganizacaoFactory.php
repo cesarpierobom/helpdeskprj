@@ -1,8 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Models\Organizacao;
 
-$factory->define(App\Organizacao::class, function (Faker $faker) {
+$factory->define(Organizacao::class, function (Faker $faker) {
     return [
         'nome' => $faker->company,
         'razao_social' => $faker->company,

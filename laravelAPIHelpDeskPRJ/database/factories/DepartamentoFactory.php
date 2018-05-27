@@ -1,21 +1,12 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Models\Departamento;
 
-$factory->define(App\Departamento::class, function (Faker $faker) {
+$factory->define(Departamento::class, function (Faker $faker) {
     return [
         "nome" => $faker->company,
         "codigo" => $faker->word,
         "status" => $faker->randomElement($array = array ('1','0')),
     ];
-});
-
-$factory->define(App\Departamento::class, $data, function (Faker $faker) use ($factory) {
-    $final = $factory->raw(App\Departamento::class);
-
-    if (!empty($data["organizacao"])) {
-        $final = array_merge($final, array("organizacao_id"=>$data["organizacao"]));
-    }
-
-    return $final;
 });

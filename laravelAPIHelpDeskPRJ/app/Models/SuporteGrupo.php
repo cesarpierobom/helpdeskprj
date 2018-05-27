@@ -29,7 +29,7 @@ class SuporteGrupo extends Model
 
     public function usuarios()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany('App\User', "usuario_suporte_grupo", "suporte_grupo_id", "user_id");
     }
 
     public function organizacao()

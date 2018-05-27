@@ -74,4 +74,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Chamado', 'user_chamado', 'user_id', 'chamado_id');
     }
+
+    public function grupos_suporte()
+    {
+        return $this->belongsToMany('App\Models\SuporteGrupo', 'usuario_suporte_grupo', 'user_id', 'suporte_grupo_id');
+    }
+
+    public function grupos_usuario()
+    {
+        return $this->belongsToMany('App\Models\UsuarioGrupo', 'usuario_usuario_grupo', 'user_id', 'usuario_grupo_id');
+    }
 }

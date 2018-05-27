@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Organizacao;
 
 class OrganizacaoTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class OrganizacaoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Organizacao::class, 10)->create();
+        factory(Organizacao::class, 10)->create();
     }
 }

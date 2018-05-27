@@ -13,9 +13,10 @@ class ChamadoCategoriaTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoCategoria::class, 100)->create()->each(function($cc) {
-            $organizacao = Organizacao::orderByRaw('RAND()')->first();
-            $cc->organizacao()->save($organizacao);
+        factory(ChamadoCategoria::class, 100)->make()->each(function($categoria) {
+            $organizacao = Organizacao::inRandomOrder()->first();
+            $categoria->organizacao_id = $organizacao->id;
+            $categoria->save();
         });
     }
 }

@@ -51,23 +51,35 @@ Route::apiResource(
 
 Route::get('relatorio/geral', function (Request $request) {
     $count = App\Models\Organizacao::count();
-    $filtered = count($request->organizacao);
-    $organizacoes = App\Models\Organizacao::whereIn("id", $request->organizacao)->get();
+    $query = (new App\Models\Organizacao)->newQuery();
+    
+    if ($request->filled("organizacao")) {
+        $query->whereIn("id", $request->organizacao);
+    }
+    
+    $organizacoes = $query->get();
 
+    if ($request->filled("organizacao")) {
+        $filtered = count($request->organizacao);
+    } else {
+        $filtered = count($organizacoes);
+    }
+
+    // dd($organizacoes);
     $final = array();
     $i = 0;
 
     foreach ($organizacoes as $key => $value) {
 
-        $queryTotal = App\Models\Chamado::where("organizacao_id",$value->id);
-        $queryAbertos = App\Models\Chamado::where("encerrado", "=", "0")->where("organizacao_id",$value->id);
-        $queryEncerrados = App\Models\Chamado::where("encerrado", "=", "1")->where("organizacao_id",$value->id);
-        // $queryTempo = App\Models\Chamado::where("organizacao_id",$value->id);
+        $queryTotal = App\Models\Chamado::where("organizacao_id", $value->id);
+        $queryAbertos = App\Models\Chamado::where("encerrado", "=", "0")->where("organizacao_id", $value->id);
+        $queryEncerrados = App\Models\Chamado::where("encerrado", "=", "1")->where("organizacao_id", $value->id);
+        // $queryTempo = App\Models\Chamado::where("organizacao_id", $value->id);
 
         if ($request->filled("periodode") && $request->filled("periodoate")) {
-            $queryTotal->whereBetween("created_at",[$request->periodode,$request->periodoate]);
-            $queryAbertos->whereBetween("created_at",[$request->periodode,$request->periodoate]);
-            $queryEncerrados->whereBetween("created_at",[$request->periodode,$request->periodoate]);
+            $queryTotal->whereBetween("created_at", [$request->periodode,$request->periodoate]);
+            $queryAbertos->whereBetween("created_at", [$request->periodode,$request->periodoate]);
+            $queryEncerrados->whereBetween("created_at", [$request->periodode,$request->periodoate]);
             // $queryTempo->whereBetween("created_at",[$request->filled("periodode"),$request->filled("periodoate")]);
         }
         $final['data'][$i]["nome"] = $value->nome;
@@ -77,15 +89,15 @@ Route::get('relatorio/geral', function (Request $request) {
         
         if ($final['data'][$i]["abertos"] != 0 && $final['data'][$i]["total"] != 0) {
             $final['data'][$i]["abertos_porcentagem"] = ($final['data'][$i]["abertos"]/$final['data'][$i]["total"])*100;
-            $final['data'][$i]["abertos_porcentagem"] .= "%";
-        }else{
+            $final['data'][$i]["abertos_porcentagem"] = number_format($final['data'][$i]["abertos_porcentagem"], 2, ',', '.') . "%";
+        } else {
             $final['data'][$i]["abertos_porcentagem"] = "";
         }
         
         if ($final['data'][$i]["encerrados"] != 0 && $final['data'][$i]["total"] != 0) {
             $final['data'][$i]["encerrados_porcentagem"] = ($final['data'][$i]["encerrados"]/$final['data'][$i]["total"])*100;
-            $final['data'][$i]["encerrados_porcentagem"] .= "%";
-        }else{
+            $final['data'][$i]["encerrados_porcentagem"] = number_format($final['data'][$i]["encerrados_porcentagem"], 2, ',', '.') . "%";
+        } else {
             $final['data'][$i]["encerrados_porcentagem"] = "";
         }
         $final['data'][$i]["tempo"] = "";

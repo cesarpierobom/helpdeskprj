@@ -1,3 +1,7 @@
 {
-    
+    "phpcs.standard":"PSR2",
+    "phpcs.executablePath":"laravelAPIHelpDeskPRJ/vendor/bin/phpcs",
+    "phpcs.ignorePatterns": [
+        "*/laravelAPIHelpDeskPRJ/database/*",
+    ]
 }

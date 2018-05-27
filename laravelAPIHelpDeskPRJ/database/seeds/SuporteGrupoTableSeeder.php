@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Organizacao;
+use App\Models\SuporteGrupo;
 
 class SuporteGrupoTableSeeder extends Seeder
 {
@@ -11,6 +13,10 @@ class SuporteGrupoTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(SuporteGrupo::class, 100)->make()->each(function($grupo) {
+            $organizacao = Organizacao::inRandomOrder()->first();
+            $grupo->organizacao_id = $organizacao->id;
+            $grupo->save();
+        });
     }
 }

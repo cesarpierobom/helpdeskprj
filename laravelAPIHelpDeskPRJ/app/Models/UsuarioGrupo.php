@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UsuarioGrupo extends Model
 {
@@ -28,7 +29,7 @@ class UsuarioGrupo extends Model
 
     public function usuarios()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany('App\User', "usuario_usuario_grupo", "usuario_grupo_id", "user_id");
     }
 
     public function organizacao()
