@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\BroadcastMessage;
-
+use Illuminate\Notifications\Messages\DatabaseMessage;
 
 class TestNotification extends Notification implements ShouldQueue
 {
@@ -30,7 +30,7 @@ class TestNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['broadcast'];
+        return ["broadcast","database"];
     }
 
     /**
@@ -56,7 +56,22 @@ class TestNotification extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'data'=>'um',
+            'data1' => 'ue',
+            'data2' => 'q isso',
+        ];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toDatabase($notifiable)
+    {
+        return [
+            'data1' => 'ue',
+            'data2' => 'q isso',
         ];
     }
 

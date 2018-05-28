@@ -1,7 +1,9 @@
 {
-    "phpcs.standard":"PSR2",
+    "phpcs.standard":"PSR2,laravelAPIHelpDeskPRJ/vendor/object-calisthenics/phpcs-calisthenics-rules/src/ObjectCalisthenics/ruleset.xml",
     "phpcs.executablePath":"laravelAPIHelpDeskPRJ/vendor/bin/phpcs",
     "phpcs.ignorePatterns": [
         "*/laravelAPIHelpDeskPRJ/database/*",
-    ]
+    ],
+    "eslint.packageManager": "npm",
+    "jshint.nodePath":"laravelAPIHelpDeskPRJ/node_modules/.bin/jshint",
 }

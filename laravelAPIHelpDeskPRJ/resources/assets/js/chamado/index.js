@@ -12,11 +12,9 @@ $(document).ready(chamadoIndexReady = function () {
     $("#analista_id").select2();
     $("#autor_id").select2();
     $("#responsavel_id").select2();
-
     $("#watcher").select2();
-    
-
     $("#status").select2();
+
     $("#encerrado").select2();
     
     buscarOrganizacoes();
@@ -90,15 +88,15 @@ function buscarDepartamentos() {
                 $(".load_dep").remove();
             }
         })
-        .done(function (json) {
-            $.each(json.data, function (index, el) {
-                $("#departamento_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
+            .done(function (json) {
+                $.each(json.data, function (index, el) {
+                    $("#departamento_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
+                });
+            })
+            .fail(function (data) {
+                console.log('erro departamento');
+                console.log(data);
             });
-        })
-        .fail(function (data) {
-            console.log('erro departamento');
-            console.log(data);
-        });
     }
 }
 
