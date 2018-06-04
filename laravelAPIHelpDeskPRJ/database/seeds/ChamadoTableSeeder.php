@@ -30,7 +30,7 @@ class ChamadoTableSeeder extends Seeder
             $autor = User::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
             $analista = User::where("organizacao_id", $organizacaoServico->id)->inRandomOrder()->first();
             $responsavel = User::where("organizacao_id", $organizacaoServico->id)->inRandomOrder()->first();
-            $servico = Servico::where("organizacao_id", $organizacaoServico->id)->inRandomOrder()->first();
+            $servico = Servico::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
             
             $categoria = ChamadoCategoria::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
             $situacao = ChamadoSituacao::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();

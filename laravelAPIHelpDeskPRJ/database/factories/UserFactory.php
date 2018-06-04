@@ -25,6 +25,6 @@ $factory->define(User::class, function (Faker $faker) {
         'api_token' => str_random(100),
         'data_nascimento' => $faker->dateTimeInInterval('-30 years', '+12 years'),
         'sexo' => $faker->randomElement($array = array ('M','F')),
-        'status' => $faker->randomElement($array = array ('1','0')),
+        'status' => '1',
     ];
 });

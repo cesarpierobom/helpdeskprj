@@ -27,7 +27,7 @@ class EnviarNotificacaoNovaInteracao
      */
     public function handle(NovaInteracao $event)
     {
-        $users = $event->chamado->watchers;
+        $users = $event->interacao->chamado->watchers;
         if (count($users)>0) {
             Notification::send($users, new NovaInteracaoNotification($event->interacao));
         }

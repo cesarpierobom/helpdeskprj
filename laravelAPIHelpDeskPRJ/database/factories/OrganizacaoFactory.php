@@ -9,6 +9,6 @@ $factory->define(Organizacao::class, function (Faker $faker) {
         'razao_social' => $faker->company,
         'documento' => $faker->unique()->ssn,
         'codigo' => $faker->word,
-        'status' => $faker->randomElement($array = array ('1','0')),
+        'status' => '1',
     ];
 });

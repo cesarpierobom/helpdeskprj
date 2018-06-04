@@ -1,0 +1,145 @@
+
+L A R A V E L  E C H O  S E R V E R
+
+version 1.3.6
+
+⚠ Starting server in DEV mode...
+
+✔  Running at localhost on port 6001
+✔  Channels are ready.
+✔  Listening for http events...
+✔  Listening for redis events...
+
+Server ready!
+
+[19:07:02] - iGVLI-Pgpkjx2l5xAAAA joined channel: global
+[19:13:48] - iGVLI-Pgpkjx2l5xAAAA left channel: global (transport close)
+[19:13:49] - 53RtBnP2U0WOEKXGAAAB joined channel: global
+[19:13:49] - 53RtBnP2U0WOEKXGAAAB authenticated for: private-App.User.1
+[19:13:49] - 53RtBnP2U0WOEKXGAAAB joined channel: private-App.User.1
+[19:15:03] - 53RtBnP2U0WOEKXGAAAB left channel: global (transport close)
+[19:15:03] - 53RtBnP2U0WOEKXGAAAB left channel: private-App.User.1 (transport close)
+[19:15:03] - 4BztYSalvJeZ4-BXAAAC joined channel: global
+[19:15:10] - 4BztYSalvJeZ4-BXAAAC left channel: global (transport close)
+[19:15:10] - FWsg8azAAPULxRYlAAAD joined channel: global
+[19:15:11] - FWsg8azAAPULxRYlAAAD authenticated for: private-App.User.1
+[19:15:11] - FWsg8azAAPULxRYlAAAD joined channel: private-App.User.1
+[19:16:23] - FWsg8azAAPULxRYlAAAD left channel: global (transport close)
+[19:16:23] - FWsg8azAAPULxRYlAAAD left channel: private-App.User.1 (transport close)
+[19:16:24] - 46DCziw7iKz3r6WYAAAE joined channel: global
+[19:16:24] - 46DCziw7iKz3r6WYAAAE authenticated for: private-App.User.1
+[19:16:24] - 46DCziw7iKz3r6WYAAAE joined channel: private-App.User.1
+[19:18:09] - 46DCziw7iKz3r6WYAAAE left channel: global (transport close)
+[19:18:09] - 46DCziw7iKz3r6WYAAAE left channel: private-App.User.1 (transport close)
+[19:18:10] - HpFWQIKjXOo0zBNOAAAF joined channel: global
+[19:18:19] - HpFWQIKjXOo0zBNOAAAF left channel: global (transport close)
+[19:18:19] - OL8UMAuegfcwtA4RAAAG joined channel: global
+[19:18:20] - OL8UMAuegfcwtA4RAAAG authenticated for: private-App.User.1
+[19:18:20] - OL8UMAuegfcwtA4RAAAG joined channel: private-App.User.1
+[19:22:03] - 8ZRwmArVztsA9lYdAAAH joined channel: global
+[19:22:04] - 8ZRwmArVztsA9lYdAAAH left channel: global (transport close)
+[19:22:14] - jzz5nYmYNluzP9U_AAAI joined channel: global
+[19:22:14] - jzz5nYmYNluzP9U_AAAI authenticated for: private-App.User.1
+[19:22:14] - jzz5nYmYNluzP9U_AAAI joined channel: private-App.User.1
+[19:22:39] - jzz5nYmYNluzP9U_AAAI left channel: global (transport close)
+[19:22:39] - jzz5nYmYNluzP9U_AAAI left channel: private-App.User.1 (transport close)
+[19:22:39] - MwUeL5GpbZFup6rTAAAJ joined channel: global
+[19:22:40] - MwUeL5GpbZFup6rTAAAJ authenticated for: private-App.User.1
+[19:22:40] - MwUeL5GpbZFup6rTAAAJ joined channel: private-App.User.1
+[19:25:58] - MwUeL5GpbZFup6rTAAAJ left channel: global (transport close)
+[19:25:58] - MwUeL5GpbZFup6rTAAAJ left channel: private-App.User.1 (transport close)
+[19:25:58] - 5pKbyqGJacgg_E3_AAAK joined channel: global
+[19:25:59] - 5pKbyqGJacgg_E3_AAAK authenticated for: private-App.User.1
+[19:25:59] - 5pKbyqGJacgg_E3_AAAK joined channel: private-App.User.1
+[19:26:05] - 5pKbyqGJacgg_E3_AAAK left channel: global (transport close)
+[19:26:05] - 5pKbyqGJacgg_E3_AAAK left channel: private-App.User.1 (transport close)
+[19:26:06] - RKqIwCtUkimg2wFeAAAL joined channel: global
+[19:26:06] - RKqIwCtUkimg2wFeAAAL authenticated for: private-App.User.1
+[19:26:06] - RKqIwCtUkimg2wFeAAAL joined channel: private-App.User.1
+[19:30:09] - RKqIwCtUkimg2wFeAAAL left channel: global (transport close)
+[19:30:09] - RKqIwCtUkimg2wFeAAAL left channel: private-App.User.1 (transport close)
+[19:30:10] - vrml1HkaWnTBllEUAAAM joined channel: global
+[19:30:11] - vrml1HkaWnTBllEUAAAM authenticated for: private-App.User.1
+[19:30:11] - vrml1HkaWnTBllEUAAAM joined channel: private-App.User.1
+[19:33:18] - OL8UMAuegfcwtA4RAAAG left channel: global (transport close)
+[19:33:18] - OL8UMAuegfcwtA4RAAAG left channel: private-App.User.1 (transport close)
+[19:34:53] - vrml1HkaWnTBllEUAAAM left channel: global (transport close)
+[19:34:53] - vrml1HkaWnTBllEUAAAM left channel: private-App.User.1 (transport close)
+[19:34:53] - JBQdy07_EUnrCliZAAAN joined channel: global
+[19:34:55] - JBQdy07_EUnrCliZAAAN authenticated for: private-App.User.1
+[19:34:55] - JBQdy07_EUnrCliZAAAN joined channel: private-App.User.1
+[20:00:31] - JBQdy07_EUnrCliZAAAN left channel: global (transport close)
+[20:00:31] - JBQdy07_EUnrCliZAAAN left channel: private-App.User.1 (transport close)
+[20:00:32] - GlWU-3sV4pv0lClLAAAO joined channel: global
+[20:00:33] - GlWU-3sV4pv0lClLAAAO authenticated for: private-App.User.1
+[20:00:33] - GlWU-3sV4pv0lClLAAAO joined channel: private-App.User.1
+[20:00:45] - GlWU-3sV4pv0lClLAAAO left channel: global (transport close)
+[20:00:45] - GlWU-3sV4pv0lClLAAAO left channel: private-App.User.1 (transport close)
+[20:00:45] - zu1JSA8PaTEd5yb1AAAP joined channel: global
+[20:00:46] - zu1JSA8PaTEd5yb1AAAP authenticated for: private-App.User.1
+[20:00:46] - zu1JSA8PaTEd5yb1AAAP joined channel: private-App.User.1
+[20:03:57] - zu1JSA8PaTEd5yb1AAAP left channel: global (transport close)
+[20:03:57] - zu1JSA8PaTEd5yb1AAAP left channel: private-App.User.1 (transport close)
+[20:03:58] - TEkdoJzJSe4GUUYRAAAQ joined channel: global
+[20:04:05] - TEkdoJzJSe4GUUYRAAAQ authenticated for: private-App.User.1
+[20:04:05] - TEkdoJzJSe4GUUYRAAAQ joined channel: private-App.User.1
+[20:04:37] - TEkdoJzJSe4GUUYRAAAQ left channel: global (transport close)
+[20:04:37] - TEkdoJzJSe4GUUYRAAAQ left channel: private-App.User.1 (transport close)
+[20:04:37] - u4TlrJx-eYxsFmSiAAAR joined channel: global
+[20:04:38] - u4TlrJx-eYxsFmSiAAAR authenticated for: private-App.User.1
+[20:04:38] - u4TlrJx-eYxsFmSiAAAR joined channel: private-App.User.1
+[20:06:58] - u4TlrJx-eYxsFmSiAAAR left channel: global (transport close)
+[20:06:58] - u4TlrJx-eYxsFmSiAAAR left channel: private-App.User.1 (transport close)
+[20:06:58] - 4spRKf3mWEdtNIoGAAAS joined channel: global
+[20:07:00] - 4spRKf3mWEdtNIoGAAAS authenticated for: private-App.User.1
+[20:07:00] - 4spRKf3mWEdtNIoGAAAS joined channel: private-App.User.1
+[20:07:03] - 4spRKf3mWEdtNIoGAAAS left channel: global (transport close)
+[20:07:03] - 4spRKf3mWEdtNIoGAAAS left channel: private-App.User.1 (transport close)
+[20:07:03] - OP-VF80FChJJfBE1AAAT joined channel: global
+[20:07:04] - OP-VF80FChJJfBE1AAAT authenticated for: private-App.User.1
+[20:07:04] - OP-VF80FChJJfBE1AAAT joined channel: private-App.User.1
+[20:07:32] - OP-VF80FChJJfBE1AAAT left channel: global (transport close)
+[20:07:32] - OP-VF80FChJJfBE1AAAT left channel: private-App.User.1 (transport close)
+[20:07:33] - xJhKBkIvwY6WHd40AAAU joined channel: global
+[20:07:33] - xJhKBkIvwY6WHd40AAAU authenticated for: private-App.User.1
+[20:07:33] - xJhKBkIvwY6WHd40AAAU joined channel: private-App.User.1
+[20:07:38] - xJhKBkIvwY6WHd40AAAU left channel: global (transport close)
+[20:07:38] - xJhKBkIvwY6WHd40AAAU left channel: private-App.User.1 (transport close)
+[20:07:38] - nx7uFlR7mEw5_kMWAAAV joined channel: global
+[20:07:39] - nx7uFlR7mEw5_kMWAAAV authenticated for: private-App.User.1
+[20:07:39] - nx7uFlR7mEw5_kMWAAAV joined channel: private-App.User.1
+[20:10:29] - nx7uFlR7mEw5_kMWAAAV left channel: global (transport close)
+[20:10:29] - nx7uFlR7mEw5_kMWAAAV left channel: private-App.User.1 (transport close)
+[20:10:29] - bbtfRMPQ9yVGpLqKAAAW joined channel: global
+[20:10:31] - bbtfRMPQ9yVGpLqKAAAW authenticated for: private-App.User.1
+[20:10:31] - bbtfRMPQ9yVGpLqKAAAW joined channel: private-App.User.1
+[20:10:46] - bbtfRMPQ9yVGpLqKAAAW left channel: global (transport close)
+[20:10:46] - bbtfRMPQ9yVGpLqKAAAW left channel: private-App.User.1 (transport close)
+[20:10:46] - HKmDpO9mBEKXeDIwAAAX joined channel: global
+[20:10:47] - HKmDpO9mBEKXeDIwAAAX authenticated for: private-App.User.1
+[20:10:47] - HKmDpO9mBEKXeDIwAAAX joined channel: private-App.User.1
+[20:10:50] - HKmDpO9mBEKXeDIwAAAX left channel: global (transport close)
+[20:10:50] - HKmDpO9mBEKXeDIwAAAX left channel: private-App.User.1 (transport close)
+[20:10:50] - qcjvmQgnb5di6dQRAAAY joined channel: global
+[20:10:51] - qcjvmQgnb5di6dQRAAAY authenticated for: private-App.User.1
+[20:10:51] - qcjvmQgnb5di6dQRAAAY joined channel: private-App.User.1
+[20:41:27] - qcjvmQgnb5di6dQRAAAY left channel: global (transport close)
+[20:41:27] - qcjvmQgnb5di6dQRAAAY left channel: private-App.User.1 (transport close)
+[20:41:27] - sWhHQmMdVX1fvEMUAAAZ joined channel: global
+[20:41:28] - sWhHQmMdVX1fvEMUAAAZ authenticated for: private-App.User.1
+[20:41:28] - sWhHQmMdVX1fvEMUAAAZ joined channel: private-App.User.1
+[20:41:35] - sWhHQmMdVX1fvEMUAAAZ left channel: global (transport close)
+[20:41:35] - sWhHQmMdVX1fvEMUAAAZ left channel: private-App.User.1 (transport close)
+[20:41:35] - oqnxso6FuXqZGeH8AAAa joined channel: global
+[20:41:35] - oqnxso6FuXqZGeH8AAAa authenticated for: private-App.User.1
+[20:41:35] - oqnxso6FuXqZGeH8AAAa joined channel: private-App.User.1
+[20:53:10] - oqnxso6FuXqZGeH8AAAa left channel: global (transport close)
+[20:53:10] - oqnxso6FuXqZGeH8AAAa left channel: private-App.User.1 (transport close)
+[20:53:11] - Y6m_3q6eYSEayfe5AAAb joined channel: global
+[20:53:11] - Y6m_3q6eYSEayfe5AAAb authenticated for: private-App.User.1
+[20:53:11] - Y6m_3q6eYSEayfe5AAAb joined channel: private-App.User.1
+[21:06:01] - Y6m_3q6eYSEayfe5AAAb left channel: global (transport close)
+[21:06:01] - Y6m_3q6eYSEayfe5AAAb left channel: private-App.User.1 (transport close)
+[21:06:01] - 3GVqErdGJAjlfb-hAAAc joined channel: global
+[21:06:02] - 3GVqErdGJAjlfb-hAAAc authenticated for: private-App.User.1
+[21:06:02] - 3GVqErdGJAjlfb-hAAAc joined channel: private-App.User.1

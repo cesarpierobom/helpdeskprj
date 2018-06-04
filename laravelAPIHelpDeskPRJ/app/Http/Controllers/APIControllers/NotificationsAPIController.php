@@ -5,7 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NotificationController extends Controller
+class NotificationsAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
