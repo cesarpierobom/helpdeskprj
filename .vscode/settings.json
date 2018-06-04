@@ -1,5 +1,5 @@
 {
-    "phpcs.standard":"PSR2,laravelAPIHelpDeskPRJ/vendor/object-calisthenics/phpcs-calisthenics-rules/src/ObjectCalisthenics/ruleset.xml",
+    "phpcs.standard":"PSR2",
     "phpcs.executablePath":"laravelAPIHelpDeskPRJ/vendor/bin/phpcs",
     "phpcs.ignorePatterns": [
         "*/laravelAPIHelpDeskPRJ/database/*",

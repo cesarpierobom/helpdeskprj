@@ -1,6 +1,5 @@
-window._ = require('lodash');
-window.Popper = require('popper.js').default;
-
+window._ = require("lodash");
+window.Popper = require("popper.js").default;
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -8,33 +7,33 @@ window.Popper = require('popper.js').default;
  */
 
 try {
-    window.$ = window.jQuery = require('jquery');
-    window.dt = window.datatable = require('datatables.net');
-    window.buttons               = require( 'datatables.net-buttons' );
-    require('select2');
-    require('datatables.net-dt/css/jquery.dataTables.css');
-    require('bootstrap');
-    require('select2/dist/css/select2.css');
+    window.$ = window.jQuery = require("jquery");
+    window.dt = window.datatable = require("datatables.net");
+    window.buttons               = require( "datatables.net-buttons" );
+    require("select2");
+    require("datatables.net-dt/css/jquery.dataTables.css");
+    require("bootstrap");
+    require("select2/dist/css/select2.css");
 
-    require('jszip');
-    // require('pdfmake');
-    require('datatables.net-autofill');
-    require('datatables.net-buttons');
-    require('datatables.net-buttons/js/buttons.colVis.js');
-    require('datatables.net-buttons/js/buttons.flash.js');
-    require('datatables.net-buttons/js/buttons.html5.js');
-    require('datatables.net-buttons/js/buttons.print.js');
-    require('datatables.net-colreorder');
-    require('datatables.net-fixedcolumns');
-    require('datatables.net-fixedheader');
-    require('datatables.net-keytable');
-    require('datatables.net-responsive');
-    require('datatables.net-rowgroup');
-    // require('datatables.net-rowreorder');
-    require('datatables.net-scroller');
-    require('datatables.net-select');
-    window.moment = require('moment');
-    
+    require("jszip");
+    // require("pdfmake");
+    require("datatables.net-autofill");
+    require("datatables.net-buttons");
+    require("datatables.net-buttons/js/buttons.colVis.js");
+    require("datatables.net-buttons/js/buttons.flash.js");
+    require("datatables.net-buttons/js/buttons.html5.js");
+    require("datatables.net-buttons/js/buttons.print.js");
+    require("datatables.net-colreorder");
+    require("datatables.net-fixedcolumns");
+    require("datatables.net-fixedheader");
+    require("datatables.net-keytable");
+    require("datatables.net-responsive");
+    require("datatables.net-rowgroup");
+    // require("datatables.net-rowreorder");
+    require("datatables.net-scroller");
+    require("datatables.net-select");
+    window.moment = require("moment");
+    window.Chart = require("chart.js");
 
 } catch (e) {}
 
@@ -44,9 +43,9 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.axios = require("axios");
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -60,15 +59,15 @@ let api_token = document.head.querySelector('meta[name="api_token"]');
 
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
 }
 
 if(api_token){
-    window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token.content;
+    window.axios.defaults.headers.common["Authorization"] = "Bearer " + api_token.content;
 }else{
-    console.error('api token not found.');
+    console.error("api token not found.");
 }
 
 /**
@@ -77,11 +76,11 @@ if(api_token){
  * allows your team to easily build robust real-time web applications.
  */
 
-import Echo from 'laravel-echo'
+import Echo from "laravel-echo";
 
-window.io = require('socket.io-client');
+window.io = require("socket.io-client");
 
 window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001'
+    broadcaster: "socket.io",
+    host: window.location.hostname + ":6001"
 });

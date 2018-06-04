@@ -19,7 +19,7 @@ class TestNotification extends Notification implements ShouldQueue
      */
     public function __construct()
     {
-        
+        //
     }
 
     /**
@@ -30,7 +30,7 @@ class TestNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ["broadcast","database"];
+        return ["broadcast", "database"];
     }
 
     /**
@@ -89,5 +89,4 @@ class TestNotification extends Notification implements ShouldQueue
             'data2' => 'q isso',
         ]);
     }
-
 }

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<ruleset name="PSR2ObjectCalisThenics">
+    <rule ref="PSR2"/>
+    <rule ref="vendor/object-calisthenics/phpcs-calisthenics-rules/src/ObjectCalisthenics/ruleset.xml"/>
+</ruleset>

@@ -29,7 +29,7 @@ if (Laravel.user.id != null && Laravel.user.id != "") {
 }
 
 
-Echo.channel('global')
-    .listen('Test', (e) => {
+Echo.channel("global")
+    .listen("Test", (e) => {
         console.log(e);
     });

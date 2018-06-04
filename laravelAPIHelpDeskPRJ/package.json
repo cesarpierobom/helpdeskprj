@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "bootstrap": "^4.1.0",
+        "chart.js": "^2.7.2",
         "datatables.net": "^1.10.16",
         "datatables.net-autofill": "^2.2.2",
         "datatables.net-autofill-dt": "^2.2.2",

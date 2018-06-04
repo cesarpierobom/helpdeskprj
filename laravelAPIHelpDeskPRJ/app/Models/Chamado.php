@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\ChamadoEditado;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -21,7 +22,9 @@ class Chamado extends Model
 
     protected $dates = ['created_at','updated_at','deleted_at'];
 
-    protected $dispatchesEvents = [];
+    protected $dispatchesEvents = [
+        'updated' => ChamadoEditado::class,
+    ];
 
     public $incrementing = true;
 

@@ -16,6 +16,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
+        'App\Events\NovaInteracao' => [
+            'App\Listeners\EnviarNotificacaoNovaInteracao',
+        ],
+        'App\Events\ChamadoEditado' => [
+            'App\Listeners\EnviarNotificacaoChamadoEditado',
+        ],
     ];
 
     /**
