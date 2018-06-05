@@ -37,7 +37,6 @@ class ListChamadoRequest extends FormRequest
             "chamado_feedback_id" => "nullable|exists:chamado_feedback,id",
             "chamado_urgencia_id" => "nullable|exists:chamado_urgencia,id",
             "organizacao_id" => "nullable|exists:organizacao,id",
-            "departamento_id" => "nullable|exists:departamento,id",
             "codigo" => "nullable|max:50",
             "search.value" => "nullable|max:255"
         ];

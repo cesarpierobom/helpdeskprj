@@ -38,6 +38,15 @@
                             </div>
                         </div>
                         <div class="form-row pt-5">
+                            <div class="form-group col-md-2 offset-md-1">
+                                <label for="publica">Tipo de Interação</label>
+                                <select name="publica" id="publica" style="width: 100%" class="form-control">
+                                    <option value="1">Publica</option>
+                                    <option value="2">Privada</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row pt-5">
                             <button type="button" id="btnAdicionarInteracao" class="btn btn-success col-md-2 offset-md-1">Adicionar Interação</button>
                             <button type="reset" id="btnResetarInteracao" class="btn btn-danger col-md-2 offset-md-1">Limpar Interação</button>
                         </div>

@@ -59,11 +59,6 @@ class Chamado extends Model
         return $this->belongsTo('App\User','responsavel_id','id');
     }
 
-    public function departamento()
-    {
-        return $this->belongsTo('App\Models\Departamento','departamento_id','id');
-    }
-
     public function servico()
     {
         return $this->belongsTo('App\Models\Servico','servico_id','id');

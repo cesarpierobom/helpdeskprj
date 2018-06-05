@@ -1,19 +1,5 @@
 <div class="form-row">
     <div class="form-group col-md-5 offset-md-1">
-        <label for="organizacao_id">Organização</label>
-        <select name="organizacao_id" style="width: 100%" class="form-control" attr_selected="{{$chamado->organizacao_id}}" id="organizacao_id"></select>
-        <div id="organizacao_id_feedback" class="invalid-feedback"></div>
-    </div>
-    <div class="form-group col-md-5">
-        <label for="departamento_id">Departamento</label>
-        <select name="departamento_id" style="width: 100%" class="form-control" attr_selected="{{$chamado->departamento_id}}" id="departamento_id"></select>
-        <div id="departamento_id_feedback" class="invalid-feedback"></div>
-    </div>
-</div>
-
-
-<div class="form-row">
-    <div class="form-group col-md-5 offset-md-1">
         <label for="servico_id">Servico</label>
         <select name="servico_id" style="width: 100%" class="form-control" attr_selected="{{$chamado->servico_id}}" id="servico_id"></select>
         <div id="servico_id_feedback" class="invalid-feedback"></div>

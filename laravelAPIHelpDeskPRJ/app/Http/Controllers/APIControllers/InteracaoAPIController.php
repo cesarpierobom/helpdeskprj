@@ -63,7 +63,15 @@ class InteracaoAPIController extends Controller
         $interacao = new Interacao();
         $interacao->descricao = $request->descricao;
         $interacao->chamado_id = $request->chamado_id;
+        $interacao->publica = "1";
 
+        if ($request->filled("publica")) {
+            if ($request->publica == "1") {
+                $interacao->publica = "1";
+            }else{
+                $interacao->publica = "0";
+            }
+        }
         if(!$request->filled("user_id")){
             $request->merge(['user_id'=> Auth::user()->id]);
         }

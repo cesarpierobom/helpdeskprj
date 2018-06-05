@@ -1,7 +1,5 @@
 $(document).ready(chamadoCreateReady = function () {
 
-    $("#organizacao_id").select2();
-    $("#departamento_id").select2();
     $("#servico_id").select2();
     $("#chamado_categoria_id").select2();
     $("#situacao_id").select2();
@@ -9,18 +7,12 @@ $(document).ready(chamadoCreateReady = function () {
     $("#chamado_prioridade_id").select2();
     $("#chamado_urgencia_id").select2();
 
-
-    buscarOrganizacoes();
-
-    $("#organizacao_id").on("change", function () {
-        buscarDepartamentos();
-        buscarServicos();
-        buscarCategorias();
-        buscarSituacao();
-        buscarFeedback();
-        buscarPrioridade();
-        buscarUrgencia();
-    });
+    buscarServicos();
+    buscarCategorias();
+    buscarSituacao();
+    buscarFeedback();
+    buscarPrioridade();
+    buscarUrgencia();
 
     $("#encerrado").on("change", function () {
         if ($("#encerrado").is(":checked")) {
@@ -55,8 +47,6 @@ function salvar () {
         dataType: "json",
         headers: window.axios.defaults.headers.common,
         data: {
-            organizacao_id: $("#organizacao_id").val(),
-            departamento_id: $("#departamento_id").val(),
             servico_id: $("#servico_id").val(),
             chamado_categoria_id: $("#chamado_categoria_id").val(),
             chamado_urgencia_id: $("#chamado_urgencia_id").val(),
@@ -106,112 +96,38 @@ function salvar () {
     });
 }
 
+function buscarServicos() {
+    $("#servico_id").empty();
 
-
-function buscarOrganizacoes() {
     $.ajax({
-        url: "/api/organizacao/",
+        url: "/api/servico/",
         method: "GET",
         dataType: "json",
         headers: window.axios.defaults.headers.common,
         data: {
-            status: [1]
+            status: [1],
         },
         beforeSend: function () {
-            $("#organizacao_id").after("<div class='load_org spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+            $("#servico_id").after("<div class='load_svc spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },
         complete: function () {
-            $(".load_org").remove();
+            $(".load_svc").remove();
         }
     })
-    .done(function (json) {
-        $.each(json.data, function (index, el) {
-            $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
+        .done(function (json) {
+            $.each(json.data, function (index, el) {
+                $("#servico_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
+            });
+        })
+        .fail(function (data) {
+            console.log('erro servico');
+            console.log(data);
         });
-
-        $("#organizacao_id").trigger("change");
-    })
-    .fail(function (data) {
-        console.log('erro organizacao');
-        console.log(data);
-    });
-}
-
-
-function buscarDepartamentos() {
-    $("#departamento_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
-
-    if (org_id.length > 0) {
-        $.ajax({
-            url: "/api/departamento/",
-            method: "GET",
-            dataType: "json",
-            headers: window.axios.defaults.headers.common,
-            data: {
-                status: [1],
-                organizacao_id: org_id
-            },
-            beforeSend: function () {
-                $("#departamento_id").after("<div class='load_dep spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
-            },
-            complete: function () {
-                $(".load_dep").remove();
-            }
-        })
-            .done(function (json) {
-                $.each(json.data, function (index, el) {
-                    $("#departamento_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
-                });
-            })
-            .fail(function (data) {
-                console.log('erro departamento');
-                console.log(data);
-            });
-    }
-}
-
-function buscarServicos() {
-    $("#servico_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
-
-    if (org_id.length > 0) {
-        $.ajax({
-            url: "/api/servico/",
-            method: "GET",
-            dataType: "json",
-            headers: window.axios.defaults.headers.common,
-            data: {
-                status: [1],
-                organizacao_id: org_id
-            },
-            beforeSend: function () {
-                $("#servico_id").after("<div class='load_svc spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
-            },
-            complete: function () {
-                $(".load_svc").remove();
-            }
-        })
-            .done(function (json) {
-                $.each(json.data, function (index, el) {
-                    $("#servico_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
-                });
-            })
-            .fail(function (data) {
-                console.log('erro servico');
-                console.log(data);
-            });
-    }
 }
 
 function buscarCategorias() {
     $("#chamado_categoria_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
 
-    if (org_id.length > 0) {
         $.ajax({
             url: "/api/chamado_categoria/",
             method: "GET",
@@ -219,7 +135,6 @@ function buscarCategorias() {
             headers: window.axios.defaults.headers.common,
             data: {
                 status: [1],
-                organizacao_id: org_id
             },
             beforeSend: function () {
                 $("#chamado_categoria_id").after("<div class='load_cat spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
@@ -237,15 +152,11 @@ function buscarCategorias() {
                 console.log('erro chamado_categoria');
                 console.log(data);
             });
-    }
 }
 
 function buscarSituacao() {
     $("#chamado_situacao_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
 
-    if (org_id.length > 0) {
         $.ajax({
             url: "/api/chamado_situacao/",
             method: "GET",
@@ -253,7 +164,6 @@ function buscarSituacao() {
             headers: window.axios.defaults.headers.common,
             data: {
                 status: [1],
-                organizacao_id: org_id
             },
             beforeSend: function () {
                 $("#chamado_situacao_id").after("<div class='load_status spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
@@ -271,15 +181,11 @@ function buscarSituacao() {
                 console.log('erro chamado_situacao');
                 console.log(data);
             });
-    }
 }
 
 function buscarFeedback() {
     $("#chamado_feedback_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
 
-    if (org_id.length > 0) {
         $.ajax({
             url: "/api/chamado_feedback/",
             method: "GET",
@@ -287,7 +193,6 @@ function buscarFeedback() {
             headers: window.axios.defaults.headers.common,
             data: {
                 status: [1],
-                organizacao_id: org_id
             },
             beforeSend: function () {
                 $("#chamado_feedback_id").after("<div class='load_feedback spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
@@ -305,15 +210,11 @@ function buscarFeedback() {
                 console.log('erro chamado_feedback');
                 console.log(data);
             });
-    }
 }
 
 function buscarPrioridade() {
     $("#chamado_prioridade_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
 
-    if (org_id.length > 0) {
         $.ajax({
             url: "/api/chamado_prioridade/",
             method: "GET",
@@ -321,7 +222,6 @@ function buscarPrioridade() {
             headers: window.axios.defaults.headers.common,
             data: {
                 status: [1],
-                organizacao_id: org_id
             },
             beforeSend: function () {
                 $("#chamado_prioridade_id").after("<div class='load_pri spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
@@ -339,15 +239,11 @@ function buscarPrioridade() {
                 console.log('erro chamado_prioridade');
                 console.log(data);
             });
-    }
 }
 
 function buscarUrgencia() {
     $("#chamado_urgencia_id").empty();
-    var org_id = [];
-    org_id.push($("#organizacao_id").val());
 
-    if (org_id.length > 0) {
         $.ajax({
             url: "/api/chamado_urgencia/",
             method: "GET",
@@ -355,7 +251,6 @@ function buscarUrgencia() {
             headers: window.axios.defaults.headers.common,
             data: {
                 status: [1],
-                organizacao_id: org_id
             },
             beforeSend: function () {
                 $("#chamado_urgencia_id").after("<div class='load_urg spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
@@ -373,7 +268,6 @@ function buscarUrgencia() {
                 console.log('erro chamado_urgencia');
                 console.log(data);
             });
-    }
 }
 
 

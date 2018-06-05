@@ -30,13 +30,13 @@ class ChamadoTableSeeder extends Seeder
             $autor = User::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
             $analista = User::where("organizacao_id", $organizacaoServico->id)->inRandomOrder()->first();
             $responsavel = User::where("organizacao_id", $organizacaoServico->id)->inRandomOrder()->first();
-            $servico = Servico::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
+            $servico = Servico::inRandomOrder()->first();
             
-            $categoria = ChamadoCategoria::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
-            $situacao = ChamadoSituacao::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
-            $prioridade = ChamadoPrioridade::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
-            $feedback = ChamadoFeedback::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
-            $urgencia = ChamadoUrgencia::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->first();
+            $categoria = ChamadoCategoria::inRandomOrder()->first();
+            $situacao = ChamadoSituacao::inRandomOrder()->first();
+            $prioridade = ChamadoPrioridade::inRandomOrder()->first();
+            $feedback = ChamadoFeedback::inRandomOrder()->first();
+            $urgencia = ChamadoUrgencia::inRandomOrder()->first();
             
             $chamado->organizacao_id = $organizacaoAutora->id;
             $chamado->autor_id = $autor->id;

@@ -32,7 +32,6 @@ class ChamadoAPIController extends Controller
         $query->with("organizacao");
         $query->with("analista");
         $query->with("responsavel");
-        $query->with("departamento");
         $query->with("servico");
         $query->with("categoria");
         $query->with("situacao");
@@ -57,10 +56,6 @@ class ChamadoAPIController extends Controller
 
         if ($request->filled("organizacao_id")) {
             $query->whereIn("organizacao_id", $request->input("organizacao_id"));
-        }
-
-        if ($request->filled("departamento_id")) {
-            $query->whereIn("departamento_id", $request->input("departamento_id"));
         }
 
         if ($request->filled("servico_id")) {
@@ -170,7 +165,6 @@ class ChamadoAPIController extends Controller
         $chamado->analista_id = $request->analista_id;
         $chamado->responsavel_id = $request->responsavel_id;
         $chamado->organizacao_id = $request->organizacao_id;
-        $chamado->departamento_id = $request->departamento_id;
         $chamado->servico_id = $request->servico_id;
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
         $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;
@@ -235,7 +229,6 @@ class ChamadoAPIController extends Controller
         $chamado->analista_id = $request->analista_id;
         $chamado->responsavel_id = $request->responsavel_id;
         $chamado->organizacao_id = $request->organizacao_id;
-        $chamado->departamento_id = $request->departamento_id;
         $chamado->servico_id = $request->servico_id;
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
         $chamado->chamado_urgencia_id = $request->chamado_urgencia_id;

@@ -89,7 +89,6 @@
                         <li class="nav-item dropdown">
 
                             @if(auth()->user()->can('listar organizacao') 
-                                || auth()->user()->can('listar departamento') 
                                 || auth()->user()->can('listar categoria') 
                                 || auth()->user()->can('listar feedback') 
                                 || auth()->user()->can('listar prioridade') 
@@ -105,10 +104,6 @@
 
                                 @can('listar organizacao')
                                     <a class="dropdown-item" href="{{ route('organizacao.index') }}">Organizações</a>
-                                @endcan
-
-                                @can('listar departamento')
-                                    <a class="dropdown-item" href="{{ route('departamento.index') }}">Departamentos</a>
                                 @endcan
 
                                 @can('listar categoria')

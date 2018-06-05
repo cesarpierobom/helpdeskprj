@@ -18,10 +18,6 @@
                                         <label for="organizacao_id">Organizações</label>
                                         <select name="organizacao_id" id="organizacao_id"  style="width: 100%" class="form-control" multiple></select>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="departamento_id">Departamentos</label>
-                                        <select name="departamento_id" id="departamento_id"  style="width: 100%" class="form-control" multiple></select>
-                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
