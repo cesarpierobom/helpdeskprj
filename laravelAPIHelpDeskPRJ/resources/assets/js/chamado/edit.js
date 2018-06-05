@@ -385,7 +385,8 @@ function buscarInteracoes() {
                         'id': json.data[i].id,
                         'user_id': json.data[i].usuario.name,
                         'created_at': json.data[i].created_at,
-                        'descricao': json.data[i].descricao
+                        'descricao': json.data[i].descricao,
+                        'publica': json.data[i].publica
                     });
                 }
                 return return_data;
@@ -393,9 +394,16 @@ function buscarInteracoes() {
         },
         "columns": [
             { "title": "ID", "className": "dt-center", "name": "id", "data": "id", "sortable":false },
+            { "title": "PUBLICA", "className": "dt-center", "name": "publica", "data": "publica", "sortable": false, "visible":false },
             { "title": "USUARIO", "className": "dt-center", "name": "user_id", "data": "user_id", "sortable":false },
             { "title": "DATA", "className": "dt-center", "name": "created_at", "data": "created_at", "sortable":false },
             { "title": "DESCRICAO", "className": "dt-center", "name": "descricao", "data": "descricao", "width":"80%", "sortable":false},
         ],
+        "createdRow": function (row, data, index) {
+            if (data.publica == '0') {
+                $(row).addClass('text-danger');
+                $(row).addClass('font-weight-bold');
+            }
+        }
     });
 }

@@ -140,6 +140,10 @@ class PermissoesSeeder extends Seeder
         $permissao[] = Permission::findOrCreate('visualizar perfil');   //show
         $permissao[] = Permission::findOrCreate('deletar perfil');      //destroy
 
+        $permissao[] = Permission::findOrCreate('exibir interacao privada');      //
+        $permissao[] = Permission::findOrCreate('inserir interacao privada');      //
+        
+
 
         // $permissao[] = Permission::findOrCreate('tela criar sla');   //create
         // $permissao[] = Permission::findOrCreate('tela editar sla');  //edit

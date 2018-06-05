@@ -40,10 +40,16 @@ class InteracaoAPIController extends Controller
             }
         }
 
-        if ($request->filled("length") && $request->filled("start")) {
-            $query->take($request->input("length"));
-            $query->skip($request->input("start"));
+        if (Auth::user()->can("exibir interacao privada")) {
+            $query->whereIn("publica", ['1','0']);
+        } else {
+            $query->where("publica", "1");
         }
+
+        //if ($request->filled("length") && $request->filled("start")) {
+        //    $query->take($request->input("length"));
+        //    $query->skip($request->input("start"));
+        //}
 
         return new InteracaoResourceCollection($query->get());
     }
