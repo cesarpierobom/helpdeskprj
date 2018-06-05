@@ -1,10 +1,8 @@
 var gridServico;
 
 $(document).ready(chamadoServicoIndexReady = function () {
-    $("#organizacao_id").select2();
     $("#status").select2();
 
-    buscarOrganizacoes();
     gridServico();
 
 
@@ -31,32 +29,6 @@ function deletar(id) {
         });
 }
 
-function buscarOrganizacoes() {
-    $.ajax({
-        url: "/api/organizacao/",
-        method: "GET",
-        dataType: "json",
-        headers: window.axios.defaults.headers.common,
-        data: {
-            status: [1]
-        },
-        beforeSend: function () {
-            $("#organizacao_id").after("<div class='load_org spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
-        },
-        complete: function () {
-            $(".load_org").remove();
-        }
-    })
-        .done(function (json) {
-            $.each(json.data, function (index, el) {
-                $("#organizacao_id").append("<option value='" + el.id + "'>" + el.nome + "</option>");
-            });
-        })
-        .fail(function (data) {
-            alert("ERRO: " + data);
-        });
-}
-
 function gridServico() {
     gridServico = $("#resultado_servico").DataTable({
         "processing": true,
@@ -68,7 +40,6 @@ function gridServico() {
                 d.nome = $("#nome").val();
                 d.codigo = $("#codigo").val();
                 d.status = $("#status").val();
-                d.organizacao_id = $("#organizacao_id").val();
             },
             "dataSrc": function (json) {
 
@@ -90,18 +61,12 @@ function gridServico() {
                         'status': status,
                         'opcoes': buttonEdit + buttonDelete,
                     });
-                    if (!$.isEmptyObject(json.data[i].organizacao) && json.data[i].organizacao.hasOwnProperty('nome')) {
-                        return_data[i]['organizacao'] = json.data[i].organizacao.nome;
-                    } else {
-                        return_data[i]['organizacao'] = "";
-                    }
                 }
                 return return_data;
             },
         },
         "columns": [
             { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
-            { "title": "ORGANIZAÇÃO", "className": "dt-center", "name": "organizacao", "data": "organizacao" },
             { "title": "SERVICO", "className": "dt-center", "name": "nome", "data": "nome" },
             { "title": "CODIGO", "className": "dt-center", "name": "codigo", "data": "codigo" },
             { "title": "ATIVO", "className": "dt-center", "name": "status", "data": "status" },

@@ -18,8 +18,6 @@ class CreateChamadoCategoriaTable extends Migration
             $table->string('nome');
             $table->string('codigo', 50)->nullable();
             $table->unsignedTinyInteger('status')->default("1");
-            $table->bigInteger('organizacao_id')->unsigned();
-            $table->foreign('organizacao_id')->references('id')->on('organizacao');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -13,10 +13,6 @@ class ChamadoPrioridadeTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoPrioridade::class, 100)->make()->each(function($prioridade) {
-            $organizacao = Organizacao::inRandomOrder()->first();
-            $prioridade->organizacao_id = $organizacao->id;
-            $prioridade->save();
-        });
+        factory(ChamadoPrioridade::class, 100)->create();
     }
 }

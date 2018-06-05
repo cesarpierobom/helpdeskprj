@@ -21,7 +21,6 @@ class ChamadoSituacaoAPIController extends Controller
     public function index(ListChamadoSituacaoRequest $request)
     {
         $query = (new ChamadoSituacao)->newQuery();
-        $query->with("organizacao");
 
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
@@ -38,10 +37,6 @@ class ChamadoSituacaoAPIController extends Controller
 
         if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
-        }
-
-        if ($request->filled("organizacao_id")) {
-            $query->whereIn("organizacao_id", $request->input("organizacao_id"));
         }
 
         if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
@@ -74,7 +69,6 @@ class ChamadoSituacaoAPIController extends Controller
         $chamadoSituacao->nome = $request->nome;
         $chamadoSituacao->codigo = $request->codigo;
         $chamadoSituacao->status = $request->status;
-        $chamadoSituacao->organizacao_id = $request->organizacao_id;
         if ($request->padrao == null) {
             $request->padrao = 0;
         }
@@ -112,7 +106,6 @@ class ChamadoSituacaoAPIController extends Controller
         $chamadoSituacao->nome = $request->nome;
         $chamadoSituacao->codigo = $request->codigo;
         $chamadoSituacao->status = $request->status;
-        $chamadoSituacao->organizacao_id = $request->organizacao_id;
         if ($request->padrao == null) {
             $request->padrao = 0;
         }

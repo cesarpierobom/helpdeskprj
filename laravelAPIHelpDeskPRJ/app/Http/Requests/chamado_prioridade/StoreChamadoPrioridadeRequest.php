@@ -28,16 +28,13 @@ class StoreChamadoPrioridadeRequest extends FormRequest
     {
         return [
             "nome" => "required|max:255",
-            "codigo" => ["nullable", "max:50", Rule::unique('chamado_prioridade')->where(function ($query) {
-                return $query->where('organizacao_id', $this->organizacao_id);
-            })],
+            "codigo" => ["nullable", "max:50", "unique:chamado_prioridade,codigo"],
             "status" => ["required", Rule::in(['1', '0'])],
-            "organizacao_id" => "required|exists:organizacao,id",
             "padrao" => function($attribute, $value, $fail) {
                 if ($value == 1) {
-                    $count = ChamadoPrioridade::where("padrao","=","1")->where("organizacao_id","=",$this->organizacao_id)->count();
+                    $count = ChamadoPrioridade::where("padrao","=","1")->count();
                     if ($count > 0) {
-                        return $fail($attribute.': Para cada Organização só deve haver um registro marcado como padrão');
+                        return $fail($attribute.': Só deve haver um registro marcado como padrão');
                     }
                 }
             }

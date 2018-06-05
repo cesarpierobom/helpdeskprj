@@ -15,12 +15,6 @@
                             <form id="formBuscarSuporteGrupo" accept-charset="utf-8">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="organizacao_id">Organizações</label>
-                                        <select name="organizacao_id" id="organizacao_id"  style="width: 100%" class="form-control" multiple></select>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
                                         <label for="nome">Nome</label>
                                         <input type="text" name="nome" id="nome" value="" class="form-control" placeholder="">
                                     </div>

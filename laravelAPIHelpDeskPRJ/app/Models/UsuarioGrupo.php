@@ -31,9 +31,4 @@ class UsuarioGrupo extends Model
     {
         return $this->belongsToMany('App\User', "usuario_usuario_grupo", "usuario_grupo_id", "user_id");
     }
-
-    public function organizacao()
-    {
-        return $this->belongsTo('App\Models\Organizacao');
-    }
 }

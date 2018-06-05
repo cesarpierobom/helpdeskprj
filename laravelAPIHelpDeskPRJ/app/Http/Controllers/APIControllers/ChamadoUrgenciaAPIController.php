@@ -21,7 +21,6 @@ class ChamadoUrgenciaAPIController extends Controller
     public function index(ListChamadoUrgenciaRequest $request)
     {
         $query = (new ChamadoUrgencia)->newQuery();
-        $query->with("organizacao");
         
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
@@ -38,10 +37,6 @@ class ChamadoUrgenciaAPIController extends Controller
 
         if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
-        }
-
-        if ($request->filled("organizacao_id")) {
-            $query->whereIn("organizacao_id", $request->input("organizacao_id"));
         }
 
         if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
@@ -72,7 +67,6 @@ class ChamadoUrgenciaAPIController extends Controller
         $chamadoUrgencia->nome = $request->nome;
         $chamadoUrgencia->codigo = $request->codigo;
         $chamadoUrgencia->status = $request->status;
-        $chamadoUrgencia->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoUrgencia->save();
 
         if ($resultado) {
@@ -106,7 +100,6 @@ class ChamadoUrgenciaAPIController extends Controller
         $chamadoUrgencia->nome = $request->nome;
         $chamadoUrgencia->codigo = $request->codigo;
         $chamadoUrgencia->status = $request->status;
-        $chamadoUrgencia->organizacao_id = $request->organizacao_id;
         
         $resultado = $chamadoUrgencia->save();
 

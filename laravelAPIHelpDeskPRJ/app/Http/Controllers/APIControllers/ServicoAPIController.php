@@ -21,7 +21,6 @@ class ServicoAPIController extends Controller
     public function index(ListServicoRequest $request)
     {
         $query = (new Servico)->newQuery();
-        $query->with("organizacao");
 
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
@@ -38,10 +37,6 @@ class ServicoAPIController extends Controller
 
         if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
-        }
-
-        if ($request->filled("organizacao_id")) {
-            $query->whereIn("organizacao_id", $request->input("organizacao_id"));
         }
 
         if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
@@ -72,7 +67,6 @@ class ServicoAPIController extends Controller
         $servico->nome = $request->nome;
         $servico->codigo = $request->codigo;
         $servico->status = $request->status;
-        $servico->organizacao_id = $request->organizacao_id;
         $resultado = $servico->save();
 
         if ($resultado) {
@@ -105,7 +99,6 @@ class ServicoAPIController extends Controller
         $servico->nome = $request->nome;
         $servico->codigo = $request->codigo;
         $servico->status = $request->status;
-        $servico->organizacao_id = $request->organizacao_id;
         
         $resultado = $servico->save();
 

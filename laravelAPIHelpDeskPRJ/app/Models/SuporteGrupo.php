@@ -31,9 +31,4 @@ class SuporteGrupo extends Model
     {
         return $this->belongsToMany('App\User', "usuario_suporte_grupo", "suporte_grupo_id", "user_id");
     }
-
-    public function organizacao()
-    {
-        return $this->belongsTo('App\Models\Organizacao');
-    }
 }

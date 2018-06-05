@@ -13,10 +13,6 @@ class UsuarioGrupoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(UsuarioGrupo::class, 100)->make()->each(function($grupo) {
-            $organizacao = Organizacao::inRandomOrder()->first();
-            $grupo->organizacao_id = $organizacao->id;
-            $grupo->save();
-        });
+        factory(UsuarioGrupo::class, 100)->create();
     }
 }

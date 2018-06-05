@@ -31,9 +31,4 @@ class ChamadoPrioridade extends Model
     {
         return $this->belongsTo('App\Models\Chamado');
     }
-
-    public function organizacao()
-    {
-        return $this->belongsTo('App\Models\Organizacao');
-    }
 }

@@ -21,7 +21,6 @@ class ChamadoCategoriaAPIController extends Controller
     public function index(ListChamadoCategoriaRequest $request)
     {
         $query = (new ChamadoCategoria)->newQuery();
-        $query->with("organizacao");
         
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
@@ -38,10 +37,6 @@ class ChamadoCategoriaAPIController extends Controller
 
         if ($request->filled("status")) {
             $query->whereIn("status", $request->input("status"));
-        }
-
-        if ($request->filled("organizacao_id")) {
-            $query->whereIn("organizacao_id", $request->input("organizacao_id"));
         }
 
         if ($request->filled("order.0.column") && $request->filled("order.0.dir")) {
@@ -72,7 +67,6 @@ class ChamadoCategoriaAPIController extends Controller
         $chamadoCategoria->nome = $request->nome;
         $chamadoCategoria->codigo = $request->codigo;
         $chamadoCategoria->status = $request->status;
-        $chamadoCategoria->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoCategoria->save();
 
         if ($resultado) {
@@ -105,8 +99,6 @@ class ChamadoCategoriaAPIController extends Controller
         $chamadoCategoria->nome = $request->nome;
         $chamadoCategoria->codigo = $request->codigo;
         $chamadoCategoria->status = $request->status;
-        $chamadoCategoria->organizacao_id = $request->organizacao_id;
-        
         $resultado = $chamadoCategoria->save();
 
         if ($resultado) {

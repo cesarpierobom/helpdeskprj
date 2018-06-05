@@ -13,10 +13,6 @@ class ChamadoSituacaoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoSituacao::class, 100)->make()->each(function($situacao) {
-            $organizacao = Organizacao::inRandomOrder()->first();
-            $situacao->organizacao_id = $organizacao->id;
-            $situacao->save();
-        });
+        factory(ChamadoSituacao::class, 100)->create();
     }
 }

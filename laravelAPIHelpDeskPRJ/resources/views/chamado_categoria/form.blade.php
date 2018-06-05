@@ -1,12 +1,5 @@
 <div class="form-row">
     <div class="form-group col-md-10 offset-md-1">
-        <label for="organizacao_id">Organização</label>
-        <select name="organizacao_id" style="width: 100%" class="form-control" attr_selected="{{$chamadoCategoria->organizacao_id}}" id="organizacao_id"></select>
-        <div id="organizacao_id_feedback" class="invalid-feedback"></div>
-    </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-10 offset-md-1">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" maxlength="200" name="nome" id="nome" value="{{$chamadoCategoria->nome}}" placeholder="">
         <div id="nome_feedback" class="invalid-feedback"></div>

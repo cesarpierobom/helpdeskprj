@@ -21,7 +21,6 @@ class ChamadoPrioridadeAPIController extends Controller
     public function index(ListChamadoPrioridadeRequest $request)
     {
         $query = (new ChamadoPrioridade)->newQuery();
-        $query->with("organizacao");
         
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
@@ -70,7 +69,6 @@ class ChamadoPrioridadeAPIController extends Controller
         $chamadoPrioridade->nome = $request->nome;
         $chamadoPrioridade->codigo = $request->codigo;
         $chamadoPrioridade->status = $request->status;
-        $chamadoPrioridade->organizacao_id = $request->organizacao_id;
         if ($request->padrao == null) {
             $request->padrao = 0;
         }
@@ -108,7 +106,6 @@ class ChamadoPrioridadeAPIController extends Controller
         $chamadoPrioridade->nome = $request->nome;
         $chamadoPrioridade->codigo = $request->codigo;
         $chamadoPrioridade->status = $request->status;
-        $chamadoPrioridade->organizacao_id = $request->organizacao_id;
         if ($request->padrao == null) {
             $request->padrao = 0;
         }

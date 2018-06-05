@@ -13,10 +13,6 @@ class ChamadoFeedbackTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoFeedback::class, 100)->make()->each(function($feedback) {
-            $organizacao = Organizacao::inRandomOrder()->first();
-            $feedback->organizacao_id = $organizacao->id;
-            $feedback->save();
-        });
+        factory(ChamadoFeedback::class, 100)->create();
     }
 }

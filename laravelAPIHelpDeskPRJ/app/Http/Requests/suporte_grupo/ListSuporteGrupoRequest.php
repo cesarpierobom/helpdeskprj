@@ -26,7 +26,6 @@ class ListSuporteGrupoRequest extends FormRequest
     {
         return [
             "status" => "nullable",
-            "organizacao_id" => "nullable|exists:organizacao,id",
             "nome" => "nullable|max:255",
             "codigo" => "nullable|max:50",
             "search.value" => "nullable|max:255"

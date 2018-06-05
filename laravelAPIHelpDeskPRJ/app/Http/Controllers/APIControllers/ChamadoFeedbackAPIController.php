@@ -21,7 +21,6 @@ class ChamadoFeedbackAPIController extends Controller
     public function index(ListChamadoFeedbackRequest $request)
     {
         $query = (new ChamadoFeedback)->newQuery();
-        $query->with("organizacao");
         
         if ($request->filled("nome")) {
             $query->where("nome", "like", "%" . $request->input("nome") . "%");
@@ -69,7 +68,6 @@ class ChamadoFeedbackAPIController extends Controller
         $chamadoFeedback->nome = $request->nome;
         $chamadoFeedback->codigo = $request->codigo;
         $chamadoFeedback->status = $request->status;
-        $chamadoFeedback->organizacao_id = $request->organizacao_id;
         
         $resultado = $chamadoFeedback->save();
 
@@ -103,7 +101,6 @@ class ChamadoFeedbackAPIController extends Controller
         $chamadoFeedback->nome = $request->nome;
         $chamadoFeedback->codigo = $request->codigo;
         $chamadoFeedback->status = $request->status;
-        $chamadoFeedback->organizacao_id = $request->organizacao_id;
         $resultado = $chamadoFeedback->save();
 
         if ($resultado) {
