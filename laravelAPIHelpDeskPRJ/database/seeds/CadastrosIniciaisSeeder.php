@@ -13,15 +13,15 @@ class CadastrosIniciaisSeeder extends Seeder
     public function run()
     {
         $user = User::firstOrCreate(
-            ['login' => 'admin'],
+            ["login" => "admin"],
             [
-                'email' => 'admin@admin.com',
-                'password' => Hash::make('admin'),
-                'name' => 'Admin',
-                'api_token' => str_random(100)
+                "email" => "admin@example.com",
+                "password" => Hash::make("admin"),
+                "name" => "Admin",
+                "api_token" => str_random(100)
             ]
         );
 
-        $user->assignRole('admin');
+        $user->assignRole(["admin", "admin_api"]);
     }
 }

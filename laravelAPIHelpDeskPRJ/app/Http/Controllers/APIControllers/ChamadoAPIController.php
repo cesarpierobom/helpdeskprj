@@ -55,6 +55,7 @@ class ChamadoAPIController extends Controller
         }
 
         if ($request->filled("organizacao_id")) {
+            
             $query->whereIn("organizacao_id", $request->input("organizacao_id"));
         }
 
@@ -86,8 +87,6 @@ class ChamadoAPIController extends Controller
                 $query->whereIn("autor_id", $request->input("autor_id"));
             }
         }
-
-
 
         if ($request->filled("chamado_prioridade_id")) {
             $query->whereIn("chamado_prioridade_id", $request->input("chamado_prioridade_id"));

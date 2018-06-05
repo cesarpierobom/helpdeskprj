@@ -5,6 +5,7 @@ namespace App\Http\Controllers\APIControllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\Http\Resources\role\RoleResourceCollection;
 use App\Http\Resources\role\RoleResource;
 use App\Http\Requests\role\ListRoleRequest;
@@ -54,7 +55,7 @@ class RoleAPIController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        $newRole = Role::create(['name' => $request->name]);
+        $newRole = Role::create(['name' => $request->name, "guard_name" => "web"]);
 
         foreach ($request->permissions as $permission) {
             $newRole->givePermissionTo($permission);
@@ -88,10 +89,12 @@ class RoleAPIController extends Controller
     public function update(UpdateRoleRequest $request, Role $role)
     {
         $role->name = $request->name;
+        $role->guard_name = "web";
         $resultado = $role->save();
 
         if ($request->has("permissions")) {
-            $role->syncPermissions($request->permissions);
+            // dd($request->permissions);
+            $role->syncPermissions(Permission::whereIn("id",$request->permissions)->get());
         }else{
             $role->syncPermissions();
         }

@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
             "status" => "nullable|in:1,0",
             "organizacao_origem" => "nullable|exists:organizacao,id",
             "organizacao_visivel" => "nullable|exists:organizacao,id",
-            "password" => "nullable|min:8|confirmed",
+            "password" => "nullable|min:6|confirmed",
             "password_confirmation" => "",
             "name" => "nullable|max:255",
             "sexo" => "nullable",

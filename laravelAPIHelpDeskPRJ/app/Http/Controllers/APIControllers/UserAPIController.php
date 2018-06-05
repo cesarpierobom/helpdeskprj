@@ -140,10 +140,17 @@ class UserAPIController extends Controller
         $user->status = $request->status;
         $user->data_nascimento = $request->data_nascimento;
         $user->sexo = $request->sexo;
-        $user->password = Hash::make($request->password);
+
+        if ($request->filled("password") && $request->filled("password_confirmation")) {
+            $user->password = Hash::make($request->password);
+        }
+        
         $resultado = $user->save();
+
         $user->organizacao_visivel()->sync($request->organizacao_visivel);
+
         $user->syncRoles($request->role);
+
         if ($resultado) {
             return response()->json(null, 204);
         } else {
