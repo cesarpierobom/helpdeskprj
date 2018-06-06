@@ -15,7 +15,7 @@ class ListUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar usuario");
+        return Auth::user()->hasPermissionTo("api listar usuario", "api");
     }
 
     /**

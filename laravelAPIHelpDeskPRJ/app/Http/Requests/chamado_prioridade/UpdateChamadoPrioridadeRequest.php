@@ -15,7 +15,7 @@ class UpdateChamadoPrioridadeRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar prioridade");
+        return Auth::user()->hasPermissionTo("api atualizar prioridade", "api");
     }
 
     /**

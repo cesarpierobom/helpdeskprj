@@ -15,7 +15,7 @@ class StoreChamadoFeedbackRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar novo feedback");
+        return Auth::user()->hasPermissionTo("api salvar novo feedback", "api");
     }
 
     /**

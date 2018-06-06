@@ -15,7 +15,7 @@ class ListDepartamentoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar departamento");
+        return Auth::user()->hasPermissionTo("api listar departamento", "api");
     }
 
     /**

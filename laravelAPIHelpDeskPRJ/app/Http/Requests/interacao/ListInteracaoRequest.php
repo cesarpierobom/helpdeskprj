@@ -15,7 +15,7 @@ class ListInteracaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar interacao");
+        return Auth::user()->hasPermissionTo("api listar interacao", "api");
     }
 
     /**

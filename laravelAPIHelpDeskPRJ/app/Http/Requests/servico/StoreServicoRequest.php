@@ -15,7 +15,7 @@ class StoreServicoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar novo servico");
+        return Auth::user()->hasPermissionTo("api salvar novo servico", "api");
     }
 
     /**

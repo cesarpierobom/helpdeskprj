@@ -16,7 +16,7 @@ class StoreChamadoSituacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar nova situacao");
+        return Auth::user()->hasPermissionTo("api salvar nova situacao", "api");
     }
 
     /**

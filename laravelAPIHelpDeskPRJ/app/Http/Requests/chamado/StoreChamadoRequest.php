@@ -14,7 +14,7 @@ class StoreChamadoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar novo chamado");
+        return Auth::user()->hasPermissionTo("api salvar novo chamado", "api");
     }
 
     /**

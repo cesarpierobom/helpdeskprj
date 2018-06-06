@@ -15,7 +15,7 @@ class StoreOrganizacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar nova organizacao");
+        return Auth::user()->hasPermissionTo("api salvar nova organizacao", "api");
     }
 
     /**

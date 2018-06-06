@@ -15,7 +15,7 @@ class UpdateRoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar perfil");
+        return Auth::user()->hasPermissionTo("api atualizar perfil", "api");
     }
 
     /**

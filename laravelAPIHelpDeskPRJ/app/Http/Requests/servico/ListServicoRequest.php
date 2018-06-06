@@ -15,7 +15,7 @@ class ListServicoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar servico");
+        return Auth::user()->hasPermissionTo("api listar servico", "api");
     }
 
     /**

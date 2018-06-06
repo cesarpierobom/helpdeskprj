@@ -64,9 +64,9 @@
 
 <div class="form-row">
     <div class="form-group col-md-10 offset-md-1">
-        <label for="role">Perfil</label>
-        <select name="role" style="width: 100%" class="form-control" id="role" ></select>
-        <div id="role_feedback" class="invalid-feedback"></div>
+        <label for="roles">Perfis</label>
+        <select name="roles" style="width: 100%" class="form-control" id="roles" multiple></select>
+        <div id="roles_feedback" class="invalid-feedback"></div>
     </div>
 </div>
 

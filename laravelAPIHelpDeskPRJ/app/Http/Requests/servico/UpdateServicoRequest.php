@@ -15,7 +15,7 @@ class UpdateServicoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar servico");
+        return Auth::user()->hasPermissionTo("api atualizar servico", "api");
     }
 
     /**

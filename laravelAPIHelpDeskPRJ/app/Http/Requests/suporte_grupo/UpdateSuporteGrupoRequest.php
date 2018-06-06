@@ -14,7 +14,7 @@ class UpdateSuporteGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar grupo de suporte");
+        return Auth::user()->hasPermissionTo("api atualizar grupo de suporte", "api");
     }
 
     /**

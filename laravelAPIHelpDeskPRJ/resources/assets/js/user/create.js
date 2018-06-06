@@ -3,7 +3,7 @@ $(document).ready(userCreateDocumentReady = function () {
     $("#organizacao_origem").select2();
     $("#organizacao_visivel").select2();
     $("#status").select2();
-    $("#role").select2();
+    $("#roles").select2();
 
     buscarOrganizacoes();
     buscarPerfis();
@@ -20,16 +20,16 @@ function buscarPerfis() {
         dataType: "json",
         headers: window.axios.defaults.headers.common,
         beforeSend: function () {
-            $("#role").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+            $("#roles").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },
         complete: function () {
             $(".load_perm").remove();
         }
     })
         .done(function (json) {
-            $("#role").empty();
+            $("#roles").empty();
             $.each(json.data, function (index, el) {
-                $("#role").append("<option value='" + el.id + "'>" + el.name + "</option>");
+                $("#roles").append("<option value='" + el.id + "'>" + el.name + "</option>");
             });
         })
         .fail(function (data) {
@@ -97,7 +97,7 @@ function salvar() {
             status: $("#status").val(),
             organizacao_origem: $("#organizacao_origem").val(),
             organizacao_visivel: $("#organizacao_visivel").val(),
-            role: $("#role").val()
+            roles: $("#roles").val()
 
         }
     })

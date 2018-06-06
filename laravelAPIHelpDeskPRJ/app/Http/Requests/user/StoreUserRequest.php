@@ -14,7 +14,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar novo usuario");
+        return Auth::user()->hasPermissionTo("api salvar novo usuario", "api");
     }
 
     /**
@@ -34,7 +34,7 @@ class StoreUserRequest extends FormRequest
             "last_name" => "required|max:255",
             "email" => "required|max:255|email|unique:users,email",
             "login" => "required|max:255|unique:users,login",
-            "role" => "required"
+            "roles" => "required"
         ];
     }
 }

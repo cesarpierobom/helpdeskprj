@@ -14,7 +14,7 @@ class StoreSuporteGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar novo grupo de suporte");
+        return Auth::user()->hasPermissionTo("api salvar novo grupo de suporte", "api");
     }
 
     /**

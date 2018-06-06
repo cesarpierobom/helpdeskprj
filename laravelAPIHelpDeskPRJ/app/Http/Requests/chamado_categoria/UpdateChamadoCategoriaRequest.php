@@ -15,7 +15,7 @@ class UpdateChamadoCategoriaRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar categoria");
+        return Auth::user()->hasPermissionTo("api atualizar categoria", "api");
     }
 
     /**

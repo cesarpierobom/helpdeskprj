@@ -15,7 +15,7 @@ class ListChamadoFeedbackRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar feedback");
+        return Auth::user()->hasPermissionTo("api listar feedback", "api");
     }
 
     /**

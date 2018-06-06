@@ -14,7 +14,7 @@ class UpdateChamadoUrgenciaRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar urgencia");
+        return Auth::user()->hasPermissionTo("api atualizar urgencia", "api");
     }
 
     /**

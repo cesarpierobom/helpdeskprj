@@ -15,7 +15,7 @@ class StoreChamadoCategoriaRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar nova categoria");
+        return Auth::user()->hasPermissionTo("api salvar nova categoria", "api");
     }
 
     /**

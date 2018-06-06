@@ -14,7 +14,7 @@ class UpdateUsuarioGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar grupo de usuario");
+        return Auth::user()->hasPermissionTo("api atualizar grupo de usuario", "api");
     }
 
     /**

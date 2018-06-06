@@ -15,7 +15,7 @@ class StoreChamadoUrgenciaRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar nova urgencia");
+        return Auth::user()->hasPermissionTo("api salvar nova urgencia", "api");
     }
 
     /**

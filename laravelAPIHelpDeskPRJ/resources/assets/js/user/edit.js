@@ -4,7 +4,7 @@ $(document).ready(userEditDocumentReady = function () {
     $("#organizacao_visivel").select2();
 
     $("#status").select2();
-    $("#role").select2();
+    $("#roles").select2();
 
     var request = buscarOrganizacoes();
 
@@ -55,16 +55,16 @@ function buscarPerfis() {
         dataType: "json",
         headers: window.axios.defaults.headers.common,
         beforeSend: function () {
-            $("#role").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+            $("#roles").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },
         complete: function () {
             $(".load_perm").remove();
         }
     })
         .done(function (json) {
-            $("#role").empty();
+            $("#roles").empty();
             $.each(json.data, function (index, el) {
-                $("#role").append("<option value='" + el.id + "'>" + el.name + "</option>");
+                $("#roles").append("<option value='" + el.id + "'>" + el.name + "</option>");
             });
         })
         .fail(function (data) {
@@ -85,6 +85,7 @@ function buscarDadosUsario(){
         headers: window.axios.defaults.headers.common,
     })
         .done(function (json) {
+            var arrayroles = [];
             console.log(json);
             ids_org_visivel = [];
             if (json.data.organizacao_visivel != null) {
@@ -101,7 +102,11 @@ function buscarDadosUsario(){
                 console.log('roles');
                 console.log(json.data.roles);
                 
-                $("#role").val(json.data.roles.data[0].id).trigger("change");
+                json.data.roles.data.forEach(function (element) {
+                    arrayroles.push(element.id);
+                });
+
+                $("#roles").val(arrayroles).trigger("change");
             }else{
                 console.log('roles vazios');
             }

@@ -15,7 +15,7 @@ class StoreInteracaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar nova interacao");
+        return Auth::user()->hasPermissionTo("api salvar nova interacao", "api");
     }
 
     /**

@@ -15,7 +15,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar usuario");
+        return Auth::user()->hasPermissionTo("api atualizar usuario", "api");
     }
 
     /**
@@ -37,7 +37,7 @@ class UpdateUserRequest extends FormRequest
             "last_name" => "nullable|max:255",
             "email" =>  ["nullable", "max:255", "email", Rule::unique('users','email')->ignore($this->route("user")->id)],
             "login" => ["nullable", "max:255", Rule::unique('users','login')->ignore($this->route("user")->id)],
-            "role" => "required"
+            "roles" => "required"
         ];
     }
 }

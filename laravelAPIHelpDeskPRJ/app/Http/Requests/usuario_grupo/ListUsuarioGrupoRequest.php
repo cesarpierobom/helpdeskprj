@@ -14,7 +14,7 @@ class ListUsuarioGrupoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar grupo de usuario");
+        return Auth::user()->hasPermissionTo("api listar grupo de usuario", "api");
     }
 
     /**

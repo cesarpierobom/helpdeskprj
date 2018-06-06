@@ -15,6 +15,8 @@ class PermissoesSeeder extends Seeder
      */
     public function run()
     {
+        app()['cache']->forget('spatie.permission.cache');
+        
         $adminWeb = Role::findOrCreate("admin", "web");
         $adminAPI = Role::findOrCreate("admin_api", "api");
 

@@ -4,6 +4,5 @@
     "phpcs.ignorePatterns": [
         "*/laravelAPIHelpDeskPRJ/database/*",
     ],
-    "eslint.packageManager": "npm",
     "jshint.nodePath":"laravelAPIHelpDeskPRJ/node_modules/.bin/jshint",
 }

@@ -15,7 +15,7 @@ class ListChamadoSituacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar situacao");
+        return Auth::user()->hasPermissionTo("api listar situacao", "api");
     }
 
     /**

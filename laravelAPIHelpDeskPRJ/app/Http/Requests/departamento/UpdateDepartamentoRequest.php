@@ -15,7 +15,7 @@ class UpdateDepartamentoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar departamento");
+        return Auth::user()->hasPermissionTo("api atualizar departamento", "api");
     }
 
     /**

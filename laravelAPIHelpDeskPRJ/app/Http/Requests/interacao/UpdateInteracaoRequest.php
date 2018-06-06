@@ -15,7 +15,7 @@ class UpdateInteracaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar interacao");
+        return Auth::user()->hasPermissionTo("api atualizar interacao", "api");
     }
 
     /**

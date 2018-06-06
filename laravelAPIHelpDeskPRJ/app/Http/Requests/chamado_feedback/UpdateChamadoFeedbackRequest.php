@@ -15,7 +15,7 @@ class UpdateChamadoFeedbackRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar feedback");
+        return Auth::user()->hasPermissionTo("api atualizar feedback", "api");
     }
 
     /**

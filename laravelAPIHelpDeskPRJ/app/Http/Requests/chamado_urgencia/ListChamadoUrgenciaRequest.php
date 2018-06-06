@@ -14,7 +14,7 @@ class ListChamadoUrgenciaRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar urgencia");
+        return Auth::user()->hasPermissionTo("api listar urgencia", "api");
     }
 
     /**

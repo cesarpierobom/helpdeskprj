@@ -15,7 +15,7 @@ class ListChamadoPrioridadeRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar prioridade");
+        return Auth::user()->hasPermissionTo("api listar prioridade", "api");
     }
 
     /**

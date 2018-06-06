@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 use App\User;
 
 class CadastrosIniciaisSeeder extends Seeder
@@ -12,6 +13,8 @@ class CadastrosIniciaisSeeder extends Seeder
      */
     public function run()
     {
+        app()['cache']->forget('spatie.permission.cache');
+        
         $user = User::firstOrCreate(
             ["login" => "admin"],
             [
@@ -22,6 +25,6 @@ class CadastrosIniciaisSeeder extends Seeder
             ]
         );
 
-        $user->assignRole(["admin", "admin_api"]);
+        $user->assignRole(Role::whereIn("name", ["admin", "admin_api"])->get());
     }
 }

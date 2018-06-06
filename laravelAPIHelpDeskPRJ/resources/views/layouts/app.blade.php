@@ -88,13 +88,13 @@
                         </li>
                         <li class="nav-item dropdown">
 
-                            @if(auth()->user()->can('listar organizacao') 
-                                || auth()->user()->can('listar categoria') 
-                                || auth()->user()->can('listar feedback') 
-                                || auth()->user()->can('listar prioridade') 
-                                || auth()->user()->can('listar urgencia') 
-                                || auth()->user()->can('listar situacao') 
-                                || auth()->user()->can('listar servico') )
+                            @if(auth()->user()->can('web listar organizacao',"web") 
+                                || auth()->user()->can('web listar categoria',"web") 
+                                || auth()->user()->can('web listar feedback',"web") 
+                                || auth()->user()->can('web listar prioridade',"web") 
+                                || auth()->user()->can('web listar urgencia',"web") 
+                                || auth()->user()->can('web listar situacao',"web") 
+                                || auth()->user()->can('web listar servico',"web") )
 
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
                                     Administração
@@ -102,49 +102,49 @@
                             @endif
                             <div class="dropdown-menu">
 
-                                @can('listar organizacao')
+                                @can('web listar organizacao',"web")
                                     <a class="dropdown-item" href="{{ route('organizacao.index') }}">Organizações</a>
                                 @endcan
 
-                                @can('listar categoria')
+                                @can('web listar categoria',"web")
                                     <a class="dropdown-item" href="{{ route('chamado_categoria.index') }}">Categorias</a>
                                 @endcan
 
-                                @can('listar feedback')
+                                @can('web listar feedback',"web")
                                     <a class="dropdown-item" href="{{ route('chamado_feedback.index') }}">Feedback</a>
                                 @endcan
 
-                                @can('listar prioridade')
+                                @can('web listar prioridade',"web")
                                     <a class="dropdown-item" href="{{ route('chamado_prioridade.index') }}">Prioridades</a>
                                 @endcan
 
-                                @can('listar urgencia')
+                                @can('web listar urgencia',"web")
                                     <a class="dropdown-item" href="{{ route('chamado_urgencia.index') }}">Urgências</a>
                                 @endcan
 
-                                @can('listar situacao')
+                                @can('web listar situacao',"web")
                                     <a class="dropdown-item" href="{{ route('chamado_situacao.index') }}">Situações</a>
                                 @endcan
 
-                                @can('listar servico')
+                                @can('web listar servico',"web")
                                     <a class="dropdown-item" href="{{ route('servico.index') }}">Serviços</a>
                                 @endcan
                             </div>
                         </li>
                         <li class="nav-item dropdown">
 
-                            @if(auth()->user()->can('listar usuario') 
-                                || auth()->user()->can('listar perfil'))
+                            @if(auth()->user()->can('web listar usuario',"web") 
+                                || auth()->user()->can('web listar perfil',"web"))
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkAdministracao" data-toggle="dropdown" >
                                     Configuracoes
                                 </a>
                             @endif
                             <div class="dropdown-menu">
-                                @can('listar usuario')
+                                @can('web listar usuario',"web")
                                     <a class="dropdown-item" href="{{ route('user.index') }}">Usuario</a>
                                 @endcan
 
-                                @can('listar perfil')
+                                @can('web listar perfil',"web")
                                     <a class="dropdown-item" href="{{ route('role.index') }}">Perfis e Permissoes</a>
                                 @endcan
                             </div>

@@ -14,7 +14,7 @@ class ListChamadoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar chamado");
+        return Auth::user()->hasPermissionTo("api listar chamado", "api");
     }
 
     /**

@@ -15,7 +15,7 @@ class UpdateOrganizacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar organizacao");
+        return Auth::user()->hasPermissionTo("api atualizar organizacao", "api");
     }
 
     /**

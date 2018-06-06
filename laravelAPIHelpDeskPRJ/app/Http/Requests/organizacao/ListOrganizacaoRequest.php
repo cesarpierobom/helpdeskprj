@@ -15,7 +15,7 @@ class ListOrganizacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar organizacao");
+        return Auth::user()->hasPermissionTo("api listar organizacao", "api");
     }
 
     /**

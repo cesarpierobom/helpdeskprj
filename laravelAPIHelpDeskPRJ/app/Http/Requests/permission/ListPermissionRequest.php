@@ -14,7 +14,7 @@ class ListPermissionRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar permissao");
+        return Auth::user()->hasPermissionTo("api listar permissao", "api");
     }
 
     /**

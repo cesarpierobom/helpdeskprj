@@ -15,7 +15,7 @@ class StoreRoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("salvar novo perfil");
+        return Auth::user()->hasPermissionTo("api salvar novo perfil", "api");
     }
 
     /**

@@ -16,7 +16,7 @@ class UpdateChamadoSituacaoRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("atualizar situacao");
+        return Auth::user()->hasPermissionTo("api atualizar situacao", "api");
     }
 
     /**

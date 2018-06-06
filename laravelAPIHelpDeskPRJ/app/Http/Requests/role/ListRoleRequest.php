@@ -14,7 +14,7 @@ class ListRoleRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::user()->can("listar perfil");
+        return Auth::user()->hasPermissionTo("api listar perfil", "api");
     }
 
     /**
