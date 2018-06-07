@@ -50,6 +50,15 @@ class ChamadoTableSeeder extends Seeder
             $chamado->chamado_feedback_id = $feedback->id;
             $chamado->chamado_urgencia_id = $urgencia->id;
             $chamado->save();
+
+            $watchersOrigem = User::where("organizacao_id", $organizacaoAutora->id)->inRandomOrder()->limit(mt_rand(0,2))->get();
+
+            $watchersVisivel = User::whereHas('organizacao_visivel', function ($query) use($organizacaoAutora) {
+                $query->where('organizacao_id', $organizacaoAutora->id);
+            })->inRandomOrder()->limit(mt_rand(0,2))->get();
+
+            $chamado->watchers()->attach($watchersOrigem);
+            $chamado->watchers()->attach($watchersVisivel);
         });
     }
 }

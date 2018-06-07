@@ -6,6 +6,7 @@ use App\Events\ChamadoEditado;
 use App\Notifications\ChamadoEditado as ChamadoEditadoNotification;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Notification;
 
 class EnviarNotificacaoChamadoEditado
 {
@@ -27,9 +28,13 @@ class EnviarNotificacaoChamadoEditado
      */
     public function handle(ChamadoEditado $event)
     {
-        $users = $event->chamado->watchers;
-        if (count($users)>0) {
-            Notification::send($users, new ChamadoEditadoNotification($event->chamado));
+        $watchers = $event->chamado->watchers;
+        $analista = $event->chamado->analista;
+        $responsavel = $event->chamado->responsavel;
+        $autor = $event->chamado->autor;
+
+        if (count(array_merge($watchers, $analista, $responsavel, $autor))>0) {
+            Notifications::send($users, new ChamadoEditadoNotification($event->chamado));
         }
     }
 }

@@ -1,7 +1,13 @@
 $(document).ready(function () {
     $("#permissions").select2();
+    $("#guard_name").select2();
 
-    buscarPermissoes();
+    buscarPermissoes($("#guard_name").val());
+
+    $("#guard_name").on("change", function () {
+        buscarPermissoes($("#guard_name").val());
+    });
+
 
     $("#btnTodos").on("click", function () {
         $("#permissions option").prop("selected", true);
@@ -26,12 +32,15 @@ $(document).ready(function () {
 
 });
 
-function buscarPermissoes() {
+function buscarPermissoes(guard = null) {
     var request = $.ajax({
         url: "/api/permission/",
         method: "GET",
         dataType: "json",
         headers: window.axios.defaults.headers.common,
+        data:{
+            guard_name: guard,
+        },
         beforeSend: function () {
             $("#permissions").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
         },

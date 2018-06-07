@@ -7,8 +7,14 @@ use App\Models\Chamado;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\BroadcastMessage;
+use Illuminate\Notifications\Messages\DatabaseMessage;
+use Illuminate\Notifications\Messages\SlackMessage;
+use Illuminate\Notifications\Messages\SimpleMessage;
+use Illuminate\Notifications\Messages\NexmoMessage;
 
-class ChamadoEditado extends Notification
+
+class ChamadoEditado extends Notification implements ShouldQueue
 {
     use Queueable;
 

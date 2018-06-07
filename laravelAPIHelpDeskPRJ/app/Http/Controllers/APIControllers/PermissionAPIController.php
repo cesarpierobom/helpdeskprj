@@ -38,6 +38,10 @@ class PermissionAPIController extends Controller
             $query->where("name", "like", "%" . $request->input("name") . "%");
         }
 
+        if ($request->filled("guard_name")) {
+            $query->where("guard_name", "like", "%" . $request->input("guard_name") . "%");
+        }
+
         if ($request->filled("search.value")) {
             $query->where("name", "like", "%" . $request->input("search.value") . "%");
         }

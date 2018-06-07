@@ -1,5 +1,11 @@
 $(document).ready(function () {
     $("#permissions").select2();
+    $("#guard_name").select2();
+
+    $("#guard_name").on("change", function () {
+        $("#permissions").empty();
+        buscarPermissoes(null, $("#guard_name").val());
+    });
 
     var request = buscarPermissoes();
     
@@ -23,14 +29,15 @@ $(document).ready(function () {
 
 });
 
-function buscarPermissoes(role = null) {
+function buscarPermissoes(role = null, guard = null) {
     var request = $.ajax({
         url: "/api/permission/",
         method: "GET",
         dataType: "json",
         headers: window.axios.defaults.headers.common,
         data: {
-            role_id: role
+            role_id: role,
+            guard_name: guard,
         },
         beforeSend: function () {
             $("#permissions").after("<div class='load_perm spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
@@ -56,6 +63,19 @@ function buscarPermissoes(role = null) {
     });
     return request;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function checarConcedidas(concedidas){
     $.each(concedidas, function (index, el) {

@@ -7,8 +7,13 @@ use App\Models\Interacao;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\BroadcastMessage;
+use Illuminate\Notifications\Messages\DatabaseMessage;
+use Illuminate\Notifications\Messages\SlackMessage;
+use Illuminate\Notifications\Messages\SimpleMessage;
+use Illuminate\Notifications\Messages\NexmoMessage;
 
-class NovaInteracao extends Notification
+class NovaInteracao extends Notification implements ShouldQueue
 {
     use Queueable;
 

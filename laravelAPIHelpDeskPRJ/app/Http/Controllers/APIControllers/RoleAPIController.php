@@ -55,10 +55,11 @@ class RoleAPIController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        $newRole = Role::create(['name' => $request->name, "guard_name" => "web"]);
+        $newRole = Role::create(['name' => $request->name, "guard_name" => $request->guard_name]);
 
-        foreach ($request->permissions as $permission) {
-            $newRole->givePermissionTo($permission);
+        if ($request->has("permissions")) {
+
+            $newRole->syncPermissions(Permission::whereIn("id", $request->permissions)->get());
         }
 
         if ($newRole) {

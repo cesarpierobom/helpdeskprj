@@ -27,6 +27,7 @@ class ListPermissionRequest extends FormRequest
         return [
             "name"  =>  "nullable|max:255",
             "role_id"   =>  "nullable",
+            "guard_name"   =>  "nullable|max:255",
             "search.value" => "nullable|max:255"
         ];
     }

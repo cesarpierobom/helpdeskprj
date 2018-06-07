@@ -6,6 +6,7 @@ use App\Events\NovaInteracao;
 use App\Notifications\NovaInteracao as NovaInteracaoNotification;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Notification;
 
 class EnviarNotificacaoNovaInteracao
 {
