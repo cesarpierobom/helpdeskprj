@@ -25,6 +25,10 @@ if (Laravel.user.id != null && Laravel.user.id != "") {
     Echo.private("App.User." + Laravel.user.id)
         .notification((notification) => {
             console.log(notification);
+            if (notification.type == 'App\\Notifications\\NovaInteracao') {
+                var a = $("<a href='" + window.location.origin + "/chamado/" + notification.interacao.chamado_id + "' class='dropdown-item whitespace_wrap'>Nova Interação adicionada ao chamado " +notification.interacao.chamado_id + "</a>")
+                $("#container_notificacoes").append(a);
+            }
         });
 }
 

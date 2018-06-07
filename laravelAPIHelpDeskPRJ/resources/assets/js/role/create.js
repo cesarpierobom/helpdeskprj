@@ -82,6 +82,7 @@ function salvar() {
         data: {
             name: $("#name").val(),
             permissions: $("#permissions").val(),
+            guard_name: $("#guard_name").val(),
         }
     })
         .done(function (data) {

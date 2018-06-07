@@ -2,16 +2,22 @@ $(document).ready(function () {
     $("#permissions").select2();
     $("#guard_name").select2();
 
+    var requestDados = buscarDados();
+
+    requestDados.done(function () {
+
+        var request = buscarPermissoes();
+        
+        request.done(function () {
+            buscarPermissoes($("#id").val());
+        });
+    });
+
     $("#guard_name").on("change", function () {
         $("#permissions").empty();
         buscarPermissoes(null, $("#guard_name").val());
     });
 
-    var request = buscarPermissoes();
-    
-    request.done(function () {
-        buscarPermissoes($("#id").val());
-    });
 
     $("#btnTodos").on("click", function () {
         $("#permissions option").prop("selected", true);
@@ -28,6 +34,35 @@ $(document).ready(function () {
     });
 
 });
+
+function buscarDados(){
+    var id = $("#id").val();
+
+    var request = $.ajax({
+        url: "/api/role/" + id,
+        method: "GET",
+        dataType: "json",
+        headers: window.axios.defaults.headers.common,
+        beforeSend: function () {
+            $("#nome").after("<div class='load_role spinner_dots'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div>");
+        },
+        complete: function () {
+            $(".load_role").remove();
+        }
+    })
+        .done(function (json) {
+            console.log(json);
+            if (typeof json != 'undefined' && typeof json.data != 'undefined') {
+                $("#guard_name").val(json.data.guard_name).trigger("change");
+            }
+        })
+        .fail(function (data) {
+            alert("ERRO");
+            console.log(data);
+        });
+    return request;
+}
+
 
 function buscarPermissoes(role = null, guard = null) {
     var request = $.ajax({
@@ -106,6 +141,7 @@ function salvar() {
         data: {
             name: $("#name").val(),
             permissions: $("#permissions").val(),
+            guard_name: $("#guard_name").val(),
         }
     })
         .done(function (data) {

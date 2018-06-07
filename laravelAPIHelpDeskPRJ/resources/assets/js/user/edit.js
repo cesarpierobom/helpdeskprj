@@ -147,7 +147,7 @@ function salvar() {
             status: $("#status").val(),
             organizacao_origem: $("#organizacao_origem").val(),
             organizacao_visivel: $("#organizacao_visivel").val(),
-            role: $("#role").val()
+            roles: $("#roles").val()
         }
     })
         .done(function (data) {

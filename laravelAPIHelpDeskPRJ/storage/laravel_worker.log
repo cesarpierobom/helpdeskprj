@@ -1,0 +1,254 @@
+
+   Predis\Connection\ConnectionException  : Error while reading line from the server. [tcp://127.0.0.1:6379]
+
+  at /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php: 155
+
+   Predis\Connection\ConnectionException  : Error while reading line from the server. [tcp://127.0.0.1:6379]
+
+  at /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php: 155
+    151|      */
+    152|     protected function onConnectionError($message, $code = null)
+    153|     {
+    154|         CommunicationException::handle(
+  > 155|             new ConnectionException($this, static::createExceptionMessage($message), $code)
+    156|         );
+    157|     }
+    158| 
+    159|     /**
+
+  Exception trace:
+
+  1   Predis\Connection\AbstractConnection::onConnectionError("Error while reading line from the server.")
+      /home/vagrant/code/vendor/predis/predis/src/Connection/StreamConnection.php : 314
+
+  2   Predis\Connection\StreamConnection::read()
+      /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php : 120
+
+  Please use the argument -v to see more details.
+    151|      */
+    152|     protected function onConnectionError($message, $code = null)
+    153|     {
+    154|         CommunicationException::handle(
+  > 155|             new ConnectionException($this, static::createExceptionMessage($message), $code)
+    156|         );
+    157|     }
+    158| 
+    159|     /**
+
+  Exception trace:
+
+  1   Predis\Connection\AbstractConnection::onConnectionError("Error while reading line from the server.")
+      /home/vagrant/code/vendor/predis/predis/src/Connection/StreamConnection.php : 314
+
+  2   Predis\Connection\StreamConnection::read()
+      /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php : 120
+
+  Please use the argument -v to see more details.
+
+   Predis\Connection\ConnectionException  : Error while reading line from the server. [tcp://127.0.0.1:6379]
+
+  at /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php: 155
+
+   Predis\Connection\ConnectionException  : Error while reading line from the server. [tcp://127.0.0.1:6379]
+    151|      */
+    152|     protected function onConnectionError($message, $code = null)
+    153|     {
+    154|         CommunicationException::handle(
+  > 155|             new ConnectionException($this, static::createExceptionMessage($message), $code)
+    156|         );
+    157|     }
+    158| 
+    159|     /**
+
+  Exception trace:
+
+  1   Predis\Connection\AbstractConnection::onConnectionError("Error while reading line from the server.")
+      /home/vagrant/code/vendor/predis/predis/src/Connection/StreamConnection.php : 314
+
+  2   Predis\Connection\StreamConnection::read()
+      /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php : 120
+
+  Please use the argument -v to see more details.
+
+  at /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php: 155
+    151|      */
+    152|     protected function onConnectionError($message, $code = null)
+    153|     {
+    154|         CommunicationException::handle(
+  > 155|             new ConnectionException($this, static::createExceptionMessage($message), $code)
+    156|         );
+    157|     }
+    158| 
+    159|     /**
+
+  Exception trace:
+
+  1   Predis\Connection\AbstractConnection::onConnectionError("Error while reading line from the server.")
+      /home/vagrant/code/vendor/predis/predis/src/Connection/StreamConnection.php : 314
+
+  2   Predis\Connection\StreamConnection::read()
+      /home/vagrant/code/vendor/predis/predis/src/Connection/AbstractConnection.php : 120
+
+  Please use the argument -v to see more details.
+[2018-06-07 22:30:10][WqT3P4Ka9a2AkUooYhredw63E3I5Gh2f] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][6pU49yJbY4vlRGBAVqjDnWiRDgZF9ueE] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][6pU49yJbY4vlRGBAVqjDnWiRDgZF9ueE] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][1yNt3mNYbjHv2MZkTZLMMqTfPIfgmCrA] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][WqT3P4Ka9a2AkUooYhredw63E3I5Gh2f] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][oQpJ7YxFBIhbGUFWLWgjbEgRQ7NR8STG] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][1yNt3mNYbjHv2MZkTZLMMqTfPIfgmCrA] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][oQpJ7YxFBIhbGUFWLWgjbEgRQ7NR8STG] Processed:  App\Notifications\NovaInteracao[2018-06-07 22:30:10][E9nK7KRScxsNcF4HRYQ8bhKeEqLHXBuH] Processing: App\Notifications\NovaInteracao
+
+[2018-06-07 22:30:10][2fRDWxSEV2MzrP1fWmXaxK4Tc8UhJIr0] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][2fRDWxSEV2MzrP1fWmXaxK4Tc8UhJIr0] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][vCfHFBbQnoT4lp0rkvC9nDxQui6ZfEKF] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:30:10][E9nK7KRScxsNcF4HRYQ8bhKeEqLHXBuH] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:30:10][oohJPo8JL8b160GXKV6xbPZ89KHmalFF] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:30:10][vCfHFBbQnoT4lp0rkvC9nDxQui6ZfEKF] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:30:10][ce5mIYtBuHQoBCmoXmBtdNPGgeYZwVI1] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:30:10][oohJPo8JL8b160GXKV6xbPZ89KHmalFF] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:30:10][ce5mIYtBuHQoBCmoXmBtdNPGgeYZwVI1] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:36:19][S2uOVNojWlxEimm528keQGRCZ7Ailnp8] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][f1zb7iR5aVraKGuE83B0xBc2W2tXTL06] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][f1zb7iR5aVraKGuE83B0xBc2W2tXTL06] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][WDS1zS4NhkeArxgnEjHUCd4kiva0AqZZ] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][S2uOVNojWlxEimm528keQGRCZ7Ailnp8] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][6frijVAz4rydf2uRJWEYILNWvQCHQH7t] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][6frijVAz4rydf2uRJWEYILNWvQCHQH7t] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][9wdWf9xFXCRGGdd2MFrh9gAnWPNeKoNU] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][WDS1zS4NhkeArxgnEjHUCd4kiva0AqZZ] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][IfKxQI0qa9TQzbsOBMWwk3qA7DFHdWcZ] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][IfKxQI0qa9TQzbsOBMWwk3qA7DFHdWcZ] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][HOu24wXpzJFiBobGdMdEe7DYEB0MCOvw] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:36:19][9wdWf9xFXCRGGdd2MFrh9gAnWPNeKoNU] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:36:19][zoBHpW5pV4vFX4BbEheOqCb33UWbYHgW] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:36:19][HOu24wXpzJFiBobGdMdEe7DYEB0MCOvw] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:36:19][rIbuWn8849aVwLJOvpqKd3k9RgbJfgP5] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:36:19][zoBHpW5pV4vFX4BbEheOqCb33UWbYHgW] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:36:19][rIbuWn8849aVwLJOvpqKd3k9RgbJfgP5] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:37:52][9SRCbTpJ7SlMNlCthyqmSePdhMrlbPhY] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][pVLZ3hXXQ3ISG78jBKKcCn3j9hR0Xmcs] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][9SRCbTpJ7SlMNlCthyqmSePdhMrlbPhY] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][PtoZSDafKdrLHFxL1Q5olqTC5CU28Ccx] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][pVLZ3hXXQ3ISG78jBKKcCn3j9hR0Xmcs] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][Kuj6MsR1pKUWrTYEhOcegLvoFgmNbYIU] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][Kuj6MsR1pKUWrTYEhOcegLvoFgmNbYIU] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][Nkc8DI2OkU84DbAZftQ2tgEtXFblVaUA] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][PtoZSDafKdrLHFxL1Q5olqTC5CU28Ccx] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][Nc2IBRvH3SrcCakQ0lZLEdWSQYLiEiQR] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][Nkc8DI2OkU84DbAZftQ2tgEtXFblVaUA] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][NeY9xLUNYMyR919KddDq3dAJ54Ivtszs] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:37:52][Nc2IBRvH3SrcCakQ0lZLEdWSQYLiEiQR] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:37:52][GFk1V58olNze6c2DW0xotMXPV41UrsjD] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:37:52][NeY9xLUNYMyR919KddDq3dAJ54Ivtszs] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:37:52][sm82wQD5WQlPiAFrkpf3hdv4JAAUys7W] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:37:52][GFk1V58olNze6c2DW0xotMXPV41UrsjD] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:37:52][sm82wQD5WQlPiAFrkpf3hdv4JAAUys7W] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:19][tSqqbYBeTVxloUyGtAu4NmCGFYxJ1ose] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:19][M6HkuJDXqGUFNCAPaHDB65gqLN9bEup3] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:19][tSqqbYBeTVxloUyGtAu4NmCGFYxJ1ose] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:19][M6HkuJDXqGUFNCAPaHDB65gqLN9bEup3] Processed:  App\Notifications\NovaInteracao[2018-06-07 22:40:19][8Xqx3BVWUIWyvHhmlF5ewOavDR5DjvUT] Processing: App\Notifications\NovaInteracao
+
+[2018-06-07 22:40:19][xitwUW08qHThOD9nm3bfW9hakE1AAya6] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:19][xitwUW08qHThOD9nm3bfW9hakE1AAya6] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:19][Ze8wmZjW9fX5uyIp4ZzPTUJXz6wiRGdH] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][8Xqx3BVWUIWyvHhmlF5ewOavDR5DjvUT] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][RLVa87Bjq59zgoeEeCXdseCDcbFBxEFH] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][RLVa87Bjq59zgoeEeCXdseCDcbFBxEFH] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][1v520ORI0eluedpFvsCeQMGaP9WNz0pC] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][Ze8wmZjW9fX5uyIp4ZzPTUJXz6wiRGdH] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][10CbULlxLp9ptYoNfYCJhzEHGd9KCkae] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][10CbULlxLp9ptYoNfYCJhzEHGd9KCkae] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][nJx355fie6fSKxBmmP48hNY9vBQ9K2P4] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][1v520ORI0eluedpFvsCeQMGaP9WNz0pC] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][eJjPTRTwl3DiY96oXdQ4pckvCmvUrJUV] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][eJjPTRTwl3DiY96oXdQ4pckvCmvUrJUV] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][O66snCq5pIfeOhdXeZEmcX3xPk2QLLWC] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][nJx355fie6fSKxBmmP48hNY9vBQ9K2P4] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][Tt54jwp4GDA6KHwKnJrLdwkFiAzvnwpW] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][Tt54jwp4GDA6KHwKnJrLdwkFiAzvnwpW] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][xAfCigmYRzcfCfEnncY0qIaogHYO6hI7] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][O66snCq5pIfeOhdXeZEmcX3xPk2QLLWC] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:40:20][3rYpKijyo1840BRnixDHnozt3MWUsSYu] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][xAfCigmYRzcfCfEnncY0qIaogHYO6hI7] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][29Diya68ekA5VlBaPoL1IWZMZObhlxOt] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][3rYpKijyo1840BRnixDHnozt3MWUsSYu] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][NnCmpTZqx2qqOPRP36WceDOQRIAfTern] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][29Diya68ekA5VlBaPoL1IWZMZObhlxOt] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][NnCmpTZqx2qqOPRP36WceDOQRIAfTern] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][HygIPVRZt4fjMtqNnxtYdlACK8Cjr84O] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated[2018-06-07 22:40:20][SzhE7JTXO5UBJYESpYxGJeQm2tXHdp7q] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+
+[2018-06-07 22:40:20][HygIPVRZt4fjMtqNnxtYdlACK8Cjr84O] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:40:20][SzhE7JTXO5UBJYESpYxGJeQm2tXHdp7q] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][3PH7KnSTZyOhqtWisET1PGoGITJtmz1H] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][YbRzM5BP8QsPb3A5LrlbKPjxwdeqrSXa] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][YbRzM5BP8QsPb3A5LrlbKPjxwdeqrSXa] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][GkpuQjVSjEuXypwzaGELkvZjZbId7KhC] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][3PH7KnSTZyOhqtWisET1PGoGITJtmz1H] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][ddG6Yj97yniq3IBuwTCw33ybQmRv8BTJ] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][GkpuQjVSjEuXypwzaGELkvZjZbId7KhC] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][ddG6Yj97yniq3IBuwTCw33ybQmRv8BTJ] Processed:  App\Notifications\NovaInteracao[2018-06-07 22:41:11][NnFfP9c9rKNKaawih5TuBEMYCA9keS5j] Processing: App\Notifications\NovaInteracao
+
+[2018-06-07 22:41:11][VIlkPA2w6nkC1ExBjItWMxACCoSlc0vd] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][VIlkPA2w6nkC1ExBjItWMxACCoSlc0vd] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][LzqJXTCe9kyukwv3rEVlwtB2KXnurc01] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][NnFfP9c9rKNKaawih5TuBEMYCA9keS5j] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][gpBxl6CnDZpEPHUe3DUawTU3OlGVf1J6] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][gpBxl6CnDZpEPHUe3DUawTU3OlGVf1J6] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][IPEYDDgFEtF8l0IWaeUP4wl7YWUNhVKO] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][LzqJXTCe9kyukwv3rEVlwtB2KXnurc01] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][LK0nlGhiZCewpW9LB2JwcQoFNAAKE82L] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][LK0nlGhiZCewpW9LB2JwcQoFNAAKE82L] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][RLHXo4q9P2lBTDR7JS9BDyN29vZUQcxu] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][IPEYDDgFEtF8l0IWaeUP4wl7YWUNhVKO] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][6j6wMwkfNIjU4hTjgLTpaaIASPcdMGy5] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][6j6wMwkfNIjU4hTjgLTpaaIASPcdMGy5] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][1hwq6jJFAcy9mLRcerNEvcHDwpjQ0Aj8] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][RLHXo4q9P2lBTDR7JS9BDyN29vZUQcxu] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:41:11][BUPwBniBQW3HVe5H29CKTlc2ogA97d1F] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][BUPwBniBQW3HVe5H29CKTlc2ogA97d1F] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][1hwq6jJFAcy9mLRcerNEvcHDwpjQ0Aj8] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][CkTUgNdriIjYTLcoe5CLMyXrZNTslWjr] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][hlicVNy4hMjDsqfCb9tbEx8xwx1moEIF] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][CkTUgNdriIjYTLcoe5CLMyXrZNTslWjr] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][KsajWclCsbym8OIUaAWiho8WaP77xmo7] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][hlicVNy4hMjDsqfCb9tbEx8xwx1moEIF] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][ibDnAIyp3H1Z11O288KKoQS7FB7Zki6k] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][KsajWclCsbym8OIUaAWiho8WaP77xmo7] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:41:11][ibDnAIyp3H1Z11O288KKoQS7FB7Zki6k] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][WnJM4Vq6450jmRftkqqutywy507HNOiT] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][8v5sgZ4XtFnnPQDVrnzyCJhz8Fb36lgf] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][8v5sgZ4XtFnnPQDVrnzyCJhz8Fb36lgf] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][fSHQAIsixVaroQhgkCAg177iZOPlZGXs] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][WnJM4Vq6450jmRftkqqutywy507HNOiT] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][HtnJomlMXA3uIcjPd8ucjZgDriNMiPhF] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][HtnJomlMXA3uIcjPd8ucjZgDriNMiPhF] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][2FpTVHK4bKyFzQmQcCW0rEpzDl1zoAlO] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][fSHQAIsixVaroQhgkCAg177iZOPlZGXs] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][Q1x8sQZt1X5a7VHr6qs6CAEkGbsCOyqz] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][Q1x8sQZt1X5a7VHr6qs6CAEkGbsCOyqz] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][RSpRRkPhVKqlGgIwSY9savdePVFP1GnQ] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][2FpTVHK4bKyFzQmQcCW0rEpzDl1zoAlO] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][GZbDN5ANNbHYdZlQOP5SHMmM2mZXeLLk] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][GZbDN5ANNbHYdZlQOP5SHMmM2mZXeLLk] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][SzrvlD5bbtRkHOLN4L4lO4NHooeyh1xW] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][RSpRRkPhVKqlGgIwSY9savdePVFP1GnQ] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][0uDCBZjWmPu2hcwhy9lRrf121fGWAmKq] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][0uDCBZjWmPu2hcwhy9lRrf121fGWAmKq] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][FnIPLgI1OLMI2fpxkABIoj8f7O4dAWHu] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][SzrvlD5bbtRkHOLN4L4lO4NHooeyh1xW] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][KeVSODODsklxCqTlRg5nFPInhtdwE5ld] Processing: App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][KeVSODODsklxCqTlRg5nFPInhtdwE5ld] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][9SaUcCXKIPA8ztUU2QQ8c1yAT3lNzEI8] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][FnIPLgI1OLMI2fpxkABIoj8f7O4dAWHu] Processed:  App\Notifications\NovaInteracao
+[2018-06-07 22:45:36][sOhCfYyqrv5G00dw3nXIH8rEI0TRf6oL] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][9SaUcCXKIPA8ztUU2QQ8c1yAT3lNzEI8] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][L8A9EZVwJNTLood83MX1bCtGMuGPv45j] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][sOhCfYyqrv5G00dw3nXIH8rEI0TRf6oL] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][HOrWsoqjqMTPHIceLaQyFCEbfnjsgch9] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][L8A9EZVwJNTLood83MX1bCtGMuGPv45j] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][BiVux2jkl1WQKUFEj6osZCafZ1veOu0S] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][HOrWsoqjqMTPHIceLaQyFCEbfnjsgch9] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][SUnDiVWO5cE9U8iWez5u2m7LtGLNZAeC] Processing: Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][BiVux2jkl1WQKUFEj6osZCafZ1veOu0S] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated
+[2018-06-07 22:45:36][SUnDiVWO5cE9U8iWez5u2m7LtGLNZAeC] Processed:  Illuminate\Notifications\Events\BroadcastNotificationCreated

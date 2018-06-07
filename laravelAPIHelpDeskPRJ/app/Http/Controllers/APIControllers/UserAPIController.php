@@ -11,6 +11,8 @@ use App\Http\Resources\user\UserResource;
 use App\Http\Requests\user\StoreUserRequest;
 use App\Http\Requests\user\ListUserRequest;
 use App\Http\Requests\user\UpdateUserRequest;
+use Spatie\Permission\Models\Role;
+
 
 class UserAPIController extends Controller
 {
@@ -99,7 +101,7 @@ class UserAPIController extends Controller
         $resultado = $user->save();
 
         $user->organizacao_visivel()->sync($request->organizacao_visivel);
-        $user->syncRoles($request->role);
+        $user->syncRoles(Role::whereIn("id", $request->roles)->get());
         
         if ($resultado) {
             return response()->json(null, 204);
@@ -149,7 +151,7 @@ class UserAPIController extends Controller
 
         $user->organizacao_visivel()->sync($request->organizacao_visivel);
 
-        $user->syncRoles($request->role);
+        $user->syncRoles(Role::whereIn("id", $request->roles)->get());
 
         if ($resultado) {
             return response()->json(null, 204);

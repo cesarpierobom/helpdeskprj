@@ -289,4 +289,4 @@ mix.scripts([
 ], 'public/js/reports/geral.js');
 
 
-mix.browserSync('homestead.localdev');
+mix.browserSync('https://homestead.localdev');

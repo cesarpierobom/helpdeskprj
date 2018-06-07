@@ -47,6 +47,7 @@ function carregarGridRoles() {
                     return_data.push({
                         'id': json.data[i].id,
                         'name': json.data[i].name,
+                        'guard_name': json.data[i].guard_name,
                         'opcoes': buttonEdit + buttonDelete,
                     });
                 }
@@ -56,6 +57,7 @@ function carregarGridRoles() {
         "columns": [
             { "title": "ID", "className": "dt-center", "name": "id", "data": "id" },
             { "title": "NOME", "className": "dt-center", "name": "name", "data": "name" },
+            { "title": "CONTEXTO", "className": "dt-center", "name": "guard_name", "data": "guard_name" },
             { "title": "OPÇÕES", "className": "dt-center", "name": "opcoes", "data": "opcoes", "sortable": false },
         ],
     });

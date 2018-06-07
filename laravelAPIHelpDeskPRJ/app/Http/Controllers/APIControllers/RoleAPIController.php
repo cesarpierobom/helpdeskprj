@@ -90,7 +90,7 @@ class RoleAPIController extends Controller
     public function update(UpdateRoleRequest $request, Role $role)
     {
         $role->name = $request->name;
-        $role->guard_name = "web";
+        $role->guard_name = $request->guard_name;
         $resultado = $role->save();
 
         if ($request->has("permissions")) {

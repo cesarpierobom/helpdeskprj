@@ -1,5 +1,5 @@
 {
-	"authHost": "http://homestead.localdev",
+	"authHost": "https://homestead.localdev",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [
 		{
@@ -24,10 +24,10 @@
 	"devMode": true,
 	"host": "",
 	"port": "6001",
-	"protocol": "http",
+	"protocol": "https",
 	"socketio": {},
-	"sslCertPath": "",
-	"sslKeyPath": "",
+	"sslCertPath": "/etc/nginx/ssl/homestead.localdev.crt",
+	"sslKeyPath": "/etc/nginx/ssl/homestead.localdev.key",
 	"sslCertChainPath": "",
 	"sslPassphrase": "",
 	"apiOriginAllow": {
