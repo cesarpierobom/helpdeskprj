@@ -47,9 +47,9 @@ class ChamadoPrioridadeAPIController extends Controller
             }
         }
 
-        if ($request->filled("length") && $request->filled("start")) {
-            $query->take($request->input("length"));
-            $query->skip($request->input("start"));
+        if ($request->has("length") && $request->has("start") && $request->length>=0 && $request->start>=0) {
+            $query->take($request->length);
+            $query->skip($request->start);
         }
 
         return new ChamadoPrioridadeResourceCollection($query->get());

@@ -6980,3 +6980,153 @@ CHANNEL private-App.User.59
 [21:53:58] - dOqj5PFCMnEP5zaSAACO joined channel: global
 [21:53:59] - dOqj5PFCMnEP5zaSAACO authenticated for: private-App.User.59
 [21:53:59] - dOqj5PFCMnEP5zaSAACO joined channel: private-App.User.59
+[22:08:58] - i7JwuQa-7s433rxCAACP joined channel: global
+[22:09:01] - i7JwuQa-7s433rxCAACP authenticated for: private-App.User.59
+[22:09:01] - i7JwuQa-7s433rxCAACP joined channel: private-App.User.59
+[22:09:20] - i7JwuQa-7s433rxCAACP left channel: global (transport close)
+[22:09:20] - i7JwuQa-7s433rxCAACP left channel: private-App.User.59 (transport close)
+[22:12:50] - dOqj5PFCMnEP5zaSAACO left channel: global (transport close)
+[22:12:50] - dOqj5PFCMnEP5zaSAACO left channel: private-App.User.59 (transport close)
+[22:12:51] - NHds9T_LHfQQKJ3cAACQ joined channel: global
+[22:12:53] - NHds9T_LHfQQKJ3cAACQ authenticated for: private-App.User.59
+[22:12:53] - NHds9T_LHfQQKJ3cAACQ joined channel: private-App.User.59
+[22:16:57] - NHds9T_LHfQQKJ3cAACQ left channel: global (transport close)
+[22:16:57] - NHds9T_LHfQQKJ3cAACQ left channel: private-App.User.59 (transport close)
+[22:16:59] - ybhzqRpXjur14PAJAACR joined channel: global
+[22:16:59] - ybhzqRpXjur14PAJAACR authenticated for: private-App.User.59
+[22:16:59] - ybhzqRpXjur14PAJAACR joined channel: private-App.User.59
+[22:18:09] - ybhzqRpXjur14PAJAACR left channel: global (transport close)
+[22:18:09] - ybhzqRpXjur14PAJAACR left channel: private-App.User.59 (transport close)
+[22:18:10] - mr2rTHOR9AfoBGr0AACS joined channel: global
+[22:18:14] - mr2rTHOR9AfoBGr0AACS left channel: global (transport close)
+[22:18:15] - -YF-RRigKBNKxEGCAACT joined channel: global
+[22:18:15] - -YF-RRigKBNKxEGCAACT authenticated for: private-App.User.1
+[22:18:15] - -YF-RRigKBNKxEGCAACT joined channel: private-App.User.1
+[22:22:17] - -YF-RRigKBNKxEGCAACT left channel: global (transport close)
+[22:22:17] - -YF-RRigKBNKxEGCAACT left channel: private-App.User.1 (transport close)
+[22:22:18] - 1OtY3pcSaJBLwHdpAACU joined channel: global
+[22:22:19] - 1OtY3pcSaJBLwHdpAACU authenticated for: private-App.User.1
+[22:22:19] - 1OtY3pcSaJBLwHdpAACU joined channel: private-App.User.1
+[22:22:48] - 1OtY3pcSaJBLwHdpAACU left channel: global (ping timeout)
+[22:22:48] - 1OtY3pcSaJBLwHdpAACU left channel: private-App.User.1 (ping timeout)
+[22:23:09] - ueFJdewcnHvk74NOAACV joined channel: global
+[22:23:09] - ueFJdewcnHvk74NOAACV authenticated for: private-App.User.1
+[22:23:09] - ueFJdewcnHvk74NOAACV joined channel: private-App.User.1
+[22:24:16] - ueFJdewcnHvk74NOAACV left channel: global (transport close)
+[22:24:16] - ueFJdewcnHvk74NOAACV left channel: private-App.User.1 (transport close)
+[22:24:17] - doMEqPgXPT4utW5TAACW joined channel: global
+[22:24:17] - doMEqPgXPT4utW5TAACW authenticated for: private-App.User.1
+[22:24:17] - doMEqPgXPT4utW5TAACW joined channel: private-App.User.1
+[22:25:11] - doMEqPgXPT4utW5TAACW left channel: global (transport close)
+[22:25:11] - doMEqPgXPT4utW5TAACW left channel: private-App.User.1 (transport close)
+[22:25:12] - lQAotuzMbyZlpPDaAACX joined channel: global
+[22:25:12] - lQAotuzMbyZlpPDaAACX authenticated for: private-App.User.1
+[22:25:12] - lQAotuzMbyZlpPDaAACX joined channel: private-App.User.1
+[22:25:42] - lQAotuzMbyZlpPDaAACX left channel: global (ping timeout)
+[22:25:42] - lQAotuzMbyZlpPDaAACX left channel: private-App.User.1 (ping timeout)
+[22:26:25] - rBYZaGhy2H3AR0rJAACY joined channel: global
+[22:26:25] - rBYZaGhy2H3AR0rJAACY authenticated for: private-App.User.1
+[22:26:25] - rBYZaGhy2H3AR0rJAACY joined channel: private-App.User.1
+[22:26:25] - rBYZaGhy2H3AR0rJAACY left channel: global (transport close)
+[22:26:25] - rBYZaGhy2H3AR0rJAACY left channel: private-App.User.1 (transport close)
+[22:26:27] - SrjGRM5x_WwZlykiAACZ joined channel: global
+[22:26:29] - SrjGRM5x_WwZlykiAACZ authenticated for: private-App.User.1
+[22:26:29] - SrjGRM5x_WwZlykiAACZ joined channel: private-App.User.1
+[22:27:02] - SrjGRM5x_WwZlykiAACZ left channel: global (transport close)
+[22:27:02] - SrjGRM5x_WwZlykiAACZ left channel: private-App.User.1 (transport close)
+[22:27:03] - q-kwpwEXpx-CzDJEAACa joined channel: global
+[22:27:06] - q-kwpwEXpx-CzDJEAACa authenticated for: private-App.User.1
+[22:27:06] - q-kwpwEXpx-CzDJEAACa joined channel: private-App.User.1
+[22:27:15] - q-kwpwEXpx-CzDJEAACa left channel: global (transport close)
+[22:27:15] - q-kwpwEXpx-CzDJEAACa left channel: private-App.User.1 (transport close)
+[22:27:18] - qQn_noQP5v2E2i6KAACb joined channel: global
+[22:27:21] - qQn_noQP5v2E2i6KAACb authenticated for: private-App.User.1
+[22:27:21] - qQn_noQP5v2E2i6KAACb joined channel: private-App.User.1
+[22:27:48] - qQn_noQP5v2E2i6KAACb left channel: global (ping timeout)
+[22:27:48] - qQn_noQP5v2E2i6KAACb left channel: private-App.User.1 (ping timeout)
+[22:28:42] - LwCMF7ytxN1UjeHoAACc joined channel: global
+[22:28:45] - LwCMF7ytxN1UjeHoAACc left channel: global (transport close)
+[22:28:47] - XQOLF11tZ6kZldUCAACd joined channel: global
+[22:29:02] - Error authenticating LwCMF7ytxN1UjeHoAACc for private-App.User.1
+{ Error: getaddrinfo EAI_AGAIN homestead.localdev:443
+    at Object._errnoException (util.js:1022:11)
+    at errnoException (dns.js:55:15)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+  code: 'EAI_AGAIN',
+  errno: 'EAI_AGAIN',
+  syscall: 'getaddrinfo',
+  hostname: 'homestead.localdev',
+  host: 'homestead.localdev',
+  port: 443 }
+Error sending authentication request.
+[22:29:07] - Error authenticating XQOLF11tZ6kZldUCAACd for private-App.User.1
+{ Error: getaddrinfo EAI_AGAIN homestead.localdev:443
+    at Object._errnoException (util.js:1022:11)
+    at errnoException (dns.js:55:15)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+  code: 'EAI_AGAIN',
+  errno: 'EAI_AGAIN',
+  syscall: 'getaddrinfo',
+  hostname: 'homestead.localdev',
+  host: 'homestead.localdev',
+  port: 443 }
+Error sending authentication request.
+[22:29:18] - XQOLF11tZ6kZldUCAACd left channel: global (ping timeout)
+[22:30:03] - DNLYOca8Ynx2rB1EAACe joined channel: global
+[22:30:07] - DNLYOca8Ynx2rB1EAACe left channel: global (transport close)
+[22:30:08] - c4s7U_76JTuDXwIHAACf joined channel: global
+[22:30:12] - c4s7U_76JTuDXwIHAACf left channel: global (transport close)
+[22:30:19] - qIRBtnFizKaF4DghAACg joined channel: global
+[22:30:23] - Error authenticating DNLYOca8Ynx2rB1EAACe for private-App.User.1
+{ Error: getaddrinfo EAI_AGAIN homestead.localdev:443
+    at Object._errnoException (util.js:1022:11)
+    at errnoException (dns.js:55:15)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+  code: 'EAI_AGAIN',
+  errno: 'EAI_AGAIN',
+  syscall: 'getaddrinfo',
+  hostname: 'homestead.localdev',
+  host: 'homestead.localdev',
+  port: 443 }
+Error sending authentication request.
+[22:30:28] - Error authenticating c4s7U_76JTuDXwIHAACf for private-App.User.1
+{ Error: getaddrinfo EAI_AGAIN homestead.localdev:443
+    at Object._errnoException (util.js:1022:11)
+    at errnoException (dns.js:55:15)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:92:26)
+  code: 'EAI_AGAIN',
+  errno: 'EAI_AGAIN',
+  syscall: 'getaddrinfo',
+  hostname: 'homestead.localdev',
+  host: 'homestead.localdev',
+  port: 443 }
+Error sending authentication request.
+[22:30:48] - qIRBtnFizKaF4DghAACg left channel: global (transport error)
+[22:32:46] - NTWi1pJiZrYinGt9AACi joined channel: global
+[22:32:46] - NTWi1pJiZrYinGt9AACi joined channel: global
+[22:33:50] - NTWi1pJiZrYinGt9AACi left channel: global (transport close)
+[22:35:26] - EnhPKT2Qwh4w8PBsAACj joined channel: global
+[22:35:29] - EnhPKT2Qwh4w8PBsAACj left channel: global (transport close)
+[22:35:29] - nmsHZ-zFX4M1vfvnAACk joined channel: global
+[22:35:30] - nmsHZ-zFX4M1vfvnAACk authenticated for: private-App.User.1
+[22:35:30] - nmsHZ-zFX4M1vfvnAACk joined channel: private-App.User.1
+[22:38:12] - nmsHZ-zFX4M1vfvnAACk left channel: global (transport close)
+[22:38:12] - nmsHZ-zFX4M1vfvnAACk left channel: private-App.User.1 (transport close)
+[22:38:13] - jJl7gCiZmNQL9qsJAACl joined channel: global
+[22:38:13] - jJl7gCiZmNQL9qsJAACl authenticated for: private-App.User.1
+[22:38:13] - jJl7gCiZmNQL9qsJAACl joined channel: private-App.User.1
+[22:39:05] - jJl7gCiZmNQL9qsJAACl left channel: global (transport close)
+[22:39:05] - jJl7gCiZmNQL9qsJAACl left channel: private-App.User.1 (transport close)
+[22:39:06] - XyaKk_4DJ1ywrTs1AACm joined channel: global
+[22:39:06] - XyaKk_4DJ1ywrTs1AACm authenticated for: private-App.User.1
+[22:39:06] - XyaKk_4DJ1ywrTs1AACm joined channel: private-App.User.1
+[22:46:46] - XyaKk_4DJ1ywrTs1AACm left channel: global (transport error)
+[22:46:46] - XyaKk_4DJ1ywrTs1AACm left channel: private-App.User.1 (transport error)
+[22:46:47] - 6EChyG8Nutzo-HZrAACn joined channel: global
+[22:46:50] - 6EChyG8Nutzo-HZrAACn authenticated for: private-App.User.1
+[22:46:50] - 6EChyG8Nutzo-HZrAACn joined channel: private-App.User.1
+[22:47:17] - 6EChyG8Nutzo-HZrAACn left channel: global (transport close)
+[22:47:17] - 6EChyG8Nutzo-HZrAACn left channel: private-App.User.1 (transport close)
+[22:47:17] - nMCEmYDHZnIj2iDAAACo joined channel: global
+[22:47:18] - nMCEmYDHZnIj2iDAAACo authenticated for: private-App.User.1
+[22:47:18] - nMCEmYDHZnIj2iDAAACo joined channel: private-App.User.1

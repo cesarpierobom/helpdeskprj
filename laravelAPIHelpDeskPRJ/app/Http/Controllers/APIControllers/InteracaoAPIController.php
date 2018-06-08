@@ -46,10 +46,9 @@ class InteracaoAPIController extends Controller
             $query->where("publica", "1");
         }
 
-        // dd($request);
-        if ($request->has("length") && $request->has("start")) {
-           $query->take($request->input("length"));
-           $query->skip($request->input("start"));
+        if ($request->has("length") && $request->has("start") && $request->length>=0 && $request->start>=0) {
+            $query->skip($request->start);
+            $query->take($request->length);
         }
 
         return new InteracaoResourceCollection($query->get());

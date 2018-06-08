@@ -53,9 +53,9 @@ class DepartamentoAPIController extends Controller
             }
         }
 
-        if ($request->filled("length") && $request->filled("start")) {
-            $query->take($request->input("length"));
-            $query->skip($request->input("start"));
+        if ($request->has("length") && $request->has("start") && $request->length>=0 && $request->start>=0) {
+            $query->skip($request->start);
+            $query->take($request->length);
         }
         // dd($query->toSql());
         return new DepartamentoResourceCollection($query->get());
