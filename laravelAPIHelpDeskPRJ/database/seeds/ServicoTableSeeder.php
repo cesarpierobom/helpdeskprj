@@ -13,6 +13,6 @@ class ServicoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Servico::class, 100)->create();
+        factory(Servico::class, 10)->create();
     }
 }

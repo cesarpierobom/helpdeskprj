@@ -13,6 +13,6 @@ class UsuarioGrupoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(UsuarioGrupo::class, 100)->create();
+        factory(UsuarioGrupo::class, 10)->create();
     }
 }

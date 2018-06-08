@@ -43,6 +43,7 @@ function gerarRelatorio(){
     for (var index = 0; index < orgs.length; index++) {
         arrorganizacao.push(orgs[index]);
     }
+    var dadosTabela;
 
     gridRelatorioGeral = $("#resultado_relatorio_geral").DataTable({
         "processing": true,
@@ -61,7 +62,6 @@ function gerarRelatorio(){
                 d.organizacao = arrorganizacao;
             },
             "dataSrc": function (json) {
-
                 var return_data = [];
 
                 for (var i = 0; i < json.data.length; i++) {
@@ -76,8 +76,12 @@ function gerarRelatorio(){
                         'tempo': json.data[i].tempo,
                     });
                 }
+                dadosTabela = return_data;
                 return return_data;
             },
+        },
+        "initComplete": function () {
+            grafico(dadosTabela);
         },
         "columns": [
             { "title": "NOME", "className": "dt-center", "name": "nome", "data": "nome" },
@@ -91,4 +95,66 @@ function gerarRelatorio(){
     });
 }
 
+window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
 
+function grafico(dadosTabela){
+    if (typeof canvasgeral != 'undefined') {
+        canvasgeral.destroy();
+    }
+    console.log(dadosTabela);
+
+    var graficoAbertos = [];
+    var graficoEncerrados = [];
+    var graficoLabels = [];
+
+
+    dadosTabela.forEach(element => {
+        graficoAbertos.push(element.abertos);
+        graficoEncerrados.push(element.encerrados);
+        graficoLabels.push(element.nome);
+    });
+
+    var ctx = $("#canvasgeral");
+
+    var canvasgeral = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: graficoLabels,
+            datasets: [{
+                label: 'Abertos',
+                backgroundColor: window.chartColors.green,
+                data: graficoAbertos
+            }, {
+                label: 'Encerrados',
+                backgroundColor: window.chartColors.red,
+                data: graficoEncerrados
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        autoSkip: false
+                    },
+                    stacked: true,
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        autoSkip: false
+                    },
+                    stacked: true
+                }]
+            }
+        }
+    });
+}

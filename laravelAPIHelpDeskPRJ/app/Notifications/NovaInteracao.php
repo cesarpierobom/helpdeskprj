@@ -18,6 +18,9 @@ class NovaInteracao extends Notification implements ShouldQueue
     use Queueable;
 
     public $interacao;
+    public $mensagem;
+    public $linkweb;
+    public $linkapi;
 
     /**
      * Create a new notification instance.
@@ -27,6 +30,9 @@ class NovaInteracao extends Notification implements ShouldQueue
     public function __construct(Interacao $interacao)
     {
         $this->interacao = $interacao;
+        $this->mensagem = "Nova interação adicionada ao chamado #" . $interacao->chamado_id . ". Clique para visualizar.";
+        $this->linkweb = route("chamado.edit", $interacao->chamado_id);
+        $this->linkapi = route("chamado.show_api", $interacao->chamado_id);
     }
 
     /**
@@ -50,6 +56,9 @@ class NovaInteracao extends Notification implements ShouldQueue
     {
         return [
             'interacao' => $this->interacao,
+            'mensagem' => $this->mensagem,
+            'linkweb' => $this->linkweb,
+            'linkapi' => $this->linkapi,
         ];
     }
 

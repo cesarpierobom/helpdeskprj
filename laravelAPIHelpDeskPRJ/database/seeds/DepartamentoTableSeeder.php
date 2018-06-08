@@ -13,7 +13,7 @@ class DepartamentoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Departamento::class, 100)->make()->each(function($departamento) {
+        factory(Departamento::class, 5)->make()->each(function($departamento) {
             $organizacao = Organizacao::inRandomOrder()->first();
             $departamento->organizacao_id = $organizacao->id;
             $departamento->save();

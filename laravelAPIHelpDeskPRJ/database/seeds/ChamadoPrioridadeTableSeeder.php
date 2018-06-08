@@ -13,6 +13,6 @@ class ChamadoPrioridadeTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoPrioridade::class, 100)->create();
+        factory(ChamadoPrioridade::class, 10)->create();
     }
 }

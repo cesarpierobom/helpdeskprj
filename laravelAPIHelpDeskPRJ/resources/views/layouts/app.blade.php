@@ -155,9 +155,9 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('report_geral') }}">Geral</a>
-                                <a class="dropdown-item" href="{{ route('report_geral') }}">Situacoes</a>
-                                <a class="dropdown-item" href="{{ route('report_geral') }}">Categorias</a>
-                                <a class="dropdown-item" href="{{ route('report_geral') }}">Usuarios</a>                                
+                                {{-- <a class="dropdown-item" href="{{ route('report_geral') }}">Situacoes</a> --}}
+                                <a class="dropdown-item" href="{{ route('report_categorias') }}">Categorias</a>
+                                {{-- <a class="dropdown-item" href="{{ route('report_geral') }}">Usuarios</a>                                 --}}
                             </div>
                         </li>
                     @endguest
@@ -172,10 +172,13 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkNotificacoes" data-toggle="dropdown" >
-                                    <i class="material-icons">notifications_active</i>
+                                    <i id="icone_notificacoes" class="material-icons">notifications_active</i>
                                 </a>
-                                <div id="container_notificacoes" class="dropdown-menu dropdown-menu-right">
-                                
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item text-center" id="btnUpdateNotifications" attr_page="1"><i class="material-icons">update</i></a>
+                                    <div id="container_notificacoes">
+                                    </div>
+                                    <a class="dropdown-item text-center" id="btnOlderNotifications" attr_page="2"><i class="material-icons">keyboard_arrow_down</i></a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

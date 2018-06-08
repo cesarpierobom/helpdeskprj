@@ -15,7 +15,7 @@ class InteracaoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Interacao::class, 10000)->make()->each(function($interacao) {
+        factory(Interacao::class, 1000)->make()->each(function($interacao) {
             $chamado = Chamado::inRandomOrder()->first();
             $analista = User::inRandomOrder()->first();
             $interacao->chamado_id = $chamado->id;

@@ -46,16 +46,31 @@ class InteracaoAPIController extends Controller
             $query->where("publica", "1");
         }
 
-        //if ($request->filled("length") && $request->filled("start")) {
-        //    $query->take($request->input("length"));
-        //    $query->skip($request->input("start"));
-        //}
+        // dd($request);
+        if ($request->has("length") && $request->has("start")) {
+           $query->take($request->input("length"));
+           $query->skip($request->input("start"));
+        }
 
         return new InteracaoResourceCollection($query->get());
     }
 
-    public function listByChamado(Chamado $chamado){
-        return new InteracaoResourceCollection($chamado->interacoes()->with("usuario")->get());
+    public function listByChamado(ListInteracaoRequest $request, Chamado $chamado){
+        
+        $query = $chamado->interacoes()->with("usuario");
+
+        if (Auth::user()->can("exibir interacao privada")) {
+            $query->whereIn("publica", ['1','0']);
+        } else {
+            $query->where("publica", "1");
+        }
+
+        if ($request->has("length") && $request->has("start")) {
+           $query->take($request->input("length"));
+           $query->skip($request->input("start"));
+        }
+
+        return new InteracaoResourceCollection($query->get());
     }
 
     /**

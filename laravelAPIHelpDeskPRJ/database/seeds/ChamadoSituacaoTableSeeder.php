@@ -13,6 +13,6 @@ class ChamadoSituacaoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoSituacao::class, 100)->create();
+        factory(ChamadoSituacao::class, 10)->create();
     }
 }

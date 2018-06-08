@@ -28,12 +28,16 @@ class EnviarNotificacaoChamadoEditado
      */
     public function handle(ChamadoEditado $event)
     {
-        $watchers = $event->chamado->watchers;
+        $users = $event->chamado->watchers;
         $analista = $event->chamado->analista;
         $responsavel = $event->chamado->responsavel;
         $autor = $event->chamado->autor;
 
-        if (count(array_merge($watchers, $analista, $responsavel, $autor))>0) {
+        $users->push($analista);
+        $users->push($responsavel);
+        $users->push($autor);
+
+        if (count($users)>0) {
             Notifications::send($users, new ChamadoEditadoNotification($event->chamado));
         }
     }

@@ -21,7 +21,7 @@ class ChamadoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Chamado::class, 1000)->make()->each(function ($chamado) {
+        factory(Chamado::class, 100)->make()->each(function ($chamado) {
             $organizacaoAutora = Organizacao::inRandomOrder()->first();
             $organizacaoServico = Organizacao::inRandomOrder()->first();
             $departamentoAutora = Departamento::where("organizacao_id", $organizacaoAutora->id)

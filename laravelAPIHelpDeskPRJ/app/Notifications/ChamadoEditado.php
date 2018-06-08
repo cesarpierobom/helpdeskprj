@@ -19,7 +19,9 @@ class ChamadoEditado extends Notification implements ShouldQueue
     use Queueable;
 
     public $chamado;
-    
+    public $mensagem;
+    public $linkweb;
+    public $linkapi;
 
     /**
      * Create a new notification instance.
@@ -29,6 +31,9 @@ class ChamadoEditado extends Notification implements ShouldQueue
     public function __construct(Chamado $chamado)
     {
         $this->chamado = $chamado;
+        $this->mensagem = "O chamado #" . $interacao->chamado_id . " foi editado. Clique para visualizar.";
+        $this->linkweb = route("chamado.edit", $interacao->chamado_id);
+        $this->linkapi = route("chamado.show_api", $interacao->chamado_id);
     }
 
     /**
@@ -52,6 +57,9 @@ class ChamadoEditado extends Notification implements ShouldQueue
     {
         return [
             'chamado' => $this->chamado,
+            'mensagem' => $this->mensagem,
+            'linkweb' => $this->linkweb,
+            'linkapi' => $this->linkapi,
         ];
     }
 

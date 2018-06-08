@@ -84,3 +84,73 @@ function showModal (header=null, body=null, footer=null) {
 
     $("#modalPrincipal").modal();
 }
+
+
+
+function buscarNotificacoes(page=1){
+    var id = Laravel.user.id;
+
+    $.ajax({
+        url: "/api/user/" + id + "/notifications",
+        method: "GET",
+        headers: window.axios.defaults.headers.common,
+        data:{
+            page:page
+        }
+    })
+        .done(function (data) {
+            $("#btnUpdateNotifications").attr("attr_page", "1");
+            $("#btnOlderNotifications").attr("attr_page", data.meta.current_page+1);
+
+            if (page==1) {
+                $("#container_notificacoes").empty();
+            }
+
+            adicionaNotificacoes(data);
+        })
+        .fail(function (data) {
+        })
+        .always(function (data) {
+            console.log(data);
+        });
+}
+
+function adicionaNotificacoes(data){
+    $.each(data.data, function () {
+        var notif = $("<a href='" + this.data.linkweb + "' class='dropdown-item whitespace_wrap'>" + this.data.mensagem + "</a>");
+        $("#container_notificacoes").append(notif);
+    });
+}
+
+$(document).ready(function () {
+    buscarNotificacoes();
+
+    $("#btnUpdateNotifications").on("click", function (evento) {
+        console.log(evento);
+        evento.stopPropagation();
+        evento.preventDefault();
+        buscarNotificacoes($("#btnUpdateNotifications").attr("attr_page"));
+    });
+
+    $("#btnOlderNotifications").on("click", function (evento) {
+        console.log(evento);
+        evento.stopPropagation();
+        evento.preventDefault();
+        buscarNotificacoes($("#btnOlderNotifications").attr("attr_page"));
+    });
+
+
+    $("#navbarDropdownMenuLinkNotificacoes").on("click", function () {
+        if ($("#badge_notificacoes").length > 0) {
+            setTimeout(() => {
+                $("#badge_notificacoes").remove();
+            }, 5000);
+        }
+        
+        if ($(".badge-notif").length > 0) {
+            setTimeout(() => {
+                $(".badge-notif").remove();
+            }, 5000);
+        }
+    });
+});

@@ -13,6 +13,6 @@ class SuporteGrupoTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(SuporteGrupo::class, 100)->create();
+        factory(SuporteGrupo::class, 10)->create();
     }
 }

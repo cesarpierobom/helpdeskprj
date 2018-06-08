@@ -110,3 +110,4 @@ Route::resource(
 
 
 Route::view("/reports/geral", 'reports.geral')->name("report_geral")->middleware("auth");
+Route::view("/reports/categorias", 'reports.categorias')->name("report_categorias")->middleware("auth");

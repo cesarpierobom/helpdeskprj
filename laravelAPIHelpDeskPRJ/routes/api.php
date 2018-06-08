@@ -117,6 +117,37 @@ Route::get('relatorio/geral', function (Request $request) {
 
 })->name("report_geral_api");
 
+
+
+Route::get('relatorio/categorias', function (Request $request) {
+
+    $organizacao = App\Models\Organizacao::where("id", $request->organizacao)->get();
+
+    $categorias = App\Models\ChamadoCategoria::all();
+
+    $i = 0;
+    $total=0;
+
+    foreach ($categorias as $key => $categoria) {
+        $final['data'][$i]['total'] = App\Models\Chamado::where("chamado_categoria_id", $categoria->id)->where("organizacao_id", $request->organizacao)->count();
+        $final['data'][$i]['nome'] = $categoria->nome;
+        $total += $final['data'][$i]['total'];
+        $i++;
+    }
+
+    $final["recordsTotal"] = $total;
+    $final["recordsFiltered"] = $total;
+    $final["draw"] = $request->draw;
+
+    return $final;
+
+})->name("report_categorias_api");
+
+
+
+
+
+
 Route::apiResource(
     'chamado_categoria',
     'APIControllers\ChamadoCategoriaAPIController',
@@ -270,3 +301,5 @@ Route::apiResource(
         ]
     ]
 )->parameters(['chamado_urgencia' => 'chamadoUrgencia'])->middleware("auth:api");
+
+Route::get('user/{user}/notifications','APIControllers\NotificationsAPIController@listByUser')/*->middleware("auth:api")*/;

@@ -13,6 +13,6 @@ class ChamadoFeedbackTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ChamadoFeedback::class, 100)->create();
+        factory(ChamadoFeedback::class, 10)->create();
     }
 }

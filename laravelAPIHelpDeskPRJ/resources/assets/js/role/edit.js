@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     requestDados.done(function () {
 
-        var request = buscarPermissoes();
+        var request = buscarPermissoes(null, $("#guard_name").val());
         
         request.done(function () {
             buscarPermissoes($("#id").val());

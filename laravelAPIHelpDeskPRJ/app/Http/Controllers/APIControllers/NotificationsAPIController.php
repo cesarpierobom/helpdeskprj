@@ -4,6 +4,9 @@ namespace App\Http\Controllers\APIControllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Http\Requests\notifications\ListNotificationsRequest;
+use App\Http\Resources\notifications\NotificationResourceCollection;
 
 class NotificationsAPIController extends Controller
 {
@@ -14,7 +17,11 @@ class NotificationsAPIController extends Controller
      */
     public function index()
     {
-        //
+        
+    }
+
+    public function listByUser(ListNotificationsRequest $request, User $user){
+        return new NotificationResourceCollection($user->notifications()->orderBy("created_at", "desc")->paginate(5));
     }
 
     /**
