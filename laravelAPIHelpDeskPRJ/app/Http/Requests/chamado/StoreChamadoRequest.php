@@ -33,7 +33,7 @@ class StoreChamadoRequest extends FormRequest
             "chamado_prioridade_id" => "nullable|exists:chamado_prioridade,id",
             "chamado_feedback_id" => "nullable|exists:chamado_feedback,id",
             "chamado_urgencia_id" => "required|exists:chamado_urgencia,id",
-            "organizacao_id" => "required|exists:organizacao,id",
+            "organizacao_id" => "nullable|exists:organizacao,id",
             "descricao" => "required",
             "encerrado" => "nullable",
             "autor_id" => "nullable",

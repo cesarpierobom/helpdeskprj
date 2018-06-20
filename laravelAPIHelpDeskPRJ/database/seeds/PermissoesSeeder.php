@@ -68,6 +68,19 @@ class PermissoesSeeder extends Seeder
         $permissaoAPI[] = Permission::findOrCreate("api visualizar chamado", "api");     //show api
         $permissaoAPI[] = Permission::findOrCreate("api deletar chamado", "api");        //destroy api
 
+        $permissaoAPI[] = Permission::findOrCreate("api setar org chamado", "api");        
+        $permissaoAPI[] = Permission::findOrCreate("api setar analista chamado", "api");        
+        $permissaoAPI[] = Permission::findOrCreate("api setar responsavel chamado", "api");        
+        $permissaoAPI[] = Permission::findOrCreate("api setar situacao chamado", "api");        
+        $permissaoAPI[] = Permission::findOrCreate("api setar prioridade chamado", "api");  
+              
+        $permissaoWeb[] = Permission::findOrCreate("web setar org chamado", "web");
+        $permissaoWeb[] = Permission::findOrCreate("web setar analista chamado", "web");
+        $permissaoWeb[] = Permission::findOrCreate("web setar responsavel chamado", "web");
+        $permissaoWeb[] = Permission::findOrCreate("web setar situacao chamado", "web");
+        $permissaoWeb[] = Permission::findOrCreate("web setar prioridade chamado", "web");
+
+
         $permissaoWeb[] = Permission::findOrCreate("web criar categoria", "web");          //create web
         $permissaoWeb[] = Permission::findOrCreate("web editar categoria", "web");         //edit web
         $permissaoWeb[] = Permission::findOrCreate("web salvar nova categoria", "web");    //store web

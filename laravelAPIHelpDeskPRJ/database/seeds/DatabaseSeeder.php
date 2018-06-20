@@ -15,17 +15,17 @@ class DatabaseSeeder extends Seeder
         $this->call(CadastrosIniciaisSeeder::class);
         $this->call(OrganizacaoTableSeeder::class);
         $this->call(UsersTableSeeder::class);
-        $this->call(ServicoTableSeeder::class);
-        $this->call(ChamadoCategoriaTableSeeder::class);
-        $this->call(ChamadoFeedbackTableSeeder::class);
-        $this->call(ChamadoPrioridadeTableSeeder::class);
-        $this->call(ChamadoSituacaoTableSeeder::class);
-        $this->call(ChamadoUrgenciaTableSeeder::class);
-        $this->call(DepartamentoTableSeeder::class);
-        $this->call(SuporteGrupoTableSeeder::class);
-        $this->call(UsuarioGrupoTableSeeder::class);
+        // $this->call(ServicoTableSeeder::class);
+        // $this->call(ChamadoCategoriaTableSeeder::class);
+        // $this->call(ChamadoFeedbackTableSeeder::class);
+        // $this->call(ChamadoPrioridadeTableSeeder::class);
+        // $this->call(ChamadoSituacaoTableSeeder::class);
+        // $this->call(ChamadoUrgenciaTableSeeder::class);
+        // $this->call(DepartamentoTableSeeder::class);
+        // $this->call(SuporteGrupoTableSeeder::class);
+        // $this->call(UsuarioGrupoTableSeeder::class);
         // $this->call(SituacaoSLATableSeeder::class);
-        $this->call(ChamadoTableSeeder::class);
-        $this->call(InteracaoTableSeeder::class);
+        // $this->call(ChamadoTableSeeder::class);
+        // $this->call(InteracaoTableSeeder::class);
     }
 }

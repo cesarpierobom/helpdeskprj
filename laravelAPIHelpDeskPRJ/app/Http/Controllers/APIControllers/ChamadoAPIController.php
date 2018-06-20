@@ -166,6 +166,12 @@ class ChamadoAPIController extends Controller
         $chamado->descricao = $request->descricao;
         $chamado->analista_id = $request->analista_id;
         $chamado->responsavel_id = $request->responsavel_id;
+        if ($request->filled("organizacao_id") && Auth::user()->hasPermissionTo("api setar org chamado","api")) {
+            $chamado->organizacao_id = $request->organizacao_id;
+        } else {
+            $chamado->organizacao_id = Auth::user()->organizacao_id;
+        }
+
         $chamado->organizacao_id = $request->organizacao_id;
         $chamado->servico_id = $request->servico_id;
         $chamado->chamado_categoria_id = $request->chamado_categoria_id;
